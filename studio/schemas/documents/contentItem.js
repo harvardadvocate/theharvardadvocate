@@ -1,6 +1,6 @@
 export default {
-  name: 'post',
-  title: 'Post',
+  name: 'contentItem',
+  title: 'Content Item',
   type: 'document',
   fields: [
     {
@@ -18,10 +18,10 @@ export default {
       },
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'author'}}],
     },
     {
       name: 'mainImage',
@@ -32,10 +32,18 @@ export default {
       },
     },
     {
-      name: 'categories',
-      title: 'Categories',
+      name: 'bannerImage',
+      title: 'Banner image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'sections',
+      title: 'Sections',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of: [{type: 'reference', to: {type: 'section'}}],
     },
     {
       name: 'publishedAt',
@@ -43,16 +51,35 @@ export default {
       type: 'datetime',
     },
     {
+      name: 'year',
+      title: 'Year published',
+      type: 'string',
+    },
+    {
+      name: 'issue',
+      title: 'Issue',
+      type: 'reference',
+      to: {type: 'issue'},
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
     },
-  ],
+    {
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [{type: 'image'}],
+    },
 
+    // todo: video and audio - files or want integration?
+  ],
+  // todo: change for multiple authors
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      author: 'authors.0.name',
       media: 'mainImage',
     },
     prepare(selection) {

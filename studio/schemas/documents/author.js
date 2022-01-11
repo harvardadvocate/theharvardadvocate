@@ -37,7 +37,7 @@ export default {
           lists: [],
         },
       ],
-    },
+    }
   ],
   preview: {
     select: {
