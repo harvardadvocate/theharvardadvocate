@@ -42,17 +42,18 @@ export default function ContentItem() {
       <div>
         <h2>{itemData.title}</h2>
         <div>
-          { itemData.authorImage && 
-          <img
-            src={urlFor(itemData.authorImage).width(100).url()}
-            alt="Author is Kap"
-          />}
+          {itemData.authorImage && (
+            <img
+              src={urlFor(itemData.authorImage).width(100).url()}
+              alt="Author is Kap"
+            />
+          )}
           <h4>{itemData.name}</h4>
         </div>
       </div>
-      { itemData.mainImage && 
-      <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
-}
+      {itemData.mainImage && (
+        <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
+      )}
       <div>
         <BlockContent
           blocks={itemData.body}

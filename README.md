@@ -1,6 +1,7 @@
 Website for the Harvard Advocate, under construction
 
 Run:
+
 ```
 npm install
 npm run dev

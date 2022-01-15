@@ -7,8 +7,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={< ContentItemList />} path="/" exact />
-        <Route element={< ContentItem />} path="/:slug" />
+        <Route element={<ContentItemList />} path="/" exact />
+        <Route element={<ContentItem />} path="/:slug" />
       </Routes>
     </BrowserRouter>
   );

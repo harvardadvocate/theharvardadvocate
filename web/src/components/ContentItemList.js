@@ -32,8 +32,9 @@ export default function ContentItemList() {
           contentItemsData.map((item, index) => (
             <Link to={"/" + item.slug.current} key={item.slug.current}>
               <div key={index}>
-                {item.mainImage && 
-                <img src={item.mainImage.asset.url} alt="" />}
+                {item.mainImage && (
+                  <img src={item.mainImage.asset.url} alt="" />
+                )}
                 <span>
                   <h2>{item.title}</h2>
                   <h3>{item.author}</h3>
