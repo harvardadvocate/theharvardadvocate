@@ -1,9 +1,15 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 
+const contentItemStyle = css`
+  width: 80%;
+  padding: 3em 5em;
+`;
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
@@ -38,7 +44,7 @@ export default function ContentItem() {
   if (!itemData) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div css={contentItemStyle}>
       <div>
         <h2>{itemData.title}</h2>
         <div>
@@ -55,12 +61,15 @@ export default function ContentItem() {
         <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
       )}
       <div>
-        <BlockContent
-          blocks={itemData.body}
-          projectId={sanityClient.config().projectId}
-          dataset={sanityClient.config().dataset}
-        />
+        {itemData.body && (
+          <BlockContent
+            blocks={itemData.body}
+            projectId={sanityClient.config().projectId}
+            dataset={sanityClient.config().dataset}
+          />
+        )}
       </div>
+      <Link to={"/"}>Back</Link>
     </div>
   );
 }

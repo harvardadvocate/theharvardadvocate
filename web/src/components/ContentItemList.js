@@ -1,6 +1,22 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
+
+const contentItemListStyle = css`
+  width: 80%;
+  padding: 3em 5em;
+
+  .listItem {
+    padding: 1em;
+    border-bottom: 2px solid #eee;
+  }
+
+  .listItemImage {
+    max-width: 300px;
+  }
+`;
 
 export default function ContentItemList() {
   const [contentItemsData, setContentItems] = useState(null);
@@ -25,15 +41,19 @@ export default function ContentItemList() {
   }, []);
 
   return (
-    <div>
+    <div css={contentItemListStyle}>
       <h2>Content Items</h2>
       <div>
         {contentItemsData &&
           contentItemsData.map((item, index) => (
             <Link to={"/" + item.slug.current} key={item.slug.current}>
-              <div key={index}>
+              <div key={index} className="listItem">
                 {item.mainImage && (
-                  <img src={item.mainImage.asset.url} alt="" />
+                  <img
+                    src={item.mainImage.asset.url}
+                    alt=""
+                    className="listItemImage"
+                  />
                 )}
                 <span>
                   <h2>{item.title}</h2>
