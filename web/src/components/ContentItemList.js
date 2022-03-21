@@ -1,27 +1,24 @@
-/** @jsxImportSource @emotion/react */
+/** @jsxImportSource theme-ui */
 import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 
-const contentItemListStyle = css`
-  width: 80%;
-  padding: 3em 5em;
+const contentItemListSx = {
+  padding: "1em",
+  ".listItem": {
+    padding: "1em",
+    borderBottom: "2px solid #eee",
+  },
 
-  .listItem {
-    padding: 1em;
-    border-bottom: 2px solid #eee;
-  }
-
-  .listItemImage {
-    max-width: 300px;
-  }
-`;
+  ".listItemImage": {
+    maxWidth: "300px",
+  },
+};
 
 export default function ContentItemList(props) {
   return (
-    <div css={contentItemListStyle}>
-      <h2>Content Items</h2>
+    <div sx={contentItemListSx}>
       <div>
         {props.items &&
           props.items.map((item, index) => (

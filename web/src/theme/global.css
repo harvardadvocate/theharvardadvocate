@@ -1,0 +1,81 @@
+/* import fonts */
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/EBGaramond-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  src: url(../assets/fonts/EBGaramond-Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../assets/fonts/EBGaramond-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 500;
+  src: url(../assets/fonts/EBGaramond-MediumItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 600;
+  src: url(../assets/fonts/EBGaramond-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 600;
+  src: url(../assets/fonts/EBGaramond-SemiBoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../assets/fonts/EBGaramond-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 700;
+  src: url(../assets/fonts/EBGaramond-BoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 800;
+  src: url(../assets/fonts/EBGaramond-ExtraBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 800;
+  src: url(../assets/fonts/EBGaramond-ExtraBoldItalic.ttf) format('truetype');
+}
+
+
+body {
+  margin: 0;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+

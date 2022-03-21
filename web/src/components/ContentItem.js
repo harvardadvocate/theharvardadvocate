@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/react */
+/** @jsxImportSource theme-ui */
 import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -6,10 +6,10 @@ import sanityClient from "../client.js";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 
-const contentItemStyle = css`
-  width: 80%;
-  padding: 3em 5em;
-`;
+const contentItemSx = {
+  width: "80%",
+  padding: "3em 5em",
+};
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
@@ -44,7 +44,7 @@ export default function ContentItem() {
   if (!itemData) return <div>Loading...</div>;
 
   return (
-    <div css={contentItemStyle}>
+    <div sx={contentItemSx}>
       <div>
         <h2>{itemData.title}</h2>
         <div>

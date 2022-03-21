@@ -1,23 +1,10 @@
-/** @jsxImportSource @emotion/react */
+/** @jsxImportSource theme-ui */
 import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import ContentItemList from "../components/ContentItemList.js";
 import sanityClient from "../client.js";
 
-const artSectionStyle = css`
-  width: 80%;
-  padding: 3em 5em;
-
-  .listItem {
-    padding: 1em;
-    border-bottom: 2px solid #eee;
-  }
-
-  .listItemImage {
-    max-width: 300px;
-  }
-`;
-
+const artSectionSx = {};
 export default function Section(props) {
   const [items, setItems] = useState(null);
 
@@ -41,7 +28,8 @@ export default function Section(props) {
   }, [props.section]);
 
   return (
-    <div css={artSectionStyle}>
+    <div sx={artSectionSx}>
+      <h3 sx={{ fontStyle: "italic" }}>{props.section}</h3>
       <ContentItemList items={items} />
     </div>
   );
