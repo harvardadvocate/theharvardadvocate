@@ -77,7 +77,7 @@ export default {
 
     // todo: video and audio - files or want integration?
   ],
-  // todo: change for multiple authors
+
   preview: {
     select: {
       title: "title",

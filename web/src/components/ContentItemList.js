@@ -1,20 +1,11 @@
 /** @jsxImportSource theme-ui */
-import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import sanityClient from "../client.js";
+import ListElement from "./ListElement";
 
-const contentItemListSx = {
-  padding: "1em",
-  ".listItem": {
-    padding: "1em",
-    borderBottom: "2px solid #eee",
-  },
+const contentItemListSx = {};
 
-  ".listItemImage": {
-    maxWidth: "300px",
-  },
-};
+// TODO: this is only for textual content - make separate component for art
 
 export default function ContentItemList(props) {
   return (
@@ -22,21 +13,7 @@ export default function ContentItemList(props) {
       <div>
         {props.items &&
           props.items.map((item, index) => (
-            <Link to={"/" + item.slug.current} key={item.slug.current}>
-              <div key={index} className="listItem">
-                {item.mainImage && (
-                  <img
-                    src={item.mainImage.asset.url}
-                    alt=""
-                    className="listItemImage"
-                  />
-                )}
-                <span>
-                  <h2>{item.title}</h2>
-                  <h3>{item.author}</h3>
-                </span>
-              </div>
-            </Link>
+            <ListElement item={item} key={index} />
           ))}
       </div>
     </div>

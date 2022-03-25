@@ -15,6 +15,8 @@ const homepageSx = {
   ".mainContent": {},
 };
 
+// TODO: pull out "frame" for pages including margin
+
 export default function Homepage() {
   return (
     <div css={homepageSx}>

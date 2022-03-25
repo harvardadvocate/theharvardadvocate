@@ -43,19 +43,19 @@ export const theme = {
     },
     h1: {
       variant: "text.heading",
-      fontSize: 5,
-    },
-    h2: {
-      variant: "text.medium",
       fontSize: 4,
     },
-    h3: {
+    h2: {
       variant: "text.body",
       fontSize: 3,
     },
-    h4: {
+    h3: {
       variant: "text.body",
       fontSize: 2,
+    },
+    h4: {
+      variant: "text.body",
+      fontSize: 0,
     },
     h5: {
       variant: "text.body",

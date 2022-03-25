@@ -2,11 +2,11 @@
 import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 
 const sidebarSx = {
-  padding: "2em",
+  padding: "2.5em 1em 2em 2em",
   height: "100%",
   ".link": {
     fontSize: "2",
@@ -23,6 +23,9 @@ const sidebarSx = {
     textDecoration: "underline",
     textUnderlineOffset: "4px",
   },
+  ".logo": {
+    marginBottom: "0.4em",
+  },
 };
 
 /* todo: highlight when on that page, 
@@ -32,8 +35,8 @@ export default function Sidebar() {
 
   return (
     <div sx={sidebarSx}>
-      <Grid className="sidebar" columns={1} gap={2}>
-        <Link className={"link"} to={"/"}>
+      <Grid className="sidebar" columns={1} gap={3}>
+        <Link className={"link logo"} to={"/"}>
           <img src={logo} alt="The Advocate Logo" />
         </Link>
         <Link className={"link"} to={"/"}>
@@ -56,7 +59,7 @@ export default function Sidebar() {
           Sections
         </div>
         {sectionsExpanded && (
-          <Grid className="sublinks" columns={1} gap={2}>
+          <Grid className="sublinks" columns={1} gap={3}>
             <Link className={"link"} to="/art">
               Art
             </Link>
