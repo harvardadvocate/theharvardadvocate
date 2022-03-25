@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import ContentItemList from "../components/ContentItemList.js";
 import sanityClient from "../client.js";

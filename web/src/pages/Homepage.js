@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { Themed } from "theme-ui";
 

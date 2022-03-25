@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
