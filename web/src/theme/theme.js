@@ -62,6 +62,10 @@ export const theme = {
       fontSize: 0,
       fontStyle: "italic",
     },
+    p: {
+      variant: "text.body",
+      fontSize: 0,
+    },
     code: {
       fontFamily: "monospace",
       fontSize: "inherit",

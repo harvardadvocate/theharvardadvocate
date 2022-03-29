@@ -2,13 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
-import BlockContent from "@sanity/block-content-to-react";
+import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { Themed } from "theme-ui";
 import moment from "moment";
-// TODO  move to page
-// TODO need a universal marginright
+
 const contentItemSx = {
   margin: "2em 5% 2em 0 ",
   ".header": {
@@ -69,7 +68,13 @@ const contentItemSx = {
       flexDirection: "column",
       gap: "4px",
       borderBottom: "1px solid #000",
-      ".date": { fontStyle: "normal", marginTop: "1.5em" },
+      paddingBottom: "0.5em",
+      ".dateShareContainer": {
+        marginTop: "1.5em",
+        display: "flex",
+        justifyContent: "space-between",
+        h5: { fontStyle: "normal" },
+      },
     },
   },
 };
@@ -77,6 +82,13 @@ const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
 }
+
+// // `components` object passed to PortableText
+const customComponents = {
+  block: {
+    normal: ({ children }) => <Themed.p>{children}</Themed.p>,
+  },
+};
 
 export default function ContentItem() {
   const [itemData, setItemData] = useState(null);
@@ -154,10 +166,15 @@ export default function ContentItem() {
                 By {itemData.authors.map(({ name }) => name).join(", ")}
               </Themed.h4>
             </div>
-            <div className="date">
-              <Themed.h5>
-                {moment(itemData.publishedAt).format("MMMM Do YYYY")}
-              </Themed.h5>
+            <div className="dateShareContainer">
+              <div className="date">
+                <Themed.h5>
+                  {moment(itemData.publishedAt).format("MMMM Do YYYY")}
+                </Themed.h5>
+              </div>
+              <div className="share">
+                <Themed.h5>Share</Themed.h5>
+              </div>
             </div>
           </div>
           {itemData.mainImage && (
@@ -165,14 +182,13 @@ export default function ContentItem() {
           )}
           <div>
             {itemData.body && (
-              <BlockContent
-                blocks={itemData.body}
-                projectId={sanityClient.config().projectId}
-                dataset={sanityClient.config().dataset}
+              <PortableText
+                value={itemData.body}
+                hardBreak={false}
+                components={customComponents}
               />
             )}
           </div>
-          <Link to={"/"}>Back</Link>
         </div>
       </div>
     </div>
