@@ -1,19 +1,19 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ListElement from "./ListElement";
+import TextListElement from "./TextListElement";
 
-const contentItemListSx = {};
+const textContentListSx = {};
 
 // TODO: this is only for textual content - make separate component for art
 
-export default function ContentItemList(props) {
+export default function TextContentList(props) {
   return (
-    <div sx={contentItemListSx}>
+    <div sx={textContentListSx}>
       <div>
         {props.items &&
           props.items.map((item, index) => (
-            <ListElement item={item} key={index} />
+            <TextListElement item={item} key={index} />
           ))}
       </div>
     </div>

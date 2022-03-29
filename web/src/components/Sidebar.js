@@ -41,12 +41,12 @@ export default function Sidebar() {
         <Link className={"link"} to={"/"}>
           Home
         </Link>
-        {/* {<Link className={"link"} to={"/about"}>
-        About
-      </Link>
-      <Link className={"link"} to={"/issues"}>
-        Issues
-      </Link>} */}
+        <Link className={"link"} to={"/"}>
+          About
+        </Link>
+        <Link className={"link"} to={"/"}>
+          Issues
+        </Link>
         <div
           className={"link" + (sectionsExpanded ? " highlight" : "")}
           onClick={() => setSectionsExpanded(!sectionsExpanded)}

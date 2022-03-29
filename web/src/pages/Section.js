@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from "react";
-import ContentItemList from "../components/ContentItemList.js";
+import TextContentList from "../components/TextContentList.js";
+import ImageContentGrid from "../components/ImageContentGrid.js";
 import sanityClient from "../client.js";
 import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
@@ -65,13 +66,11 @@ const sectionSx = {
     img: { height: "0.6em", display: "inline-block" },
   },
 };
-export default function Section(props) {
-  const [items, setItems] = useState(null);
 
-  useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "contentItem" && "${props.section}" in sections[]->title]  | order(publishedAt desc) {
+// TODO: paginate
+const sectionToQuery = (section) =>
+  section !== "Art"
+    ? `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
         authors[]->{name},
         issue->{title},
@@ -82,8 +81,27 @@ export default function Section(props) {
           url
         }
       }
-    }`
-      )
+    }[0...25]`
+    : `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
+      title,
+      authors[]->{name},
+      issue->{title},
+      slug,
+      mainImage{
+        asset->{
+        _id,
+        url
+      }
+    },
+    images[]{asset->{_id, url}}
+}[0...10]`;
+
+export default function Section(props) {
+  const [items, setItems] = useState(null);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(sectionToQuery(props.section))
       .then((data) => setItems(data))
       .catch(console.error);
   }, [props.section]);
@@ -116,7 +134,11 @@ export default function Section(props) {
             <Themed.h2>{props.section}</Themed.h2>
             <img src={rightArrow} alt="right-arrow" />
           </div>
-          <ContentItemList items={items} />
+          {props.section !== "Art" ? (
+            <TextContentList items={items} />
+          ) : (
+            <ImageContentGrid items={items} />
+          )}
         </div>
       </div>
     </div>

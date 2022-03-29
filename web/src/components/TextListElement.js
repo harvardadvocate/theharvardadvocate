@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
 
-const listItemSx = {
+const textListItemSx = {
   padding: "0.8em 0",
   borderBottom: "1px solid #000",
   a: {
@@ -33,9 +33,9 @@ const listItemSx = {
   },
 };
 
-export default function ListItem(props) {
+export default function TextListItem(props) {
   return (
-    <div sx={listItemSx}>
+    <div sx={textListItemSx}>
       <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
         <div className="listItem">
           <div className="issueTag">
