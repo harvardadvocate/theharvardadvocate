@@ -11,6 +11,9 @@ import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import Section from "./pages/Section";
 import Sidebar from "./components/Sidebar";
+import IssuesList from "./pages/IssuesList";
+import Issue from "./pages/Issue";
+import Author from "./pages/Author";
 
 function App() {
   return (
@@ -23,13 +26,11 @@ function App() {
               <Routes>
                 <Route element={<Homepage />} path="/" exact />
                 <Route element={<About />} path="/about" exact />
-                <Route
-                  element={<Section section={"Art"} />}
-                  path="/art"
-                  exact
-                />
+                <Route element={<IssuesList />} path="/issues" exact />
+                <Route element={<Issue />} path="/issues/:issueSlug" />
                 <Route element={<Section />} path="sections/:sectionSlug" />
                 <Route element={<ContentItem />} path="/:slug" />
+                <Route element={<Author />} path="authors/:authorSlug" />
               </Routes>
             </div>
           </Grid>

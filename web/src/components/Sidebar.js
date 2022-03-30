@@ -44,7 +44,7 @@ export default function Sidebar() {
         <Link className={"link"} to={"/about"}>
           About
         </Link>
-        <Link className={"link"} to={"/"}>
+        <Link className={"link"} to={"/issues"}>
           Issues
         </Link>
         <div

@@ -20,9 +20,9 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "season",
-      title: "Season",
-      type: "string",
+      name: "publishedAt",
+      title: "Published at",
+      type: "datetime",
     },
     {
       name: "description",
