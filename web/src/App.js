@@ -26,31 +26,7 @@ function App() {
                   path="/art"
                   exact
                 />
-                <Route
-                  element={<Section section={"Fiction"} />}
-                  path="/fiction"
-                  exact
-                />
-                <Route
-                  element={<Section section={"Features"} />}
-                  path="/features"
-                  exact
-                />
-                <Route
-                  element={<Section section={"Poetry"} />}
-                  path="/poetry"
-                  exact
-                />
-                <Route
-                  element={<Section section={"Columns"} />}
-                  path="/columns"
-                  exact
-                />
-                <Route
-                  element={<Section section={"Blog"} />}
-                  path="/blog"
-                  exact
-                />
+                <Route element={<Section />} path="section/:slug" />
                 <Route element={<ContentItem />} path="/:slug" />
               </Routes>
             </div>

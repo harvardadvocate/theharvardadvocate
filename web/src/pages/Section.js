@@ -5,6 +5,7 @@ import ImageContentGrid from "../components/ImageContentGrid.js";
 import sanityClient from "../client.js";
 import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
+import { useParams, Link } from "react-router-dom";
 
 const sectionSx = {
   margin: "2em 5% 2em 0 ",
@@ -98,11 +99,23 @@ const sectionToQuery = (section) =>
 
 export default function Section(props) {
   const [items, setItems] = useState(null);
+  const { slug } = useParams();
 
   useEffect(() => {
     sanityClient
-      .fetch(sectionToQuery(props.section))
-      .then((data) => setItems(data))
+      .fetch(
+        `*[slug.current == $slug]{
+      title, slug
+    }`,
+        { slug }
+      )
+      .then((sectionData) => {
+        const section = sectionData.title;
+        sanityClient
+          .fetch(sectionToQuery(section))
+          .then((data) => setItems(data))
+          .catch(console.error);
+      })
       .catch(console.error);
   }, [props.section]);
 

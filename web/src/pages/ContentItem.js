@@ -4,9 +4,9 @@ import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
-import rightArrow from "../assets/images/right-arrow.svg";
 import { Themed } from "theme-ui";
 import moment from "moment";
+import Frame from "../components/Frame";
 
 const contentItemSx = {
   margin: "2em 5% 2em 0 ",
@@ -110,7 +110,7 @@ export default function ContentItem() {
          publishedAt,
          issue->{title},
          authors[]->{name},
-         sections[]->{title},
+         sections[]->{title, slug},
        }`,
         { slug }
       )
@@ -122,75 +122,56 @@ export default function ContentItem() {
 
   return (
     <div sx={contentItemSx}>
-      <div className="header">
-        {
-          //TODO: these should link, also pull this stuff out
-        }
-        <div className="headerLeft">
-          <Themed.h5 sx={{ margin: "0.5em" }}>Sections</Themed.h5>
-        </div>
-        <div className="headerImgWrapper">
-          <img src={rightArrow} alt="right-arrow" />
-        </div>
-        <div className="headerMiddle">
-          <Themed.h5 sx={{ margin: "0.5em" }}>
-            {itemData.sections[0].title}
-          </Themed.h5>
-        </div>
-        <div className="headerImgWrapper">
-          <img src={rightArrow} alt="right-arrow" />
-        </div>
-        <div className="headerRight">
-          <Themed.h5 sx={{ margin: "0.5em" }}>{itemData.title}</Themed.h5>
-        </div>
-      </div>
-      <div className="horizontalContainer">
-        <div className="verticalLines">
-          <div className="topVL">
-            <Themed.h5>MAGAZINE</Themed.h5>
+      <Frame
+        path={[
+          {
+            name: "Sections",
+          },
+          {
+            name: itemData.sections[0].title,
+            slug: "/sections/" + itemData.sections[0].slug,
+          },
+          { name: itemData.issue.title, slug: itemData.slug },
+        ]}
+      >
+        <div className="contentHeader">
+          <div className="topLine">
+            <Themed.h5>
+              {itemData.sections[0].title} • {itemData.issue.title}
+            </Themed.h5>
           </div>
-          <div className="bottomVL"></div>
-        </div>
-        <div className="mainContent">
-          <div className="contentHeader">
-            <div className="topLine">
+          <div className="title">
+            <Themed.h1>{itemData.title}</Themed.h1>
+          </div>
+          <div className="authors">
+            <Themed.h4>
+              By {itemData.authors.map(({ name }) => name).join(", ")}
+            </Themed.h4>
+          </div>
+          <div className="dateShareContainer">
+            <div className="date">
               <Themed.h5>
-                {itemData.sections[0].title} • {itemData.issue.title}
+                {moment(itemData.publishedAt).format("MMMM Do YYYY")}
               </Themed.h5>
             </div>
-            <div className="title">
-              <Themed.h1>{itemData.title}</Themed.h1>
+            <div className="share">
+              <Themed.h5>Share</Themed.h5>
             </div>
-            <div className="authors">
-              <Themed.h4>
-                By {itemData.authors.map(({ name }) => name).join(", ")}
-              </Themed.h4>
-            </div>
-            <div className="dateShareContainer">
-              <div className="date">
-                <Themed.h5>
-                  {moment(itemData.publishedAt).format("MMMM Do YYYY")}
-                </Themed.h5>
-              </div>
-              <div className="share">
-                <Themed.h5>Share</Themed.h5>
-              </div>
-            </div>
-          </div>
-          {itemData.mainImage && (
-            <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
-          )}
-          <div>
-            {itemData.body && (
-              <PortableText
-                value={itemData.body}
-                hardBreak={false}
-                components={customComponents}
-              />
-            )}
           </div>
         </div>
-      </div>
+        {itemData.mainImage && (
+          <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
+        )}
+        <div>
+          {itemData.body && (
+            <PortableText
+              value={itemData.body}
+              hardBreak={false}
+              components={customComponents}
+            />
+          )}
+        </div>
+      </Frame>
     </div>
   );
 }
