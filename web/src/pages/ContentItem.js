@@ -9,72 +9,17 @@ import moment from "moment";
 import Frame from "../components/Frame";
 
 const contentItemSx = {
-  margin: "2em 5% 2em 0 ",
-  ".header": {
-    marginLeft: "20px",
-    display: "flex",
-    ".headerImgWrapper": {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      margin: "0 0.5em",
-    },
-    ".headerLeft, .headerMiddle": {
-      paddingRight: "3em",
-      borderBottom: "1px solid #000",
-    },
-    ".headerRight": {
-      borderBottom: "1px solid #000",
-      flexGrow: 1,
-    },
-    img: { height: "0.4em" },
-  },
-  ".horizontalContainer": {
-    width: "100%",
-    display: "flex",
-    marginTop: "2em",
-    ".mainContent": {
-      flexGrow: 1,
-    },
-  },
-  ".verticalLines": {
-    width: "20px",
-    marginRight: "40px",
+  ".contentHeader": {
     display: "flex",
     flexDirection: "column",
-    gap: "40px",
-
-    ".topVL": {
-      borderRight: "1px solid #000",
-      width: "20px",
-      height: "250px",
-      h5: {
-        lineHeight: 1,
-        writingMode: "vertical-rl",
-        textOrientation: "mixed",
-        transform: "rotate(180deg)",
-      },
-    },
-    ".bottomVL": {
-      borderRight: "1px solid #000",
-      width: "20px",
-      flexGrow: 1,
-    },
-  },
-  ".mainContent": {
-    marginLeft: "20px",
-    ".contentHeader": {
+    gap: "4px",
+    borderBottom: "1px solid #000",
+    paddingBottom: "0.5em",
+    ".dateShareContainer": {
+      marginTop: "1.5em",
       display: "flex",
-      flexDirection: "column",
-      gap: "4px",
-      borderBottom: "1px solid #000",
-      paddingBottom: "0.5em",
-      ".dateShareContainer": {
-        marginTop: "1.5em",
-        display: "flex",
-        justifyContent: "space-between",
-        h5: { fontStyle: "normal" },
-      },
+      justifyContent: "space-between",
+      h5: { fontStyle: "normal" },
     },
   },
 };
@@ -129,9 +74,9 @@ export default function ContentItem() {
           },
           {
             name: itemData.sections[0].title,
-            slug: "/sections/" + itemData.sections[0].slug,
+            slug: "/sections/" + itemData.sections[0].slug.current,
           },
-          { name: itemData.issue.title, slug: itemData.slug },
+          { name: itemData.title, slug: "/" + itemData.slug.current },
         ]}
       >
         <div className="contentHeader">
@@ -159,9 +104,12 @@ export default function ContentItem() {
             </div>
           </div>
         </div>
-        {itemData.mainImage && (
-          <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
-        )}
+        {
+          // TODO: figure out multiple image display
+          itemData.mainImage && (
+            <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
+          )
+        }
         <div>
           {itemData.body && (
             <PortableText

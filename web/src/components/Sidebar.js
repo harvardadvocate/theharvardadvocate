@@ -41,7 +41,7 @@ export default function Sidebar() {
         <Link className={"link"} to={"/"}>
           Home
         </Link>
-        <Link className={"link"} to={"/"}>
+        <Link className={"link"} to={"/about"}>
           About
         </Link>
         <Link className={"link"} to={"/"}>
@@ -59,22 +59,22 @@ export default function Sidebar() {
         </div>
         {sectionsExpanded && (
           <Grid className="sublinks" columns={1} gap={3}>
-            <Link className={"link"} to="/art">
+            <Link className={"link"} to="/sections/art">
               Art
             </Link>
-            <Link className={"link"} to="/fiction">
+            <Link className={"link"} to="/sections/fiction">
               Fiction
             </Link>
-            <Link className={"link"} to="/features">
+            <Link className={"link"} to="/sections/features">
               Features
             </Link>
-            <Link className={"link"} to="/poetry">
+            <Link className={"link"} to="/sections/poetry">
               Poetry
             </Link>
-            <Link className={"link"} to="/columns">
+            <Link className={"link"} to="/sections/columns">
               Columns
             </Link>
-            <Link className={"link"} to="/blog">
+            <Link className={"link"} to="/sections/blog">
               Blog
             </Link>
           </Grid>

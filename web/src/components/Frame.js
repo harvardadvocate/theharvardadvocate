@@ -9,6 +9,14 @@ const frameSx = {
   ".header": {
     marginLeft: "20px",
     display: "flex",
+    h5: {
+      margin: "0.5em",
+    },
+    a: {
+      color: "#000",
+      textDecoration: "none",
+      cursor: "pointer",
+    },
     ".headerImgWrapper": {
       display: "flex",
       justifyContent: "center",
@@ -29,6 +37,7 @@ const frameSx = {
     width: "100%",
     display: "flex",
     marginTop: "2em",
+    minHeight: "100vh",
     ".mainContent": {
       flexGrow: 1,
     },
@@ -55,13 +64,14 @@ const frameSx = {
       borderRight: "1px solid #000",
       width: "20px",
       flexGrow: 1,
+      marginBottom: "1em",
     },
   },
   ".mainContent": {
     marginLeft: "20px",
   },
 };
-
+// TODO: assumes only up to 3 elements in path
 export default function Frame(props) {
   return (
     <div sx={frameSx}>
@@ -69,21 +79,49 @@ export default function Frame(props) {
         {
           //TODO: these should link, also pull this stuff out
         }
-        <div className="headerLeft">
-          <Themed.h5 sx={{ margin: "0.5em" }}>{props.path[0]}</Themed.h5>
+        <div className={props.path.length > 1 ? "headerLeft" : "headerRight"}>
+          {"slug" in props.path[0] ? (
+            <Link to={props.path[0].slug}>
+              <Themed.h5>{props.path[0].name}</Themed.h5>
+            </Link>
+          ) : (
+            <Themed.h5>{props.path[0].name}</Themed.h5>
+          )}
         </div>
-        <div className="headerImgWrapper">
-          <img src={rightArrow} alt="right-arrow" />
-        </div>
-        <div className="headerMiddle">
-          <Themed.h5 sx={{ margin: "0.5em" }}>{props.path[1]}</Themed.h5>
-        </div>
-        <div className="headerImgWrapper">
-          <img src={rightArrow} alt="right-arrow" />
-        </div>
-        <div className="headerRight">
-          <Themed.h5 sx={{ margin: "0.5em" }}>{props.path[2]}</Themed.h5>
-        </div>
+        {props.path.length > 1 && (
+          <>
+            <div className="headerImgWrapper">
+              <img src={rightArrow} alt="right-arrow" />
+            </div>
+            <div
+              className={props.path.length > 2 ? "headerMiddle" : "headerRight"}
+            >
+              {"slug" in props.path[1] ? (
+                <Link to={props.path[1].slug}>
+                  <Themed.h5>{props.path[1].name}</Themed.h5>
+                </Link>
+              ) : (
+                <Themed.h5>{props.path[1].name}</Themed.h5>
+              )}
+            </div>
+          </>
+        )}
+        {props.path.length > 2 && (
+          <>
+            <div className="headerImgWrapper">
+              <img src={rightArrow} alt="right-arrow" />
+            </div>
+            <div className="headerRight">
+              {"slug" in props.path[2] ? (
+                <Link to={props.path[2].slug}>
+                  <Themed.h5>{props.path[2].name}</Themed.h5>
+                </Link>
+              ) : (
+                <Themed.h5>{props.path[2].name}</Themed.h5>
+              )}
+            </div>
+          </>
+        )}
       </div>
       <div className="horizontalContainer">
         <div className="verticalLines">
