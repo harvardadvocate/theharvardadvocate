@@ -65,6 +65,8 @@ export default function Section(props) {
       .catch(console.error);
   }, [sectionSlug]);
 
+  if (!items) return <div>Loading...</div>;
+
   return (
     <div sx={sectionSx}>
       <Frame

@@ -54,7 +54,7 @@ export default function ContentItem() {
          body,
          publishedAt,
          issue->{title},
-         authors[]->{name},
+         authors[]->{name, slug},
          sections[]->{title, slug},
        }`,
         { slug }
@@ -90,7 +90,15 @@ export default function ContentItem() {
           </div>
           <div className="authors">
             <Themed.h4>
-              By {itemData.authors.map(({ name }) => name).join(", ")}
+              By{" "}
+              {itemData.authors.map((author, i) => (
+                <>
+                  {i !== 0 && ", "}
+                  <Link to={"/authors/" + author.slug.current}>
+                    {author.name}
+                  </Link>{" "}
+                </>
+              ))}
             </Themed.h4>
           </div>
           <div className="dateShareContainer">
