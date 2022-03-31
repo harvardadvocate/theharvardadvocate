@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TextListElement from "./TextListElement";
 
-const textContentListSx = {};
-
-// TODO: this is only for textual content - make separate component for art
+const textContentListSx = {
+  marginTop: "0.4em",
+};
 
 export default function TextContentList(props) {
   return (

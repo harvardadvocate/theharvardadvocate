@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
 
 const textListItemSx = {
-  padding: "0.8em 0",
-  borderBottom: "1px solid #000",
+  padding: "0.4em 0",
   a: {
     color: "text",
     textDecoration: "none",
@@ -15,16 +14,25 @@ const textListItemSx = {
   },
   ".listItem": {
     display: "flex",
-    alignItems: "center",
+    alignItems: "stretch",
     gap: "0.6em",
+  },
+  ".itemBody": {
+    padding: "0.8em 0",
+    borderBottom: "1px solid #000",
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   ".issueTag": {
     borderRight: "1px solid #000",
-
+    display: "flex",
+    alignItems: "center",
     h5: {
       fontStyle: "normal",
       textTransform: "uppercase",
-      lineHeight: 1,
+      lineHeight: 1.1,
       writingMode: "vertical-rl",
       textOrientation: "mixed",
       transform: "rotate(180deg)",
@@ -47,7 +55,7 @@ export default function TextListItem(props) {
               }
             </Themed.h5>
           </div>
-          <div>
+          <div className="itemBody">
             <Themed.h3>{props.item.title}</Themed.h3>
             {"authors" in props.item && (
               <Themed.h4>

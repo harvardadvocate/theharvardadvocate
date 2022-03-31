@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState } from "react";
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
