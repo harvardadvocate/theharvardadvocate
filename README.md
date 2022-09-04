@@ -16,3 +16,8 @@ After which the Advocate website will hopefully compiled to `http://localhost:30
 Might need to run `npm install` within directories idk
 
 We use `prettier` and `eslint` but have nothing going on w/ `eslint` right now.
+
+Key packages:
+Theme UI (https://theme-ui.com/)
+Sanity (https://www.sanity.io/)
+React Router (https://v5.reactrouter.com/)
