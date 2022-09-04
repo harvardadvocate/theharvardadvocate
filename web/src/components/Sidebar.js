@@ -82,14 +82,16 @@ export default function Sidebar() {
         <Link className={`link ${highlightLink("/issues")}`} to={"/issues"}>
           Issues
         </Link>
-        <div className={`link sectionsLink ${highlightLink("/sections")}`}>
-          <div
+        <div className="sectionsLink">
+          <Link
+            className={`link ${highlightLink("/sections")}`}
             sx={{
               fontStyle: sectionsExpanded ? "italic" : "none",
             }}
+            to={"/sections"}
           >
             Sections
-          </div>
+          </Link>
           <div
             className={"dropdownButton" + (sectionsExpanded ? " rotated" : "")}
             onClick={() => setSectionsExpanded(!sectionsExpanded)}
