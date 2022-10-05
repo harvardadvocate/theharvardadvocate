@@ -8,6 +8,7 @@ Run:
 
 ```
 npm install
+npm install -g @sanity/cli
 npm run dev
 ```
 
