@@ -72,8 +72,6 @@ export default function Author() {
       .catch(console.error);
   }, [authorSlug]);
 
-  // TODO: fetch author's works
-
   if (!authorData) return <div>Loading...</div>;
 
   return (

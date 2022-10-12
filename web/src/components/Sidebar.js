@@ -39,6 +39,7 @@ const sidebarSx = {
     gap: "16px",
   },
   ".dropdownButton::before": {
+    cursor: "pointer",
     display: "inline-block",
     content: '"\\203A"',
     transition: "transform 0.3s",
@@ -64,6 +65,8 @@ export default function Sidebar() {
   );
 
   const highlightLink = (pathname) => {
+    if (pathname === "/issues")
+      return location.pathname.includes("/issues") ? " highlight" : "";
     return location.pathname === pathname ? " highlight" : "";
   };
 
