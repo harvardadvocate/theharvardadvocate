@@ -5,7 +5,7 @@ import ImageContentGrid from "../components/ImageContentGrid.js";
 import sanityClient from "../client.js";
 import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Frame from "../components/Frame";
 const sectionsOverviewSx = {
   ".sectionHeader": {

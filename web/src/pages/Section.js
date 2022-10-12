@@ -73,6 +73,7 @@ export default function Section(props) {
         path={[
           {
             name: "Sections",
+            slug: "/sections",
           },
           {
             name: section,
