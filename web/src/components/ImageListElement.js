@@ -41,12 +41,10 @@ export default function ImageListElement(props) {
           <div className="listItemImage">
             {props.item.mainImage ? (
               <img src={props.item.mainImage.asset.url} alt="" />
-            ) : (
-              // TODO: better (more robust) check for this
-              props.item.images[0] && (
-                <img src={props.item.images[0].asset.url} alt="" />
-              )
-            )}
+            ) : // TODO: better (more robust) check for this
+            props.item.images && props.item.images[0] ? (
+              <img src={props.item.images[0].asset.url} alt="" />
+            ) : null}
           </div>
           <div>
             <Themed.h3>{props.item.title}</Themed.h3>
