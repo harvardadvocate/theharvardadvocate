@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContentItem from "./pages/ContentItem";
 import Homepage from "./pages/Homepage";
 import About from "./pages/About";
+import SectionsOverview from "./pages/SectionsOverview";
 import Section from "./pages/Section";
 import Sidebar from "./components/Sidebar";
 import IssuesList from "./pages/IssuesList";
@@ -28,6 +29,7 @@ function App() {
                 <Route element={<About />} path="/about" exact />
                 <Route element={<IssuesList />} path="/issues" exact />
                 <Route element={<Issue />} path="/issues/:issueSlug" />
+                <Route element={<SectionsOverview />} path="/sections" exact />
                 <Route element={<Section />} path="sections/:sectionSlug" />
                 <Route element={<ContentItem />} path="/:slug" />
                 <Route element={<Author />} path="authors/:authorSlug" />

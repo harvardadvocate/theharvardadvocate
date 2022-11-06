@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 
@@ -15,6 +15,15 @@ const sidebarSx = {
   },
   ".sublinks": {
     marginLeft: "1em",
+    a: {
+      color: "#9F9F9F",
+    },
+    ".highlight": {
+      color: "primary",
+      fontWeight: "bold",
+      textDecoration: "underline",
+      textUnderlineOffset: "4px",
+    },
   },
   ".highlight": {
     color: "primary",
@@ -25,12 +34,41 @@ const sidebarSx = {
   ".logo": {
     marginBottom: "0.4em",
   },
+  ".sectionsLink": {
+    display: "flex",
+    gap: "16px",
+  },
+  ".dropdownButton::before": {
+    cursor: "pointer",
+    display: "inline-block",
+    content: '"\\203A"',
+    transition: "transform 0.3s",
+  },
+  ".rotated::before": {
+    transform: "rotate(90deg)",
+  },
 };
 
-/* todo: highlight when on that page, 
-also make sure sections is expanded if on a section page*/
 export default function Sidebar() {
-  const [sectionsExpanded, setSectionsExpanded] = useState(false);
+  const location = useLocation();
+  const [sectionsExpanded, setSectionsExpanded] = useState(() =>
+    [
+      "/sections/art",
+      "/sections/fiction",
+      "/sections/features",
+      "/sections/poetry",
+      "/sections/columns",
+      "/sections/blog",
+    ].includes(location.pathname)
+      ? true
+      : false
+  );
+
+  const highlightLink = (pathname) => {
+    if (pathname === "/issues")
+      return location.pathname.includes("/issues") ? " highlight" : "";
+    return location.pathname === pathname ? " highlight" : "";
+  };
 
   return (
     <div sx={sidebarSx}>
@@ -38,43 +76,66 @@ export default function Sidebar() {
         <Link className={"link logo"} to={"/"}>
           <img src={logo} alt="The Advocate Logo" />
         </Link>
-        <Link className={"link"} to={"/"}>
+        <Link className={`link ${highlightLink("/")}`} to={"/"}>
           Home
         </Link>
-        <Link className={"link"} to={"/about"}>
+        <Link className={`link ${highlightLink("/about")}`} to={"/about"}>
           About
         </Link>
-        <Link className={"link"} to={"/issues"}>
+        <Link className={`link ${highlightLink("/issues")}`} to={"/issues"}>
           Issues
         </Link>
-        <div
-          className={"link" + (sectionsExpanded ? " highlight" : "")}
-          onClick={() => setSectionsExpanded(!sectionsExpanded)}
-          sx={{
-            fontStyle: sectionsExpanded ? "italic" : "none",
-          }}
-        >
-          {/* the down arrow thingy that rotates */}
-          Sections
+        <div className="sectionsLink">
+          <Link
+            className={`link ${highlightLink("/sections")}`}
+            sx={{
+              fontStyle: sectionsExpanded ? "italic" : "none",
+            }}
+            to={"/sections"}
+          >
+            Sections
+          </Link>
+          <div
+            className={"dropdownButton" + (sectionsExpanded ? " rotated" : "")}
+            onClick={() => setSectionsExpanded(!sectionsExpanded)}
+          ></div>
         </div>
         {sectionsExpanded && (
           <Grid className="sublinks" columns={1} gap={3}>
-            <Link className={"link"} to="/sections/art">
+            <Link
+              className={`link ${highlightLink("/sections/art")}`}
+              to="/sections/art"
+            >
               Art
             </Link>
-            <Link className={"link"} to="/sections/fiction">
+            <Link
+              className={`link ${highlightLink("/sections/fiction")}`}
+              to="/sections/fiction"
+            >
               Fiction
             </Link>
-            <Link className={"link"} to="/sections/features">
+            <Link
+              className={`link ${highlightLink("/sections/features")}`}
+              to="/sections/features"
+            >
               Features
             </Link>
-            <Link className={"link"} to="/sections/poetry">
+            <Link
+              className={`link ${highlightLink("/sections/poetry")}`}
+              to="/sections/poetry"
+            >
               Poetry
             </Link>
-            <Link className={"link"} to="/sections/columns">
+            <Link
+              className={`link ${highlightLink("/sections/columns")}`}
+              to="/sections/columns"
+            >
               Columns
             </Link>
-            <Link className={"link"} to="/sections/blog">
+            <Link
+              className={`link ${highlightLink("/sections/blog")}`}
+              to="/sections/blog"
+            >
               Blog
             </Link>
           </Grid>

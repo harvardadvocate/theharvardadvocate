@@ -71,6 +71,7 @@ export default function ContentItem() {
         path={[
           {
             name: "Sections",
+            slug: "/sections",
           },
           {
             name: itemData.sections[0].title,
