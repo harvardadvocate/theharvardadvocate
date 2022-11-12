@@ -31,6 +31,18 @@ const sidebarSx = {
     textDecoration: "underline",
     textUnderlineOffset: "4px",
   },
+  ".buttonLink": {
+    color: "white",
+    backgroundColor: "#e2251e",
+    padding: "10px 10px",
+    textAlign: "center",
+    textDecoration: "none",
+    display: "inline-block",
+    borderRadius: "4px",
+    fontSize: "18px",
+    width: "130px"
+  
+  },
   ".logo": {
     marginBottom: "0.4em",
   },
@@ -47,6 +59,10 @@ const sidebarSx = {
   ".rotated::before": {
     transform: "rotate(90deg)",
   },
+  ".advoStyle": {
+    marginTop: "25px",
+    fontSize: "40px",
+  }
 };
 
 export default function Sidebar() {
@@ -63,11 +79,23 @@ export default function Sidebar() {
       ? true
       : false
   );
+  const [moreExpanded, setMoreExpanded] = useState(() =>
+    [
+      "/shop",
+      "/donate",
+      "/advertise",
+      "/comp",
+    ].includes(location.pathname)
+      ? true
+      : false
+  );
+
 
   const highlightLink = (pathname) => {
-    if (pathname === "/issues")
+    if (pathname === "/issues") 
       return location.pathname.includes("/issues") ? " highlight" : "";
     return location.pathname === pathname ? " highlight" : "";
+
   };
 
   return (
@@ -75,7 +103,12 @@ export default function Sidebar() {
       <Grid className="sidebar" columns={1} gap={3}>
         <Link className={"link logo"} to={"/"}>
           <img src={logo} alt="The Advocate Logo" />
+          <div className = "advoStyle">
+            The Harvard Advocate
+          </div>
         </Link>
+        <div style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
+
         <Link className={`link ${highlightLink("/")}`} to={"/"}>
           Home
         </Link>
@@ -138,9 +171,63 @@ export default function Sidebar() {
             >
               Blog
             </Link>
+
           </Grid>
         )}
+        <div className="sectionsLink">
+          <div
+            sx={{
+              fontStyle: moreExpanded ? "italic" : "none",
+            }}
+            className={(moreExpanded ? " rotated" : "")}
+            onClick={() => setMoreExpanded(!moreExpanded)}
+          >
+            More
+          </div>
+          <div
+            className={"dropdownButton" + (moreExpanded ? " rotated" : "")}
+            onClick={() => setMoreExpanded(!moreExpanded)}
+          ></div>
+        </div>
+        {moreExpanded && (
+          <Grid className="sublinks" columns={1} gap={3}>
+            <Link
+              className={`link ${highlightLink("/shop")}`}
+              to="/shop"
+            >
+              Shop
+            </Link>
+            <Link
+              className={`link ${highlightLink("/donate")}`}
+              to="/donate"
+            >
+              Donate
+            </Link>
+            <Link
+              className={`link ${highlightLink("/advertise")}`}
+              to="/advertise"
+            >
+              Advertise
+            </Link>
+            <Link
+              className={`link ${highlightLink("/comp")}`}
+              to="/comp"
+            >
+              Comp
+            </Link>
+          </Grid>
+        )}
+    <div style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
+
+        <Link className = "buttonLink" to={"/subscribe"}>
+          SUBSCRIBE
+        </Link>
+        <Link className = "buttonLink" to={"/submit"}>
+          SUBMIT
+        </Link>
+
       </Grid>
+
     </div>
   );
 }
