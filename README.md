@@ -4,11 +4,15 @@ Website for the Harvard Advocate, under construction
 
 `web` directory is for the Advocate website, currently uses React and Emotion for CSS, using Sanity's GROQ language to grab data.
 
-Run:
+## Setup
 
 ```
 npm install
 npm install -g @sanity/cli
+```
+
+## Running
+```
 npm run dev
 ```
 
