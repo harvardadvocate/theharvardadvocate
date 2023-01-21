@@ -7,7 +7,7 @@ import { Grid } from "theme-ui";
 const homepageSx = {
   ".featuredIssue": {
     width: "100%",
-    height: "70%",
+    height: "75%",
     backgroundColor: "#D6362F",
   },
   margin: "0em 0em 0em 0em",
@@ -63,8 +63,12 @@ export default function Homepage() {
       <div className="mainContent">
         <div className="featuredIssue">
           <Grid columns={"2fr 3fr"}>
-            <div className="issueCover"></div>
-            <div className="featuredArticles"></div>
+            <div className="issueCover">
+            
+            </div>
+            <div className="featuredArticles">
+
+            </div>
           </Grid>
         </div>
       </div>
