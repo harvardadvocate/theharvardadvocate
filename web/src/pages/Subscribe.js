@@ -3,8 +3,8 @@ import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
 
-const donateSx = {
-  ".donateBody": {
+const subscribeSx = {
+  ".subscribeBody": {
     marginTop: "0.4em",
     marginLeft: "25%",
     marginRight: "25%"
@@ -15,18 +15,18 @@ const donateSx = {
   },
 };
 
-export default function Donate() {
+export default function Subscribe() {
   return (
-    <div sx={donateSx}>
+    <div sx={subscribeSx}>
       <Frame
         path={[
           {
-            name: "Donate to the Harvard Advocate",
-            slug: "/donate",
+            name: "Subscribe to the Harvard Advocate",
+            slug: "/subscribe",
           },
         ]}
       >
-        <div className="donateBody">
+        <div className="subscribeBody">
           <Themed.p>
             <i>Thank you for considering a donation to The Harvard Advocate!</i>
             <br/><br/>
