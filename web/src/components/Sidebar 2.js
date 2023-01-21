@@ -5,9 +5,8 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 
 const sidebarSx = {
-  padding: "2.5em 7em 2em 1em",
+  padding: "2.5em 1em 2em 2em",
   height: "100%",
-  borderRight: "1px solid #000",
   ".link": {
     fontSize: "2",
     textDecoration: "none",
@@ -41,9 +40,8 @@ const sidebarSx = {
     display: "inline-block",
     borderRadius: "4px",
     fontSize: "18px",
-    width: "100%",
-    fontFamily: "sans-serif",
-    fontWeight: "500",
+    width: "130px"
+  
   },
   ".logo": {
     marginBottom: "0.4em",
@@ -94,7 +92,7 @@ export default function Sidebar() {
 
 
   const highlightLink = (pathname) => {
-    if (pathname === "/issues")
+    if (pathname === "/issues") 
       return location.pathname.includes("/issues") ? " highlight" : "";
     return location.pathname === pathname ? " highlight" : "";
 
@@ -126,7 +124,6 @@ export default function Sidebar() {
             sx={{
               fontStyle: sectionsExpanded ? "italic" : "none",
             }}
-            onClick={() => setSectionsExpanded(!sectionsExpanded)}
             to={"/sections"}
           >
             Sections
@@ -222,12 +219,11 @@ export default function Sidebar() {
         )}
     <div style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
 
-        <Link className = "buttonLink" to={"/submit"}>
-          Submit
-        </Link>
-
         <Link className = "buttonLink" to={"/subscribe"}>
-          Subscribe
+          SUBSCRIBE
+        </Link>
+        <Link className = "buttonLink" to={"/submit"}>
+          SUBMIT
         </Link>
 
       </Grid>
