@@ -218,6 +218,12 @@ export default function Sidebar() {
             >
               Comp
             </Link>
+            <Link
+              className={`link ${highlightLink("/masthead")}`}
+              to="/masthead"
+            >
+              Masthead
+            </Link>
           </Grid>
         )}
     <div style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>

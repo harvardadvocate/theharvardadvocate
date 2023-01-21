@@ -4,12 +4,6 @@ import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
 
 const aboutSx = {
-  ".aboutHeader": {
-    fontStyle: "italic",
-    borderBottom: "1px solid #000",
-    h2: { display: "inline-block", marginRight: "0.4em" },
-    img: { height: "0.6em", display: "inline-block" },
-  },
   ".aboutBody": {
     marginTop: "0.4em",
     marginLeft: "25%",
