@@ -81,7 +81,7 @@ export default function SectionsOverview(props) {
       .fetch(sectionToQuery("Poetry"))
       .then((data) => setPoetryItems(data))
       .catch(console.error);
-  });
+  }, []);
 
   const sectionHeader = (section) => (
     <div className="sectionHeader">
