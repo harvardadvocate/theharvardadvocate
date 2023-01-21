@@ -16,25 +16,26 @@ export default function IssuesList() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "issue"] | order(publishedAt desc) {
-      title,
-      slug,
-      description,
-      frontCover{
-        asset->{
-          _id,
-          url
+      sanityClient
+        .fetch(
+          `*[_type == "issue"] | order(publishedAt desc) {
+        title,
+        slug,
+        description,
+        frontCover{
+          asset->{
+            _id,
+            url
+          }
         }
-      }
-    }`
-      )
-      .then((data) => {
-        setItems(data);
-      })
-      .catch(console.error);
-  });
+      }`
+        )
+        .then((data) => {
+          setItems(data);
+        })
+        .catch(console.error);
+    }, []);
+
 
   return (
     <div css={issuesListSx}>

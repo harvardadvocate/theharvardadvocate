@@ -6,35 +6,52 @@ import rightArrow from "../assets/images/right-arrow.svg";
 const subscribeSx = {
   ".subscribeBody": {
     marginTop: "0.4em",
-    marginLeft: "25%",
+    marginLeft: "22%",
     marginRight: "25%"
   },
   i: {
     textAlign: "center",
     display: "block"
   },
+  margin: "0em 0em 2em 0em",
+  ".horizontalContainer": {
+    width: "100%",
+    display: "flex",
+    marginTop: "0em",
+    minHeight: "100vh",
+    ".mainContent": {
+      flexGrow: 1,
+    },
+  },
+  ".mainContent": {
+    marginLeft: "0px",
+    marginTop: "100px",
+  },
+  ".bigBox": {
+    border: "2px solid black",
+    justifyContent: "center",
+    width: "30%",
+    height: "35%",
+    marginLeft: "35%",
+    borderRadius: "10px",
+    opacity: "0.5",
+  }
 };
 
 export default function Subscribe() {
   return (
     <div sx={subscribeSx}>
-      <Frame
-        path={[
-          {
-            name: "Subscribe to the Harvard Advocate",
-            slug: "/subscribe",
-          },
-        ]}
-      >
-        <div className="subscribeBody">
-          <Themed.p>
-            <i>Thank you for considering a donation to The Harvard Advocate!</i>
-            <br/><br/>
-            The Harvard Advocate is a completely undergraduate-run magazine who take no salary for our work. Any contribution helps us print the best literature, art, and poetry on Harvard’s campus and around the world.
-            <br/><br/>
-All gifts to The Harvard Advocate are fully tax deductible according to 501(c)(3) non-profit donation guidelines. Donations can be made online using the form below. We also accept donations by check, which should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138. Thank you for your support!            <br/><br/>          </Themed.p>
+    <div className="horizontalContainer">
+      <div className="mainContent">
+        <h3 align="center">Thank you for considering subscribing to the Harvard Advocate!</h3>
+        <br/>
+        <h4 align="center" style={{"opacity":"0.5"}}>Cancel or pause anytime.</h4>
+        <br/><br/>
+        <div className="bigBox">
+        <h3 align="center">Full subscription</h3>
         </div>
-      </Frame>
+      </div>
+    </div>
     </div>
   );
 }
