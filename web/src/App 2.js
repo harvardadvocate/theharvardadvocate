@@ -21,7 +21,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div>
         <BrowserRouter>
-          <Grid gap={0} columns={"200px 4fr"}> 
+          <Grid columns={"1fr 4fr"}>
             <Sidebar />
             <div className="nonSidebarContent">
               <Routes>

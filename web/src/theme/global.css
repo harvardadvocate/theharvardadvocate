@@ -149,7 +149,7 @@ select {
   html:focus-within {
    scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -162,5 +162,5 @@ select {
 
 
 .nonSidebarContent {
-  max-width: 840px;
+  max-width: 100%;
 }
