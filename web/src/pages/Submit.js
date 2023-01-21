@@ -7,7 +7,7 @@ import { useLocation, Link } from "react-router-dom";
 const submitSx = {
   ".submitBody": {
     marginTop: "0.4em",
-    marginLeft: "25%",
+    marginLeft: "22%",
     marginRight: "25%"
   },
   i: {

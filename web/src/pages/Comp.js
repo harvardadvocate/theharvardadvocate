@@ -6,7 +6,7 @@ import rightArrow from "../assets/images/right-arrow.svg";
 const compSx = {
   ".compBody": {
     marginTop: "0.4em",
-    marginLeft: "25%",
+    marginLeft: "22%",
     marginRight: "25%"
   },
   i: {

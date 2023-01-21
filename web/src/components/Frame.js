@@ -5,7 +5,7 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 
 const frameSx = {
-  margin: "0em 0em 0em 0em",
+  margin: "0em 0em 2em 0em",
   ".header": {
     marginLeft: "10%",
     marginRight: "0em",
