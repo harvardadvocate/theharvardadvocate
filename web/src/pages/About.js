@@ -17,7 +17,7 @@ export default function About() {
       <Frame
         path={[
           {
-            name: "About",
+            name: "About Us",
             slug: "/about",
           },
         ]}

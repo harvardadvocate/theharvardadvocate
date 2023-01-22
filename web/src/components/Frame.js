@@ -86,7 +86,8 @@ export default function Frame(props) {
         </div>
       </div>
       <div className="horizontalContainer">
-        <div className="mainContent">{props.children}</div></div>
+        <div className="mainContent">{props.children}</div>
+      </div>
     </div>
   );
 }
