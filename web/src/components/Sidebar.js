@@ -7,7 +7,7 @@ import { Grid } from "theme-ui";
 const sidebarSx = {
   padding: "2.5em 7em 2em 1em",
   height: "100%",
-  borderRight: "1px solid #000",
+  borderRight: "0.5px solid #000",
   ".link": {
     fontSize: "2",
     textDecoration: "none",
@@ -40,10 +40,10 @@ const sidebarSx = {
     textDecoration: "none",
     display: "inline-block",
     borderRadius: "4px",
-    fontSize: "18px",
+    fontSize: "16px",
     width: "100%",
     fontFamily: "sans-serif",
-    fontWeight: "500",
+    fontWeight: "600",
   },
   ".logo": {
     marginBottom: "0.4em",

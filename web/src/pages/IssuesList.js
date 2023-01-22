@@ -36,7 +36,8 @@ export default function IssuesList() {
         .catch(console.error);
     }, []);
 
-
+  console.log(items);
+  
   return (
     <div css={issuesListSx}>
       <Frame path={[{ name: "Issues", slug: "/issues" }]}>
