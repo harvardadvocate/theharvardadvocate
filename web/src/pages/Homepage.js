@@ -177,7 +177,7 @@ export default function Homepage() {
                 </Grid>
                 <hr/>
               </div>
-              <Link to={itemData.slug.current}>
+              <Link to={"/issues/" + itemData.slug.current}>
                 <div className="readFullIssue">
                   <span>&#8594;</span>
                   <h6>READ FULL ISSUE</h6>
