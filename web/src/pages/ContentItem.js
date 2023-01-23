@@ -6,7 +6,7 @@ import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
 import moment from "moment";
-import Frame from "../components/Frame";
+import ContentFrame from "../components/ContentFrame";
 
 const contentItemSx = {
   ".contentHeader": {
@@ -15,6 +15,7 @@ const contentItemSx = {
     gap: "4px",
     borderBottom: "1px solid #000",
     paddingBottom: "0.5em",
+    marginBottom: "1em",
     ".dateShareContainer": {
       marginTop: "1.5em",
       display: "flex",
@@ -22,6 +23,9 @@ const contentItemSx = {
       h5: { fontStyle: "normal" },
     },
   },
+  p: {
+    marginBottom: "1.5em",
+  }
 };
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -67,7 +71,7 @@ export default function ContentItem() {
 
   return (
     <div sx={contentItemSx}>
-      <Frame
+      <ContentFrame
         path={[
           {
             name: "Sections",
@@ -83,14 +87,14 @@ export default function ContentItem() {
         <div className="contentHeader">
           <div className="topLine">
             <Themed.h5>
-              {itemData.sections[0].title} • {itemData.issue.title}
+              {itemData.sections[0].title} • {itemData.issue.title} Issue
             </Themed.h5>
           </div>
           <div className="title">
             <Themed.h1>{itemData.title}</Themed.h1>
           </div>
           <div className="authors">
-            <Themed.h4>
+            <Themed.h3>
               By{" "}
               {itemData.authors.map((author, i) => (
                 <>
@@ -100,7 +104,7 @@ export default function ContentItem() {
                   </Link>{" "}
                 </>
               ))}
-            </Themed.h4>
+            </Themed.h3>
           </div>
           <div className="dateShareContainer">
             <div className="date">
@@ -128,7 +132,7 @@ export default function ContentItem() {
             />
           )}
         </div>
-      </Frame>
+      </ContentFrame>
     </div>
   );
 }
