@@ -45,6 +45,8 @@ const homepageSx = {
 
   ".featuredArticles": {
     color: "#FFFFFF",
+    paddingTop: "30px",
+    paddingRight: "20px",
     h5: {
       fontFamily: "sans-serif",
     }
