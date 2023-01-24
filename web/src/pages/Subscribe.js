@@ -5,21 +5,11 @@ import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
 
 const subscribeSx = {
-  ".subscribeBody": {
-    marginTop: "0.4em",
-    marginLeft: "22%",
-    marginRight: "25%"
-  },
-  i: {
-    textAlign: "center",
-    display: "block"
-  },
-  margin: "0em 0em 2em 0em",
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
-    marginTop: "0em",
-    minHeight: "100vh",
+    flexDirection: "column",
+    flexWrap: "wrap",
     ".mainContent": {
       flexGrow: 1,
     },
@@ -33,6 +23,7 @@ const subscribeSx = {
   },
   ".bigBox": {
     display: "flex",
+    padding: "40px",
     flexDirection: "column",
     border: "2px solid lightgrey",
     justifyContent: "center",
@@ -72,29 +63,45 @@ const subscribeSx = {
     fontWeight: "600",
     padding: "20px",
   },
+  ".buttonLink:hover": {
+    backgroundColor: "#d41c15",
+  },
+  ".image": {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    justifyItems: "center",
+    marginTop: "10px",
+    width: "400px",
+    textAlign: "center",
+  }
 };
 
 export default function Subscribe() {
   return (
     <div sx={subscribeSx}>
-    <div className="horizontalContainer">
-      <div className="mainContent">
-        <Themed.h2>Thank you for considering subscribing to the Harvard Advocate!</Themed.h2>
-        <p align="center">Cancel or pause anytime.</p>
-        <div className="bigBox">
-        <h3 align="center">Full Subscription</h3>
-        <br/>
-        <Themed.h2 align="center"><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h2>
-        <br/>
-        <p>Renews automatically. Cancel anytime. Non-refundable.</p>
-        <div  align="center">
-            <Link className = "buttonLink" to={""}>
-              SUBSCRIBE NOW
-            </Link>
-        </div>
+      <div className="horizontalContainer">
+        <div className="mainContent">
+          <Themed.h2>Thank you for considering subscribing to the Harvard Advocate!</Themed.h2>
+          <p align="center">By subscribing, you receive four print issues a year, printed on high-quality paper, delivered straight to your doorstep.</p>
+          <div className="bigBox">
+            <h3 align="center">Full Subscription</h3>
+            <br/>
+            <Themed.h2 align="center"><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h2>
+            <br/>
+            <p>Renews automatically. Cancel anytime. Non-refundable.</p>
+            <div  align="center">
+                <Link className = "buttonLink" to={""}>
+                  SUBSCRIBE NOW
+                </Link>
+            </div>
+          </div>
+          <div className="image">
+            <img src="/subscribe_image.jpg"/>
+            <figcaption>Illustration from <em>The Importance of Knees as a Bracing Thing</em></figcaption>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

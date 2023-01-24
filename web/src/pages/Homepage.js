@@ -102,7 +102,6 @@ export default function Homepage() {
         )
         .then((data) => {
           setItemData(data);
-          console.log(itemData);
         })
         .catch(console.error);
 
@@ -126,10 +125,7 @@ export default function Homepage() {
     }, []);
 
     if (!itemData || !featuredItems) return <div>Loading...</div>;
-    else {
-      console.log(featuredItems.slice(0,2));
-      console.log(featuredItems.slice(2,4));
-    }
+
   return (
     <div css={homepageSx}>
     <div className="horizontalContainer">

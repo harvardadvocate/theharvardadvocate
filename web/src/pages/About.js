@@ -6,8 +6,10 @@ import rightArrow from "../assets/images/right-arrow.svg";
 const aboutSx = {
   ".aboutBody": {
     marginTop: "0.4em",
-    marginLeft: "22%",
-    marginRight: "25%"
+    display: "flex",
+    flexDirection: "column",
+    alignItems:"center",
+    margin: "0em 15em 2em 15em",
   },
 };
 
@@ -40,6 +42,7 @@ export default function About() {
             <br/><br/>
             The Harvard Advocate can be reached at 21 South Street, Cambridge, and at publisher@theharvardadvocate.com
           </Themed.p>
+
         </div>
       </Frame>
     </div>

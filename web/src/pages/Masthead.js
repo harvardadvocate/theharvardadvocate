@@ -6,8 +6,10 @@ import rightArrow from "../assets/images/right-arrow.svg";
 const mastheadSx = {
   ".mastheadBody": {
     marginTop: "0.4em",
-    marginLeft: "22%",
-    marginRight: "25%"
+    display: "flex",
+    flexDirection: "column",
+    alignItems:"center",
+    margin: "0em 15em 2em 15em",
   },
   i: {
     textAlign: "center",
@@ -94,31 +96,6 @@ export default function Masthead() {
             M. K. Lee '24, Advocate Cafe Manager
             <br/>
             K. Liu '25, Advocate Cafe Manager
-
-<br/><br/>
-            <b>Poetry</b>
-
-            <br/><br/>
-
-            <b>Fiction</b>
-
-            <br/><br/>
-
-            <b>Features</b>
-
-            <br/><br/>
-
-            <b>Art</b>
-
-            <br/><br/>
-
-            <b>Design</b>
-
-            <br/><br/>
-
-            <b>Tech</b>
-
-            <br/><br/>
           </i>
           </Themed.p>
         </div>
