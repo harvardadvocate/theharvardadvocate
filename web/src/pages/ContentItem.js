@@ -25,7 +25,7 @@ const contentItemSx = {
   },
   p: {
     marginBottom: "1.5em",
-  }
+  },
 };
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -57,7 +57,7 @@ export default function ContentItem() {
            },
          body,
          publishedAt,
-         issue->{title},
+         issue->{title, slug},
          authors[]->{name, slug},
          sections[]->{title, slug},
        }`,
@@ -87,7 +87,7 @@ export default function ContentItem() {
         <div className="contentHeader">
           <div className="topLine">
             <Themed.h5>
-              {itemData.sections[0].title} • {itemData.issue.title} Issue
+              <Link to={"/sections/" + itemData.sections[0].slug.current}>{itemData.sections[0].title}</Link> • <Link to={"/issues/" + itemData.issue.slug.current}>{itemData.issue.title} Issue </Link>
             </Themed.h5>
           </div>
           <div className="title">

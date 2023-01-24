@@ -26,3 +26,49 @@ Key packages:
 Theme UI (https://theme-ui.com/)
 Sanity (https://www.sanity.io/)
 React Router (https://v5.reactrouter.com/)
+
+
+## TODO
+
+**Whole Website**
+- Make it responsive/mobile ready
+- Fix slugs
+- Make illustrations link to their articles
+- Add most recent articles/issues
+
+**Homepage**
+- On hover, make issue, articles, "READ FULL ISSUE" more interactive
+- Add sanctum sessions picture
+- Add more featured articles
+- Add blog section
+- Add social media section (insta, twitter)
+- Add from the archives
+- Add footer
+
+
+**About Us**
+- Add illustration of 21 ss.
+
+**Issues**
+- build entirely
+
+**Sections**
+- build entirely
+
+**Shop**
+- integrate shopify
+
+**Donation**
+- add donation form that doesn't look old
+
+**Submit**
+- Make the links valid
+
+**Subscribe**
+- Have subscribe link to subscriptions page
+
+**Authors page**
+- Build entirely
+
+**Specific Issue page**
+- Build entirely
