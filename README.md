@@ -34,7 +34,7 @@ React Router (https://v5.reactrouter.com/)
 - Make it responsive/mobile ready
 - Fix slugs
 - Make illustrations link to their articles
-- Add most recent articles/issues
+- Add most recent articles/issues (missing )
 
 **Homepage**
 - On hover, make issue, articles, "READ FULL ISSUE" more interactive
@@ -47,7 +47,7 @@ React Router (https://v5.reactrouter.com/)
 
 
 **About Us**
-- Add illustration of 21 ss.
+- Resize illustration of 21 ss.
 
 **Issues**
 - build entirely
