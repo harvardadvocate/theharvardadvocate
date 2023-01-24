@@ -11,6 +11,18 @@ const aboutSx = {
     alignItems:"center",
     margin: "0em 15em 2em 15em",
   },
+  ".image": {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    justifyItems: "center",
+    marginTop: "0px",
+    textAlign: "center",
+    alignItems: "center",
+    figcaption: {
+      fontSize: "16px",
+    },
+  },
 };
 
 export default function About() {
@@ -42,7 +54,10 @@ export default function About() {
             <br/><br/>
             The Harvard Advocate can be reached at 21 South Street, Cambridge, and at publisher@theharvardadvocate.com
           </Themed.p>
-
+          <div className="image">
+            <img src="/about.jpg" />
+            <figcaption>Illustration by <em>Tosca Langbert '24</em></figcaption>
+          </div>
         </div>
       </Frame>
     </div>
