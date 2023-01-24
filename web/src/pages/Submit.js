@@ -7,8 +7,10 @@ import { useLocation, Link } from "react-router-dom";
 const submitSx = {
   ".submitBody": {
     marginTop: "0.4em",
-    marginLeft: "22%",
-    marginRight: "25%"
+    display: "flex",
+    flexDirection: "column",
+    alignItems:"center",
+    margin: "0em 15em 2em 15em",
   },
   i: {
     textAlign: "center",
@@ -33,7 +35,20 @@ const submitSx = {
   ".buttonLink:hover": {
     color: "#ffffff",
     backgroundColor: "#000000",
-  }
+  },
+  ".image": {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    justifyItems: "center",
+    marginTop: "10px",
+    width: "400px",
+    textAlign: "center",
+    alignItems: "center",
+    figcaption: {
+      fontSize: "16px",
+    },
+  },
 };
 
 export default function Submit() {
@@ -97,6 +112,10 @@ export default function Submit() {
             <br/>
             You can submit your work through the link above, or by emailing art@theharvardadvocate.com
           </Themed.p>
+          <div className="image">
+            <img src="/submit.jpeg" width="400" height="400"/>
+            <figcaption>Illustration from <em>The Leaving</em></figcaption>
+          </div>
         </div>
       </Frame>
     </div>

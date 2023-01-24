@@ -45,6 +45,9 @@ const sidebarSx = {
     fontFamily: "sans-serif",
     fontWeight: "600",
   },
+  ".buttonLink:hover": {
+    backgroundColor: "#d41c15",
+  },
   ".logo": {
     marginBottom: "0.4em",
   },
@@ -62,8 +65,13 @@ const sidebarSx = {
     transform: "rotate(90deg)",
   },
   ".advoStyle": {
+    display: "flex",
+    flexDirection: "column",
     marginTop: "25px",
     fontSize: "40px",
+    p: {
+      fontSize: "20px",
+    }
   }
 };
 
