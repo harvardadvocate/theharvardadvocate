@@ -4,16 +4,25 @@ import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
 
 const aboutSx = {
-  ".aboutHeader": {
-    fontStyle: "italic",
-    borderBottom: "1px solid #000",
-    h2: { display: "inline-block", marginRight: "0.4em" },
-    img: { height: "0.6em", display: "inline-block" },
-  },
   ".aboutBody": {
     marginTop: "0.4em",
-    marginLeft: "25%",
-    marginRight: "25%"
+    display: "flex",
+    flexDirection: "column",
+    alignItems:"center",
+    margin: "0em 15em 2em 15em",
+  },
+  ".image": {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    justifyItems: "center",
+    marginTop: "0px",
+    textAlign: "center",
+    alignItems: "center",
+    figcaption: {
+      fontSize: "16px",
+    },
+    width: "450px",
   },
 };
 
@@ -23,7 +32,7 @@ export default function About() {
       <Frame
         path={[
           {
-            name: "About",
+            name: "About Us",
             slug: "/about",
           },
         ]}
@@ -46,6 +55,10 @@ export default function About() {
             <br/><br/>
             The Harvard Advocate can be reached at 21 South Street, Cambridge, and at publisher@theharvardadvocate.com
           </Themed.p>
+          <div className="image">
+            <img src="/about.jpg" />
+            <figcaption>Illustration by <em>Tosca Langbert '24</em></figcaption>
+          </div>
         </div>
       </Frame>
     </div>
