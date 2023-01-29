@@ -22,6 +22,7 @@ const aboutSx = {
     figcaption: {
       fontSize: "16px",
     },
+    width: "450px",
   },
 };
 

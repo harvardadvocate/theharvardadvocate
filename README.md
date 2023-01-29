@@ -35,6 +35,7 @@ React Router (https://v5.reactrouter.com/)
 - Fix slugs
 - Make illustrations link to their articles
 - Add most recent articles/issues (missing )
+- Move to static site generation to reduce Sanity bandwidth -- https://www.smashingmagazine.com/2020/09/stack-custom-made-static-site-generator/
 
 **Homepage**
 - On hover, make issue, articles, "READ FULL ISSUE" more interactive
@@ -45,30 +46,29 @@ React Router (https://v5.reactrouter.com/)
 - Add from the archives
 - Add footer
 
-
-**About Us**
-- Resize illustration of 21 ss.
-
 **Issues**
 - build entirely
 
 **Sections**
 - build entirely
 
-**Shop**
-- integrate shopify
-
 **Donation**
 - add donation form that doesn't look old
-
-**Submit**
-- Make the links valid
-
-**Subscribe**
-- Have subscribe link to subscriptions page
 
 **Authors page**
 - Build entirely
 
 **Specific Issue page**
 - Build entirely
+
+**Shop**
+- integrate shopify
+
+**Submit**
+- ~~Make the links valid~~
+
+**Subscribe**
+- ~~Have subscribe link to subscriptions page~~
+
+**About Us**
+- ~~Resize illustration of 21 ss.~~

@@ -91,9 +91,9 @@ export default function Subscribe() {
             <br/>
             <p>Renews automatically. Cancel anytime. Non-refundable.</p>
             <div  align="center">
-                <Link className = "buttonLink" to={""}>
+                <a className = "buttonLink" href={"https://buy.stripe.com/eVa9Ej3Hy4Hw7T26oo"} target="_blank">
                   SUBSCRIBE NOW
-                </Link>
+                </a>
             </div>
           </div>
           <div className="image">
