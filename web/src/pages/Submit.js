@@ -72,9 +72,9 @@ export default function Submit() {
           <i align="center">Our winter 2023 Review Period ends on Friday, October 14th, 2022.</i>
           <br/>
           <div  align="center">
-              <Link className = "buttonLink" to={"/submit"}>
+              <a className = "buttonLink" href={"https://docs.google.com/forms/d/e/1FAIpQLSdHCYzDkX4ZAuip4NwjCeWXODfQSrheQDGEcgFApdhLrF35sg/viewform?usp=sf_link"} target="_blank">
                 Submit to Fiction
-              </Link>
+              </a>
           </div>
           <ul>
             <li>We have no minimum or maximum word counts, but the work we publish tends to be between 700 and 7000 words.</li>
@@ -88,9 +88,9 @@ export default function Submit() {
            <hr/>
            <br/>
            <div  align="center">
-               <Link className = "buttonLink" to={"/submit"}>
+              <a className = "buttonLink" href={"https://docs.google.com/forms/d/e/1FAIpQLSfMcuyiu8TM0AUSnOjCvUvA59lWIfVYgvJ-8uX_RgIRjKuypA/viewform?usp=sf_link"} target="_blank">
                  Submit to Poetry
-               </Link>
+               </a>
            </div>
            <ul>
            <li>We have no minimum or maximum word counts.</li>
@@ -105,9 +105,9 @@ export default function Submit() {
             <hr/>
             <br/>
             <div  align="center">
-                <Link className = "buttonLink" to={"/submit"}>
+                <a className = "buttonLink" href={"https://docs.google.com/forms/d/e/1FAIpQLSdzLqsA__rvkRkBVwszgrA1UWFXcjffGJms7PUTgo5emHTYcQ/viewform?usp=sf_link"} target="_blank">
                   Submit to Art
-                </Link>
+                </a>
             </div>
             <br/>
             You can submit your work through the link above, or by emailing art@theharvardadvocate.com

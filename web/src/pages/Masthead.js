@@ -77,7 +77,7 @@ export default function Masthead() {
             <br/>
             C. Pontifell '24, Business Manager
             <br/><br/>
-            Alice Cai '25, Experimental Labs Director
+            A. Cai '25, Experimental Labs Director
             <br/>
             A. Kaushik '24, D&I Chair
             <br/>
