@@ -5,9 +5,9 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 
 const sidebarSx = {
-  padding: "2.5em 7em 2em 1em",
+  padding: "2.5em 1em 0em 1em",
   height: "100%",
-  borderRight: "0.5px solid #000",
+  borderRight: "0.05vh solid #000",
   ".link": {
     fontSize: "2",
     textDecoration: "none",
@@ -25,6 +25,10 @@ const sidebarSx = {
       textDecoration: "underline",
       textUnderlineOffset: "4px",
     },
+  },
+  ".linksToShow": {
+    display: "grid",
+    gridGap: "10px",
   },
   ".highlight": {
     color: "primary",
@@ -48,9 +52,6 @@ const sidebarSx = {
   ".buttonLink:hover": {
     backgroundColor: "#d41c15",
   },
-  ".logo": {
-    marginBottom: "0.4em",
-  },
   ".sectionsLink": {
     display: "flex",
     gap: "16px",
@@ -64,6 +65,11 @@ const sidebarSx = {
   ".rotated::before": {
     transform: "rotate(90deg)",
   },
+  ".horizontalLine1, horizontalLine2": {
+    borderTop: "1px solid #000000 ",
+    marginLeft: 0,
+    marginRight: 0
+  },
   ".advoStyle": {
     display: "flex",
     flexDirection: "column",
@@ -71,11 +77,63 @@ const sidebarSx = {
     fontSize: "40px",
     p: {
       fontSize: "20px",
-    }
-  }
+    },
+  },
+  "@media (max-width: 767px)": {
+    padding: "1em 1em 1em 1em",
+    ".advoStyle": {
+      alignItems: "center",
+      fontSize: "3vh",
+      marginTop: "0vh",
+    },
+    ".logo": {
+      img: {
+        display: "none",
+      },
+    },
+    ".horizontalLine1, .horizontalLine2": {
+      display: "none",
+    },
+
+    ".navbarButton > .line": {
+      backgroundColor: "#292929",
+      height: "2px",
+      display: "block",
+      width: "4vw",
+    },
+    ".navbarButton > .line + .line": {
+      marginTop: "3px",
+    },
+    ".navbarButton::before": {
+      cursor: "pointer",
+      display: "inline-block",
+      transition: "transform 0.3s",
+    },
+    ".rotated::before": {
+      transform: "rotate(90deg)",
+    },
+  },
 };
 
+
 export default function Sidebar() {
+  const [windowDimension, setWindowDimension] = useState(null);
+
+  useEffect(() => {
+    setWindowDimension(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimension(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMobile = windowDimension <= 767;
+
   const location = useLocation();
   const [sectionsExpanded, setSectionsExpanded] = useState(() =>
     [
@@ -99,6 +157,13 @@ export default function Sidebar() {
       ? true
       : false
   );
+  const [navbarExpanded, setNavbarExpanded] = useState(() =>
+    [
+
+    ].includes(location.pathname)
+      ? true
+      : false
+  );
 
 
   const highlightLink = (pathname) => {
@@ -115,10 +180,18 @@ export default function Sidebar() {
           <img src={logo} alt="The Advocate Logo" />
           <div className = "advoStyle">
             The Harvard Advocate
+            {isMobile ? (
+              <div className={"navbarButton" + (navbarExpanded ? " rotated" : "")} onClick={() => setNavbarExpanded(!navbarExpanded)}>
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+              </div>
+            ):(<div/>)}
           </div>
         </Link>
-        <div style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
-
+        <div className="horizontalLine1" style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
+        {navbarExpanded && (
+        <div className="linksToShow">
         <Link className={`link ${highlightLink("/")}`} to={"/"}>
           Home
         </Link>
@@ -234,7 +307,10 @@ export default function Sidebar() {
             </Link>
           </Grid>
         )}
-    <div style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
+        </div>
+      )}
+
+    <div className="horizontalLine2"></div>
 
         <Link className = "buttonLink" to={"/submit"}>
           Submit
