@@ -47,7 +47,7 @@ export default function Donate() {
             <br/><br/>
             The Harvard Advocate is a completely undergraduate-run magazine who take no salary for our work. Any contribution helps us print the best literature, art, and poetry on Harvard’s campus and around the world.
             <br/><br/>
-All gifts to The Harvard Advocate are fully tax deductible according to 501(c)(3) non-profit donation guidelines. Donations can be made online using the form below. We also accept donations by check, which should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138. Thank you for your support!
+            All gifts to The Harvard Advocate are fully tax deductible according to 501(c)(3) non-profit donation guidelines. Donations can be made online using the form below. We also accept donations by check, which should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138. Thank you for your support!
             <br/><br/>
             </Themed.p>
             <div className="image">

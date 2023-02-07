@@ -5,7 +5,6 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 
 const frameSx = {
-  margin: "0em 0em 2em 0em",
   ".header": {
     marginTop: "1em",
     marginBottom: "1em",
@@ -17,12 +16,10 @@ const frameSx = {
       borderBottom: "1px solid #000",
       width: "100%",
     },
-    img: { height: "0.4em" },
   },
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
-    marginTop: "0em",
     minHeight: "100vh",
     ".mainContent": {
       flexGrow: 1,
@@ -30,7 +27,8 @@ const frameSx = {
   },
 
   ".mainContent": {
-    marginLeft: "0px",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 };
 // TODO: assumes only up to 3 elements in path

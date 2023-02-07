@@ -40,7 +40,11 @@ const homepageSx = {
   ".mainGrid": {
     placeItems: "center",
     display: "grid",
-    justifyItems: "start"
+    justifyItems: "start",
+    "@media (max-width: 767px)": {
+        gridTemplateColumns: "1fr",
+        placeItems: "unset"
+      },
   },
 
   ".featuredArticles": {
@@ -49,7 +53,11 @@ const homepageSx = {
     paddingRight: "20px",
     h5: {
       fontFamily: "sans-serif",
+    },
+    "@media (max-width: 767px)": {
+      padding: "10px"
     }
+
   },
 
   ".issueTitle": {
