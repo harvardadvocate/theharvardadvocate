@@ -28,8 +28,9 @@ const homepageSx = {
   },
   ".issueCover": {
     height: "100%",
+    display: "flex",
+    justifyContent: "center",
     marginTop: "20%",
-    marginLeft: "15%",
     img: {
       boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
       maxWidth: "100%",
@@ -40,7 +41,7 @@ const homepageSx = {
   ".mainGrid": {
     placeItems: "center",
     display: "grid",
-    justifyItems: "start"
+    justifyItems: "start",
   },
 
   ".featuredArticles": {
@@ -49,13 +50,8 @@ const homepageSx = {
     paddingRight: "20px",
     h5: {
       fontFamily: "sans-serif",
-    }
+    },
   },
-
-  ".issueTitle": {
-
-  },
-
   ".readFullIssue": {
     color: "#FFFFFF",
     span: {
@@ -77,7 +73,42 @@ const homepageSx = {
 
   ".articleLink": {
     color: "#FFFFFF",
-  }
+  },
+
+  "@media (max-width: 767px)": {
+    ".issueCover": {
+      marginTop: "0%",
+      padding: "5%",
+      alignItems: "flex-start"
+    },
+    ".featuredArticles": {
+      padding: "0px",
+    },
+    ".featuredGrid": {
+      display: "none",
+      height: "0",
+    },
+    "hr": {
+      display: "none",
+    },
+    ".mainGrid": {
+      gridTemplateColumns: "1fr",
+      placeItems: "unset"
+    },
+    ".issueTitle": {
+      textAlign: "center",
+    },
+    ".readFullIssue": {
+      textAlign: "center",
+      span: {
+        display: "none",
+      },
+      h6: {
+        marginLeft: "0em",
+        textDecoration: "underline",
+      },
+    },
+  },
 };
 
 export default function Homepage() {

@@ -5,9 +5,9 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 
 const sidebarSx = {
-  padding: "2.5em 7em 2em 1em",
+  padding: "2.5em 1em 0em 1em",
   height: "100%",
-  borderRight: "0.5px solid #000",
+  borderRight: "0.05vh solid #000",
   ".link": {
     fontSize: "2",
     textDecoration: "none",
@@ -25,6 +25,10 @@ const sidebarSx = {
       textDecoration: "underline",
       textUnderlineOffset: "4px",
     },
+  },
+  ".linksToShow": {
+    display: "grid",
+    gridGap: "10px",
   },
   ".highlight": {
     color: "primary",
@@ -48,9 +52,6 @@ const sidebarSx = {
   ".buttonLink:hover": {
     backgroundColor: "#d41c15",
   },
-  ".logo": {
-    marginBottom: "0.4em",
-  },
   ".sectionsLink": {
     display: "flex",
     gap: "16px",
@@ -64,6 +65,11 @@ const sidebarSx = {
   ".rotated::before": {
     transform: "rotate(90deg)",
   },
+  ".horizontalLine1, horizontalLine2": {
+    borderTop: "1px solid #000000 ",
+    marginLeft: 0,
+    marginRight: 0
+  },
   ".advoStyle": {
     display: "flex",
     flexDirection: "column",
@@ -71,11 +77,97 @@ const sidebarSx = {
     fontSize: "40px",
     p: {
       fontSize: "20px",
-    }
-  }
+    },
+  },
+
+  "@media (max-width: 767px)": {
+    width: "100vw",
+    marginLeft: "0",
+    marginRight: "0",
+    padding: "1em 1em 1em 1em",
+    position: "sticky",
+    top: "0",
+    backgroundColor: "white",
+    ".advoStyle": {
+      alignItems: "center",
+      fontSize: "3vh",
+      marginTop: "0vh",
+    },
+    ".logo": {
+      img: {
+        display: "none",
+      },
+    },
+    ".horizontalLine1, .horizontalLine2": {
+      display: "none",
+    },
+
+    ".navbarButton > .line": {
+      backgroundColor: "#292929",
+      height: "2px",
+      display: "block",
+      width: "4vw",
+    },
+    ".navbarButton > .line + .line": {
+      marginTop: "3px",
+    },
+    ".navbarButton::before": {
+      cursor: "pointer",
+      display: "inline-block",
+      transition: "transform 0.3s",
+    },
+    ".rotated::before": {
+      transform: "rotate(90deg)",
+    },
+    ".headerGrid": {
+      display: "grid",
+      justifyItems: "stretch",
+      gridTemplateColumns: "1fr 8fr 1fr",
+      alignItems: "center",
+    },
+    ".buttonLink": {
+      display: "none",
+    },
+    ".buttonLinkMobile": {
+      color: "white",
+      backgroundColor: "#e2251e",
+      padding: "1vh 1vh",
+      textAlign: "center",
+      textDecoration: "none",
+      display: "inline-block",
+      borderRadius: "4px",
+      fontSize: "1vh",
+      width: "100%",
+      fontFamily: "sans-serif",
+      fontWeight: "600",
+    },
+    ".buttonLinkMobile:hover": {
+      backgroundColor: "#d41c15",
+    },
+    borderRight: "0px",
+    borderBottom: "0.1vh solid #000",
+  },
 };
 
+
 export default function Sidebar() {
+  const [windowDimension, setWindowDimension] = useState(null);
+
+  useEffect(() => {
+    setWindowDimension(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimension(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMobile = windowDimension <= 767;
+
   const location = useLocation();
   const [sectionsExpanded, setSectionsExpanded] = useState(() =>
     [
@@ -99,6 +191,13 @@ export default function Sidebar() {
       ? true
       : false
   );
+  const [navbarExpanded, setNavbarExpanded] = useState(() =>
+    [
+
+    ].includes(location.pathname)
+      ? true
+      : false
+  );
 
 
   const highlightLink = (pathname) => {
@@ -111,14 +210,33 @@ export default function Sidebar() {
   return (
     <div sx={sidebarSx}>
       <Grid className="sidebar" columns={1} gap={3}>
-        <Link className={"link logo"} to={"/"}>
+        {isMobile ? (
+          <div className="headerGrid">
+            <div className={"navbarButton" + (navbarExpanded ? " rotated" : "")} onClick={() => setNavbarExpanded(!navbarExpanded)}>
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+            <Link className={"link logo"} to={"/"}>
+              <img src={logo} alt="The Advocate Logo" />
+              <div className = "advoStyle">
+                The Harvard Advocate
+              </div>
+            </Link>
+            <Link className = "buttonLinkMobile" to={"/subscribe"}>
+              Subscribe
+            </Link>
+          </div>
+        ):(<Link className={"link logo"} to={"/"}>
           <img src={logo} alt="The Advocate Logo" />
           <div className = "advoStyle">
             The Harvard Advocate
           </div>
-        </Link>
-        <div style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
+        </Link>)}
 
+        <div className="horizontalLine1" style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
+        {(navbarExpanded || !isMobile) && (
+        <div className="linksToShow">
         <Link className={`link ${highlightLink("/")}`} to={"/"}>
           Home
         </Link>
@@ -234,7 +352,10 @@ export default function Sidebar() {
             </Link>
           </Grid>
         )}
-    <div style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
+        </div>
+      )}
+
+    <div className="horizontalLine2"></div>
 
         <Link className = "buttonLink" to={"/submit"}>
           Submit

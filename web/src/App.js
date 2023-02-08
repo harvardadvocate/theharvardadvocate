@@ -23,33 +23,44 @@ import Subscribe from "./pages/Subscribe"
 import Submit from "./pages/Submit"
 import Masthead from "./pages/Masthead"
 
+const appSx = {
+  display: "grid",
+  gridTemplateColumns: "1fr 8fr",
+  "@media (max-width: 767px)": {
+    gridTemplateColumns: "auto",
+    ".nonSidebarContent": {
+      width: "100vw",
+    }
+  },
+};
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
         <BrowserRouter>
-          <Grid gap={0} columns={"200px 4fr"}>
-            <Sidebar />
-            <div className="nonSidebarContent">
-              <Routes>
-                <Route element={<Homepage />} path="/" exact />
-                <Route element={<About />} path="/about" exact />
-                <Route element={<IssuesList />} path="/issues" exact />
-                <Route element={<Issue />} path="/issues/:issueSlug" />
-                <Route element={<Advertise />} path="/advertise" exact />
-                <Route element={<Masthead />} path="/masthead" exact />
-                <Route element={<Comp />} path="/comp" exact />
-                <Route element={<Donate />} path="/donate" exact />
-                <Route element={<Shop />} path="/shop" exact />
-                <Route element={<SectionsOverview />} path="/sections" exact />
-                <Route element={<Subscribe />} path="/subscribe" exact />
-                <Route element={<Submit />} path="/submit" exact />
-                <Route element={<Section />} path="sections/:sectionSlug" />
-                <Route element={<ContentItem />} path="/:slug" />
-                <Route element={<Author />} path="authors/:authorSlug" />
-              </Routes>
-            </div>
-          </Grid>
+          <div css={appSx}>
+              <Sidebar />
+              <div className="nonSidebarContent">
+                <Routes>
+                  <Route element={<Homepage />} path="/" exact />
+                  <Route element={<About />} path="/about" exact />
+                  <Route element={<IssuesList />} path="/issues" exact />
+                  <Route element={<Issue />} path="/issues/:issueSlug" />
+                  <Route element={<Advertise />} path="/advertise" exact />
+                  <Route element={<Masthead />} path="/masthead" exact />
+                  <Route element={<Comp />} path="/comp" exact />
+                  <Route element={<Donate />} path="/donate" exact />
+                  <Route element={<Shop />} path="/shop" exact />
+                  <Route element={<SectionsOverview />} path="/sections" exact />
+                  <Route element={<Subscribe />} path="/subscribe" exact />
+                  <Route element={<Submit />} path="/submit" exact />
+                  <Route element={<Section />} path="sections/:sectionSlug" />
+                  <Route element={<ContentItem />} path="/:slug" />
+                  <Route element={<Author />} path="authors/:authorSlug" />
+                </Routes>
+              </div>
+          </div>
         </BrowserRouter>
       </div>
     </ThemeProvider>

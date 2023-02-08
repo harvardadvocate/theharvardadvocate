@@ -11,10 +11,6 @@ const advertiseSx = {
     alignItems:"center",
     margin: "0em 15em 2em 15em",
   },
-  i: {
-    textAlign: "center",
-    display: "block"
-  },
   ".image": {
     display: "flex",
     flexDirection: "column",
@@ -27,7 +23,20 @@ const advertiseSx = {
     figcaption: {
       fontSize: "16px",
     },
-  }
+  },
+  i: {
+    textAlign: "center",
+    display: "block"
+  },
+
+
+    "@media (max-width: 767px)": {
+      ".advertiseBody": {
+        margin: "0em 0em 0em 0em",
+        marginTop: "1em",
+      },
+    },
+
 };
 
 export default function Advertise() {

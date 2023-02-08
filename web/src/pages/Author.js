@@ -43,7 +43,7 @@ export default function Author() {
            _id,
            name,
            slug,
-           image, 
+           image,
            bio
          }`,
         { authorSlug }

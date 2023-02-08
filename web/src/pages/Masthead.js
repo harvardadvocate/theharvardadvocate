@@ -15,6 +15,14 @@ const mastheadSx = {
     textAlign: "center",
     display: "block"
   },
+
+  "@media (max-width: 767px)": {
+    ".mastheadBody": {
+      margin: "0em 0em 0em 0em",
+      marginTop: "1em",
+    },
+  },
+
 };
 
 export default function Masthead() {
