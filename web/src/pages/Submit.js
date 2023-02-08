@@ -49,6 +49,14 @@ const submitSx = {
       fontSize: "16px",
     },
   },
+
+  "@media (max-width: 767px)": {
+    ".submitBody": {
+      margin: "0em 0em 0em 0em",
+      marginTop: "1em",
+    },
+  },
+
 };
 
 export default function Submit() {

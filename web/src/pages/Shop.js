@@ -13,6 +13,14 @@ const shopSx = {
     textAlign: "center",
     display: "block"
   },
+
+  "@media (max-width: 767px)": {
+    ".shopBody": {
+      margin: "0em 0em 0em 0em",
+      marginTop: "1em",
+    },
+  },
+
 };
 
 export default function Shop() {

@@ -7,12 +7,12 @@ import rightArrow from "../assets/images/right-arrow.svg";
 const frameSx = {
   margin: "0em 15em 2em 15em",
   ".header": {
-    marginLeft: "10%",
-    marginRight: "0em",
+    marginLeft: "5%",
+    marginRight: "2em",
     marginTop: "0px",
     marginBottom: "1em",
     height: "2em",
-    width: "75%",
+    maxWidth: "90%",
     display: "flex",
     h5: {
       margin: "0.5em",
@@ -49,6 +49,7 @@ const frameSx = {
     display: "flex",
     marginTop: "0em",
     minHeight: "100vh",
+    flexDirection: "column",
     ".mainContent": {
       flexGrow: 1,
     },
@@ -56,28 +57,24 @@ const frameSx = {
   ".verticalLines": {
     width: "20px",
     marginRight: "0px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "40px",
-
-    ".topVL": {
-      borderRight: "1px solid #000",
-      width: "20px",
-      height: "100%",
-      h5: {
-        lineHeight: 1,
-        writingMode: "vertical-rl",
-        textOrientation: "mixed",
-        transform: "rotate(180deg)",
-      },
-    },
+    display: "none",
   },
   ".mainContent": {
     marginLeft: "0px",
   },
+  "@media (max-width: 767px)": {
+    margin: "0em 0.8em 2em 0.8em",
+    ".header": {
+      marginBottom: "0em",
+      display: "none",
+    },
+    ".horizontalContainer": {
+      marginTop: "1em",
+    },
+  },
 };
 // TODO: assumes only up to 3 elements in path
-export default function Frame(props) {
+export default function ContentFrame(props) {
   return (
     <div sx={frameSx}>
       <div className="header">
