@@ -217,17 +217,17 @@ export default function Sidebar() {
               <span class="line"></span>
               <span class="line"></span>
             </div>
-            <Link className={"link logo"} to={"/"}>
+            <Link className={"link logo"} to={"/"} onClick={() => setNavbarExpanded(false)}>
               <img src={logo} alt="The Advocate Logo" />
               <div className = "advoStyle">
                 The Harvard Advocate
               </div>
             </Link>
-            <Link className = "buttonLinkMobile" to={"/subscribe"}>
+            <Link className = "buttonLinkMobile" to={"/subscribe"} onClick={() => setNavbarExpanded(false)}>
               Subscribe
             </Link>
           </div>
-        ):(<Link className={"link logo"} to={"/"}>
+        ):(<Link className={"link logo"} to={"/"} onClick={() => setNavbarExpanded(false)}>
           <img src={logo} alt="The Advocate Logo" />
           <div className = "advoStyle">
             The Harvard Advocate
@@ -237,13 +237,13 @@ export default function Sidebar() {
         <div className="horizontalLine1" style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
         {(navbarExpanded || !isMobile) && (
         <div className="linksToShow">
-        <Link className={`link ${highlightLink("/")}`} to={"/"}>
+        <Link className={`link ${highlightLink("/")}`} to={"/"} onClick={() => setNavbarExpanded(false)}>
           Home
         </Link>
-        <Link className={`link ${highlightLink("/about")}`} to={"/about"}>
+        <Link className={`link ${highlightLink("/about")}`} to={"/about"} onClick={() => setNavbarExpanded(false)}>
           About
         </Link>
-        <Link className={`link ${highlightLink("/issues")}`} to={"/issues"}>
+        <Link className={`link ${highlightLink("/issues")}`} to={"/issues"} onClick={() => setNavbarExpanded(false)}>
           Issues
         </Link>
         <div className="sectionsLink">
@@ -267,36 +267,42 @@ export default function Sidebar() {
             <Link
               className={`link ${highlightLink("/sections/art")}`}
               to="/sections/art"
+              onClick={() => setNavbarExpanded(false)}
             >
               Art
             </Link>
             <Link
               className={`link ${highlightLink("/sections/fiction")}`}
               to="/sections/fiction"
+              onClick={() => setNavbarExpanded(false)}
             >
               Fiction
             </Link>
             <Link
               className={`link ${highlightLink("/sections/features")}`}
               to="/sections/features"
+              onClick={() => setNavbarExpanded(false)}
             >
               Features
             </Link>
             <Link
               className={`link ${highlightLink("/sections/poetry")}`}
               to="/sections/poetry"
+              onClick={() => setNavbarExpanded(false)}
             >
               Poetry
             </Link>
             <Link
               className={`link ${highlightLink("/sections/columns")}`}
               to="/sections/columns"
+              onClick={() => setNavbarExpanded(false)}
             >
               Columns
             </Link>
             <Link
               className={`link ${highlightLink("/sections/blog")}`}
               to="/sections/blog"
+              onClick={() => setNavbarExpanded(false)}
             >
               Blog
             </Link>
@@ -323,30 +329,35 @@ export default function Sidebar() {
             <Link
               className={`link ${highlightLink("/shop")}`}
               to="/shop"
+              onClick={() => setNavbarExpanded(false)}
             >
               Shop
             </Link>
             <Link
               className={`link ${highlightLink("/donate")}`}
               to="/donate"
+              onClick={() => setNavbarExpanded(false)}
             >
               Donate
             </Link>
             <Link
               className={`link ${highlightLink("/advertise")}`}
               to="/advertise"
+              onClick={() => setNavbarExpanded(false)}
             >
               Advertise
             </Link>
             <Link
               className={`link ${highlightLink("/comp")}`}
               to="/comp"
+              onClick={() => setNavbarExpanded(false)}
             >
               Comp
             </Link>
             <Link
               className={`link ${highlightLink("/masthead")}`}
               to="/masthead"
+              onClick={() => setNavbarExpanded(false)}
             >
               Masthead
             </Link>
