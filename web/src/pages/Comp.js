@@ -28,7 +28,16 @@ const compSx = {
     figcaption: {
       fontSize: "16px",
     },
-  }
+  },
+
+
+  "@media (max-width: 767px)": {
+    ".compBody": {
+      margin: "0em 0em 0em 0em",
+      marginTop: "1em",
+    },
+  },
+
 };
 
 export default function Comp() {

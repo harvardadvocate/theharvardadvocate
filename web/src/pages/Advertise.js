@@ -28,6 +28,15 @@ const advertiseSx = {
     textAlign: "center",
     display: "block"
   },
+
+
+    "@media (max-width: 767px)": {
+      ".advertiseBody": {
+        margin: "0em 0em 0em 0em",
+        marginTop: "1em",
+      },
+    },
+
 };
 
 export default function Advertise() {

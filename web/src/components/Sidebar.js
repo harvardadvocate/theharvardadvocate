@@ -79,8 +79,15 @@ const sidebarSx = {
       fontSize: "20px",
     },
   },
+
   "@media (max-width: 767px)": {
+    width: "100vw",
+    marginLeft: "0",
+    marginRight: "0",
     padding: "1em 1em 1em 1em",
+    position: "sticky",
+    top: "0",
+    backgroundColor: "white",
     ".advoStyle": {
       alignItems: "center",
       fontSize: "3vh",
@@ -112,6 +119,33 @@ const sidebarSx = {
     ".rotated::before": {
       transform: "rotate(90deg)",
     },
+    ".headerGrid": {
+      display: "grid",
+      justifyItems: "stretch",
+      gridTemplateColumns: "1fr 8fr 1fr",
+      alignItems: "center",
+    },
+    ".buttonLink": {
+      display: "none",
+    },
+    ".buttonLinkMobile": {
+      color: "white",
+      backgroundColor: "#e2251e",
+      padding: "1vh 1vh",
+      textAlign: "center",
+      textDecoration: "none",
+      display: "inline-block",
+      borderRadius: "4px",
+      fontSize: "1vh",
+      width: "100%",
+      fontFamily: "sans-serif",
+      fontWeight: "600",
+    },
+    ".buttonLinkMobile:hover": {
+      backgroundColor: "#d41c15",
+    },
+    borderRight: "0px",
+    borderBottom: "0.1vh solid #000",
   },
 };
 
@@ -176,21 +210,32 @@ export default function Sidebar() {
   return (
     <div sx={sidebarSx}>
       <Grid className="sidebar" columns={1} gap={3}>
-        <Link className={"link logo"} to={"/"}>
+        {isMobile ? (
+          <div className="headerGrid">
+            <div className={"navbarButton" + (navbarExpanded ? " rotated" : "")} onClick={() => setNavbarExpanded(!navbarExpanded)}>
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+            <Link className={"link logo"} to={"/"}>
+              <img src={logo} alt="The Advocate Logo" />
+              <div className = "advoStyle">
+                The Harvard Advocate
+              </div>
+            </Link>
+            <Link className = "buttonLinkMobile" to={"/subscribe"}>
+              Subscribe
+            </Link>
+          </div>
+        ):(<Link className={"link logo"} to={"/"}>
           <img src={logo} alt="The Advocate Logo" />
           <div className = "advoStyle">
             The Harvard Advocate
-            {isMobile ? (
-              <div className={"navbarButton" + (navbarExpanded ? " rotated" : "")} onClick={() => setNavbarExpanded(!navbarExpanded)}>
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-              </div>
-            ):(<div/>)}
           </div>
-        </Link>
+        </Link>)}
+
         <div className="horizontalLine1" style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
-        {navbarExpanded && (
+        {(navbarExpanded || !isMobile) && (
         <div className="linksToShow">
         <Link className={`link ${highlightLink("/")}`} to={"/"}>
           Home
