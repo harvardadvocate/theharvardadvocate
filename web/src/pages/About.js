@@ -24,6 +24,13 @@ const aboutSx = {
     },
     width: "450px",
   },
+
+  "@media (max-width: 767px)": {
+    ".aboutBody": {
+      margin: "0em 0em 0em 0em",
+      marginTop: "1em",
+    },
+  },
 };
 
 export default function About() {

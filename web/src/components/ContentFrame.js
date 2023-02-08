@@ -6,9 +6,6 @@ import rightArrow from "../assets/images/right-arrow.svg";
 
 const frameSx = {
   margin: "0em 15em 2em 15em",
-  "@media (max-width: 767px)": {
-    margin: "0em 2em 2em 2em",
-  },
   ".header": {
     marginLeft: "5%",
     marginRight: "2em",
@@ -65,9 +62,19 @@ const frameSx = {
   ".mainContent": {
     marginLeft: "0px",
   },
+  "@media (max-width: 767px)": {
+    margin: "0em 0.8em 2em 0.8em",
+    ".header": {
+      marginBottom: "0em",
+      display: "none",
+    },
+    ".horizontalContainer": {
+      marginTop: "1em",
+    },
+  },
 };
 // TODO: assumes only up to 3 elements in path
-export default function Frame(props) {
+export default function ContentFrame(props) {
   return (
     <div sx={frameSx}>
       <div className="header">

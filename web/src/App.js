@@ -28,6 +28,9 @@ const appSx = {
   gridTemplateColumns: "1fr 8fr",
   "@media (max-width: 767px)": {
     gridTemplateColumns: "auto",
+    ".nonSidebarContent": {
+      width: "100vw",
+    }
   },
 };
 
