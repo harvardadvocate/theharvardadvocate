@@ -78,7 +78,7 @@ const homepageSx = {
   ".topArticles": {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
-    gridTemplateRows: "4fr 2fr 4fr repeat(2, 2.5fr)",
+    gridTemplateRows: "2fr 2fr 2fr repeat(2, 2fr)",
     gridColumnGap: "0vw",
     paddingLeft: "2vw",
     paddingRight: "2vw",
@@ -110,6 +110,12 @@ const homepageSx = {
     }
   },
 
+  ".textPreview5, .textPreview6": {
+    p: {
+      WebkitLineClamp: "3",
+    },
+  },
+
   ".div1": {
     gridArea: "1 / 1 / 2 / 2",
     borderRight: "1px solid rgba(0, 0, 0, .2)",
@@ -124,17 +130,17 @@ const homepageSx = {
     gridArea: "1 / 3 / 2 / 4"
   },
 
-  ".div1, .div2, .div3, .div4, .div5": {
+  ".div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8": {
     h3: {
       color: "#d34c21",
     },
     h4: {
       "fontFamily": "Poppins",
     },
+    padding: "1em",
   },
 
   ".div1, .div2, .div3": {
-    padding: "1em",
     textAlign: "left",
     paddingLeft: "2em",
     paddingRight: "2em",
@@ -144,16 +150,15 @@ const homepageSx = {
     gridArea: "2 / 1 / 4 / 3",
     borderTop: "1px solid rgba(0, 0, 0, .2)",
     marginTop: "2em",
-    padding: "1em",
-    marginRight: "-2em",
     display: "flex",
     borderBottom: "1px solid rgba(0, 0, 0, .2)",
+    alignItems: "center",
   },
 
   ".div4image": {
     display: "inline-block",
     verticalAlign: "middle",
-    minWidth: "40%",
+    minWidth: "50%",
     alignItems: "center",
     justifyItems: "center",
     justifyContent: "center",
@@ -165,20 +170,41 @@ const homepageSx = {
     verticalAlign: "middle",
   },
 
+
   ".div5": {
-    gridArea: "4 / 1 / 5 / 3"
+    gridArea: "4 / 1 / 5 / 3",
+    borderBottom: "1px solid rgba(0, 0, 0, .2)",
+    paddingBottom: "1em",
+
   },
 
   ".div6": {
-    gridArea: "5 / 1 / 6 / 3"
+    gridArea: "5 / 1 / 6 / 3",
   },
 
   ".div7": {
-    gridArea: "2 / 3 / 5 / 4"
+    gridArea: "2 / 3 / 5 / 4",
+    display: "flex",
+    flexDirection: "column",
+    marginTop: "2em",
+    alignItems: "left",
+    marginLeft: "1em",
+    borderLeft: "1px solid rgba(0, 0, 0, .2)",
+    height: "min-content",
+  },
+
+  ".div7image, .div7content": {
+    minWidth: "110%",
   },
 
   ".div8": {
-    gridArea: "5 / 3 / 6 / 4"
+    gridArea: "5 / 3 / 6 / 4",
+    borderLeft: "1px solid rgba(0, 0, 0, .2)",
+    marginLeft: "1em",
+  },
+
+  ".div8image": {
+
   },
 
   "@media (max-width: 767px)": {
@@ -401,14 +427,54 @@ export default function Homepage() {
                 )
                 .then((data) => setFeaturedArticle6(data))
                 .catch(console.error);
+
+              sanityClient
+                .fetch(
+                  `*[_type == "contentItem" && "artFeaturedMiddleRight" in featuredOptions] | order(publishedAt desc)[0] {
+                      title,
+                      authors[]->{name},
+                      issue->{title},
+                      slug,
+                      body,
+                      sections[]->{title, slug},
+                      mainImage{
+                        asset->{
+                        _id,
+                        url
+                      }
+                    }
+                  }`
+                )
+                .then((data) => setFeaturedArt1(data))
+                .catch(console.error);
+
+              sanityClient
+                .fetch(
+                  `*[_type == "contentItem" && "artFeaturedBottomRight" in featuredOptions] | order(publishedAt desc)[0] {
+                      title,
+                      authors[]->{name},
+                      issue->{title},
+                      slug,
+                      body,
+                      sections[]->{title, slug},
+                      mainImage{
+                        asset->{
+                        _id,
+                        url
+                      }
+                    }
+                  }`
+                )
+                .then((data) => setFeaturedArt2(data))
+                .catch(console.error);
     }, []);
 
-    if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5) {
+    if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2) {
       return <div>Loading...</div>;
     }
     else {
       console.log("Welcome to the Harvard Advocate.");
-      console.log(featuredArticle4);
+      console.log(featuredArt2);
     }
 
   return (
@@ -535,16 +601,60 @@ export default function Homepage() {
               </div>
               <br/>
               <Themed.h4>By {featuredArticle4.authors[0].name}</Themed.h4>
-
             </div>
           </div>
           <div class="div5">
+            <Themed.h3><i>{featuredArticle5.sections[0].title} • {featuredArticle1.issue.title}</i></Themed.h3>
+            <Themed.h2>{featuredArticle5.title}</Themed.h2>
+            <br/>
+            <div className = "textPreview5">
+              {featuredArticle5.body && (
+                <PortableText
+                  value={featuredArticle5.body}
+                  hardBreak={false}
+                  components={customComponents}
+                />
+              )}
+            </div>
+            <br/>
+            <Themed.h4>By {featuredArticle5.authors[0].name}</Themed.h4>
           </div>
           <div class="div6">
+            <Themed.h3><i>{featuredArticle6.sections[0].title} • {featuredArticle6.issue.title}</i></Themed.h3>
+            <Themed.h2>{featuredArticle6.title}</Themed.h2>
+            <br/>
+            <div className = "textPreview6">
+              {featuredArticle6.body && (
+                <PortableText
+                  value={featuredArticle6.body}
+                  hardBreak={false}
+                  components={customComponents}
+                />
+              )}
+            </div>
+            <br/>
+            <Themed.h4>By {featuredArticle6.authors[0].name}</Themed.h4>
           </div>
           <div class="div7">
+            <div class="div7image">
+              <img src={featuredArt1.mainImage.asset.url} alt="Art image"></img>
+            </div>
+            <div class="div7content">
+              <Themed.h3><i>{featuredArt1.sections[0].title} • {featuredArt1.issue.title}</i></Themed.h3>
+              <Themed.h2>{featuredArt1.title}</Themed.h2>
+              <Themed.h4>By {featuredArt1.authors[0].name}</Themed.h4>
+            </div>
           </div>
           <div class="div8">
+            <div class="div8image">
+              <img src={featuredArt2.mainImage.asset.url} alt="Art image"></img>
+            </div>
+            <div class="div8content">
+              <Themed.h3><i>{featuredArt2.sections[0].title} • {featuredArt2.issue.title}</i></Themed.h3>
+              <Themed.h2>{featuredArt2.title}</Themed.h2>
+              <Themed.h4>By {featuredArt2.authors[0].name}</Themed.h4>
+            </div>
+
           </div>
         </div>
       </div>
