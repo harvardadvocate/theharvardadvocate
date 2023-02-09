@@ -143,22 +143,25 @@ const homepageSx = {
   ".div4": {
     gridArea: "2 / 1 / 4 / 3",
     borderTop: "1px solid rgba(0, 0, 0, .2)",
-    margin: "1rem",
-    padding: "2rem 2rem",
+    marginTop: "2em",
+    padding: "1em",
+    marginRight: "-2em",
     display: "flex",
+    borderBottom: "1px solid rgba(0, 0, 0, .2)",
   },
 
   ".div4image": {
     display: "inline-block",
-    border: "1px solid red",
-    padding: "1rem 1rem",
     verticalAlign: "middle",
+    minWidth: "40%",
+    alignItems: "center",
+    justifyItems: "center",
+    justifyContent: "center",
+    display: "flex",
   },
 
   ".div4content": {
     display: "inline-block",
-    border: "1px solid red",
-    padding: "1rem 1rem",
     verticalAlign: "middle",
   },
 
@@ -515,7 +518,7 @@ export default function Homepage() {
           </div>
           <div class="div4">
             <div class="div4image">
-              <img src={featuredArticle5.mainImage.asset.url}></img>
+              <img src={featuredArticle4.mainImage.asset.url} alt="Illustration"></img>
             </div>
             <div class="div4content">
               <Themed.h3><i>{featuredArticle4.sections[0].title} • {featuredArticle4.issue.title}</i></Themed.h3>
