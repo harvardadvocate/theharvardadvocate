@@ -24,6 +24,7 @@ const subscribeSx = {
   ".bigBox": {
     display: "flex",
     padding: "40px",
+    textAlign: "center",
     flexDirection: "column",
     border: "2px solid lightgrey",
     justifyContent: "center",
@@ -87,7 +88,7 @@ export default function Subscribe() {
           <div className="bigBox">
             <h3 align="center">Full Subscription</h3>
             <br/>
-            <Themed.h2 align="center"><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h2>
+            <Themed.h2><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h2>
             <br/>
             <p>Renews automatically. Cancel anytime. Non-refundable.</p>
             <div  align="center">
