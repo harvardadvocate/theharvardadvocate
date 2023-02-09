@@ -14,6 +14,7 @@ const frameSx = {
     ".headerNormal": {
       borderBottom: "1px solid #000",
       width: "100%",
+      textAlign: "center",
     },
   },
   ".horizontalContainer": {
