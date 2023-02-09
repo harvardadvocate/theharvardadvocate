@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 
 const sidebarSx = {
-  padding: "2.5em 1em 0em 1em",
+  padding: "2.5em 1.5em 0em 1.5em",
   height: "100vh",
   top: "0px",
   position: "sticky",
