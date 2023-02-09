@@ -47,7 +47,6 @@ export const theme = {
     },
     h2: {
       variant: "text.body",
-      textAlign: "center",
       fontSize: 3,
     },
     h3: {
