@@ -47,6 +47,28 @@ export default {
       type: "array",
       of: [{ type: "reference", to: { type: "section" } }],
     },
+
+    {
+      name: "featuredOptions",
+      title: "Featured on front page?",
+      type: "array",
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          {title: 'Featured Top Bar (Features)', value: 'featuresFeaturedTop'},
+          {title: 'Featured Top Bar (Poetry)', value: 'poetryFeaturedTop'},
+          {title: 'Featured Top Bar (Fiction)', value: 'fictionFeaturedTop'},
+          {title: 'Featured Middle Bar (Features)', value: 'featuresFeaturedMiddle'},
+          {title: 'Featured Middle Right (Art)', value: 'artFeaturedMiddleRight'},
+          {title: 'Featured Bottom Right (Art)', value: 'artFeaturedBottomRight'},
+          {title: 'Featured Bottom Row (Poetry)', value: 'poetryFeaturedBottom'},
+          {title: 'Featured Bottom Row (Fiction)', value: 'fictionFeaturedBottom'},
+          {title: 'Featured NEW ISSUE HIGHLIGHT', value: 'newIssueFeatured'},
+        ]
+      }
+    },
+
+
     {
       name: "publishedAt",
       title: "Published at",

@@ -7,7 +7,7 @@ import { Grid } from "theme-ui";
 const sidebarSx = {
   padding: "2.5em 1em 0em 1em",
   height: "100%",
-  borderRight: "0.05vh solid #000",
+  borderRight: "0.1vh solid #000",
   ".link": {
     fontSize: "2",
     textDecoration: "none",
