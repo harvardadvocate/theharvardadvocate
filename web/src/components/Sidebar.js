@@ -363,6 +363,7 @@ export default function Sidebar() {
             </Link>
           </Grid>
         )}
+        <div className="horizontalLine1" style={{ borderTop: "1px solid #000000 ", marginTop: "1vh", marginRight: 0 }}></div>
         </div>
       )}
 
