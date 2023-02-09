@@ -22,6 +22,7 @@ const homepageSx = {
   },
   ".mainContent": {
     marginLeft: "0px",
+
   },
   ".issueItem": {
     cursor: "pointer",
@@ -33,6 +34,13 @@ const homepageSx = {
     marginTop: "20%",
     img: {
       boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
+      maxWidth: "100%",
+      maxHeight: "75%"
+    }
+  },
+  ".issueCover:hover": {
+    img: {
+      boxShadow: "2px 8px 8px 2px rgba(0, 0, 0, 0.6)",
       maxWidth: "100%",
       maxHeight: "75%"
     }
@@ -70,9 +78,21 @@ const homepageSx = {
       fontFamily: "sans-serif"
     },
   },
+  ".readFullIssue:hover": {
+    "h6": {
+      color: "#780008",
+    },
+    "span": {
+      backgroundColor: "#780008",
+      border: "2px solid #780008",
+    }
+  },
 
   ".articleLink": {
     color: "#FFFFFF",
+  },
+  ".articleLink:hover": {
+    color: "#780008",
   },
 
   "@media (max-width: 767px)": {
