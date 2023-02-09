@@ -50,6 +50,9 @@ const submitSx = {
       fontSize: "16px",
     },
   },
+  h2: {
+    textAlign: "center",
+  },
 
   "@media (max-width: 767px)": {
     ".submitBody": {
@@ -81,7 +84,7 @@ export default function Submit() {
           The Harvard Advocate accepts submissions of art, fiction, and poetry of any form or length created by members of the Harvard community, as well as outside contributors at our discretion. All submissions are considered anonymously.
           <br/><br/>
           <hr/>
-          <Themed.h2 align="center">Spring 2023 Issue</Themed.h2>
+          <Themed.h2>Spring 2023 Issue</Themed.h2>
           <hr/>
           <i align="center">Our winter 2023 Review Period ends on Friday, October 14th, 2022.</i>
           <br/>
