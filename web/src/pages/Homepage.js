@@ -4,6 +4,7 @@ import { Themed, Grid } from "theme-ui";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const homepageSx = {
   margin: "0em 0em 0em 0em",
@@ -96,6 +97,17 @@ const homepageSx = {
     gridRowGap: "0px",
   },
 
+  ".blog": {
+    textAlign: "center",
+  },
+
+  ".blogGrid": {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gridTemplateRows: "1fr",
+    gridColumnGap: "10px",
+    gridRowGap: "0px",
+  },
 
   ".textPreview1, .textPreview2, .textPreview3, .textPreview4, .textPreview5, .textPreview6": {
     br: {
@@ -668,12 +680,27 @@ export default function Homepage() {
           </div>
         </div>
         <div className="sanctumSessions">
-        <hr/>
-        <img src="/sanctum_sessions.png"/>
+          <hr/>
+          <img src="/sanctum_sessions.png"/>
         </div>
         <div className="blog">
-        <hr/>
-        <hr/>
+          <hr/>
+          <Themed.h2>Blog</Themed.h2>
+          <hr/>
+          <Themed.p><i>The stinky online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
+          <div class="blogGrid">
+          </div>
+          <hr/>
+        </div>
+        <div class="socialsFeed">
+          <div class="instaCol"><p>Awaiting the Instagram API token........</p></div>
+          <div class="twitterCol">
+            <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName="harvardadvocate"
+              options={{height: 500}}
+            />
+          </div>
         </div>
       </div>
     </div>
