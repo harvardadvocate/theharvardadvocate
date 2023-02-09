@@ -53,6 +53,16 @@ const homepageSx = {
       fontFamily: "sans-serif",
     },
   },
+  ".sanctumSessions": {
+    padding:"0em",
+    hr: {
+      color: "rgba(0,0,0,0.2)",
+    },
+    img: {
+      padding: "3em",
+    }
+  },
+
   ".readFullIssue": {
     color: "#FFFFFF",
     span: {
@@ -194,7 +204,7 @@ const homepageSx = {
   },
 
   ".div7image, .div7content": {
-    minWidth: "110%",
+    minWidth: "100%",
   },
 
   ".div8": {
@@ -203,8 +213,8 @@ const homepageSx = {
     marginLeft: "1em",
   },
 
-  ".div8image": {
-
+  ".div8image, .div8content": {
+    minWidth: "100%",
   },
 
   "@media (max-width: 767px)": {
@@ -656,6 +666,14 @@ export default function Homepage() {
             </div>
 
           </div>
+        </div>
+        <div className="sanctumSessions">
+        <hr/>
+        <img src="/sanctum_sessions.png"/>
+        </div>
+        <div className="blog">
+        <hr/>
+        <hr/>
         </div>
       </div>
     </div>
