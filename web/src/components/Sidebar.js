@@ -6,7 +6,11 @@ import { Grid } from "theme-ui";
 
 const sidebarSx = {
   padding: "2.5em 1em 0em 1em",
-  height: "100%",
+  height: "100vh",
+  top: "0px",
+  position: "sticky",
+  minWidth: "min-content",
+  overflow: "auto",
   borderRight: "0.1vh solid #000",
   ".link": {
     fontSize: "2",
