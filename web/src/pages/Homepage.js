@@ -86,15 +86,27 @@ const homepageSx = {
     gridRowGap: "0px",
   },
 
-  ".textPreview1, .textPreview2, .textPreview3": {
+
+  ".textPreview1, .textPreview2, .textPreview3, .textPreview4, .textPreview5, .textPreview6": {
+    br: {
+      display: "none",
+    },
     p: {
-      WebkitLineClamp: "3",
       overflow: "hidden",
       WebkitBoxOrient: "vertical",
       display: "-webkit-box",
-    },
-    br: {
-      display: "none",
+    }
+  },
+
+  ".textPreview1, .textPreview2, .textPreview3": {
+    p: {
+      WebkitLineClamp: "3",
+    }
+  },
+
+  ".textPreview4": {
+    p: {
+      WebkitLineClamp: "6",
     }
   },
 
@@ -112,21 +124,42 @@ const homepageSx = {
     gridArea: "1 / 3 / 2 / 4"
   },
 
-  ".div1, .div2, .div3": {
-    padding: "1em",
-    textAlign: "left",
-    paddingLeft: "2em",
-    paddingRight: "2em",
+  ".div1, .div2, .div3, .div4, .div5": {
     h3: {
       color: "#d34c21",
     },
     h4: {
       "fontFamily": "Poppins",
-    }
+    },
+  },
+
+  ".div1, .div2, .div3": {
+    padding: "1em",
+    textAlign: "left",
+    paddingLeft: "2em",
+    paddingRight: "2em",
   },
 
   ".div4": {
-    gridArea: "2 / 1 / 4 / 3"
+    gridArea: "2 / 1 / 4 / 3",
+    borderTop: "1px solid rgba(0, 0, 0, .2)",
+    margin: "1rem",
+    padding: "2rem 2rem",
+    display: "flex",
+  },
+
+  ".div4image": {
+    display: "inline-block",
+    border: "1px solid red",
+    padding: "1rem 1rem",
+    verticalAlign: "middle",
+  },
+
+  ".div4content": {
+    display: "inline-block",
+    border: "1px solid red",
+    padding: "1rem 1rem",
+    verticalAlign: "middle",
   },
 
   ".div5": {
@@ -372,8 +405,7 @@ export default function Homepage() {
     }
     else {
       console.log("Welcome to the Harvard Advocate.");
-      console.log(featuredArticle1.sections[0].title);
-      console.log(featuredArticle1.issue.title);
+      console.log(featuredArticle4);
     }
 
   return (
@@ -482,6 +514,26 @@ export default function Homepage() {
             <Themed.h4>By {featuredArticle3.authors[0].name}</Themed.h4>
           </div>
           <div class="div4">
+            <div class="div4image">
+              <img src={featuredArticle5.mainImage.asset.url}></img>
+            </div>
+            <div class="div4content">
+              <Themed.h3><i>{featuredArticle4.sections[0].title} • {featuredArticle4.issue.title}</i></Themed.h3>
+              <Themed.h2>{featuredArticle4.title}</Themed.h2>
+              <br/>
+              <div className = "textPreview4">
+                {featuredArticle4.body && (
+                  <PortableText
+                    value={featuredArticle4.body}
+                    hardBreak={false}
+                    components={customComponents}
+                  />
+                )}
+              </div>
+              <br/>
+              <Themed.h4>By {featuredArticle4.authors[0].name}</Themed.h4>
+
+            </div>
           </div>
           <div class="div5">
           </div>
