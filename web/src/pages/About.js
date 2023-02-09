@@ -30,6 +30,9 @@ const aboutSx = {
       margin: "0em 0em 0em 0em",
       marginTop: "1em",
     },
+    ".image": {
+      width: "100%",
+    }
   },
 };
 

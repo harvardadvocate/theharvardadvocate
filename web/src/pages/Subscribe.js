@@ -21,6 +21,9 @@ const subscribeSx = {
     flexDirection: "column",
     alignItems: "center",
   },
+  ".mainText" : {
+    width: "80%"
+  },
   ".bigBox": {
     display: "flex",
     padding: "40px",
@@ -28,7 +31,7 @@ const subscribeSx = {
     flexDirection: "column",
     border: "2px solid lightgrey",
     justifyContent: "center",
-    width: "30%",
+    width: "20rem",
     height: "38%",
     borderRadius: "10px",
     boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
@@ -43,7 +46,7 @@ const subscribeSx = {
     },
   },
   p: {
-    opacity: "0.5",
+    color: "rgba(0,0,0,0.5)",
     marginTop: "10px",
     fontFamily: "sans-serif",
     fontSize: "16px",
@@ -75,7 +78,34 @@ const subscribeSx = {
     marginTop: "10px",
     width: "400px",
     textAlign: "center",
-  }
+  },
+
+  "@media (max-width: 767px)": {
+    ".mainContent": {
+      margin: "0em 0em 1em 0em",
+      marginTop: "1em",
+    },
+    ".bigBox": {
+      display: "flex",
+      padding: "3vh",
+      flexDirection: "column",
+      border: "2px solid lightgrey",
+      justifyContent: "center",
+      width: "90%",
+      borderRadius: "10px",
+      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
+      opacity: "1",
+      p: {
+        opacity: "1",
+        marginBottom: "5%",
+      },
+      strike: {
+        color: "rgba(0,0,0,0.5)",
+        marginRight: "0.5em",
+      },
+    }
+  },
+
 };
 
 export default function Subscribe() {
@@ -83,8 +113,11 @@ export default function Subscribe() {
     <div sx={subscribeSx}>
       <div className="horizontalContainer">
         <div className="mainContent">
+          <div className="mainText">
           <Themed.h2>Thank you for considering subscribing to the Harvard Advocate!</Themed.h2>
           <p align="center">By subscribing, you receive four print issues a year, printed on high-quality paper, delivered straight to your doorstep.</p>
+          </div>
+          <br></br>
           <div className="bigBox">
             <h3 align="center">Full Subscription</h3>
             <br/>
