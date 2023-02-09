@@ -16,13 +16,16 @@ const subscribeSx = {
   },
   ".mainContent": {
     marginLeft: "0px",
+    paddingLeft: "10px",
+    paddingRight: "10px",
     marginTop: "100px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   ".mainText" : {
-    width: "80%"
+    width: "80%",
+    textAlign: "center",
   },
   ".bigBox": {
     display: "flex",
@@ -103,6 +106,9 @@ const subscribeSx = {
         color: "rgba(0,0,0,0.5)",
         marginRight: "0.5em",
       },
+    },
+    ".image": {
+      width: "100%",
     }
   },
 
