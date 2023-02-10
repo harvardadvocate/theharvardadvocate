@@ -7,7 +7,11 @@ import { PortableText } from "@portabletext/react";
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const homepageSx = {
+  hr: {
+    border: "0.1px solid rgba(0, 0, 0, .2)",
+  },
   margin: "0em 0em 0em 0em",
+
   ".featuredIssue": {
     width: "100%",
     backgroundColor: "#D6362F",
@@ -17,6 +21,7 @@ const homepageSx = {
     display: "flex",
     marginTop: "0em",
     marginLeft: "0em",
+    marginBottom: "1em",
     minHeight: "100vh",
     ".mainContent": {
       flexGrow: 1,
@@ -29,14 +34,20 @@ const homepageSx = {
     cursor: "pointer",
   },
   ".issueCover": {
-    height: "100%",
+    height: "max-content",
     display: "flex",
     justifyContent: "center",
-    marginTop: "20%",
+    alignItems: "center",
+    marginTop: "8%",
+    marginBottom: "8%",
     img: {
       boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-      maxWidth: "100%",
-      maxHeight: "75%"
+      maxWidth: "69%",
+      maxHeight: "75%",
+    },
+    a: {
+      justifyContent: "center",
+      display: "flex",
     }
   },
 
@@ -62,6 +73,73 @@ const homepageSx = {
     img: {
       padding: "3em",
     }
+  },
+
+  ".socialsGrid": {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gridTemplateRows: "1fr",
+    gridColumnGap: "10px",
+    gridRowGap: "0px",
+    paddingTop: "1vh",
+  },
+
+  ".twitterCol": {
+    paddingLeft: "3vw",
+    paddingRight: "3vw",
+  },
+
+  ".instaCol": {
+    paddingLeft: "3vw",
+    paddingRight: "3vw",
+    borderRight: "1px solid rgba(0, 0, 0, .2)",
+    overflow: "hidden",
+    display: "grid",
+    gridTemplateColumns: "repeat(12, 1fr)",
+    position: "relative",
+    alignItems: "start",
+    alignContent: "space-between",
+  },
+
+  ".insta1": {
+    scale: "70%",
+    position: "relative",
+    gridColumn: "1 / span 8",
+    gridRow: "1",
+    paddingTop: "20%",
+    zIndex: "1",
+    transform: "rotate(3deg)",
+
+  },
+
+  ".insta2": {
+    scale: "70%",
+    gridColumn: "4 / -1",
+    gridRow: "1",
+    transform: "rotate(-3deg)",
+    position: "relative",
+  },
+
+  ".insta3": {
+    scale: "60%",
+    gridColumn: "2 / -3",
+    gridRow: "1",
+    zIndex: "0",
+    paddingTop: "100%",
+    marginRight: "-30%",
+    marginLeft: "30%",
+    transform: "rotate(3deg)",
+    position: "relative",
+  },
+
+  ".fromss": {
+    gridColumn: "-1 / 2",
+    gridRow: "1",
+    width: "10vw",
+    zIndex: "0",
+    padding: "1em",
+    zIndex: "1",
+    position: "relative",
   },
 
   ".readFullIssue": {
@@ -107,9 +185,19 @@ const homepageSx = {
     gridTemplateRows: "1fr",
     gridColumnGap: "10px",
     gridRowGap: "0px",
+    paddingTop: "2vh",
+    paddingBottom: "2vh",
   },
 
-  ".textPreview1, .textPreview2, .textPreview3, .textPreview4, .textPreview5, .textPreview6": {
+  ".blogArticle": {
+    borderRight: "1px solid rgba(0,0,0,0.20)",
+  },
+
+  ".blogArticle:last-child": {
+    borderRight: "none",
+  },
+
+  ".textPreview1, .textPreview2, .textPreview3, .textPreview4, .textPreview5, .textPreview6, .textPreview": {
     br: {
       display: "none",
     },
@@ -120,7 +208,7 @@ const homepageSx = {
     }
   },
 
-  ".textPreview1, .textPreview2, .textPreview3": {
+  ".textPreview1, .textPreview2, .textPreview3, .textPreview": {
     p: {
       WebkitLineClamp: "3",
     }
@@ -152,7 +240,7 @@ const homepageSx = {
     gridArea: "1 / 3 / 2 / 4"
   },
 
-  ".div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8": {
+  ".div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .blogArticle, .archiveArticle": {
     h3: {
       color: "#d34c21",
     },
@@ -162,7 +250,7 @@ const homepageSx = {
     padding: "1em",
   },
 
-  ".div1, .div2, .div3": {
+  ".div1, .div2, .div3, .blogArticle": {
     textAlign: "left",
     paddingLeft: "2em",
     paddingRight: "2em",
@@ -229,6 +317,50 @@ const homepageSx = {
     minWidth: "100%",
   },
 
+  ".archiveHeader": {
+    textAlign: "center",
+  },
+
+  ".archivesMainGrid": {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    paddingLeft: "2vw",
+    paddingRight: "2vw",
+    paddingTop: "2vh",
+  },
+
+  ".archivesCol": {
+    display: "grid",
+    gridTemplateRows: "1fr 1fr",
+    paddingLeft: "3vw",
+    paddingRight: "3vw",
+    gridGap: "3vh",
+    borderRight: "1px solid rgba(0,0,0,0.2)",
+  },
+
+  ".archivesCol:last-child": {
+    borderRight: "none",
+  },
+
+  ".archiveArticle": {
+    borderBottom: "1px solid rgba(0,0,0,0.2)",
+    paddingBottom: "5vh",
+    padding: "1em",
+  },
+
+  ".archiveArticle:last-child": {
+    borderBottom: "none",
+    paddingBottom: "none",
+  },
+
+  ".articleHeader": {
+    color: "#d34c21",
+    a: {
+      color: "#d34c21",
+    },
+  },
+
+
   "@media (max-width: 767px)": {
     ".issueCover": {
       marginTop: "0%",
@@ -288,7 +420,9 @@ export default function Homepage() {
   const [featuredArt1, setFeaturedArt1] = useState(null);
   const [featuredArt2, setFeaturedArt2] = useState(null);
 
+  const [instagramImages, setInstagramImages] = useState(null);
 
+  const [fromTheArchivesContent, setFromTheArchivesContent] = useState(null);
 
   useEffect(() => {
       sanityClient
@@ -315,7 +449,7 @@ export default function Homepage() {
           `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
               title,
               authors[]->{name},
-              issue->{title},
+              issue->{title, slug},
               slug,
               mainImage{
                 asset->{
@@ -333,7 +467,7 @@ export default function Homepage() {
           `*[_type == "contentItem" && "featuresFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
               title,
               authors[]->{name},
-              issue->{title},
+              issue->{title, slug},
               slug,
               body,
               sections[]->{title, slug},
@@ -353,7 +487,7 @@ export default function Homepage() {
             `*[_type == "contentItem" && "poetryFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
                 title,
                 authors[]->{name},
-                issue->{title},
+                issue->{title, slug},
                 slug,
                 body,
                 sections[]->{title, slug},
@@ -373,7 +507,7 @@ export default function Homepage() {
             `*[_type == "contentItem" && "fictionFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
                 title,
                 authors[]->{name},
-                issue->{title},
+                issue->{title, slug},
                 slug,
                 body,
                 sections[]->{title, slug},
@@ -394,7 +528,7 @@ export default function Homepage() {
               `*[_type == "contentItem" && "featuresFeaturedMiddle" in featuredOptions] | order(publishedAt desc)[0] {
                   title,
                   authors[]->{name},
-                  issue->{title},
+                  issue->{title, slug},
                   slug,
                   body,
                   sections[]->{title, slug},
@@ -414,7 +548,7 @@ export default function Homepage() {
                 `*[_type == "contentItem" && "poetryFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
                     title,
                     authors[]->{name},
-                    issue->{title},
+                    issue->{title, slug},
                     slug,
                     body,
                     sections[]->{title, slug},
@@ -435,7 +569,7 @@ export default function Homepage() {
                   `*[_type == "contentItem" && "fictionFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
                       authors[]->{name},
-                      issue->{title},
+                      issue->{title, slug},
                       slug,
                       body,
                       sections[]->{title, slug},
@@ -455,7 +589,7 @@ export default function Homepage() {
                   `*[_type == "contentItem" && "artFeaturedMiddleRight" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
                       authors[]->{name},
-                      issue->{title},
+                      issue->{title, slug},
                       slug,
                       body,
                       sections[]->{title, slug},
@@ -475,7 +609,7 @@ export default function Homepage() {
                   `*[_type == "contentItem" && "artFeaturedBottomRight" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
                       authors[]->{name},
-                      issue->{title},
+                      issue->{title, slug},
                       slug,
                       body,
                       sections[]->{title, slug},
@@ -489,14 +623,63 @@ export default function Homepage() {
                 )
                 .then((data) => setFeaturedArt2(data))
                 .catch(console.error);
+
+              sanityClient
+                .fetch(
+                  `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
+                      title,
+                      slug,
+                      image{
+                        asset->{
+                        _id,
+                        url
+                      }
+                    }
+                  }[0...3]`
+                )
+                .then((data) => setInstagramImages(data))
+                .catch(console.error);
+
+
+              sanityClient
+                .fetch(
+                  `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
+                      title,
+                      slug,
+                      image{
+                        asset->{
+                        _id,
+                        url
+                      }
+                    }
+                  }[0...3]`
+                )
+                .then((data) => setInstagramImages(data))
+                .catch(console.error);
+
+              sanityClient
+                .fetch(
+                  `*[_type == "contentItem" && issue->title == "Winter 2009" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt desc) {
+                      title,
+                      authors[]->{name},
+                      issue->{title, slug},
+                      slug,
+                      body,
+                      sections[]->{title, slug},
+                  }`
+                )
+                .then((data) => setFromTheArchivesContent(data))
+                .catch(console.error);
     }, []);
 
-    if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2) {
+    if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
+      console.log(featuredRow1);
+      //console.log(fromTheArchivesContent);
       return <div>Loading...</div>;
     }
     else {
       console.log("Welcome to the Harvard Advocate.");
-      console.log(featuredArt2);
+      console.log(fromTheArchivesContent);
     }
 
   return (
@@ -556,10 +739,13 @@ export default function Homepage() {
           </Grid>
         </div>
         <div className="topArticles">
-          <div class="div1">
-            <Themed.h3><i>{featuredArticle1.sections[0].title} • {featuredArticle1.issue.title}</i></Themed.h3>
-            <Themed.h2>{featuredArticle1.title}</Themed.h2>
+          <div className="div1">
+            <div className="articleHeader">
+              <Themed.h3><i><a href={"sections/" + featuredArticle1.sections[0].slug.current}>{featuredArticle1.sections[0].title}</a> • <a href={"issues/" + featuredArticle1.issue.slug.current}>{featuredArticle1.issue.title}</a></i></Themed.h3>
+            </div>
+            <a href={featuredArticle1.slug.current}><Themed.h2>{featuredArticle1.title}</Themed.h2></a>
             <br/>
+            <Link to={featuredArticle1.slug.current}>
             <div className = "textPreview1">
               {featuredArticle1.body && (
                 <PortableText
@@ -569,13 +755,18 @@ export default function Homepage() {
                 />
               )}
             </div>
+            </Link>
+
             <br/>
             <Themed.h4>By {featuredArticle1.authors[0].name}</Themed.h4>
           </div>
-          <div class="div2">
-            <Themed.h3><i>{featuredArticle2.sections[0].title} • {featuredArticle2.issue.title}</i></Themed.h3>
-            <Themed.h2>{featuredArticle2.title}</Themed.h2>
+          <div className="div2">
+            <div className="articleHeader">
+              <Themed.h3><i><a href={"sections/" + featuredArticle2.sections[0].slug.current}>{featuredArticle2.sections[0].title}</a> • <a href={"issues/" + featuredArticle2.issue.slug.current}>{featuredArticle2.issue.title}</a></i></Themed.h3>
+            </div>
+            <a href={featuredArticle2.slug.current}><Themed.h2>{featuredArticle2.title}</Themed.h2></a>
             <br/>
+            <Link to={featuredArticle2.slug.current}>
             <div className = "textPreview1">
               {featuredArticle2.body && (
                 <PortableText
@@ -585,13 +776,17 @@ export default function Homepage() {
                 />
               )}
             </div>
+            </Link>
           <br/>
           <Themed.h4>By {featuredArticle2.authors[0].name}</Themed.h4>
           </div>
-          <div class="div3">
-            <Themed.h3><i>{featuredArticle3.sections[0].title} • {featuredArticle3.issue.title}</i></Themed.h3>
-            <Themed.h2>{featuredArticle3.title}</Themed.h2>
+          <div className="div3">
+            <div className="articleHeader">
+              <Themed.h3><i><a href={"sections/" + featuredArticle3.sections[0].slug.current}>{featuredArticle3.sections[0].title}</a> • <a href={"issues/" + featuredArticle3.issue.slug.current}>{featuredArticle3.issue.title}</a></i></Themed.h3>
+            </div>
+            <a href={featuredArticle3.slug.current}><Themed.h2>{featuredArticle3.title}</Themed.h2></a>
             <br/>
+            <Link to={featuredArticle3.slug.current}>
             <div className = "textPreview3">
               {featuredArticle3.body && (
                 <PortableText
@@ -601,17 +796,21 @@ export default function Homepage() {
                 />
               )}
             </div>
+            </Link>
             <br/>
             <Themed.h4>By {featuredArticle3.authors[0].name}</Themed.h4>
           </div>
-          <div class="div4">
-            <div class="div4image">
-              <img src={featuredArticle4.mainImage.asset.url} alt="Illustration"></img>
+          <div className="div4">
+            <div className="div4image">
+              <a href={featuredArticle4.slug.current}><img src={featuredArticle4.mainImage.asset.url} alt="Illustration"></img></a>
             </div>
-            <div class="div4content">
-              <Themed.h3><i>{featuredArticle4.sections[0].title} • {featuredArticle4.issue.title}</i></Themed.h3>
-              <Themed.h2>{featuredArticle4.title}</Themed.h2>
+            <div className="div4content">
+              <div className="articleHeader">
+                <Themed.h3><i><a href={"sections/" + featuredArticle4.sections[0].slug.current}>{featuredArticle4.sections[0].title}</a> • <a href={"issues/" + featuredArticle4.issue.slug.current}>{featuredArticle4.issue.title}</a></i></Themed.h3>
+              </div>
+              <a href={featuredArticle4.slug.current}><Themed.h2>{featuredArticle4.title}</Themed.h2></a>
               <br/>
+              <Link to={featuredArticle4.slug.current}>
               <div className = "textPreview4">
                 {featuredArticle4.body && (
                   <PortableText
@@ -621,14 +820,20 @@ export default function Homepage() {
                   />
                 )}
               </div>
+              </Link>
               <br/>
               <Themed.h4>By {featuredArticle4.authors[0].name}</Themed.h4>
             </div>
           </div>
-          <div class="div5">
-            <Themed.h3><i>{featuredArticle5.sections[0].title} • {featuredArticle1.issue.title}</i></Themed.h3>
-            <Themed.h2>{featuredArticle5.title}</Themed.h2>
+          <div className="div5">
+
+            <div className="articleHeader">
+              <Themed.h3><i><a href={"sections/" + featuredArticle5.sections[0].slug.current}>{featuredArticle5.sections[0].title}</a> • <a href={"issues/" + featuredArticle5.issue.slug.current}>{featuredArticle5.issue.title}</a></i></Themed.h3>
+            </div>
+
+            <a href={featuredArticle5.slug.current}><Themed.h2>{featuredArticle5.title}</Themed.h2></a>
             <br/>
+            <Link to={featuredArticle5.slug.current}>
             <div className = "textPreview5">
               {featuredArticle5.body && (
                 <PortableText
@@ -638,13 +843,17 @@ export default function Homepage() {
                 />
               )}
             </div>
+            </Link>
             <br/>
             <Themed.h4>By {featuredArticle5.authors[0].name}</Themed.h4>
           </div>
-          <div class="div6">
-            <Themed.h3><i>{featuredArticle6.sections[0].title} • {featuredArticle6.issue.title}</i></Themed.h3>
-            <Themed.h2>{featuredArticle6.title}</Themed.h2>
+          <div className="div6">
+            <div className="articleHeader">
+              <Themed.h3><i><a href={"sections/" + featuredArticle6.sections[0].slug.current}>{featuredArticle6.sections[0].title}</a> • <a href={"issues/" + featuredArticle6.issue.slug.current}>{featuredArticle6.issue.title}</a></i></Themed.h3>
+            </div>
+            <a href={featuredArticle6.slug.current}><Themed.h2>{featuredArticle6.title}</Themed.h2></a>
             <br/>
+            <Link to={featuredArticle6.slug.current}>
             <div className = "textPreview6">
               {featuredArticle6.body && (
                 <PortableText
@@ -654,26 +863,31 @@ export default function Homepage() {
                 />
               )}
             </div>
+            </Link>
             <br/>
             <Themed.h4>By {featuredArticle6.authors[0].name}</Themed.h4>
           </div>
-          <div class="div7">
-            <div class="div7image">
-              <img src={featuredArt1.mainImage.asset.url} alt="Art image"></img>
+          <div className="div7">
+            <div className="div7image">
+              <a href={featuredArt1.slug.current}><img src={featuredArt1.mainImage.asset.url} alt="Art image"></img></a>
             </div>
-            <div class="div7content">
-              <Themed.h3><i>{featuredArt1.sections[0].title} • {featuredArt1.issue.title}</i></Themed.h3>
-              <Themed.h2>{featuredArt1.title}</Themed.h2>
+            <div className="div7content">
+              <div className="articleHeader">
+                <Themed.h3><i><a href={"sections/" + featuredArt1.sections[0].slug.current}>{featuredArt1.sections[0].title}</a> • <a href={"issues/" + featuredArt1.issue.slug.current}>{featuredArt1.issue.title}</a></i></Themed.h3>
+              </div>
+              <a href={featuredArt1.slug.current}><Themed.h2>{featuredArt1.title}</Themed.h2></a>
               <Themed.h4>By {featuredArt1.authors[0].name}</Themed.h4>
             </div>
           </div>
-          <div class="div8">
-            <div class="div8image">
-              <img src={featuredArt2.mainImage.asset.url} alt="Art image"></img>
+          <div className="div8">
+            <div className="div8image">
+              <a href={featuredArt2.slug.current}><img src={featuredArt2.mainImage.asset.url} alt="Art image"></img></a>
             </div>
-            <div class="div8content">
-              <Themed.h3><i>{featuredArt2.sections[0].title} • {featuredArt2.issue.title}</i></Themed.h3>
-              <Themed.h2>{featuredArt2.title}</Themed.h2>
+            <div className="div8content">
+              <div className="articleHeader">
+                <Themed.h3><i><a href={"sections/" + featuredArt2.sections[0].slug.current}>{featuredArt2.sections[0].title}</a> • <a href={"issues/" + featuredArt2.issue.slug.current}>{featuredArt2.issue.title}</a></i></Themed.h3>
+              </div>
+              <a href={featuredArt2.slug.current}><Themed.h2>{featuredArt2.title}</Themed.h2></a>
               <Themed.h4>By {featuredArt2.authors[0].name}</Themed.h4>
             </div>
 
@@ -685,21 +899,102 @@ export default function Homepage() {
         </div>
         <div className="blog">
           <hr/>
-          <Themed.h2>Blog</Themed.h2>
+          <Themed.h2><a href="sections/blog/">Blog</a></Themed.h2>
           <hr/>
-          <Themed.p><i>The stinky online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
-          <div class="blogGrid">
+          <Themed.p><i>The fresh online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
+          <div className="blogGrid">
+            {([featuredArticle1, featuredArticle2, featuredArticle3]).map((article) => {
+              return (
+                <div className="blogArticle" key={article.title}>
+                  <div className="articleHeader">
+                    <Themed.h3><i><a href={"sections/"+article.sections[0].slug.current}>{article.sections[0].title}</a> • <a href={"issues/"+article.issue.slug.current}>{article.issue.title}</a></i></Themed.h3>
+                  </div>
+                  <a href={article.slug.current}><Themed.h2>{article.title}</Themed.h2></a>
+                  <br/>
+                  <Link to={article.slug.current}>
+                    <div className = "textPreview">
+                      {article.body && (
+                        <PortableText
+                          value={article.body}
+                          hardBreak={false}
+                          components={customComponents}
+                        />
+                      )}
+                    </div>
+                  </Link>
+                  <br/>
+                  <Themed.h4>By {article.authors[0].name}</Themed.h4>
+                </div>
+              );
+            })}
           </div>
           <hr/>
         </div>
-        <div class="socialsFeed">
-          <div class="instaCol"><p>Awaiting the Instagram API token........</p></div>
-          <div class="twitterCol">
-            <TwitterTimelineEmbed
-              sourceType="profile"
-              screenName="harvardadvocate"
-              options={{height: 500}}
-            />
+        <div className="socialsFeed">
+          <div className="socialsGrid">
+            <a href="https://instagram.com/harvardadvocate" target="_blank">
+              <div className="instaCol">
+                <div className="fromss">
+                  <img src="/picsfrom21ss.jpg"></img>
+                </div>
+                <div className="insta1">
+                  <img src={instagramImages[2].image.asset.url}></img>
+                </div>
+                <div className="insta2">
+                  <img src={instagramImages[0].image.asset.url}></img>
+                </div>
+                <div className="insta3">
+                  <img src={instagramImages[1].image.asset.url}></img>
+                </div>
+              </div>
+            </a>
+            <div className="twitterCol">
+              <TwitterTimelineEmbed
+                sourceType="profile"
+                screenName="harvardadvocate"
+                options={{height: 600}}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="fromTheArchives">
+          <div className = "archiveHeader">
+            <hr/>
+            <Themed.h2>From The Archives</Themed.h2>
+            <hr/>
+          </div>
+          <div className="archivesMainGrid">
+          {([fromTheArchivesContent.slice(0,2), fromTheArchivesContent.slice(9,11), fromTheArchivesContent.slice(4,6)]).map((archiveSlices) => {
+            return (
+              <div className="archivesCol">
+              {(archiveSlices).map((archiveArticle) => {
+                return (
+                  <div className="archiveArticle" key={archiveArticle.title}>
+                    <div className="articleHeader">
+                      <Themed.h3><i><a href={"sections/"+archiveArticle.sections[0].slug.current}>{archiveArticle.sections[0].title}</a> • <a href={"issues/"+archiveArticle.issue.slug.current}>{archiveArticle.issue.title}</a></i></Themed.h3>
+                    </div>
+                    <a href={archiveArticle.slug.current}><Themed.h2>{archiveArticle.title}</Themed.h2></a>
+                    <br/>
+                    <Link to={featuredArticle1.slug.current}>
+                      <div className = "textPreview">
+                        {archiveArticle.body && (
+                          <PortableText
+                            value={archiveArticle.body}
+                            hardBreak={false}
+                            components={customComponents}
+                          />
+                        )}
+                      </div>
+                    </Link>
+                    <br/>
+                    <Themed.h4>By {archiveArticle.authors[0].name}</Themed.h4>
+                  </div>
+                );
+              })}
+              </div>
+
+            );
+          })}
           </div>
         </div>
       </div>

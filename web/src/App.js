@@ -12,17 +12,17 @@ import About from "./pages/About";
 import SectionsOverview from "./pages/SectionsOverview";
 import Section from "./pages/Section";
 import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 import IssuesList from "./pages/IssuesList";
 import Issue from "./pages/Issue";
 import Author from "./pages/Author";
-import Comp from "./pages/Comp"
-import Advertise from "./pages/Advertise"
-import Shop from "./pages/Shop"
-import Donate from "./pages/Donate"
-import Subscribe from "./pages/Subscribe"
-import Submit from "./pages/Submit"
-import Masthead from "./pages/Masthead"
-
+import Comp from "./pages/Comp";
+import Advertise from "./pages/Advertise";
+import Shop from "./pages/Shop";
+import Donate from "./pages/Donate";
+import Subscribe from "./pages/Subscribe";
+import Submit from "./pages/Submit";
+import Masthead from "./pages/Masthead";
 const appSx = {
   display: "grid",
   gridTemplateColumns: "1fr 8fr",
@@ -59,6 +59,8 @@ function App() {
                   <Route element={<ContentItem />} path="/:slug" />
                   <Route element={<Author />} path="authors/:authorSlug" />
                 </Routes>
+                <Footer />
+
               </div>
           </div>
         </BrowserRouter>

@@ -86,6 +86,7 @@ const sidebarSx = {
 
   "@media (max-width: 767px)": {
     width: "100vw",
+    height: "min-content",
     marginLeft: "0",
     marginRight: "0",
     padding: "1em 1em 1em 1em",
