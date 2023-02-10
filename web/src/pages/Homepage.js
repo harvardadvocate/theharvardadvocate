@@ -59,11 +59,14 @@ const homepageSx = {
 
   ".featuredArticles": {
     color: "#FFFFFF",
-    paddingTop: "30px",
-    paddingRight: "20px",
+    paddingTop: "2vh",
+    paddingRight: "2vw",
     h5: {
       fontFamily: "sans-serif",
     },
+    hr: {
+      border: "0.1px solid white",
+    }
   },
   ".sanctumSessions": {
     padding:"0em",
@@ -423,6 +426,7 @@ export default function Homepage() {
   const [instagramImages, setInstagramImages] = useState(null);
 
   const [fromTheArchivesContent, setFromTheArchivesContent] = useState(null);
+
 
   useEffect(() => {
       sanityClient

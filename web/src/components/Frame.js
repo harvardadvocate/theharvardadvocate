@@ -51,6 +51,9 @@ const frameSx = {
 };
 // TODO: assumes only up to 3 elements in path
 export default function Frame(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div sx={frameSx}>
       <div className="horizontalContainer">
