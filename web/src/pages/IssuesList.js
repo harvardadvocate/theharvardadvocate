@@ -8,8 +8,6 @@ const issuesListSx = {
   hr: {
     border: "0.1px solid rgba(0, 0, 0, .2)",
   },
-  margin: "0em 0em 0em 0em",
-
   ".featuredIssue": {
     width: "100%",
     backgroundColor: "#D6362F",
@@ -141,11 +139,14 @@ const issuesListSx = {
         backgroundColor: "#000000",
         float: "left"
       },
-      h6: {
+      p: {
         paddingInline: "10px",
-        fontFamily: "sans-serif"
+        fontFamily: "sans-serif",
+        fontSize: "0.6em",
       },
-      },
+
+
+    },
 
 
   ".articleLink": {
@@ -191,8 +192,8 @@ const issuesListSx = {
     display: "flex",
     justifyItems: "center",
     justifyContent: "center",
-    paddingLeft: "10vw",
-    paddingRight: "10vw",
+    paddingLeft: "7vw",
+    paddingRight: "7vw",
     flexDirection: "column",
     borderRight: "1px solid rgba(0,0,0,0.2)",
   },
@@ -204,7 +205,8 @@ const issuesListSx = {
   ".lowerInfo": {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-end",
+    height: "100%",
     justifyContent: "space-between",
   },
 
@@ -444,8 +446,8 @@ export default function IssuesList() {
                       <Themed.h3>{bigIssue.title} Issue</Themed.h3>
                       <Link to={"/issues/" + bigIssue.slug.current}>
                       <div className="readFullIssueBig">
-                        <span>&#8594;</span>
-                        <h6>READ FULL ISSUE</h6>
+                        <span>&#8594;</span>&nbsp;
+                        <p><b>READ FULL ISSUE</b></p>
                       </div>
                       </Link>
                     </div>

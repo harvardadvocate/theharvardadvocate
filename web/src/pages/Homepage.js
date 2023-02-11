@@ -59,8 +59,10 @@ const homepageSx = {
 
   ".featuredArticles": {
     color: "#FFFFFF",
-    paddingTop: "2vh",
     paddingRight: "2vw",
+    paddingTop: "2vh",
+    marginTop: "8%",
+    marginBottom: "8%",
     h5: {
       fontFamily: "sans-serif",
     },
@@ -74,7 +76,7 @@ const homepageSx = {
       color: "rgba(0,0,0,0.2)",
     },
     img: {
-      padding: "3em",
+      padding: "5vw",
     }
   },
 
@@ -692,7 +694,6 @@ export default function Homepage() {
       <div className="mainContent">
         <div className="featuredIssue">
           <Grid className="mainGrid" columns={"2fr 3fr"}>
-
             <div className="issueCover">
               <Link to={"/issues/" + itemData.slug.current}>
                 {itemData.frontCover && "asset" in itemData.frontCover && (
