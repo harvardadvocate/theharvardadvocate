@@ -7,6 +7,7 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { useParams, Link } from "react-router-dom";
 import Frame from "../components/Frame";
+
 const sectionSx = {
   ".sectionHeader": {
     fontStyle: "italic",
@@ -14,30 +15,28 @@ const sectionSx = {
     h2: { display: "inline-block", marginRight: "0.4em" },
     img: { height: "0.6em", display: "inline-block" },
   },
-  maxWidth: "100vw",
 };
 
 // TODO: paginate
 const sectionToQuery = (section) =>
-    `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
-        title,
-        authors[]->{name},
-        issue->{title,slug},
-        sections[]->{title,slug},
-        slug,
-        body,
-        mainImage{
-          asset->{
-          _id,
-          url
-        }
+`*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
+      title,
+      authors[]->{name},
+      issue->{title},
+      slug,
+      mainImage{
+        asset->{
+        _id,
+        url
       }
-    }[0...25]`;
+    },
+    images[]{asset->{_id, url}}
+}[0...10]`;
 
-export default function Section(props) {
+export default function SectionArt(props) {
   const [items, setItems] = useState(null);
   const [section, setSection] = useState("");
-  const { sectionSlug } = useParams();
+  const sectionSlug = "art";
 
   useEffect(() => {
     sanityClient
@@ -62,11 +61,11 @@ export default function Section(props) {
         path={[
           {
             name: section,
-            slug: "/sections/{section}",
+            slug: "/sections/art",
           },
         ]}
       >
-        <TextContentList items={items} />
+        <ImageContentGrid items={items} />
       </Frame>
     </div>
   );
