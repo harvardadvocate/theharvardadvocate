@@ -980,7 +980,7 @@ export default function Homepage() {
                     </div>
                     <a href={archiveArticle.slug.current}><Themed.h2>{archiveArticle.title}</Themed.h2></a>
                     <br/>
-                    <Link to={featuredArticle1.slug.current}>
+                    <Link to={archiveArticle.slug.current}>
                       <div className = "textPreview">
                         {archiveArticle.body && (
                           <PortableText

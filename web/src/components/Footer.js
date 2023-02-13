@@ -10,7 +10,7 @@ const footerSx = {
   paddingTop: "3vh",
   paddingLeft: "5vw",
   paddingRight: "10vw",
-  paddingBottom: "5vh",
+  paddingBottom: "3vh",
   ".footerContainer": {
     width: "100%",
   },

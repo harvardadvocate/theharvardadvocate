@@ -5,6 +5,7 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 
 const frameSx = {
+  marginBottom: "5vh",
   ".header": {
     marginTop: "1em",
     marginBottom: "1em",
@@ -51,9 +52,7 @@ const frameSx = {
 };
 // TODO: assumes only up to 3 elements in path
 export default function Frame(props) {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+
   return (
     <div sx={frameSx}>
       <div className="horizontalContainer">

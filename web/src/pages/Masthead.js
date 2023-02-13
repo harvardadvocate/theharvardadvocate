@@ -9,7 +9,7 @@ const mastheadSx = {
     display: "flex",
     flexDirection: "column",
     alignItems:"center",
-    margin: "0em 21vw 5vh 21vw",
+    margin: "0em 21vw 0vh 21vw",
   },
   i: {
     textAlign: "center",

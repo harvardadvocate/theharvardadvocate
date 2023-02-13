@@ -8,14 +8,17 @@ import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
 import Frame from "../components/Frame";
 const sectionsOverviewSx = {
+
   ".sectionHeader": {
     fontStyle: "italic",
     borderBottom: "1px solid #000",
+    marginBottom: "1vh",
     h2: { display: "inline-block", marginRight: "0.4em" },
     img: { height: "0.6em", display: "inline-block" },
   },
   ".sectionContainer": {
     paddingBottom: "2em",
+    paddingInline: "2vw",
   },
 };
 
@@ -25,20 +28,23 @@ const sectionToQuery = (section) =>
     ? `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
         authors[]->{name},
-        issue->{title},
+        issue->{title,slug},
+        sections[]->{title,slug},
         slug,
+        body,
         mainImage{
         asset->{
         _id,
         url
         }
     }
-    }[0...4]`
+  }[0...3]`
     : `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
         authors[]->{name},
-        issue->{title},
+        issue->{title,slug},
         slug,
+        sections[]->{title,slug},
         mainImage{
             asset->{
             _id,
@@ -46,7 +52,7 @@ const sectionToQuery = (section) =>
         }
         },
         images[]{asset->{_id, url}}
-        }[0...4]`;
+      }[0...3]`;
 
 const sectionToUrl = (section) => {
   const sectionMap = {
