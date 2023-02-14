@@ -3,6 +3,10 @@ import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
+import { theme } from "../theme/theme.js";
+
+const buttonColor = theme['colors']['buttonColor'];
+const buttonColorHover = theme['colors']['buttonColorHover'];
 
 const subscribeSx = {
   ".horizontalContainer": {
@@ -58,7 +62,7 @@ const subscribeSx = {
   },
   ".buttonLink": {
     color: "white",
-    backgroundColor: "#e2251e",
+    backgroundColor: buttonColor,
     padding: "10px 10px",
     textAlign: "center",
     textDecoration: "none",
@@ -71,7 +75,7 @@ const subscribeSx = {
     padding: "20px",
   },
   ".buttonLink:hover": {
-    backgroundColor: "#d41c15",
+    backgroundColor: buttonColorHover,
   },
   ".image": {
     display: "flex",

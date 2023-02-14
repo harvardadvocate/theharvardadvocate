@@ -16,7 +16,7 @@ const textContentListSx = {
   ".gridRow": {
     display: "grid",
     gridTemplateRows: "1fr",
-    gridTemplateColumns: "1fr 1fr 1fr",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
     borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "1vh",
   },
@@ -25,6 +25,7 @@ const textContentListSx = {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
     alignItems: "center",
+    maxWidth: "100%",
   },
 
   ".articleItem:last-child": {

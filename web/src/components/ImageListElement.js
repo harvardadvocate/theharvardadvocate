@@ -2,8 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
+import { theme } from "../theme/theme.js";
+
+const headerColor = theme['colors']['headerColor'];
 
 const imageListElementSx = {
+  maxWidth: "100%",
   padding: "0.8em",
   a: {
     color: "text",
@@ -22,7 +26,7 @@ const imageListElementSx = {
   h4: {
     "fontFamily": "Poppins",
     "fontSize": "0.7em",
-    color: "#d34c21",
+    color: headerColor,
 
   },
   padding: "1em",

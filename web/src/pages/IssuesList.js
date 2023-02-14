@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Themed, Grid } from "theme-ui";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
+import { theme } from "../theme/theme.js";
+
+const firstColor = theme["colors"]["primary"];
+const secondColor = theme["colors"]["secondary"];
 
 const issuesListSx = {
   hr: {
@@ -10,12 +14,12 @@ const issuesListSx = {
   },
   ".featuredIssue": {
     width: "100%",
-    backgroundColor: "#D6362F",
+    backgroundColor: firstColor,
   },
 
   ".featuredIssue2": {
     width: "100%",
-    backgroundColor: "#2A3443",
+    backgroundColor: secondColor,
   },
 
   ".horizontalContainer": {
@@ -93,7 +97,7 @@ const issuesListSx = {
       border: "2px solid #FFFFFF",
       borderRadius: "5px",
       paddingInline: "10px",
-      color: "#D6362F",
+      color: firstColor,
       backgroundColor: "#FFFFFF",
       float: "left"
     },
@@ -101,7 +105,7 @@ const issuesListSx = {
 
     h6: {
       marginLeft: "3em",
-      border: "4px solid #D6362F",
+      border: "4px solid " + firstColor,
       paddingInline: "10px",
       borderRadius: "5px",
       fontFamily: "sans-serif"
@@ -114,13 +118,13 @@ const issuesListSx = {
       border: "2px solid #FFFFFF",
       borderRadius: "5px",
       paddingInline: "10px",
-      color: "#2A3443",
+      color: secondColor,
       backgroundColor: "#FFFFFF",
       float: "left"
     },
     h6: {
       marginLeft: "3em",
-      border: "4px solid #2A3443",
+      border: "4px solid " + secondColor,
       paddingInline: "10px",
       borderRadius: "5px",
       fontFamily: "sans-serif"
@@ -178,6 +182,7 @@ const issuesListSx = {
     gridTemplateColumns: "1fr 1fr",
     img: {
       maxHeight: "62vh",
+      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
     },
     borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "5vh",
@@ -226,7 +231,9 @@ const issuesListSx = {
     gridTemplateColumns: "1fr 1fr 1fr 1fr",
     img: {
       maxHeight: "62vh",
+      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
     },
+    alignItems: "baseline",
     borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "5vh",
     paddingTop: "5vh",
@@ -263,6 +270,10 @@ const issuesListSx = {
   ".smallIssueDiv:last-child": {
     borderRight: "none",
   },
+
+  img: {
+    marginBottom: "1vh",
+  }
 };
 // // `components` object passed to PortableText
 const customComponents = {
@@ -439,7 +450,7 @@ export default function IssuesList() {
               <div className="bigGridRow">
               {(issueSlices).map((bigIssue) => {
                 return (
-
+                  <Link to={"/issues/" + bigIssue.slug.current}>
                   <div className="bigIssueDiv" key={bigIssue.title}>
                     <img src={bigIssue.frontCover.asset.url}></img>
                     <div className="lowerInfo">
@@ -452,6 +463,7 @@ export default function IssuesList() {
                       </Link>
                     </div>
                   </div>
+                  </Link>
                 );
               })}
               </div>
@@ -464,12 +476,14 @@ export default function IssuesList() {
                 <div className="smallGridRow">
                 {(issueSlices).map((smallIssue) => {
                   return (
+                    <Link to={"/issues/" + smallIssue.slug.current}>
                     <div className="smallIssueDiv" key={smallIssue.title}>
                       <img src={smallIssue.frontCover.asset.url}></img>
                       <div className="lowerInfo2">
                         <Themed.h4>{smallIssue.title} Issue</Themed.h4>
                       </div>
                     </div>
+                    </Link>
                   );
                 })}
                 </div>
