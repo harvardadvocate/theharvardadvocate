@@ -18,8 +18,12 @@ export const theme = {
   colors: {
     text: "#000",
     background: "#fff",
-    primary: "#D13434",
+    headerColor: "#D34C21",
+    primary: "#D6362F",
+    secondary: "#2A3443",
     lightGrey: "#9F9F9F",
+    buttonColor: "#e2251e",
+    buttonColorHover: "#d41c15",
   },
   text: {
     heading: {

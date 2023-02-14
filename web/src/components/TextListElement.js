@@ -3,8 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
 import { PortableText } from "@portabletext/react";
+import { theme } from "../theme/theme.js";
+
+const headerColor = theme['colors']['headerColor'];
 
 const textListItemSx = {
+  maxWidth: "100%",
   textAlign: "center",
   a: {
     color: "text",
@@ -13,21 +17,20 @@ const textListItemSx = {
   h4: {
     "fontFamily": "Poppins",
     "fontSize": "0.7em",
-    color: "#d34c21",
-
+    color: headerColor,
   },
 
 
   ".textPreview": {
-
     br: {
       display: "none",
     },
+
     p: {
       overflow: "hidden",
       WebkitBoxOrient: "vertical",
       display: "-webkit-box",
-      WebkitLineClamp: "3",
+      WebkitLineClamp: "5",
     }
   },
 

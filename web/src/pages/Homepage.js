@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import { theme } from "../theme/theme";
+
+const mainColor = theme["colors"]["primary"];
+const headerColor = theme["colors"]["headerColor"];
 
 const homepageSx = {
   hr: {
@@ -14,7 +18,7 @@ const homepageSx = {
 
   ".featuredIssue": {
     width: "100%",
-    backgroundColor: "#D6362F",
+    backgroundColor: mainColor,
   },
   ".horizontalContainer": {
     width: "100%",
@@ -153,13 +157,13 @@ const homepageSx = {
       border: "2px solid #FFFFFF",
       borderRadius: "5px",
       paddingInline: "10px",
-      color: "#D6362F",
+      color: mainColor,
       backgroundColor: "#FFFFFF",
       float: "left"
     },
     h6: {
       marginLeft: "3em",
-      border: "4px solid #D6362F",
+      border: "4px solid " + mainColor,
       paddingInline: "10px",
       borderRadius: "5px",
       fontFamily: "sans-serif"
@@ -247,7 +251,7 @@ const homepageSx = {
 
   ".div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .blogArticle, .archiveArticle": {
     h3: {
-      color: "#d34c21",
+      color: headerColor,
     },
     h4: {
       "fontFamily": "Poppins",
@@ -359,9 +363,9 @@ const homepageSx = {
   },
 
   ".articleHeader": {
-    color: "#d34c21",
+    color: headerColor,
     a: {
-      color: "#d34c21",
+      color: headerColor,
     },
   },
 

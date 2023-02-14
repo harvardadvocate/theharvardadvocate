@@ -54,7 +54,7 @@ export default function Footer() {
           <br/><br/><br/>
           <Link className="linkLogo" to={"/"}>
             <img src={logo} alt="The Advocate Logo" />
-            <span>&copy;</span> 2023 The Harvard Advocate
+            2023 <span>&copy;</span> The Harvard Advocate
           </Link>
         </div>
         <div className="sectionsAndMore">

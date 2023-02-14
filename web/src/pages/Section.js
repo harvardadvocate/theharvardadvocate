@@ -32,7 +32,7 @@ const sectionToQuery = (section) =>
           url
         }
       }
-    }[0...25]`;
+    }[0...24]`;
 
 export default function Section(props) {
   const [items, setItems] = useState(null);

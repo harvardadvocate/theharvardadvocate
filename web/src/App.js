@@ -22,7 +22,9 @@ import Shop from "./pages/Shop";
 import Donate from "./pages/Donate";
 import Subscribe from "./pages/Subscribe";
 import Submit from "./pages/Submit";
+import Contact from "./pages/Contact";
 import Masthead from "./pages/Masthead";
+
 const appSx = {
   display: "grid",
   gridTemplateColumns: "1fr 8fr",
@@ -37,8 +39,6 @@ const appSx = {
 
 
 function App() {
-
-
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -63,6 +63,7 @@ function App() {
                   <Route element={<Section />} path="sections/:sectionSlug" />
                   <Route element={<ContentItem />} path="/:slug" />
                   <Route element={<Author />} path="authors/:authorSlug" />
+                  <Route element={<Contact />} path="/contact" exact />
                 </Routes>
                 <Footer />
 
