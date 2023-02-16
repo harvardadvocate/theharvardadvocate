@@ -683,13 +683,10 @@ export default function Homepage() {
     }, []);
 
     if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
-      console.log(featuredRow1);
-      //console.log(fromTheArchivesContent);
       return <div>Loading...</div>;
     }
     else {
       console.log("Welcome to the Harvard Advocate.");
-      console.log(fromTheArchivesContent);
     }
 
   return (
@@ -958,11 +955,13 @@ export default function Homepage() {
               </div>
             </a>
             <div className="twitterCol">
+              {/*
               <TwitterTimelineEmbed
                 sourceType="profile"
                 screenName="harvardadvocate"
                 options={{height: 600}}
               />
+              */}
             </div>
           </div>
         </div>
