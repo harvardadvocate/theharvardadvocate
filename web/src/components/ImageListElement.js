@@ -2,35 +2,34 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
+import { theme } from "../theme/theme.js";
+
+const headerColor = theme['colors']['headerColor'];
 
 const imageListElementSx = {
-  padding: "0.8em 0",
+  maxWidth: "100%",
+  padding: "0.8em",
   a: {
     color: "text",
     textDecoration: "none",
   },
   ".listItemImage img": {
-    maxHeight: "200px",
+    width: "100%",
   },
   ".listItem": {
     display: "flex",
     flexDirection: "column",
     gap: "0.1em",
-    textAlign: "left",
+    textAlign: "center",
+    alignItems: "center",
   },
-  ".issueTag": {
-    borderRight: "1px solid #000",
+  h4: {
+    "fontFamily": "Poppins",
+    "fontSize": "0.7em",
+    color: headerColor,
 
-    h5: {
-      fontStyle: "normal",
-      textTransform: "uppercase",
-      lineHeight: 1,
-      writingMode: "vertical-rl",
-      textOrientation: "mixed",
-      transform: "rotate(180deg)",
-      margin: "2px",
-    },
   },
+  padding: "1em",
 };
 
 export default function ImageListElement(props) {
@@ -47,18 +46,17 @@ export default function ImageListElement(props) {
             ) : null}
           </div>
           <div>
-            <Themed.h3>{props.item.title}</Themed.h3>
+            <Themed.h2>{props.item.title}</Themed.h2>
           </div>
           <div>
             {"authors" in props.item && (
               <Themed.h4>
-                BY{" "}
+                By{" "}
                 {
                   //TODO: link to author page
                 }
                 {props.item.authors
-                  .map(({ name }) => name.toUpperCase())
-                  .join(", ")}
+                  .map(({ name }) => name).join(", ")}
               </Themed.h4>
             )}
           </div>

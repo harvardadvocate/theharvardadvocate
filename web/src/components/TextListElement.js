@@ -2,73 +2,72 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
+import { PortableText } from "@portabletext/react";
+import { theme } from "../theme/theme.js";
+
+const headerColor = theme['colors']['headerColor'];
 
 const textListItemSx = {
-  padding: "0.4em 0",
+  maxWidth: "100%",
+  textAlign: "center",
   a: {
     color: "text",
     textDecoration: "none",
   },
-  ".listItemImage": {
-    maxWidth: "300px",
+  h4: {
+    "fontFamily": "Poppins",
+    "fontSize": "0.7em",
+    color: headerColor,
   },
-  ".listItem": {
-    display: "flex",
-    alignItems: "stretch",
-    gap: "0.6em",
-  },
-  ".itemBody": {
-    padding: "0.8em 0",
-    borderBottom: "1px solid #000",
-    flexGrow: 1,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  ".issueTag": {
-    borderRight: "1px solid #000",
-    display: "flex",
-    alignItems: "center",
-    h5: {
-      fontStyle: "normal",
-      textTransform: "uppercase",
-      lineHeight: 1.1,
-      writingMode: "vertical-rl",
-      textOrientation: "mixed",
-      transform: "rotate(180deg)",
-      margin: "2px",
+
+
+  ".textPreview": {
+    br: {
+      display: "none",
     },
+
+    p: {
+      overflow: "hidden",
+      WebkitBoxOrient: "vertical",
+      display: "-webkit-box",
+      WebkitLineClamp: "5",
+    }
+  },
+
+  padding: "1em",
+
+};
+
+
+// // `components` object passed to PortableText
+const customComponents = {
+  block: {
+    normal: ({ children }) => <Themed.p>{children}</Themed.p>,
   },
 };
 
+
 export default function TextListItem(props) {
+  console.log(props);
   return (
     <div sx={textListItemSx}>
       <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
         <div className="listItem">
-          <div className="issueTag">
-            <Themed.h5>
-              {
-                // TODO: link to issue page
-                "issue" in props.item &&
-                  props.item.issue.title.replace("Commencement", "Comm.")
-              }
-            </Themed.h5>
-          </div>
-          <div className="itemBody">
-            <Themed.h3>{props.item.title}</Themed.h3>
-            {"authors" in props.item && (
-              <Themed.h4>
-                BY{" "}
-                {
-                  //TODO: link to author page
-                }
-                {props.item.authors
-                  .map(({ name }) => name.toUpperCase())
-                  .join(", ")}
-              </Themed.h4>
-            )}
-          </div>
+          <a href={props.item.slug.current}><Themed.h2>{props.item.title}</Themed.h2></a>
+          <br/>
+          <Link to={"/" + props.item.slug.current}>
+            <div className = "textPreview">
+              {props.item.body && (
+                <PortableText
+                  value={props.item.body[0]}
+                  hardBreak={false}
+                  components={customComponents}
+                />
+              )}
+            </div>
+          </Link>
+          <br/>
+          <Themed.h4>By {props.item.authors[0].name}</Themed.h4>
         </div>
       </Link>
     </div>
