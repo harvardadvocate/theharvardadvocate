@@ -3,25 +3,27 @@
 import { ThemeProvider } from "theme-ui";
 import { theme } from "./theme/theme";
 import { Grid } from "theme-ui";
-
-import React from "react";
+import React, { useEffect, useState, componentDidMount } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContentItem from "./pages/ContentItem";
 import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import SectionsOverview from "./pages/SectionsOverview";
+import SectionArt from "./pages/SectionArt";
 import Section from "./pages/Section";
 import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 import IssuesList from "./pages/IssuesList";
 import Issue from "./pages/Issue";
 import Author from "./pages/Author";
-import Comp from "./pages/Comp"
-import Advertise from "./pages/Advertise"
-import Shop from "./pages/Shop"
-import Donate from "./pages/Donate"
-import Subscribe from "./pages/Subscribe"
-import Submit from "./pages/Submit"
-import Masthead from "./pages/Masthead"
+import Comp from "./pages/Comp";
+import Advertise from "./pages/Advertise";
+import Shop from "./pages/Shop";
+import Donate from "./pages/Donate";
+import Subscribe from "./pages/Subscribe";
+import Submit from "./pages/Submit";
+import Contact from "./pages/Contact";
+import Masthead from "./pages/Masthead";
 
 const appSx = {
   display: "grid",
@@ -33,6 +35,8 @@ const appSx = {
     }
   },
 };
+
+
 
 function App() {
   return (
@@ -55,10 +59,14 @@ function App() {
                   <Route element={<SectionsOverview />} path="/sections" exact />
                   <Route element={<Subscribe />} path="/subscribe" exact />
                   <Route element={<Submit />} path="/submit" exact />
+                  <Route element={<SectionArt />} path="sections/art" exact />
                   <Route element={<Section />} path="sections/:sectionSlug" />
                   <Route element={<ContentItem />} path="/:slug" />
                   <Route element={<Author />} path="authors/:authorSlug" />
+                  <Route element={<Contact />} path="/contact" exact />
                 </Routes>
+                <Footer />
+
               </div>
           </div>
         </BrowserRouter>

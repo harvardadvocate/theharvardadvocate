@@ -32,37 +32,43 @@ React Router (https://v5.reactrouter.com/)
 
 **Whole Website**
 - Make it responsive/mobile ready
-- Fix slugs
+- Fix slugs (e.g. a specific item should link to /section/item, instead of /item)
 - Make illustrations link to their articles
-- Add most recent articles/issues (missing )
 - Move to static site generation to reduce Sanity bandwidth -- https://www.smashingmagazine.com/2020/09/stack-custom-made-static-site-generator/
+- Make sanity queries more efficient?
+- Add most recent articles/issues to Sanity CMS
+- ~~Add footer~~
 
 **Homepage**
 - On hover, make issue, articles, "READ FULL ISSUE" more interactive
-- Add sanctum sessions picture
-- Add more featured articles
-- Add blog section
-- Add social media section (insta, twitter)
-- Add from the archives
-- Add footer
+- Fix CSS for "pics from 21 south street"
+- ~~Add sanctum sessions picture~~
+- ~~Add more featured articles~~
+- ~~Add blog section~~
+- ~~Add social media section (insta, twitter)~~
+- ~~Add from the archives~~
 
-**Issues**
-- build entirely
+**Issues Overview**
+- ~~Build~~
+- Lazy Loading or pagination, load more than 25 issues lol
+
 
 **Sections**
-- build entirely
+- ~~Build~~
+- Fix layout of fiction, features, poetry, blog, columns so that it doesn't look ugly (section.js file). Add illustrations to make it look prettier.
+- lazy load or pagination, load more than 25 articles per section
 
 **Donation**
-- add donation form that doesn't look old
+- ~~add donation form that doesn't look old~~
 
 **Authors page**
-- Build entirely
+- Build entirely.
 
-**Specific Issue page**
-- Build entirely
+**Specific Issue page (e.g. Winter 2023)**
+- Build entirely.
 
 **Shop**
-- integrate shopify
+- Integrate shopify into /shop.
 
 **Submit**
 - ~~Make the links valid~~

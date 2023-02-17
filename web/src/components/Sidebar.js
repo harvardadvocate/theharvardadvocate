@@ -3,10 +3,18 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
+import { theme } from "../theme/theme.js";
+
+const buttonColor = theme['colors']['buttonColor'];
+const buttonColorHover = theme['colors']['buttonColorHover'];
 
 const sidebarSx = {
-  padding: "2.5em 1em 0em 1em",
-  height: "100%",
+  padding: "2.5em 1.5em 0em 1.5em",
+  height: "100vh",
+  top: "0px",
+  position: "sticky",
+  minWidth: "min-content",
+  overflow: "auto",
   borderRight: "0.1vh solid #000",
   ".link": {
     fontSize: "2",
@@ -38,7 +46,7 @@ const sidebarSx = {
   },
   ".buttonLink": {
     color: "white",
-    backgroundColor: "#e2251e",
+    backgroundColor: buttonColor,
     padding: "10px 10px",
     textAlign: "center",
     textDecoration: "none",
@@ -50,7 +58,7 @@ const sidebarSx = {
     fontWeight: "600",
   },
   ".buttonLink:hover": {
-    backgroundColor: "#d41c15",
+    backgroundColor: buttonColorHover,
   },
   ".sectionsLink": {
     display: "flex",
@@ -82,6 +90,7 @@ const sidebarSx = {
 
   "@media (max-width: 767px)": {
     width: "100vw",
+    height: "min-content",
     marginLeft: "0",
     marginRight: "0",
     padding: "1em 1em 1em 1em",
@@ -130,7 +139,7 @@ const sidebarSx = {
     },
     ".buttonLinkMobile": {
       color: "white",
-      backgroundColor: "#e2251e",
+      backgroundColor: buttonColor,
       padding: "1vh 1vh",
       textAlign: "center",
       textDecoration: "none",
@@ -142,7 +151,7 @@ const sidebarSx = {
       fontWeight: "600",
     },
     ".buttonLinkMobile:hover": {
-      backgroundColor: "#d41c15",
+      backgroundColor: buttonColorHover,
     },
     borderRight: "0px",
     borderBottom: "0.1vh solid #000",
@@ -187,6 +196,7 @@ export default function Sidebar() {
       "/donate",
       "/advertise",
       "/comp",
+      "/contact",
     ].includes(location.pathname)
       ? true
       : false
@@ -213,9 +223,9 @@ export default function Sidebar() {
         {isMobile ? (
           <div className="headerGrid">
             <div className={"navbarButton" + (navbarExpanded ? " rotated" : "")} onClick={() => setNavbarExpanded(!navbarExpanded)}>
-              <span class="line"></span>
-              <span class="line"></span>
-              <span class="line"></span>
+              <span className="line"></span>
+              <span className="line"></span>
+              <span className="line"></span>
             </div>
             <Link className={"link logo"} to={"/"} onClick={() => setNavbarExpanded(false)}>
               <img src={logo} alt="The Advocate Logo" />
@@ -360,6 +370,13 @@ export default function Sidebar() {
               onClick={() => setNavbarExpanded(false)}
             >
               Masthead
+            </Link>
+            <Link
+              className={`link ${highlightLink("/contact")}`}
+              to="/contact"
+              onClick={() => setNavbarExpanded(false)}
+            >
+              Contact
             </Link>
           </Grid>
         )}

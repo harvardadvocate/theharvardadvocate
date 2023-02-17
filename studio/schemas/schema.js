@@ -10,6 +10,7 @@ import issue from "./documents/issue";
 import section from "./documents/section";
 import contentItem from "./documents/contentItem";
 import author from "./documents/author";
+import imageAsset from "./documents/imageAsset";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -24,6 +25,7 @@ export default createSchema({
     contentItem,
     author,
     section,
+    imageAsset,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
