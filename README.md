@@ -1,3 +1,4 @@
+
 Website for the Harvard Advocate, under construction
 
 `studio` directory is for the Sanity content editing studio and holds the schema.
@@ -30,51 +31,28 @@ React Router (https://v5.reactrouter.com/)
 
 ## TODO
 
-**Whole Website**
-- Make it responsive/mobile ready
+### Optimization
+-   Optimize image loading and website load time by decreasing image quality as needed (messing with Sanity queries basically)
+-   Optimize Sanity queries (i.e. packaging them together instead of 10 individual queries -- possible?)
+-   Lazy load for images on all pages, and for articles on most pages
+- Load more than 25 articles per section in Section.js, load more than 25 issues in IssuesList (infinite content scroll)
+-   Code cleanup – clean up Homepage.js, make it use more modular components instead of hardcoding everything. Take inspiration from SectionsOverview and Section.js to get a sense of what I mean. Feel free to clean up other pages like the static pages since a lot of them have near identical CSS and can be made into components.
+- Move to static site generation to reduce Sanity bandwidth -- https://www.smashingmagazine.com/2020/09/stack-custom-made-static-site-generator/
+
+
+### CSS / Design
+-   The website needs to be responsive / work on mobile (CSS heavy job) and resize well on different screen sizes
+- Fix the layout of the fiction, features, poetry, blog, and columns pages (all of these are section.js), and make them less ugly. Add illustrations to make it look prettier.
+- Fix "pics from 21 south street"
+- Make homepage more interactive on hover
+
+### Still need to build
+- Shop page/integration with Shopify (bonus points if there’s a shop for regular people and a shop for alumni only). The shop page needs to be on the website, preferably using Shopify, but it shouldn’t link you outside the website.
+-   Author page that looks pretty
+-   Individual issue page that looks pretty
+-   Search feature that looks pretty
+
+### Other
 - Fix slugs (e.g. a specific item should link to /section/item, instead of /item)
 - Make illustrations link to their articles
-- Move to static site generation to reduce Sanity bandwidth -- https://www.smashingmagazine.com/2020/09/stack-custom-made-static-site-generator/
-- Make sanity queries more efficient?
 - Add most recent articles/issues to Sanity CMS
-- ~~Add footer~~
-
-**Homepage**
-- On hover, make issue, articles, "READ FULL ISSUE" more interactive
-- Fix CSS for "pics from 21 south street"
-- ~~Add sanctum sessions picture~~
-- ~~Add more featured articles~~
-- ~~Add blog section~~
-- ~~Add social media section (insta, twitter)~~
-- ~~Add from the archives~~
-
-**Issues Overview**
-- ~~Build~~
-- Lazy Loading or pagination, load more than 25 issues lol
-
-
-**Sections**
-- ~~Build~~
-- Fix layout of fiction, features, poetry, blog, columns so that it doesn't look ugly (section.js file). Add illustrations to make it look prettier.
-- lazy load or pagination, load more than 25 articles per section
-
-**Donation**
-- ~~add donation form that doesn't look old~~
-
-**Authors page**
-- Build entirely.
-
-**Specific Issue page (e.g. Winter 2023)**
-- Build entirely.
-
-**Shop**
-- Integrate shopify into /shop.
-
-**Submit**
-- ~~Make the links valid~~
-
-**Subscribe**
-- ~~Have subscribe link to subscriptions page~~
-
-**About Us**
-- ~~Resize illustration of 21 ss.~~
