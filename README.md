@@ -58,3 +58,13 @@ React Router (https://v5.reactrouter.com/)
 - Fix slugs (e.g. a specific item should link to /section/item, instead of /item)
 - Make illustrations link to their articles
 - Add most recent articles/issues to Sanity CMS
+
+
+## Building
+
+If you want to build an optimized version of the site, navigate to the `web` directory and run:
+
+```
+npm run build
+serve -s build
+```
