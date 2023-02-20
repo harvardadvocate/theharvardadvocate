@@ -359,7 +359,7 @@ export default function IssuesList() {
                     {(featuredItems.slice(0,2)).map((article) => {
                       return (
                         <div className="featuredArticle" key={article.title}>
-                          <Link to={article.slug.current}>
+                          <Link to={"/" + article.slug.current}>
                             <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
                           </Link>
                         </div>
@@ -371,7 +371,7 @@ export default function IssuesList() {
                     {(featuredItems.slice(2,4)).map((article) => {
                       return (
                         <div className="featuredArticle" key={article.title}>
-                          <Link to={article.slug.current}>
+                          <Link to={"/" + article.slug.current}>
                             <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
                           </Link>
                         </div>
@@ -406,7 +406,7 @@ export default function IssuesList() {
                     {(featuredItems.slice(0,2)).map((article) => {
                       return (
                         <div className="featuredArticle" key={article.title}>
-                          <Link to={article.slug.current}>
+                          <Link to={"/" + article.slug.current}>
                             <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
                           </Link>
                         </div>
@@ -418,7 +418,7 @@ export default function IssuesList() {
                     {(featuredItems.slice(2,4)).map((article) => {
                       return (
                         <div className="featuredArticle" key={article.title}>
-                          <Link to={article.slug.current}>
+                          <Link to={"/" + article.slug.current}>
                             <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
                           </Link>
                         </div>
