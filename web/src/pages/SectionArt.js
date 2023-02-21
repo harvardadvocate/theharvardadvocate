@@ -6,7 +6,7 @@ import sanityClient from "../client.js";
 import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { useParams, Link } from "react-router-dom";
-import Frame from "../components/Frame";
+import SectionFrame from "../components/SectionFrame";
 
 const sectionSx = {
   ".sectionHeader": {
@@ -57,7 +57,7 @@ export default function SectionArt(props) {
 
   return (
     <div sx={sectionSx}>
-      <Frame
+      <SectionFrame
         path={[
           {
             name: section,
@@ -66,7 +66,7 @@ export default function SectionArt(props) {
         ]}
       >
         <ImageContentGrid items={items} />
-      </Frame>
+      </SectionFrame>
     </div>
   );
 }

@@ -480,7 +480,7 @@ export default function IssuesList() {
                     <div className="smallIssueDiv" key={smallIssue.title}>
                       <img src={smallIssue.frontCover.asset.url}></img>
                       <div className="lowerInfo2">
-                        <Themed.h4>{smallIssue.title} Issue</Themed.h4>
+                        <Themed.h4>{smallIssue.title}</Themed.h4>
                       </div>
                     </div>
                     </Link>

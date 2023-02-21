@@ -6,7 +6,8 @@ import sanityClient from "../client.js";
 import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { useParams, Link } from "react-router-dom";
-import Frame from "../components/Frame";
+import SectionFrame from "../components/SectionFrame";
+
 const sectionSx = {
   ".sectionHeader": {
     fontStyle: "italic",
@@ -17,8 +18,7 @@ const sectionSx = {
   maxWidth: "100vw",
 };
 
-// TODO: paginate
-const sectionToQuery = (section) =>
+const sectionToQuery = (section, start, end) =>
     `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
         authors[]->{name},
@@ -32,7 +32,7 @@ const sectionToQuery = (section) =>
           url
         }
       }
-    }[0...24]`;
+    }[${start}...${end}]`;
 
 export default function Section(props) {
   const [items, setItems] = useState(null);
@@ -41,13 +41,13 @@ export default function Section(props) {
 
   useEffect(() => {
     sanityClient
-      .fetch(`*[_type == "section" && slug.current == $sectionSlug]`, {
+      .fetch(`*[_type == "section" && slug.current == $sectionSlug]`, { // fetch section data to get section name
         sectionSlug,
       })
       .then((sectionData) => {
-        setSection(sectionData[0].title);
+        setSection(sectionData[0].title); // set section name
         sanityClient
-          .fetch(sectionToQuery(sectionData[0].title))
+          .fetch(sectionToQuery(sectionData[0].title, 0, 24)) // query section
           .then((data) => setItems(data))
           .catch(console.error);
       })
@@ -58,7 +58,7 @@ export default function Section(props) {
 
   return (
     <div sx={sectionSx}>
-      <Frame
+      <SectionFrame
         path={[
           {
             name: section,
@@ -67,7 +67,7 @@ export default function Section(props) {
         ]}
       >
         <TextContentList items={items} />
-      </Frame>
+      </SectionFrame>
     </div>
   );
 }
