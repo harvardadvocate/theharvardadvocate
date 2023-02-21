@@ -9,7 +9,6 @@ const advertiseSx = {
     display: "flex",
     flexDirection: "column",
     alignItems:"center",
-    margin: "0em 21vw 0vh 21vw",
   },
   ".image": {
     display: "flex",

@@ -7,7 +7,7 @@ import { useLocation, Link } from "react-router-dom";
 const submitSx = {
   ".submitBody": {
     margin: "auto",
-    width: "60%",
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",

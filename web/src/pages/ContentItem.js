@@ -7,6 +7,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
 import moment from "moment";
 import ContentFrame from "../components/ContentFrame";
+import Frame from "../components/Frame";
 
 const contentItemSx = {
   ".contentHeader": {

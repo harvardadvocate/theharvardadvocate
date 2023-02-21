@@ -2,10 +2,15 @@
 import React, { useEffect, useState } from "react";
 import { Themed } from "theme-ui";
 import sanityClient from "../client.js";
-import { useParams } from "react-router-dom";
-import Frame from "../components/Frame";
+import { useParams, Link } from "react-router-dom";
+import SectionFrame from "../components/SectionFrame";
 
-const issueSx = {};
+const issueSx = {
+  ".mainGrid": {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+  },
+};
 
 export default function Issue() {
   const [items, setItems] = useState(null);
@@ -14,14 +19,24 @@ export default function Issue() {
 
   useEffect(() => {
     sanityClient
-      .fetch(`*[_type == "issue" && slug.current == $issueSlug]`, {
-        issueSlug,
-      })
+      .fetch(
+        `*[_type == "issue" && slug.current == $issueSlug] {
+        _id,
+        title,
+        slug,
+        description,
+        frontCover{
+          asset->{
+            _id,
+            url
+          }
+        }
+      }`, {issueSlug})
       .then((issueData) => {
         setIssue(issueData[0]);
         sanityClient
           .fetch(
-            `*[_type == "contentItem" && $issueId == issue->_id]{
+            `*[_type == "contentItem" && issue->_id == $issueId]{
             title,
             slug,
             authors[]->{name},
@@ -35,18 +50,30 @@ export default function Issue() {
       .catch(console.error);
   }, [issueSlug]);
 
-  if (!items || !issue) return <div>Loading...</div>;
-
+  if (!items || !issue) {
+    return <div>Loading...</div>
+  }
+  else {
+    console.log(issue);
+    console.log(items);
+  }
   return (
     <div css={issueSx}>
-      <Frame
+      <SectionFrame
         path={[
-          { name: "Issues", slug: "/issues" },
+          { name: issue.title, slug: "/issues" },
           { name: issue.title, slug: "/issues/" + issue.slug.current },
         ]}
       >
-        <Themed.h2>{issue.title}</Themed.h2>
-      </Frame>
+      <div className="mainGrid">
+        <div className="issueCover">
+          {issue.frontCover && "asset" in issue.frontCover && (
+            <img src={issue.frontCover.asset.url} alt="" />
+          )}
+        </div>
+      </div>
+      </SectionFrame>
     </div>
+
   );
 }

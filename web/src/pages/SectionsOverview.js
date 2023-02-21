@@ -6,7 +6,7 @@ import sanityClient from "../client.js";
 import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
-import Frame from "../components/Frame";
+import SectionFrame from "../components/SectionFrame";
 const sectionsOverviewSx = {
 
   ".sectionHeader": {
@@ -103,7 +103,7 @@ export default function SectionsOverview(props) {
 
   return (
     <div sx={sectionsOverviewSx}>
-      <Frame
+      <SectionFrame
         path={[
           {
             name: "Sections",
@@ -126,7 +126,7 @@ export default function SectionsOverview(props) {
           {sectionHeader("Poetry")}
           <TextContentList items={poetryItems} />
         </div>
-      </Frame>
+      </SectionFrame>
     </div>
   );
 }

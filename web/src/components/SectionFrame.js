@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 
-const frameSx = {
+const sectionFrameSx = {
   marginBottom: "5vh",
   ".header": {
     marginTop: "1em",
     marginBottom: "1em",
     height: "2.5em",
     display: "flex",
+    paddingInline: "10em",
     ".headerNormal": {
       borderBottom: "1px solid #000",
       width: "100%",
@@ -20,7 +21,6 @@ const frameSx = {
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
-    paddingInline: "10em",
     minHeight: "100vh",
     flexDirection: "column",
     marginTop: "0em",
@@ -32,8 +32,6 @@ const frameSx = {
   ".mainContent": {
     marginLeft: "auto",
     marginRight: "auto",
-    paddingLeft: "3vw",
-    paddingRight: "3vw",
     width: "100%",
   },
 
@@ -53,18 +51,18 @@ const frameSx = {
   },
 };
 // TODO: assumes only up to 3 elements in path
-export default function Frame(props) {
+export default function SectionFrame(props) {
 
   return (
-    <div sx={frameSx}>
+    <div sx={sectionFrameSx}>
       <div className="horizontalContainer">
-          <div className="header">
-            <div className="headerNormal">
-            <Themed.h2>{props.path[0].name}</Themed.h2>
-            </div>
+        <div className="header">
+          <div className="headerNormal">
+          <Themed.h2>{props.path[0].name}</Themed.h2>
           </div>
+        </div>
 
-          <div className="mainContent">{props.children}</div>
+        <div className="mainContent">{props.children}</div>
       </div>
     </div>
   );
