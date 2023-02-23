@@ -311,7 +311,7 @@ export default function IssuesList() {
     const [featuredItems, setFeaturedItems] = useState(null);
 
     const loadItems = (num) => {
-      var currentIssue = itemData.length-1
+      var currentIssue = itemData.length
       sanityClient
       .fetch(issuesToQuery(currentIssue, currentIssue+num)) // query section
         .then((data) => setItemData([...itemData, ...data])
@@ -321,7 +321,7 @@ export default function IssuesList() {
 
     useEffect(() => {
         sanityClient
-          .fetch(issuesToQuery(0, 6))
+          .fetch(issuesToQuery(0, 10))
           .then((data) => {
             setItemData(data);
           })

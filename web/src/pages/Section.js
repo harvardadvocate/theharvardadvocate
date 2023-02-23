@@ -49,7 +49,7 @@ export default function Section(props) {
   const { sectionSlug } = useParams();
 
   const loadItems = (num) => {
-    var currentPost = items.length-1
+    var currentPost = items.length
     sanityClient
     .fetch(sectionToQuery(section, currentPost, currentPost+num)) // query section
       .then((data) => setItems([...items, ...data])
