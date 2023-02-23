@@ -38,8 +38,7 @@ const imageContentGridSx = {
 export default function ImageContentGrid(props) {
 
   const perChunk = 3 // items per row
-  var resultArray = buildSubarraysOfSize(props.items, perChunk);
-  console.log(resultArray);
+  const resultArray = buildSubarraysOfSize(props.items, perChunk);
 
   return (
     <div sx={imageContentGridSx}>

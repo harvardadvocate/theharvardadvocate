@@ -79,7 +79,7 @@ export default function Author() {
       <Frame
         path={[
           {
-            name: "Authors",
+            name: authorData.name,
           },
           {
             name: authorData.name,
@@ -87,9 +87,6 @@ export default function Author() {
           },
         ]}
       >
-        <div className="authorHeader">
-          <Themed.h2>{authorData.name}</Themed.h2>
-        </div>
         <div className="authorBio">
           {authorData.image && (
             <img src={urlFor(authorData.image).width(200).url()} alt="" />
