@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ImageListElement from "./ImageListElement";
 import { Grid } from "theme-ui";
+import { buildSubarraysOfSize } from "../assets/utils"
 
 const imageContentGridSx = {
   ".mainGrid": {
@@ -26,7 +27,6 @@ const imageContentGridSx = {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
     alignItems: "center",
-    maxWidth: "100%",
   },
 
   ".artItem:last-child": {
@@ -38,18 +38,8 @@ const imageContentGridSx = {
 export default function ImageContentGrid(props) {
 
   const perChunk = 3 // items per row
-
-  const resultArray = (props.items).reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index/perChunk)
-
-    if(!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [] // start a new chunk
-    }
-
-    resultArray[chunkIndex].push(item)
-
-    return resultArray
-  }, [])
+  var resultArray = buildSubarraysOfSize(props.items, perChunk);
+  console.log(resultArray);
 
   return (
     <div sx={imageContentGridSx}>

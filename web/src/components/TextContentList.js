@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TextListElement from "./TextListElement";
-
+import { buildSubarraysOfSize } from "../assets/utils"
 const textContentListSx = {
   ".mainGrid": {
     display: "grid",
@@ -25,7 +25,6 @@ const textContentListSx = {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
     alignItems: "center",
-    maxWidth: "100%",
   },
 
   ".articleItem:last-child": {
@@ -35,21 +34,9 @@ const textContentListSx = {
 
 
 export default function TextContentList(props) {
-  console.log("props");
-  console.log(props);
+
   const perChunk = 3 // items per row
-
-  const resultArray = (props.items).reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index/perChunk)
-
-    if(!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [] // start a new chunk
-    }
-
-    resultArray[chunkIndex].push(item)
-
-    return resultArray
-  }, [])
+  const resultArray = buildSubarraysOfSize(props.items, perChunk);
 
   return (
     <div sx={textContentListSx}>
