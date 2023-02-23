@@ -4,7 +4,7 @@ import { Themed, Grid } from "theme-ui";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { theme } from "../theme/theme.js";
-
+import { buildSubarraysOfSize } from "../assets/utils"
 const firstColor = theme["colors"]["primary"];
 const secondColor = theme["colors"]["secondary"];
 
@@ -275,6 +275,29 @@ const issuesListSx = {
     marginBottom: "1vh",
   }
 };
+
+const virtualStyle = {
+  position: "absolute",
+  height: "200px",
+  top: "-200px",
+  width: "100%",
+  pointerEvent:"none"
+}
+
+const issuesToQuery = (start, end) =>
+    `*[_type == "issue"] | order(publishedAt desc) {
+      title,
+      slug,
+      description,
+      frontCover{
+        asset->{
+            _id,
+            url
+          }
+        }
+      }[${start}...${end}]`;
+
+
 // // `components` object passed to PortableText
 const customComponents = {
   block: {
@@ -287,21 +310,18 @@ export default function IssuesList() {
     const [itemData, setItemData] = useState(null);
     const [featuredItems, setFeaturedItems] = useState(null);
 
+    const loadItems = (num) => {
+      var currentIssue = itemData.length-1
+      sanityClient
+      .fetch(issuesToQuery(currentIssue, currentIssue+num)) // query section
+        .then((data) => setItemData([...itemData, ...data])
+      )
+      .catch(console.error)
+     }
+
     useEffect(() => {
         sanityClient
-          .fetch(
-            `*[_type == "issue"] | order(publishedAt desc) {
-          title,
-          slug,
-          description,
-          frontCover{
-            asset->{
-              _id,
-              url
-            }
-          }
-        }`
-          )
+          .fetch(issuesToQuery(0, 6))
           .then((data) => {
             setItemData(data);
           })
@@ -326,13 +346,35 @@ export default function IssuesList() {
           .catch(console.error);
       }, []);
 
+
+      const intersectionObserver = new IntersectionObserver(entries => {
+        if (entries[0].intersectionRatio === 0) return;
+        loadItems(4);
+      })
+
+      useEffect(() => {
+        var  currentElement = document.querySelector(".more")
+        intersectionObserver.observe(currentElement)
+
+        return () => {
+          if (currentElement) {
+            intersectionObserver.unobserve(currentElement);
+          }
+        }
+      },[intersectionObserver])
+
+
       if (!itemData || !featuredItems) {
         return <div>Loading...</div>;
       }
       else {
         console.log("Welcome to the Harvard Advocate.");
-        console.log(itemData);
       }
+
+      const perChunk = 4 // items per row
+      const resultArray = buildSubarraysOfSize(itemData.slice(6), perChunk);
+      console.log(resultArray);
+
 
     return (
       <div css={issuesListSx}>
@@ -389,10 +431,6 @@ export default function IssuesList() {
               </div>
             </Grid>
           </div>
-
-
-
-
           <div className="featuredIssue2">
             <Grid className="mainGrid" columns={"3fr 2fr"}>
               <div className="featuredArticles2">
@@ -471,7 +509,7 @@ export default function IssuesList() {
           })}
           </div>
           <div className="smallGrid">
-            {([itemData.slice(6,10), itemData.slice(10,14), itemData.slice(14,18)]).map((issueSlices) => {
+            {(resultArray).map((issueSlices) => {
               return (
                 <div className="smallGridRow">
                 {(issueSlices).map((smallIssue) => {
@@ -489,7 +527,9 @@ export default function IssuesList() {
                 </div>
               );
             })}
-
+          </div>
+          <div className="more">
+            <p style={virtualStyle}></p>
           </div>
         </div>
       </div>
