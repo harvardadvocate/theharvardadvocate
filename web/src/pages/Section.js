@@ -40,7 +40,6 @@ export default function Section(props) {
   const { sectionSlug } = useParams();
 
   useEffect(() => {
-    // TODO: Batch query
     sanityClient
       .fetch(`*[_type == "section" && slug.current == $sectionSlug]`, {
         sectionSlug,

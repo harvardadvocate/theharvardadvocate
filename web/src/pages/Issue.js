@@ -13,25 +13,27 @@ export default function Issue() {
   const { issueSlug } = useParams();
 
   useEffect(() => {
-    // TODO: Batch query
     sanityClient
-      .fetch(`*[_type == "issue" && slug.current == $issueSlug]`, {
-        issueSlug,
-      })
+      .fetch(
+        `*[_type == "issue" && slug.current == $issueSlug] {
+          frontCover,
+          publishedAt,  
+          slug,
+          title,  
+          _createdAt, 
+          _id,  
+          _rev, 
+          _type,  
+          _updatedAt, 
+          "items": *[_type == "contentItem" && ^._id == issue._ref]
+        }`,
+        {
+          issueSlug,
+        }
+      )
       .then((issueData) => {
-        setIssue(issueData[0]);
-        sanityClient
-          .fetch(
-            `*[_type == "contentItem" && $issueId == issue->_id]{
-            title,
-            slug,
-            authors[]->{name},
-            sections[]->{title}
-          }`,
-            { issueId: issueData[0]["_id"] }
-          )
-          .then((data) => setItems(data))
-          .catch(console.error);
+        setIssue({ ...issueData[0], items: undefined });
+        setItems(issueData[0].items);
       })
       .catch(console.error);
   }, [issueSlug]);

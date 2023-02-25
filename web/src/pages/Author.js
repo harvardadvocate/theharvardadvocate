@@ -37,7 +37,6 @@ export default function Author() {
   const { authorSlug } = useParams();
 
   useEffect(() => {
-    // TODO: Batch query
     sanityClient
       .fetch(
         `*[_type == "author" && slug.current == $authorSlug]{
@@ -45,30 +44,19 @@ export default function Author() {
            name,
            slug,
            image,
-           bio
+           bio,
+           "itemData": *[_type == "contentItem" && ^._id in authors[]._ref]{title, slug, authors[]->{name}, issue->{title}, sections[]->{title}}
          }`,
         { authorSlug }
       )
       .then((data) => {
-        setAuthorData(data[0]);
-        sanityClient
-          .fetch(
-            `*[_type == "contentItem" && $authorId in authors[]->_id]{
-            title,
-            slug,
-            authors[]->{name},
-            issue->{title},
-            sections[]->{title}
-          }`,
-            { authorId: data[0]["_id"] }
-          )
-          .then((itemData) => {
-            setAuthoredItems(itemData);
-            setSections(
-              unionBy(...itemData.map((item) => item.sections), "title")
-            );
-          })
-          .catch(console.error);
+        data = data[0];
+        setAuthorData({ _id: data._id, name: data.name, slug: data.slug });
+        const authoredItems = data.itemData;
+        setAuthoredItems(authoredItems);
+        setSections(
+          unionBy(...authoredItems.map((item) => item.sections), "title")
+        );
       })
       .catch(console.error);
   }, [authorSlug]);
