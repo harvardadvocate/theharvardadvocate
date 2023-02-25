@@ -40,7 +40,6 @@ const issuesListSx = {
     cursor: "pointer",
   },
 
-
   ".issueCover": {
     height: "max-content",
     display: "flex",
@@ -56,7 +55,7 @@ const issuesListSx = {
     a: {
       justifyContent: "center",
       display: "flex",
-    }
+    },
   },
 
   ".mainGrid": {
@@ -75,7 +74,7 @@ const issuesListSx = {
     },
     hr: {
       border: "0.1px solid white",
-    }
+    },
   },
 
   ".featuredArticles2": {
@@ -88,8 +87,8 @@ const issuesListSx = {
     },
     hr: {
       border: "0.1px solid white",
-    }  },
-
+    },
+  },
 
   ".readFullIssue": {
     color: "#FFFFFF",
@@ -99,16 +98,15 @@ const issuesListSx = {
       paddingInline: "10px",
       color: firstColor,
       backgroundColor: "#FFFFFF",
-      float: "left"
+      float: "left",
     },
-
 
     h6: {
       marginLeft: "3em",
       border: "4px solid " + firstColor,
       paddingInline: "10px",
       borderRadius: "5px",
-      fontFamily: "sans-serif"
+      fontFamily: "sans-serif",
     },
   },
 
@@ -120,38 +118,35 @@ const issuesListSx = {
       paddingInline: "10px",
       color: secondColor,
       backgroundColor: "#FFFFFF",
-      float: "left"
+      float: "left",
     },
     h6: {
       marginLeft: "3em",
       border: "4px solid " + secondColor,
       paddingInline: "10px",
       borderRadius: "5px",
-      fontFamily: "sans-serif"
+      fontFamily: "sans-serif",
     },
+  },
+
+  ".readFullIssueBig": {
+    color: "#000000",
+    display: "flex",
+    alignItems: "center",
+    span: {
+      border: "2px solid #000000",
+      borderRadius: "5px",
+      paddingInline: "10px",
+      color: "#FFFFFF",
+      backgroundColor: "#000000",
+      float: "left",
     },
-
-    ".readFullIssueBig": {
-      color: "#000000",
-      display: "flex",
-      alignItems: "center",
-      span: {
-        border: "2px solid #000000",
-        borderRadius: "5px",
-        paddingInline: "10px",
-        color: "#FFFFFF",
-        backgroundColor: "#000000",
-        float: "left"
-      },
-      p: {
-        paddingInline: "10px",
-        fontFamily: "sans-serif",
-        fontSize: "0.6em",
-      },
-
-
+    p: {
+      paddingInline: "10px",
+      fontFamily: "sans-serif",
+      fontSize: "0.6em",
     },
-
+  },
 
   ".articleLink": {
     color: "#FFFFFF",
@@ -167,13 +162,11 @@ const issuesListSx = {
     gridRowGap: "0px",
   },
 
-
   ".bigGrid": {
     display: "grid",
     gridTemplateRows: "1fr 1fr",
     gridTemplateColumns: "1fr",
     paddingTop: "5vh",
-
   },
 
   ".bigGridRow": {
@@ -215,14 +208,12 @@ const issuesListSx = {
     justifyContent: "space-between",
   },
 
-
   ".smallGrid": {
     display: "grid",
     gridTemplateRows: "1fr 1fr",
     gridTemplateColumns: "1fr",
     paddingLeft: "1vw",
     paddingRight: "1vw",
-
   },
 
   ".smallGridRow": {
@@ -237,7 +228,6 @@ const issuesListSx = {
     borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "5vh",
     paddingTop: "5vh",
-
   },
 
   ".smallGridRow:last-child": {
@@ -273,7 +263,7 @@ const issuesListSx = {
 
   img: {
     marginBottom: "1vh",
-  }
+  },
 };
 // // `components` object passed to PortableText
 const customComponents = {
@@ -283,14 +273,14 @@ const customComponents = {
 };
 
 export default function IssuesList() {
+  const [itemData, setItemData] = useState(null);
+  const [featuredItems, setFeaturedItems] = useState(null);
 
-    const [itemData, setItemData] = useState(null);
-    const [featuredItems, setFeaturedItems] = useState(null);
-
-    useEffect(() => {
-        sanityClient
-          .fetch(
-            `*[_type == "issue"] | order(publishedAt desc) {
+  useEffect(() => {
+    // TODO: Batch query
+    sanityClient
+      .fetch(
+        `*[_type == "issue"] | order(publishedAt desc) {
           title,
           slug,
           description,
@@ -301,15 +291,15 @@ export default function IssuesList() {
             }
           }
         }`
-          )
-          .then((data) => {
-            setItemData(data);
-          })
-          .catch(console.error);
+      )
+      .then((data) => {
+        setItemData(data);
+      })
+      .catch(console.error);
 
-        sanityClient
-          .fetch(
-            `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
                 title,
                 authors[]->{name},
                 issue->{title, slug},
@@ -321,64 +311,76 @@ export default function IssuesList() {
                 }
               }
             }[0...4]`
-          )
-          .then((data) => setFeaturedItems(data))
-          .catch(console.error);
-      }, []);
+      )
+      .then((data) => setFeaturedItems(data))
+      .catch(console.error);
+  }, []);
 
-      if (!itemData || !featuredItems) {
-        return <div>Loading...</div>;
-      }
-      else {
-        console.log("Welcome to the Harvard Advocate.");
-        console.log(itemData);
-      }
+  if (!itemData || !featuredItems) {
+    return <div>Loading...</div>;
+  } else {
+    console.log("Welcome to the Harvard Advocate.");
+    console.log(itemData);
+  }
 
-    return (
-      <div css={issuesListSx}>
+  return (
+    <div css={issuesListSx}>
       <div className="horizontalContainer">
         <div className="mainContent">
           <div className="featuredIssue">
             <Grid className="mainGrid" columns={"2fr 3fr"}>
               <div className="issueCover">
                 <Link to={"/issues/" + itemData[0].slug.current}>
-                  {itemData[0].frontCover && "asset" in itemData[0].frontCover && (
-                    <img src={itemData[0].frontCover.asset.url} alt="" />
-                  )}
+                  {itemData[0].frontCover &&
+                    "asset" in itemData[0].frontCover && (
+                      <img src={itemData[0].frontCover.asset.url} alt="" />
+                    )}
                 </Link>
               </div>
 
               <div className="featuredArticles">
                 <div className="issueTitle">
-                  <h5><b>NEWEST ISSUE</b></h5>
+                  <h5>
+                    <b>NEWEST ISSUE</b>
+                  </h5>
                   <Themed.h1>{itemData[0].title}</Themed.h1>
-                  <hr/>
+                  <hr />
                 </div>
                 <div className="highlightedArticles">
                   <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                    {(featuredItems.slice(0,2)).map((article) => {
+                    {featuredItems.slice(0, 2).map((article) => {
                       return (
                         <div className="featuredArticle" key={article.title}>
                           <Link to={"/" + article.slug.current}>
-                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
+                            <div className="articleLink">
+                              <Themed.h3>
+                                <b>{article.title}</b> <br /> By{" "}
+                                {article.authors[0].name}
+                              </Themed.h3>
+                            </div>
                           </Link>
                         </div>
                       );
                     })}
                   </Grid>
-                  <hr/>
+                  <hr />
                   <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                    {(featuredItems.slice(2,4)).map((article) => {
+                    {featuredItems.slice(2, 4).map((article) => {
                       return (
                         <div className="featuredArticle" key={article.title}>
                           <Link to={"/" + article.slug.current}>
-                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
+                            <div className="articleLink">
+                              <Themed.h3>
+                                <b>{article.title}</b> <br /> By{" "}
+                                {article.authors[0].name}
+                              </Themed.h3>
+                            </div>
                           </Link>
                         </div>
                       );
                     })}
                   </Grid>
-                  <hr/>
+                  <hr />
                 </div>
                 <Link to={"/issues/" + itemData[0].slug.current}>
                   <div className="readFullIssue">
@@ -390,42 +392,51 @@ export default function IssuesList() {
             </Grid>
           </div>
 
-
-
-
           <div className="featuredIssue2">
             <Grid className="mainGrid" columns={"3fr 2fr"}>
               <div className="featuredArticles2">
                 <div className="issueTitle">
-                  <h5><b>RECENT ISSUE</b></h5>
+                  <h5>
+                    <b>RECENT ISSUE</b>
+                  </h5>
                   <Themed.h1>{itemData[1].title}</Themed.h1>
-                  <hr/>
+                  <hr />
                 </div>
                 <div className="highlightedArticles">
                   <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                    {(featuredItems.slice(0,2)).map((article) => {
+                    {featuredItems.slice(0, 2).map((article) => {
                       return (
                         <div className="featuredArticle" key={article.title}>
                           <Link to={"/" + article.slug.current}>
-                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
+                            <div className="articleLink">
+                              <Themed.h3>
+                                <b>{article.title}</b> <br /> By{" "}
+                                {article.authors[0].name}
+                              </Themed.h3>
+                            </div>
                           </Link>
                         </div>
                       );
                     })}
                   </Grid>
-                  <hr/>
+                  <hr />
                   <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                    {(featuredItems.slice(2,4)).map((article) => {
+                    {featuredItems.slice(2, 4).map((article) => {
                       return (
                         <div className="featuredArticle" key={article.title}>
                           <Link to={"/" + article.slug.current}>
-                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
+                            <div className="articleLink">
+                              <Themed.h3>
+                                <b>{article.title}</b> <br /> By{" "}
+                                {article.authors[0].name}
+                              </Themed.h3>
+                            </div>
                           </Link>
                         </div>
                       );
                     })}
                   </Grid>
-                  <hr/>
+                  <hr />
                 </div>
                 <Link to={"/issues/" + itemData[1].slug.current}>
                   <div className="readFullIssue2">
@@ -436,63 +447,68 @@ export default function IssuesList() {
               </div>
               <div className="issueCover">
                 <Link to={"/issues/" + itemData[1].slug.current}>
-                  {itemData[1].frontCover && "asset" in itemData[1].frontCover && (
-                    <img src={itemData[1].frontCover.asset.url} alt="" />
-                  )}
+                  {itemData[1].frontCover &&
+                    "asset" in itemData[1].frontCover && (
+                      <img src={itemData[1].frontCover.asset.url} alt="" />
+                    )}
                 </Link>
               </div>
-
             </Grid>
           </div>
-          <div className = "bigGrid">
-          {([itemData.slice(2,4), itemData.slice(4,6)]).map((issueSlices) => {
-            return (
-              <div className="bigGridRow">
-              {(issueSlices).map((bigIssue) => {
-                return (
-                  <Link to={"/issues/" + bigIssue.slug.current}>
-                  <div className="bigIssueDiv" key={bigIssue.title}>
-                    <img src={bigIssue.frontCover.asset.url}></img>
-                    <div className="lowerInfo">
-                      <Themed.h3>{bigIssue.title} Issue</Themed.h3>
-                      <Link to={"/issues/" + bigIssue.slug.current}>
-                      <div className="readFullIssueBig">
-                        <span>&#8594;</span>&nbsp;
-                        <p><b>READ FULL ISSUE</b></p>
-                      </div>
-                      </Link>
-                    </div>
-                  </div>
-                  </Link>
-                );
-              })}
-              </div>
-            );
-          })}
-          </div>
-          <div className="smallGrid">
-            {([itemData.slice(6,10), itemData.slice(10,14), itemData.slice(14,18)]).map((issueSlices) => {
+          <div className="bigGrid">
+            {[itemData.slice(2, 4), itemData.slice(4, 6)].map((issueSlices) => {
               return (
-                <div className="smallGridRow">
-                {(issueSlices).map((smallIssue) => {
-                  return (
-                    <Link to={"/issues/" + smallIssue.slug.current}>
-                    <div className="smallIssueDiv" key={smallIssue.title}>
-                      <img src={smallIssue.frontCover.asset.url}></img>
-                      <div className="lowerInfo2">
-                        <Themed.h4>{smallIssue.title} Issue</Themed.h4>
-                      </div>
-                    </div>
-                    </Link>
-                  );
-                })}
+                <div className="bigGridRow">
+                  {issueSlices.map((bigIssue) => {
+                    return (
+                      <Link to={"/issues/" + bigIssue.slug.current}>
+                        <div className="bigIssueDiv" key={bigIssue.title}>
+                          <img src={bigIssue.frontCover.asset.url}></img>
+                          <div className="lowerInfo">
+                            <Themed.h3>{bigIssue.title} Issue</Themed.h3>
+                            <Link to={"/issues/" + bigIssue.slug.current}>
+                              <div className="readFullIssueBig">
+                                <span>&#8594;</span>&nbsp;
+                                <p>
+                                  <b>READ FULL ISSUE</b>
+                                </p>
+                              </div>
+                            </Link>
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
               );
             })}
-
+          </div>
+          <div className="smallGrid">
+            {[
+              itemData.slice(6, 10),
+              itemData.slice(10, 14),
+              itemData.slice(14, 18),
+            ].map((issueSlices) => {
+              return (
+                <div className="smallGridRow">
+                  {issueSlices.map((smallIssue) => {
+                    return (
+                      <Link to={"/issues/" + smallIssue.slug.current}>
+                        <div className="smallIssueDiv" key={smallIssue.title}>
+                          <img src={smallIssue.frontCover.asset.url}></img>
+                          <div className="lowerInfo2">
+                            <Themed.h4>{smallIssue.title} Issue</Themed.h4>
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-      </div>
-    );
-  }
+    </div>
+  );
+}

@@ -13,6 +13,7 @@ export default function Issue() {
   const { issueSlug } = useParams();
 
   useEffect(() => {
+    // TODO: Batch query
     sanityClient
       .fetch(`*[_type == "issue" && slug.current == $issueSlug]`, {
         issueSlug,

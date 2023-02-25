@@ -8,7 +8,6 @@ import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
 import Frame from "../components/Frame";
 const sectionsOverviewSx = {
-
   ".sectionHeader": {
     fontStyle: "italic",
     borderBottom: "1px solid #000",
@@ -71,6 +70,7 @@ export default function SectionsOverview(props) {
   const [poetryItems, setPoetryItems] = useState(null);
 
   useEffect(() => {
+    // TODO: Batch query
     sanityClient
       .fetch(sectionToQuery("Art"))
       .then((data) => setArtItems(data))

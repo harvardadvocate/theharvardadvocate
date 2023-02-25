@@ -19,7 +19,7 @@ const sectionSx = {
 
 // TODO: paginate
 const sectionToQuery = (section) =>
-    `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
+  `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
         authors[]->{name},
         issue->{title,slug},
@@ -40,6 +40,7 @@ export default function Section(props) {
   const { sectionSlug } = useParams();
 
   useEffect(() => {
+    // TODO: Batch query
     sanityClient
       .fetch(`*[_type == "section" && slug.current == $sectionSlug]`, {
         sectionSlug,

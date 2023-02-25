@@ -37,6 +37,7 @@ export default function Author() {
   const { authorSlug } = useParams();
 
   useEffect(() => {
+    // TODO: Batch query
     sanityClient
       .fetch(
         `*[_type == "author" && slug.current == $authorSlug]{
