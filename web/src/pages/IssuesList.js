@@ -278,42 +278,40 @@ export default function IssuesList() {
   const [featuredItems, setFeaturedItems] = useState(null);
 
   useEffect(() => {
-    // TODO: Batch query
     sanityClient
       .fetch(
-        `*[_type == "issue"] | order(publishedAt desc) {
-          title,
-          slug,
-          description,
-          frontCover{
-            asset->{
-              _id,
-              url
-            }
+        `
+    {
+      "itemData": *[_type == "issue"] | order(publishedAt desc) {
+        title,
+        slug,
+        description,
+        frontCover{
+          asset->{
+            _id,
+            url
           }
-        }`
+        }
+      },
+      "featuredItems": *[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
+        title,
+        authors[]->{name},
+        issue->{title, slug},
+        slug,
+        mainImage{
+          asset->{
+            _id,
+            url
+          }
+        }
+      }[0...4]
+    }
+    `
       )
       .then((data) => {
-        setItemData(data);
+        setItemData(data.itemData);
+        setFeaturedItems(data.featuredItems);
       })
-      .catch(console.error);
-
-    sanityClient
-      .fetch(
-        `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
-                title,
-                authors[]->{name},
-                issue->{title, slug},
-                slug,
-                mainImage{
-                  asset->{
-                  _id,
-                  url
-                }
-              }
-            }[0...4]`
-      )
-      .then((data) => setFeaturedItems(data))
       .catch(console.error);
   }, []);
 
@@ -321,7 +319,7 @@ export default function IssuesList() {
     return <div>Loading...</div>;
   } else {
     console.log("Welcome to the Harvard Advocate.");
-    console.log(itemData);
+    // console.log(itemData);
   }
 
   return (
@@ -469,51 +467,59 @@ export default function IssuesList() {
             </Grid>
           </div>
           <div className="bigGrid">
-            {[itemData.slice(2, 4), itemData.slice(4, 6)].map((issueSlices) => {
-              return (
-                <div className="bigGridRow">
-                  {issueSlices.map((bigIssue) => {
-                    return (
-                      <Link to={"/issues/" + bigIssue.slug.current}>
-                        <div className="bigIssueDiv" key={bigIssue.title}>
-                          <img
-                            src={optimizeImageLoading(
-                              bigIssue.frontCover.asset.url
-                            )}
-                            loading="lazy"
-                            alt="Big Issue"
-                          ></img>
-                          <div className="lowerInfo">
-                            <Themed.h3>{bigIssue.title} Issue</Themed.h3>
-                            <Link to={"/issues/" + bigIssue.slug.current}>
-                              <div className="readFullIssueBig">
-                                <span>&#8594;</span>&nbsp;
-                                <p>
-                                  <b>READ FULL ISSUE</b>
-                                </p>
-                              </div>
-                            </Link>
+            {[itemData.slice(2, 4), itemData.slice(4, 6)].map(
+              (issueSlices, index) => {
+                return (
+                  <div className="bigGridRow" key={`row-${index}`}>
+                    {issueSlices.map((bigIssue) => {
+                      return (
+                        <Link
+                          to={"/issues/" + bigIssue.slug.current}
+                          key={bigIssue.title}
+                        >
+                          <div className="bigIssueDiv">
+                            <img
+                              src={optimizeImageLoading(
+                                bigIssue.frontCover.asset.url
+                              )}
+                              loading="lazy"
+                              alt="Big Issue"
+                            ></img>
+                            <div className="lowerInfo">
+                              <Themed.h3>{bigIssue.title} Issue</Themed.h3>
+                              <Link to={"/issues/" + bigIssue.slug.current}>
+                                <div className="readFullIssueBig">
+                                  <span>&#8594;</span>&nbsp;
+                                  <p>
+                                    <b>READ FULL ISSUE</b>
+                                  </p>
+                                </div>
+                              </Link>
+                            </div>
                           </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            })}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                );
+              }
+            )}
           </div>
           <div className="smallGrid">
             {[
               itemData.slice(6, 10),
               itemData.slice(10, 14),
               itemData.slice(14, 18),
-            ].map((issueSlices) => {
+            ].map((issueSlices, index) => {
               return (
-                <div className="smallGridRow">
+                <div className="smallGridRow" key={`smallrow-${index}`}>
                   {issueSlices.map((smallIssue) => {
                     return (
-                      <Link to={"/issues/" + smallIssue.slug.current}>
-                        <div className="smallIssueDiv" key={smallIssue.title}>
+                      <Link
+                        to={"/issues/" + smallIssue.slug.current}
+                        key={smallIssue.title}
+                      >
+                        <div className="smallIssueDiv">
                           <img
                             src={optimizeImageLoading(
                               smallIssue.frontCover.asset.url
