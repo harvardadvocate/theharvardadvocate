@@ -67,6 +67,7 @@ export default function ContentItem() {
       .catch(console.error);
   }, [slug]);
 
+  console.log(itemData);
   if (!itemData) return <div>Loading...</div>;
 
   return (
@@ -87,7 +88,13 @@ export default function ContentItem() {
         <div className="contentHeader">
           <div className="topLine">
             <Themed.h5>
-              <Link to={"/sections/" + itemData.sections[0].slug.current}>{itemData.sections[0].title}</Link> • <Link to={"/issues/" + itemData.issue.slug.current}>{itemData.issue.title} Issue </Link>
+              <Link to={"/sections/" + itemData.sections[0].slug.current}>
+                {itemData.sections[0].title}
+              </Link>{" "}
+              •{" "}
+              <Link to={"/issues/" + itemData.issue.slug.current}>
+                {itemData.issue.title} Issue{" "}
+              </Link>
             </Themed.h5>
           </div>
           <div className="title">
@@ -120,7 +127,14 @@ export default function ContentItem() {
         {
           // TODO: figure out multiple image display
           itemData.mainImage && (
-            <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
+            <img
+              src={urlFor(itemData.mainImage)
+                .auto("format")
+                .quality(5)
+                .width(200)
+                .url()}
+              alt=""
+            />
           )
         }
         <div>

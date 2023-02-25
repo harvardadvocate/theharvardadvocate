@@ -6,6 +6,7 @@ import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { theme } from "../theme/theme";
+import { optimizeImageLoading } from "../utils/image.js";
 
 const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
@@ -704,7 +705,11 @@ export default function Homepage() {
               <div className="issueCover">
                 <Link to={"/issues/" + itemData.slug.current}>
                   {itemData.frontCover && "asset" in itemData.frontCover && (
-                    <img src={itemData.frontCover.asset.url} alt="" />
+                    <img
+                      src={optimizeImageLoading(itemData.frontCover.asset.url)}
+                      alt=""
+                      loading="lazy"
+                    />
                   )}
                 </Link>
               </div>
@@ -876,8 +881,11 @@ export default function Homepage() {
               <div className="div4image">
                 <a href={featuredArticle4.slug.current}>
                   <img
-                    src={featuredArticle4.mainImage.asset.url}
+                    src={optimizeImageLoading(
+                      featuredArticle4.mainImage.asset.url
+                    )}
                     alt="Illustration"
+                    loading="lazy"
                   ></img>
                 </a>
               </div>
@@ -996,8 +1004,9 @@ export default function Homepage() {
               <div className="div7image">
                 <a href={featuredArt1.slug.current}>
                   <img
-                    src={featuredArt1.mainImage.asset.url}
-                    alt="Art image"
+                    src={optimizeImageLoading(featuredArt1.mainImage.asset.url)}
+                    alt="Art"
+                    loading="lazy"
                   ></img>
                 </a>
               </div>
@@ -1029,8 +1038,9 @@ export default function Homepage() {
               <div className="div8image">
                 <a href={featuredArt2.slug.current}>
                   <img
-                    src={featuredArt2.mainImage.asset.url}
-                    alt="Art image"
+                    src={optimizeImageLoading(featuredArt2.mainImage.asset.url)}
+                    alt="Art"
+                    loading="lazy"
                   ></img>
                 </a>
               </div>
@@ -1061,7 +1071,7 @@ export default function Homepage() {
           </div>
           <div className="sanctumSessions">
             <hr />
-            <img src="/sanctum_sessions.png" />
+            <img src="/sanctum_sessions.png" loading="lazy" alt="Sanctum" />
           </div>
           <div className="blog">
             <hr />
@@ -1126,16 +1136,38 @@ export default function Homepage() {
               <a href="https://instagram.com/harvardadvocate" target="_blank">
                 <div className="instaCol">
                   <div className="fromss">
-                    <img src="/picsfrom21ss.jpg"></img>
+                    <img
+                      src="/picsfrom21ss.jpg"
+                      loading="lazy"
+                      alt="Pics from 21"
+                    ></img>
                   </div>
                   <div className="insta1">
-                    <img src={instagramImages[2].image.asset.url}></img>
+                    <img
+                      src={optimizeImageLoading(
+                        instagramImages[2].image.asset.url
+                      )}
+                      loading="lazy"
+                      alt="Pic from 21"
+                    ></img>
                   </div>
                   <div className="insta2">
-                    <img src={instagramImages[0].image.asset.url}></img>
+                    <img
+                      src={optimizeImageLoading(
+                        instagramImages[0].image.asset.url
+                      )}
+                      loading="lazy"
+                      alt="Pic from 21"
+                    ></img>
                   </div>
                   <div className="insta3">
-                    <img src={instagramImages[1].image.asset.url}></img>
+                    <img
+                      src={optimizeImageLoading(
+                        instagramImages[1].image.asset.url
+                      )}
+                      loading="lazy"
+                      alt="Pic from 21"
+                    ></img>
                   </div>
                 </div>
               </a>

@@ -38,52 +38,53 @@ const footerSx = {
   },
 };
 
-
 export default function Footer() {
   return (
     <div sx={footerSx}>
       <div className="footerContainer">
         <div className="leftMost">
           <b>The Harvard Advocate</b>
-          <br/>
+          <br />
           21 South Street
-          <br/>
+          <br />
           Cambridge, MA 02138
-          <br/>
+          <br />
           president@theharvardadvocate.com
-          <br/><br/><br/>
+          <br />
+          <br />
+          <br />
           <Link className="linkLogo" to={"/"}>
-            <img src={logo} alt="The Advocate Logo" />
+            <img src={logo} alt="The Advocate Logo" loading="lazy" />
             2023 <span>&copy;</span> The Harvard Advocate
           </Link>
         </div>
         <div className="sectionsAndMore">
           <div className="sections">
             <b>Sections</b>
-            <br/><br/>
+            <br />
+            <br />
             <a href="sections/art">Art</a>
-            <br/>
+            <br />
             <a href="sections/fiction">Fiction</a>
-            <br/>
+            <br />
             <a href="sections/features">Features</a>
-            <br/>
+            <br />
             <a href="sections/poetry">Poetry</a>
-            <br/>
+            <br />
             <a href="sections/blog">Blog</a>
           </div>
           <div className="more">
             <b>More</b>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <a href="advertise">Advertise</a>
-            <br/>
+            <br />
             <a href="comp">Comp</a>
-            <br/>
+            <br />
             <a href="shop">Shop</a>
-            <br/>
+            <br />
             <a href="donate">Donate</a>
-            <br/>
-
+            <br />
           </div>
         </div>
       </div>

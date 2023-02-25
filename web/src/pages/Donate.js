@@ -8,12 +8,12 @@ const donateSx = {
     marginTop: "0.4em",
     display: "flex",
     flexDirection: "column",
-    alignItems:"center",
+    alignItems: "center",
     margin: "0em 21vw 5vh 21vw",
   },
   i: {
     textAlign: "center",
-    display: "block"
+    display: "block",
   },
   ".image": {
     display: "flex",
@@ -57,9 +57,8 @@ const donateSx = {
     },
     ".image": {
       width: "100%",
-    }
+    },
   },
-
 };
 
 export default function Donate() {
@@ -76,22 +75,46 @@ export default function Donate() {
         <div className="donateBody">
           <Themed.p>
             <i>Thank you for considering a donation to The Harvard Advocate!</i>
-            <br/><br/>
-            The Harvard Advocate is a completely undergraduate-run magazine who take no salary for our work. Any contribution helps us print the best literature, art, and poetry on Harvard’s campus and around the world.
-            <br/><br/>
-            All gifts to The Harvard Advocate are fully tax deductible according to 501(c)(3) non-profit donation guidelines. Donations can be made online using the form below. We also accept donations by check, which should be made out to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138. Thank you for your support!
-            <br/><br/>
-            <div  align="center">
-                <a className = "buttonLink" href={"https://donate.stripe.com/8wM2bRa5Wfma1uE5kl"} target="_blank">
-                  Click here to donate
-                </a>
+            <br />
+            <br />
+            The Harvard Advocate is a completely undergraduate-run magazine who
+            take no salary for our work. Any contribution helps us print the
+            best literature, art, and poetry on Harvard’s campus and around the
+            world.
+            <br />
+            <br />
+            All gifts to The Harvard Advocate are fully tax deductible according
+            to 501(c)(3) non-profit donation guidelines. Donations can be made
+            online using the form below. We also accept donations by check,
+            which should be made out to "The Trustees of The Harvard Advocate"
+            and sent to 21 South St., Cambridge, MA 02138. Thank you for your
+            support!
+            <br />
+            <br />
+            <div align="center">
+              <a
+                className="buttonLink"
+                href={"https://donate.stripe.com/8wM2bRa5Wfma1uE5kl"}
+                target="_blank"
+              >
+                Click here to donate
+              </a>
             </div>
           </Themed.p>
 
-            <div className="image">
-              <img src="/donate.jpeg" width="381" height="271"/>
-              <figcaption>Illustration from <em>Land of Tomorrow, Dark and Bloody Ground</em></figcaption>
-            </div>
+          <div className="image">
+            <img
+              src="/donate.jpeg"
+              width="381"
+              height="271"
+              loading="lazy"
+              alt="Acorns"
+            />
+            <figcaption>
+              Illustration from{" "}
+              <em>Land of Tomorrow, Dark and Bloody Ground</em>
+            </figcaption>
+          </div>
         </div>
       </Frame>
     </div>

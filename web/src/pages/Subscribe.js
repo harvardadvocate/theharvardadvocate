@@ -5,8 +5,8 @@ import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
 import { theme } from "../theme/theme.js";
 
-const buttonColor = theme['colors']['buttonColor'];
-const buttonColorHover = theme['colors']['buttonColorHover'];
+const buttonColor = theme["colors"]["buttonColor"];
+const buttonColorHover = theme["colors"]["buttonColorHover"];
 
 const subscribeSx = {
   ".horizontalContainer": {
@@ -27,7 +27,7 @@ const subscribeSx = {
     flexDirection: "column",
     alignItems: "center",
   },
-  ".mainText" : {
+  ".mainText": {
     width: "80%",
     textAlign: "center",
   },
@@ -113,9 +113,8 @@ const subscribeSx = {
     },
     ".image": {
       width: "100%",
-    }
+    },
   },
-
 };
 
 export default function Subscribe() {
@@ -124,25 +123,39 @@ export default function Subscribe() {
       <div className="horizontalContainer">
         <div className="mainContent">
           <div className="mainText">
-          <Themed.h2>Thank you for considering subscribing to the Harvard Advocate!</Themed.h2>
-          <p align="center">By subscribing, you receive four print issues a year, printed on high-quality paper, delivered straight to your doorstep.</p>
+            <Themed.h2>
+              Thank you for considering subscribing to the Harvard Advocate!
+            </Themed.h2>
+            <p align="center">
+              By subscribing, you receive four print issues a year, printed on
+              high-quality paper, delivered straight to your doorstep.
+            </p>
           </div>
           <br></br>
           <div className="bigBox">
             <h3 align="center">Full Subscription</h3>
-            <br/>
-            <Themed.h2><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h2>
-            <br/>
+            <br />
+            <Themed.h2>
+              <strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr{" "}
+            </Themed.h2>
+            <br />
             <p>Renews automatically. Cancel anytime. Non-refundable.</p>
-            <div  align="center">
-                <a className = "buttonLink" href={"https://buy.stripe.com/eVa9Ej3Hy4Hw7T26oo"} target="_blank">
-                  SUBSCRIBE NOW
-                </a>
+            <div align="center">
+              <a
+                className="buttonLink"
+                href={"https://buy.stripe.com/eVa9Ej3Hy4Hw7T26oo"}
+                target="_blank"
+              >
+                SUBSCRIBE NOW
+              </a>
             </div>
           </div>
           <div className="image">
-            <img src="/subscribe_image.jpg"/>
-            <figcaption>Illustration from <em>The Importance of Knees as a Bracing Thing</em></figcaption>
+            <img src="/subscribe_image.jpg" loading="lazy" alt="Frogs" />
+            <figcaption>
+              Illustration from{" "}
+              <em>The Importance of Knees as a Bracing Thing</em>
+            </figcaption>
           </div>
         </div>
       </div>

@@ -93,7 +93,14 @@ export default function Author() {
         </div>
         <div className="authorBio">
           {authorData.image && (
-            <img src={urlFor(authorData.image).width(200).url()} alt="" />
+            <img
+              src={urlFor(authorData.image)
+                .width(200)
+                .auto("format")
+                .quality(5)
+                .url()}
+              alt=""
+            />
           )}
           <Themed.p>{authorData.bio}</Themed.p>
         </div>
@@ -108,7 +115,7 @@ export default function Author() {
                 <div key={section.title}>
                   <div className="sectionHeader">
                     <Themed.h2>{section.title}</Themed.h2>
-                    <img src={rightArrow} alt="right-arrow" />
+                    <img src={rightArrow} alt="right-arrow" loading="lazy" />
                   </div>
                   <TextContentList items={sectionItems} />
                 </div>

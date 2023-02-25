@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
 import { theme } from "../theme/theme.js";
+import { optimizeImageLoading } from "../utils/image.js";
 
-const headerColor = theme['colors']['headerColor'];
+const headerColor = theme["colors"]["headerColor"];
 
 const imageListElementSx = {
   maxWidth: "100%",
@@ -24,10 +25,9 @@ const imageListElementSx = {
     alignItems: "center",
   },
   h4: {
-    "fontFamily": "Poppins",
-    "fontSize": "0.7em",
+    fontFamily: "Poppins",
+    fontSize: "0.7em",
     color: headerColor,
-
   },
   padding: "1em",
 };
@@ -39,10 +39,18 @@ export default function ImageListElement(props) {
         <div className="listItem">
           <div className="listItemImage">
             {props.item.mainImage ? (
-              <img src={props.item.mainImage.asset.url} alt="" />
+              <img
+                src={optimizeImageLoading(props.item.mainImage.asset.url)}
+                alt=""
+                loading="lazy"
+              />
             ) : // TODO: better (more robust) check for this
             props.item.images && props.item.images[0] ? (
-              <img src={props.item.images[0].asset.url} alt="" />
+              <img
+                src={optimizeImageLoading(props.item.images[0].asset.url)}
+                alt=""
+                loading="lazy"
+              />
             ) : null}
           </div>
           <div>
@@ -55,8 +63,7 @@ export default function ImageListElement(props) {
                 {
                   //TODO: link to author page
                 }
-                {props.item.authors
-                  .map(({ name }) => name).join(", ")}
+                {props.item.authors.map(({ name }) => name).join(", ")}
               </Themed.h4>
             )}
           </div>

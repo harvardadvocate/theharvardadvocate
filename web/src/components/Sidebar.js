@@ -5,8 +5,8 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
 
-const buttonColor = theme['colors']['buttonColor'];
-const buttonColorHover = theme['colors']['buttonColorHover'];
+const buttonColor = theme["colors"]["buttonColor"];
+const buttonColorHover = theme["colors"]["buttonColorHover"];
 
 const sidebarSx = {
   padding: "2.5em 1.5em 0em 1.5em",
@@ -76,7 +76,7 @@ const sidebarSx = {
   ".horizontalLine1, horizontalLine2": {
     borderTop: "1px solid #000000 ",
     marginLeft: 0,
-    marginRight: 0
+    marginRight: 0,
   },
   ".advoStyle": {
     display: "flex",
@@ -158,7 +158,6 @@ const sidebarSx = {
   },
 };
 
-
 export default function Sidebar() {
   const [windowDimension, setWindowDimension] = useState(null);
 
@@ -191,30 +190,20 @@ export default function Sidebar() {
       : false
   );
   const [moreExpanded, setMoreExpanded] = useState(() =>
-    [
-      "/shop",
-      "/donate",
-      "/advertise",
-      "/comp",
-      "/contact",
-    ].includes(location.pathname)
+    ["/shop", "/donate", "/advertise", "/comp", "/contact"].includes(
+      location.pathname
+    )
       ? true
       : false
   );
   const [navbarExpanded, setNavbarExpanded] = useState(() =>
-    [
-
-    ].includes(location.pathname)
-      ? true
-      : false
+    [].includes(location.pathname) ? true : false
   );
-
 
   const highlightLink = (pathname) => {
     if (pathname === "/issues")
       return location.pathname.includes("/issues") ? " highlight" : "";
     return location.pathname === pathname ? " highlight" : "";
-
   };
 
   return (
@@ -222,180 +211,218 @@ export default function Sidebar() {
       <Grid className="sidebar" columns={1} gap={3}>
         {isMobile ? (
           <div className="headerGrid">
-            <div className={"navbarButton" + (navbarExpanded ? " rotated" : "")} onClick={() => setNavbarExpanded(!navbarExpanded)}>
+            <div
+              className={"navbarButton" + (navbarExpanded ? " rotated" : "")}
+              onClick={() => setNavbarExpanded(!navbarExpanded)}
+            >
               <span className="line"></span>
               <span className="line"></span>
               <span className="line"></span>
             </div>
-            <Link className={"link logo"} to={"/"} onClick={() => setNavbarExpanded(false)}>
-              <img src={logo} alt="The Advocate Logo" />
-              <div className = "advoStyle">
-                The Harvard Advocate
-              </div>
+            <Link
+              className={"link logo"}
+              to={"/"}
+              onClick={() => setNavbarExpanded(false)}
+            >
+              <img src={logo} alt="The Advocate Logo" loading="lazy" />
+              <div className="advoStyle">The Harvard Advocate</div>
             </Link>
-            <Link className = "buttonLinkMobile" to={"/subscribe"} onClick={() => setNavbarExpanded(false)}>
+            <Link
+              className="buttonLinkMobile"
+              to={"/subscribe"}
+              onClick={() => setNavbarExpanded(false)}
+            >
               Subscribe
             </Link>
           </div>
-        ):(<Link className={"link logo"} to={"/"} onClick={() => setNavbarExpanded(false)}>
-          <img src={logo} alt="The Advocate Logo" />
-          <div className = "advoStyle">
-            The Harvard Advocate
-          </div>
-        </Link>)}
-
-        <div className="horizontalLine1" style={{ borderTop: "1px solid #000000 ", marginLeft: 0, marginRight: 0 }}></div>
-        {(navbarExpanded || !isMobile) && (
-        <div className="linksToShow">
-        <Link className={`link ${highlightLink("/")}`} to={"/"} onClick={() => setNavbarExpanded(false)}>
-          Home
-        </Link>
-        <Link className={`link ${highlightLink("/about")}`} to={"/about"} onClick={() => setNavbarExpanded(false)}>
-          About
-        </Link>
-        <Link className={`link ${highlightLink("/issues")}`} to={"/issues"} onClick={() => setNavbarExpanded(false)}>
-          Issues
-        </Link>
-        <div className="sectionsLink">
+        ) : (
           <Link
-            className={`link ${highlightLink("/sections")}`}
-            sx={{
-              fontStyle: sectionsExpanded ? "italic" : "none",
-            }}
-            onClick={() => setSectionsExpanded(!sectionsExpanded)}
-            to={"/sections"}
+            className={"link logo"}
+            to={"/"}
+            onClick={() => setNavbarExpanded(false)}
           >
-            Sections
+            <img src={logo} alt="The Advocate Logo" loading="lazy" />
+            <div className="advoStyle">The Harvard Advocate</div>
           </Link>
-          <div
-            className={"dropdownButton" + (sectionsExpanded ? " rotated" : "")}
-            onClick={() => setSectionsExpanded(!sectionsExpanded)}
-          ></div>
-        </div>
-        {sectionsExpanded && (
-          <Grid className="sublinks" columns={1} gap={3}>
-            <Link
-              className={`link ${highlightLink("/sections/art")}`}
-              to="/sections/art"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Art
-            </Link>
-            <Link
-              className={`link ${highlightLink("/sections/fiction")}`}
-              to="/sections/fiction"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Fiction
-            </Link>
-            <Link
-              className={`link ${highlightLink("/sections/features")}`}
-              to="/sections/features"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Features
-            </Link>
-            <Link
-              className={`link ${highlightLink("/sections/poetry")}`}
-              to="/sections/poetry"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Poetry
-            </Link>
-            <Link
-              className={`link ${highlightLink("/sections/columns")}`}
-              to="/sections/columns"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Columns
-            </Link>
-            <Link
-              className={`link ${highlightLink("/sections/blog")}`}
-              to="/sections/blog"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Blog
-            </Link>
-
-          </Grid>
         )}
-        <div className="sectionsLink">
-          <div
-            sx={{
-              fontStyle: moreExpanded ? "italic" : "none",
-            }}
-            className={(moreExpanded ? " rotated" : "")}
-            onClick={() => setMoreExpanded(!moreExpanded)}
-          >
-            More
+
+        <div
+          className="horizontalLine1"
+          style={{
+            borderTop: "1px solid #000000 ",
+            marginLeft: 0,
+            marginRight: 0,
+          }}
+        ></div>
+        {(navbarExpanded || !isMobile) && (
+          <div className="linksToShow">
+            <Link
+              className={`link ${highlightLink("/")}`}
+              to={"/"}
+              onClick={() => setNavbarExpanded(false)}
+            >
+              Home
+            </Link>
+            <Link
+              className={`link ${highlightLink("/about")}`}
+              to={"/about"}
+              onClick={() => setNavbarExpanded(false)}
+            >
+              About
+            </Link>
+            <Link
+              className={`link ${highlightLink("/issues")}`}
+              to={"/issues"}
+              onClick={() => setNavbarExpanded(false)}
+            >
+              Issues
+            </Link>
+            <div className="sectionsLink">
+              <Link
+                className={`link ${highlightLink("/sections")}`}
+                sx={{
+                  fontStyle: sectionsExpanded ? "italic" : "none",
+                }}
+                onClick={() => setSectionsExpanded(!sectionsExpanded)}
+                to={"/sections"}
+              >
+                Sections
+              </Link>
+              <div
+                className={
+                  "dropdownButton" + (sectionsExpanded ? " rotated" : "")
+                }
+                onClick={() => setSectionsExpanded(!sectionsExpanded)}
+              ></div>
+            </div>
+            {sectionsExpanded && (
+              <Grid className="sublinks" columns={1} gap={3}>
+                <Link
+                  className={`link ${highlightLink("/sections/art")}`}
+                  to="/sections/art"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Art
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/sections/fiction")}`}
+                  to="/sections/fiction"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Fiction
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/sections/features")}`}
+                  to="/sections/features"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Features
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/sections/poetry")}`}
+                  to="/sections/poetry"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Poetry
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/sections/columns")}`}
+                  to="/sections/columns"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Columns
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/sections/blog")}`}
+                  to="/sections/blog"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Blog
+                </Link>
+              </Grid>
+            )}
+            <div className="sectionsLink">
+              <div
+                sx={{
+                  fontStyle: moreExpanded ? "italic" : "none",
+                }}
+                className={moreExpanded ? " rotated" : ""}
+                onClick={() => setMoreExpanded(!moreExpanded)}
+              >
+                More
+              </div>
+              <div
+                className={"dropdownButton" + (moreExpanded ? " rotated" : "")}
+                onClick={() => setMoreExpanded(!moreExpanded)}
+              ></div>
+            </div>
+            {moreExpanded && (
+              <Grid className="sublinks" columns={1} gap={3}>
+                <Link
+                  className={`link ${highlightLink("/shop")}`}
+                  to="/shop"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Shop
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/donate")}`}
+                  to="/donate"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Donate
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/advertise")}`}
+                  to="/advertise"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Advertise
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/comp")}`}
+                  to="/comp"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Comp
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/masthead")}`}
+                  to="/masthead"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Masthead
+                </Link>
+                <Link
+                  className={`link ${highlightLink("/contact")}`}
+                  to="/contact"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Contact
+                </Link>
+              </Grid>
+            )}
+            <div
+              className="horizontalLine1"
+              style={{
+                borderTop: "1px solid #000000 ",
+                marginTop: "1vh",
+                marginRight: 0,
+              }}
+            ></div>
           </div>
-          <div
-            className={"dropdownButton" + (moreExpanded ? " rotated" : "")}
-            onClick={() => setMoreExpanded(!moreExpanded)}
-          ></div>
-        </div>
-        {moreExpanded && (
-          <Grid className="sublinks" columns={1} gap={3}>
-            <Link
-              className={`link ${highlightLink("/shop")}`}
-              to="/shop"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Shop
-            </Link>
-            <Link
-              className={`link ${highlightLink("/donate")}`}
-              to="/donate"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Donate
-            </Link>
-            <Link
-              className={`link ${highlightLink("/advertise")}`}
-              to="/advertise"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Advertise
-            </Link>
-            <Link
-              className={`link ${highlightLink("/comp")}`}
-              to="/comp"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Comp
-            </Link>
-            <Link
-              className={`link ${highlightLink("/masthead")}`}
-              to="/masthead"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Masthead
-            </Link>
-            <Link
-              className={`link ${highlightLink("/contact")}`}
-              to="/contact"
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Contact
-            </Link>
-          </Grid>
         )}
-        <div className="horizontalLine1" style={{ borderTop: "1px solid #000000 ", marginTop: "1vh", marginRight: 0 }}></div>
-        </div>
-      )}
 
-    <div className="horizontalLine2"></div>
+        <div className="horizontalLine2"></div>
 
-        <Link className = "buttonLink" to={"/submit"}>
+        <Link className="buttonLink" to={"/submit"}>
           Submit
         </Link>
 
-        <Link className = "buttonLink" to={"/subscribe"}>
+        <Link className="buttonLink" to={"/subscribe"}>
           Subscribe
         </Link>
-
       </Grid>
-
     </div>
   );
 }

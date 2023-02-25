@@ -93,7 +93,7 @@ export default function SectionsOverview(props) {
     <div className="sectionHeader">
       <Link to={sectionToUrl(section)}>
         <Themed.h2>{section}</Themed.h2>
-        <img src={rightArrow} alt="right-arrow" />
+        <img src={rightArrow} alt="right-arrow" loading="lazy" />
       </Link>
     </div>
   );
