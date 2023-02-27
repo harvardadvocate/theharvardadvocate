@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import FeaturedIssue from "../components/FeaturedIssue.js";
+
 import { theme } from "../theme/theme";
 
 const mainColor = theme["colors"]["primary"];
@@ -415,7 +417,6 @@ const customComponents = {
 
 export default function Homepage() {
 
-  const [itemData, setItemData] = useState(null);
   const [featuredItems, setFeaturedItems] = useState(null);
   const [featuredRow1, setFeaturedRow1] = useState(null);
   const [featuredRow2, setFeaturedRow2] = useState(null);
@@ -435,24 +436,8 @@ export default function Homepage() {
 
 
   useEffect(() => {
-      sanityClient
-        .fetch(
-          `*[_type == "issue"] | order(publishedAt desc)[0] {
-        title,
-        slug,
-        description,
-        frontCover{
-          asset->{
-            _id,
-            url
-          }
-        }
-      }`
-        )
-        .then((data) => {
-          setItemData(data);
-        })
-        .catch(console.error);
+      
+    
 
       sanityClient
         .fetch(
@@ -682,7 +667,7 @@ export default function Homepage() {
                 .catch(console.error);
     }, []);
 
-    if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
+    if (!featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
       return <div>Loading...</div>;
     }
     else {
@@ -693,57 +678,9 @@ export default function Homepage() {
     <div css={homepageSx}>
     <div className="horizontalContainer">
       <div className="mainContent">
-        <div className="featuredIssue">
-          <Grid className="mainGrid" columns={"2fr 3fr"}>
-            <div className="issueCover">
-              <Link to={"/issues/" + itemData.slug.current}>
-                {itemData.frontCover && "asset" in itemData.frontCover && (
-                  <img src={itemData.frontCover.asset.url} alt="" />
-                )}
-              </Link>
-            </div>
 
-            <div className="featuredArticles">
-              <div className="issueTitle">
-                <h5><b>NEWEST ISSUE</b></h5>
-                <Themed.h1>{itemData.title}</Themed.h1>
-                <hr/>
-              </div>
-              <div className="highlightedArticles">
-                <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                  {(featuredItems.slice(0,2)).map((article) => {
-                    return (
-                      <div className="featuredArticle" key={article.title}>
-                        <Link to={article.slug.current}>
-                          <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </Grid>
-                <hr/>
-                <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                  {(featuredItems.slice(2,4)).map((article) => {
-                    return (
-                      <div className="featuredArticle" key={article.title}>
-                        <Link to={article.slug.current}>
-                          <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </Grid>
-                <hr/>
-              </div>
-              <Link to={"/issues/" + itemData.slug.current}>
-                <div className="readFullIssue">
-                  <span>&#8594;</span>
-                  <h6>READ FULL ISSUE</h6>
-                </div>
-              </Link>
-            </div>
-          </Grid>
-        </div>
+        <FeaturedIssue newest={true} ></FeaturedIssue>
+
         <div className="topArticles">
           <div className="div1">
             <div className="articleHeader">

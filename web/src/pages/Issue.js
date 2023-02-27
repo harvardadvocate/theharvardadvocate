@@ -46,6 +46,8 @@ export default function Issue() {
         ]}
       >
         <Themed.h2>{issue.title}</Themed.h2>
+        <Themed.h2>Hey!</Themed.h2>
+
       </Frame>
     </div>
   );
