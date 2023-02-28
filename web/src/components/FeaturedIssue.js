@@ -366,7 +366,7 @@ const issuesListSx =  {
   
                 <div className = {props.newest ? "featuredArticles" : "featuredArticles2"}>
                   <div className="issueTitle">
-                    <h5><b>NEWEST ISSUE</b></h5>
+                    <h5><b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b></h5>
                     <Themed.h1>{itemData[i].title}</Themed.h1>
                     <hr/>
                   </div>

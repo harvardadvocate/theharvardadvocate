@@ -703,6 +703,8 @@ export default function Homepage() {
             <br/>
             <Themed.h4>By {featuredArticle1.authors[0].name}</Themed.h4>
           </div>
+
+          
           <div className="div2">
             <div className="articleHeader">
               <Themed.h3><i><a href={"sections/" + featuredArticle2.sections[0].slug.current}>{featuredArticle2.sections[0].title}</a> • <a href={"issues/" + featuredArticle2.issue.slug.current}>{featuredArticle2.issue.title}</a></i></Themed.h3>

@@ -9,7 +9,7 @@ const headerColor = theme['colors']['headerColor'];
 
 const textListItemSx = {
   maxWidth: "100%",
-  textAlign: "center",
+  textAlign: "auto",
   a: {
     color: "text",
     textDecoration: "none",
@@ -17,8 +17,14 @@ const textListItemSx = {
   h4: {
     "fontFamily": "Poppins",
     "fontSize": "0.7em",
-    color: headerColor,
   },
+
+
+  h3: {
+    "font-style": "italic",
+     "color": headerColor,
+  },
+  
 
 
   ".textPreview": {
@@ -48,11 +54,13 @@ const customComponents = {
 
 
 export default function TextListItem(props) {
-  console.log(props);
+  console.log(props.item);
   return (
     <div sx={textListItemSx}>
       <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
         <div className="listItem">
+          
+          <Themed.h3>{props.item.issue.title}</Themed.h3>
           <a href={props.item.slug.current}><Themed.h2>{props.item.title}</Themed.h2></a>
           <br/>
           <Link to={"/" + props.item.slug.current}>
@@ -68,6 +76,7 @@ export default function TextListItem(props) {
           </Link>
           <br/>
           <Themed.h4>By {props.item.authors[0].name}</Themed.h4>
+          
         </div>
       </Link>
     </div>

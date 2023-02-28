@@ -24,7 +24,7 @@ const textContentListSx = {
   ".articleItem": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
-    alignItems: "center",
+    // alignItems: "center",
     maxWidth: "100%",
   },
 
