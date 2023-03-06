@@ -28,12 +28,17 @@
     "prettier": "2.5.1"
   },
   "dependencies": {
+    "@sanity/cli": "^3.5.1",
     "@sanity/client": "^2.23.2",
     "@sanity/image-url": "^1.0.2",
+    "@shopify/hydrogen": "^2023.1.5",
+    "@shopify/hydrogen-react": "^2023.1.6",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "react-infinite-scroll-hook": "^4.0.4",
+    "react-jsx-runtime": "^1.0.0-alpha.1",
     "react-lazyload": "^3.2.0",
-    "react-twitter-embed": "^4.0.4"
+    "react-twitter-embed": "^4.0.4",
+    "shopify-buy": "^2.18.0"
   }
 }
