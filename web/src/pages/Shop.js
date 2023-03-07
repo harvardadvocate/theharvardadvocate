@@ -95,11 +95,17 @@ useEffect(() => {
         ]}
       >
         <div className="shopBody" sx={{ display: "flex", flexWrap: "wrap" }}>
+        
+          
           {products.map((product) => (
             <div key={product.id} sx={{ width: "20em", margin: "0.5em" }}>
-              <Themed.p>{product.title}</Themed.p>
+              <Themed.p>
+              {product.title}
+              </Themed.p>
               <img src={product.images[0].src} alt={product.title} />
-              <Themed.p>${parseFloat(product.variants[0].price.amount).toFixed(2)} </Themed.p>
+              <Themed.p>
+                ${parseFloat(product.variants[0].price.amount).toFixed(2)} 
+              </Themed.p>
           
               <div data-element="product.buttonWrapper">
                 <button data-element="product.button" onClick={() => openCart(product.variants[0].id, 1)}>ADD TO CART</button>
@@ -112,3 +118,4 @@ useEffect(() => {
     </div>
   );
 }
+
