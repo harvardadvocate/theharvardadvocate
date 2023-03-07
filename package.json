@@ -38,6 +38,7 @@
     "react-infinite-scroll-hook": "^4.0.4",
     "react-jsx-runtime": "^1.0.0-alpha.1",
     "react-lazyload": "^3.2.0",
+    "react-slick": "^0.29.0",
     "react-twitter-embed": "^4.0.4",
     "shopify-buy": "^2.18.0"
   }
