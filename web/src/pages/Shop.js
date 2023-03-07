@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
-import rightArrow from "../assets/images/right-arrow.svg";
 import ShopifyBuy from 'shopify-buy';
 import React, { useEffect, useState } from "react";
 
@@ -15,9 +14,6 @@ const shopSx = {
     justifyItems: "center",
     textAlign: "center",
     alignItems: "center",
-    figcaption: {
-      fontSize: "16px",
-    },
   },
   i: {
     textAlign: "center",
@@ -78,14 +74,14 @@ useEffect(() => {
     domain: 'the-harvard-advocate.myshopify.com',
     storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
   });
-
-  //PAT: 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
-
+  
   client.product.fetchAll().then((products) => {
     setProducts(products);
+    console.log(products)
   }).catch((error) => {
-    console.error(error);
+    
   });
+  console.log(products)
 },
   []);
   return (
@@ -100,12 +96,13 @@ useEffect(() => {
       >
         <div className="shopBody" sx={{ display: "flex", flexWrap: "wrap" }}>
           {products.map((product) => (
-            <div key={product.id} sx={{ width: "calc(33%)", margin: "0.5em" }}>
+            <div key={product.id} sx={{ width: "20em", margin: "0.5em" }}>
               <Themed.p>{product.title}</Themed.p>
               <img src={product.images[0].src} alt={product.title} />
-              <Themed.p>{product.price}</Themed.p>
+              <Themed.p>${parseFloat(product.variants[0].price.amount).toFixed(2)} </Themed.p>
+          
               <div data-element="product.buttonWrapper">
-                <button data-element="product.button" onClick={() => addToCart(product.variants[0].id, 1)}>ADD TO CART</button>
+                <button data-element="product.button" onClick={() => openCart(product.variants[0].id, 1)}>ADD TO CART</button>
               </div>
               <hr />
             </div>
