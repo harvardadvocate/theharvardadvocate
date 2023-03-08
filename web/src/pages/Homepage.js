@@ -6,6 +6,11 @@ import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import FeaturedIssue from "../components/FeaturedIssue.js";
+import TextContentList from "../components/TextContentList.js";
+import TextListElement from "../components/TextListElement.js";
+import MixedGrid from "../components/MixedGrid.js";
+
+
 
 import { theme } from "../theme/theme";
 
@@ -437,8 +442,6 @@ export default function Homepage() {
 
   useEffect(() => {
       
-    
-
       sanityClient
         .fetch(
           `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
@@ -672,16 +675,21 @@ export default function Homepage() {
     }
     else {
       console.log("Welcome to the Harvard Advocate.");
+      // console.log(featuredArticle5.authors[0]);
     }
 
   return (
     <div css={homepageSx}>
     <div className="horizontalContainer">
       <div className="mainContent">
-
-        <FeaturedIssue newest={true} ></FeaturedIssue>
-
-        <div className="topArticles">
+        
+      
+      <FeaturedIssue newest={true} ></FeaturedIssue>
+        <MixedGrid home={true} items={[featuredArticle1, featuredArticle2, 
+          featuredArticle3, featuredArticle4, featuredArticle5, 
+          featuredArticle6, featuredArt1, featuredArt2]}></MixedGrid>
+        
+          {/* <div className="topArticles"> 
           <div className="div1">
             <div className="articleHeader">
               <Themed.h3><i><a href={"sections/" + featuredArticle1.sections[0].slug.current}>{featuredArticle1.sections[0].title}</a> • <a href={"issues/" + featuredArticle1.issue.slug.current}>{featuredArticle1.issue.title}</a></i></Themed.h3>
@@ -701,10 +709,12 @@ export default function Homepage() {
             </Link>
 
             <br/>
-            <Themed.h4>By {featuredArticle1.authors[0].name}</Themed.h4>
-          </div>
+            <Themed.h4>By {featuredArticle1.authors[0].name}</Themed.h4> 
 
+
+            </div>
           
+      
           <div className="div2">
             <div className="articleHeader">
               <Themed.h3><i><a href={"sections/" + featuredArticle2.sections[0].slug.current}>{featuredArticle2.sections[0].title}</a> • <a href={"issues/" + featuredArticle2.issue.slug.current}>{featuredArticle2.issue.title}</a></i></Themed.h3>
@@ -836,15 +846,32 @@ export default function Homepage() {
               <Themed.h4>By {featuredArt2.authors[0].name}</Themed.h4>
             </div>
 
-          </div>
-        </div>
+          </div> 
+
+
+
+          </div> */}
+        
         <div className="sanctumSessions">
           <hr/>
           <img src="/sanctum_sessions.png"/>
         </div>
+
+
+
         <div className="blog">
           <hr/>
           <Themed.h2><a href="sections/blog/">Blog</a></Themed.h2>
+          <svg width="100%" height="100%">
+    <rect width="100%" height="100%" fill="white" />
+  <polyline points="300,80 380,70 380,100 440,90" fill="none" stroke="black" />
+
+    <text x="300" y="100" font-family="Garamond" font-size="55"
+          fill="black" stroke="black" stroke-width="1">
+            Blog
+    </text>
+  </svg>
+
           <hr/>
           <Themed.p><i>The fresh online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
           <div className="blogGrid">

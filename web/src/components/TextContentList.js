@@ -35,23 +35,22 @@ const textContentListSx = {
 
 
 export default function TextContentList(props) {
+  console.log(props.home);
   console.log("props");
-  console.log(props);
+
   const perChunk = 3 // items per row
 
   const resultArray = (props.items).reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index/perChunk)
+  const chunkIndex = Math.floor(index/perChunk)
 
     if(!resultArray[chunkIndex]) {
       resultArray[chunkIndex] = [] // start a new chunk
     }
-
     resultArray[chunkIndex].push(item)
-
     return resultArray
-  }, [])
+  }, []) 
 
-  return (
+  return ( 
     <div sx={textContentListSx}>
       <div className = "mainGrid">
         {(resultArray).map((row) => {
@@ -60,7 +59,7 @@ export default function TextContentList(props) {
             {(row).map((item, index) => {
               return (
                 <div className="articleItem" key={item.name}>
-                  <TextListElement item={item} key={index} />
+                  <TextListElement item={item} key={index} home={props.home} padding={true}/>
                 </div>
               );
             })}

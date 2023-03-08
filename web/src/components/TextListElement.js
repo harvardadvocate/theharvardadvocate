@@ -5,27 +5,45 @@ import { Themed } from "theme-ui";
 import { PortableText } from "@portabletext/react";
 import { theme } from "../theme/theme.js";
 
-const headerColor = theme['colors']['headerColor'];
+// const headerColor = theme['colors']['headerColor'];
+const headerColor = theme["colors"]["primary"];
+
 
 const textListItemSx = {
   maxWidth: "100%",
   textAlign: "auto",
+
   a: {
-    color: "text",
-    textDecoration: "none",
+
+    color : "text",
+  
   },
+
+
+  ".div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .blogArticle, .archiveArticle": {
+    h2: {
+      color: "text",
+    },
+    h3: {
+      color: "headerColor",
+    },
+    h4: {
+      "fontFamily": "Poppins",
+    },
+    padding: "1em",
+  },
+
+
   h4: {
     "fontFamily": "Poppins",
-    "fontSize": "0.7em",
+    "color": "text",
+
   },
 
-
   h3: {
-    "font-style": "italic",
      "color": headerColor,
   },
   
-
 
   ".textPreview": {
     br: {
@@ -35,15 +53,63 @@ const textListItemSx = {
     p: {
       overflow: "hidden",
       WebkitBoxOrient: "vertical",
+      color: "text",
       display: "-webkit-box",
       WebkitLineClamp: "5",
     }
   },
 
-  padding: "1em",
+   padding: "0em",
+
+  
+};
+
+
+const textListItemSx_home = {
+  // a {
+  //   color : headerColor,  
+  // },
+   // padding: "1em",
+
+
+   h3: {
+    "color": headerColor,
+    },
+
+    h4: {
+      "fontFamily": "Poppins",
+      "color": "text",
+    },
+
+
+   ".textPreview": {
+    br: {
+      display: "none",
+    },
+
+    p: {
+      // overflow: "hidden",
+      // WebkitBoxOrient: "vertical",
+      color: "text",
+      // display: "-webkit-box",
+      // WebkitLineClamp: "5",
+    }
+  },
+
+
+  // padding: "2em",
 
 };
 
+const padding = {
+  padding: "2em",
+
+};
+
+const no_padding = {
+  padding: "0em",
+
+};
 
 // // `components` object passed to PortableText
 const customComponents = {
@@ -54,14 +120,23 @@ const customComponents = {
 
 
 export default function TextListItem(props) {
-  console.log(props.item);
+  // console.log(props.home);
   return (
-    <div sx={textListItemSx}>
+    <div css={props.home ? textListItemSx_home : textListItemSx}>
+      <div css={props.padding ? padding : no_padding}> 
+    {/* <div> */}
       <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
-        <div className="listItem">
-          
-          <Themed.h3>{props.item.issue.title}</Themed.h3>
-          <a href={props.item.slug.current}><Themed.h2>{props.item.title}</Themed.h2></a>
+        <div className="listItem">   
+
+      <Themed.h3 color={headerColor}>
+        {!props.home 
+        ?  props.item.issue.title  
+        : <i><a style={{ color: headerColor }} href={"sections/" + props.item.sections[0].slug.current}>{props.item.sections[0].title + " "}</a>     
+         •  <a style={{ color: headerColor }} href={"issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
+        }
+      </Themed.h3>
+
+      <Themed.h2><a href={props.item.slug.current}>{props.item.title}</a></Themed.h2>
           <br/>
           <Link to={"/" + props.item.slug.current}>
             <div className = "textPreview">
@@ -79,6 +154,7 @@ export default function TextListItem(props) {
           
         </div>
       </Link>
+    </div>
     </div>
   );
 }

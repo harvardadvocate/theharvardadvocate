@@ -7,6 +7,7 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { useParams, Link } from "react-router-dom";
 import Frame from "../components/Frame";
+import MixedGrid from "../components/MixedGrid";
 const sectionSx = {
   ".sectionHeader": {
     fontStyle: "italic",
@@ -52,9 +53,25 @@ export default function Section(props) {
           .catch(console.error);
       })
       .catch(console.error);
+
+
   }, [sectionSlug]);
 
   if (!items) return <div>Loading...</div>;
+
+
+  const result = Object.values(items);
+  console.log("this is my result");
+  console.log(items[0]);
+  console.log(items[1]);
+  console.log(items[2]);
+  console.log(items[3]);
+  console.log(items[4]);
+  console.log(items[5]);
+  console.log(items[6]);
+  console.log(items[7]);
+  console.log(items[8]);
+
 
   return (
     <div sx={sectionSx}>
@@ -66,6 +83,9 @@ export default function Section(props) {
           },
         ]}
       >
+{/* 
+      <MixedGrid home={false} items={[items[0], items[1], items[2],
+      items[3], items[4], items[5], items[6], items[7], items[8]]}></MixedGrid> */}
         <TextContentList items={items} />
       </Frame>
     </div>
