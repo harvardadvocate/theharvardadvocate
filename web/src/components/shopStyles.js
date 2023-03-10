@@ -7,6 +7,7 @@ const shopSx = {
       gap: "1em",
       scrollSnapType: "x mandatory",
       scrollBehavior: "smooth",
+
     },
     ".product": {
       width: "100%",
