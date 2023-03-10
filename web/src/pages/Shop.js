@@ -3,7 +3,6 @@ import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 import ShopifyBuy from 'shopify-buy';
 import React, { useEffect, useState } from "react";
-import { ClientError } from "@sanity/client";
 
 const shopSx = {
   ".shopContainer": {
@@ -55,22 +54,31 @@ export default function Shop() {
       storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
     });
 
-    client.product.fetchAll().then((products) => {
-      setProducts(products);
-      console.log(products)
-    }).catch((error) => {
-      console.log(error);
-    });
-    console.log(products)
+    // client.product.fetchAll().then((products) => {
+    //   setProducts(products);
+    //   console.log(products)
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
+    // //console.log(products)
 
-    client.collection.fetchAllWithProducts().then((collections) => {
-      // Do something with the collections
-      console.log(collections);
-      console.log(collections[0].products);
-    });
+    // client.collection.fetchAllWithProducts().then((collections) => {
+    //   // Do something with the collections
+    //   //console.log(collections[1].products);
+    // });
+
+      // Fetch a single collection by ID, including its products
+    const collectionId = 'gid://shopify/Collection/71491354679';
+    // Set a parameter for first x products, defaults to 20 if you don't provide a param
+
+    client.collection.fetchWithProducts(collectionId).then((collection) => {
+      // Do something with the collection
+      console.log(collection);
+      console.log(collection.products);
+});
   }, []);
 
-    
+
 
   return (
     <div sx={shopSx}>
