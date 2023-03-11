@@ -329,7 +329,7 @@ export default function IssuesList() {
 
         sanityClient
           .fetch(
-            `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
+            `*[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
                 title,
                 authors[]->{name},
                 issue->{title, slug},
