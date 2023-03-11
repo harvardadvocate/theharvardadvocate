@@ -12,6 +12,7 @@ npm install
 npm install -g @sanity/cli
 ```
 
+(if npm install creates conflicts, run npm install --force)
 (if npm install -g @sanity/cli doesn't work try dropping the -g)
 
 Might need to run `npm install` within directories idk
