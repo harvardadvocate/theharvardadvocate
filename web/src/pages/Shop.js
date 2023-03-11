@@ -4,26 +4,24 @@ import Frame from "../components/Frame";
 import ShopifyBuy from 'shopify-buy';
 import React, { useEffect, useState } from "react";
 
-const shopSx = {
+const issueSx = {
   ".shopContainer": {
     width: "100%",
     display: "flex",
-    marginTop: "0em",
-    marginLeft: "0em",
     justifyContent: "center",
     minHeight: "100vh",
   },
   ".shopBody": {
     display: "flex",
-    alignItems: "flex-end",
-    
-    gap: "1em",
     scrollSnapType: "y mandatory",
     scrollBehavior: "smooth",
-    overflowX: "auto", 
+    overflowX: "auto",
+    overflowY: "hidden",
     img: {
       boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-      maxHeight: "80vh", // increase the maximum height of the images
+      ":hover": {
+        border: "1px solid black",
+      },
     },
     borderRight: "1px solid rgba(0,0,0,1)",
     borderTop: "1px solid rgba(0,0,0,1)",
@@ -35,20 +33,18 @@ const shopSx = {
   },
 
   "p": {
-    margin: "0",
-    fontSize: "0.75em",
+    fontSize: "0.55em",
     color: "#333",
   },
   ".productCard": {
-    margin: "0 1em",
+    margin: "0em 2em",
     textAlign: "center",
-    width: "50%", // increase the width of the product cards
+    flex: "0 0 18%", // adjust flex to make product cards wider
   },
 
   ".scrollTitle": {
     writingMode: "vertical-lr",
     textOrientation: "upright",
-    color: "#333",
     fontWeight: "bold",
     fontSize: "129.4%",
     marginRight: "0em",
@@ -94,7 +90,7 @@ export default function Shop() {
       console.log(error);
     });
 
-    //fetching merch
+    //fetching merch (once merch collection exists)
     //const merchCollectionId = 'gid://shopify/Collection/INSERT-COLLECTION-ID-HERE';
     // Set a parameter for first x products, defaults to 20 if you don't provide a param
 
@@ -115,7 +111,7 @@ export default function Shop() {
   }, []);
 
   return (
-    <div sx={shopSx}>
+    <div sx={issueSx}>
       <Frame
         path={[
           {
@@ -126,19 +122,23 @@ export default function Shop() {
       >
         {/* ISSUES STYLING */}
         <div className="shopContainer">
-        <div className="scrollTitle">
-              ISSUES
-            </div>
+          <div className="scrollTitle">
+            ISSUES
+          </div>
           <div className="scrollContainer">
             <div className="shopBody" >
               {issues.map((issue) => (
                 <div key={issue.id} className="productCard" onClick={() => {
                   addToCart(issue.variants[0].id, 1)
                 }}>
-                  <Themed.h2 sx={{ fontSize: 1, border: 1 }}>{issue.title}</Themed.h2>
+                  <Themed.h2 sx={{ fontSize: 1, border: 1 }}>
+                    {issue.title}
+                  </Themed.h2>
                   <img src={issue.images[0].src} alt={issue.title} width="100%" />
-                  <Themed.p sx={{ color: "red" }}>
-                    ${parseFloat(issue.variants[0].price.amount).toFixed(2)}
+                  <Themed.p>
+                    <i>
+                      ${parseFloat(issue.variants[0].price.amount).toFixed(2)}
+                    </i>
                   </Themed.p>
                 </div>
               ))}
@@ -150,7 +150,9 @@ export default function Shop() {
                   <Themed.h2 sx={{ fontSize: 1, border: 1 }}>{issue.title}</Themed.h2>
                   <img src={issue.images[0].src} alt={issue.title} width="100%" />
                   <Themed.p sx={{ color: "red" }}>
-                    ${parseFloat(issue.variants[0].price.amount).toFixed(2)}
+                    <i>
+                      ${parseFloat(issue.variants[0].price.amount).toFixed(2)}
+                    </i>
                   </Themed.p>
                 </div>
               ))}
@@ -158,6 +160,17 @@ export default function Shop() {
           </div>
         </div>
         {/* MERCH STYLING */}
+        {/* {merch.map((merch) => (
+                <div key={merch.id} onClick={() => {
+                  addToCart(merch.variants[0].id, 1)
+                }}>
+                  <Themed.h2>{merch.title}</Themed.h2>
+                  <img src={merch.images[0].src} alt={issue.title} width="100%" />
+                  <Themed.p>
+                      ${parseFloat(merch.variants[0].price.amount).toFixed(2)}
+                  </Themed.p>
+                </div>
+              ))} */}
       </Frame>
     </div>
   );
