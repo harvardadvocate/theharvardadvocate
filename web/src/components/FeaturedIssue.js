@@ -161,42 +161,6 @@ const issuesListSx =  {
     ".articleLink": {
       color: "#FFFFFF",
     },
-    ".topArticles": {
-      display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
-      gridTemplateRows: "2fr 2fr 2fr repeat(2, 2fr)",
-      gridColumnGap: "0vw",
-      paddingLeft: "2vw",
-      paddingRight: "2vw",
-      paddingTop: "2vh",
-      gridRowGap: "0px",
-    },
-  
-  
-    ".bigGrid": {
-      display: "grid",
-      gridTemplateRows: "1fr 1fr",
-      gridTemplateColumns: "1fr",
-      paddingTop: "5vh",
-  
-    },
-  
-    ".bigGridRow": {
-      display: "grid",
-      gridTemplateRows: "1fr",
-      gridTemplateColumns: "1fr 1fr",
-      img: {
-        maxHeight: "62vh",
-        boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-      },
-      borderBottom: "1px solid rgba(0,0,0,0.2)",
-      paddingBottom: "5vh",
-    },
-  
-    ".bigGridRow:last-child": {
-      borderBottom: "none",
-      paddingTop: "5vh",
-    },
   
     ".bigIssueDiv": {
       display: "flex",
@@ -287,8 +251,7 @@ const issuesListSx =  {
     },
   };
 
-
-  const FeaturedIssue = (props) => {
+  export default function FeaturedIssue(props) {
 
     const [itemData, setItemData] = useState(null);
     const [featuredItems, setFeaturedItems] = useState(null);
@@ -348,19 +311,16 @@ const issuesListSx =  {
 
       return (
         <div css={issuesListSx}>
-            <div className= {props.newest ? "featuredIssue" : "featuredIssue2"}>
-              <Grid className="mainGrid" columns={props.newest ? "2fr 3fr" : "3fr 2fr"}>
+          <div className= {props.newest ? "featuredIssue" : "featuredIssue2"}>
+            <Grid className="mainGrid" columns={props.newest ? "2fr 3fr" : "3fr 2fr"}>
                 
               
-                {props.newest ? 
+              {props.newest ? 
                 <div className="issueCover"> 
                   <Link to={"/issues/" + itemData[i].slug.current}>
-                    {itemData[i].frontCover && "asset" in itemData[i].frontCover && (
-                      <img src={itemData[i].frontCover.asset.url} alt="" />
-                    ) }
+                    {itemData[i].frontCover && "asset" in itemData[i].frontCover && (<img src={itemData[i].frontCover.asset.url} alt="" />) }
                   </Link> 
-                  </div>
-                  : ""}
+                </div> : ""}
 
               
   
@@ -410,27 +370,14 @@ const issuesListSx =  {
                 {!props.newest ? 
                 <div className="issueCover"> 
                   <Link to={"/issues/" + itemData[i].slug.current}>
-                    {itemData[i].frontCover && "asset" in itemData[i].frontCover && (
-                      <img src={itemData[i].frontCover.asset.url} alt="" />
-                    ) }
+                    {itemData[i].frontCover && "asset" in itemData[i].frontCover && (<img src={itemData[i].frontCover.asset.url} alt="" />) }
                   </Link> 
-                  </div>
-                  : ""}
-
-
-              </Grid>
-            </div>
-  
-  
-  
-  
+                </div> : ""}
+            </Grid>
           </div>
-        // </div>
-        // </div>
+        </div>
       );
     
 
 
   }
-
-  export default FeaturedIssue;

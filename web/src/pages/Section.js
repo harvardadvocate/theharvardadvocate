@@ -83,10 +83,8 @@ export default function Section(props) {
           },
         ]}
       >
-{/* 
-      <MixedGrid home={false} items={[items[0], items[1], items[2],
-      items[3], items[4], items[5], items[6], items[7], items[8]]}></MixedGrid> */}
-        <TextContentList items={items} />
+
+        <TextContentList items={items} home={false} border={true} />
       </Frame>
     </div>
   );

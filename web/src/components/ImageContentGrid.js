@@ -35,6 +35,10 @@ const imageContentGridSx = {
 };
 
 
+
+
+
+
 export default function ImageContentGrid(props) {
 
   const perChunk = 3 // items per row
@@ -60,7 +64,7 @@ export default function ImageContentGrid(props) {
             {(row).map((artItem, index2) => {
               return (
                 <div className="artItem" key={artItem.name}>
-                  <ImageListElement item={artItem} key={index2} />
+                  <ImageListElement item={artItem} key={index2} home={false}/>
                 </div>
               );
             })}

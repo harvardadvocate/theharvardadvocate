@@ -17,7 +17,7 @@ const textContentListSx = {
     display: "grid",
     gridTemplateRows: "1fr",
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-    borderBottom: "1px solid rgba(0,0,0,0.2)",
+    // borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "1vh",
   },
 
@@ -33,10 +33,22 @@ const textContentListSx = {
   },
 };
 
+const add_border = {
+
+  ".gridRow": {
+    borderBottom: "1px solid rgba(0,0,0,0.2)",
+  },
+};
+
+const no_border = {
+
+  ".gridRow": {
+    borderBottom: "0px solid rgba(0,0,0,0.2)",
+  },
+};
+
 
 export default function TextContentList(props) {
-  console.log(props.home);
-  console.log("props");
 
   const perChunk = 3 // items per row
 
@@ -52,6 +64,7 @@ export default function TextContentList(props) {
 
   return ( 
     <div sx={textContentListSx}>
+      <div sx={props.border ? add_border : no_border}>
       <div className = "mainGrid">
         {(resultArray).map((row) => {
           return (
@@ -67,6 +80,9 @@ export default function TextContentList(props) {
           );
         })}
       </div>
+      </div>
     </div>
   );
 }
+
+

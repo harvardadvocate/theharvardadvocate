@@ -5,7 +5,6 @@ import { Themed } from "theme-ui";
 import { PortableText } from "@portabletext/react";
 import { theme } from "../theme/theme.js";
 
-// const headerColor = theme['colors']['headerColor'];
 const headerColor = theme["colors"]["primary"];
 
 
@@ -65,12 +64,9 @@ const textListItemSx = {
 };
 
 
-const textListItemSx_home = {
-  // a {
-  //   color : headerColor,  
-  // },
-   // padding: "1em",
+// custom css for textlistelement on homepage
 
+const textListItemSx_home = {
 
    h3: {
     "color": headerColor,
@@ -88,18 +84,14 @@ const textListItemSx_home = {
     },
 
     p: {
-      // overflow: "hidden",
-      // WebkitBoxOrient: "vertical",
       color: "text",
-      // display: "-webkit-box",
-      // WebkitLineClamp: "5",
     }
   },
 
-
-  // padding: "2em",
-
 };
+
+
+// custom css: padding is default, no_padding is for mixedgrid
 
 const padding = {
   padding: "2em",
@@ -124,37 +116,38 @@ export default function TextListItem(props) {
   return (
     <div css={props.home ? textListItemSx_home : textListItemSx}>
       <div css={props.padding ? padding : no_padding}> 
-    {/* <div> */}
-      <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
-        <div className="listItem">   
 
-      <Themed.h3 color={headerColor}>
-        {!props.home 
-        ?  props.item.issue.title  
-        : <i><a style={{ color: headerColor }} href={"sections/" + props.item.sections[0].slug.current}>{props.item.sections[0].title + " "}</a>     
-         •  <a style={{ color: headerColor }} href={"issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
-        }
-      </Themed.h3>
+        <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
+          <div className="listItem">   
+            <Themed.h3 color={headerColor}>
+              {!props.home 
+              ?  props.item.issue.title  
+              : <i><a style={{ color: headerColor }} href={"sections/" + props.item.sections[0].slug.current}>{props.item.sections[0].title + " "}</a>     
+              •  <a style={{ color: headerColor }} href={"issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
+              }
+            </Themed.h3>
 
-      <Themed.h2><a href={props.item.slug.current}>{props.item.title}</a></Themed.h2>
-          <br/>
-          <Link to={"/" + props.item.slug.current}>
-            <div className = "textPreview">
-              {props.item.body && (
-                <PortableText
-                  value={props.item.body[0]}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-          </Link>
-          <br/>
-          <Themed.h4>By {props.item.authors[0].name}</Themed.h4>
-          
-        </div>
-      </Link>
-    </div>
+            <Themed.h2><a href={props.item.slug.current}>{props.item.title}</a></Themed.h2>
+            <br/>
+            <Link to={"/" + props.item.slug.current}>
+              <div className = "textPreview">
+                {props.item.body && (
+                  <PortableText
+                    value={props.item.body[0]}
+                    hardBreak={false}
+                    components={customComponents}
+                  />
+                )}
+              </div>
+            </Link>
+            <br/>
+            <Themed.h4>By {props.item.authors[0].name}</Themed.h4>     
+          </div>
+        </Link>
+
+      </div>
     </div>
   );
 }
+
+
