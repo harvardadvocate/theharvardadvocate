@@ -6,6 +6,7 @@ import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { theme } from "../theme/theme";
+import SubscribeBanner from "../components/banner.js";
 
 const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
@@ -75,7 +76,7 @@ const homepageSx = {
     }
   },
   ".sanctumSessions": {
-    padding:"0em",
+    padding: "0em",
     hr: {
       color: "rgba(0,0,0,0.2)",
     },
@@ -435,9 +436,9 @@ export default function Homepage() {
 
 
   useEffect(() => {
-      sanityClient
-        .fetch(
-          `*[_type == "issue"] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "issue"] | order(publishedAt desc)[0] {
         title,
         slug,
         description,
@@ -448,15 +449,15 @@ export default function Homepage() {
           }
         }
       }`
-        )
-        .then((data) => {
-          setItemData(data);
-        })
-        .catch(console.error);
+      )
+      .then((data) => {
+        setItemData(data);
+      })
+      .catch(console.error);
 
-      sanityClient
-        .fetch(
-          `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
               title,
               authors[]->{name},
               issue->{title, slug},
@@ -468,13 +469,13 @@ export default function Homepage() {
               }
             }
           }[0...4]`
-        )
-        .then((data) => setFeaturedItems(data))
-        .catch(console.error);
+      )
+      .then((data) => setFeaturedItems(data))
+      .catch(console.error);
 
-      sanityClient
-        .fetch(
-          `*[_type == "contentItem" && "featuresFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "featuresFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
               title,
               authors[]->{name},
               issue->{title, slug},
@@ -488,13 +489,13 @@ export default function Homepage() {
               }
             }
           }`
-        )
-        .then((data) => setFeaturedArticle1(data))
-        .catch(console.error);
+      )
+      .then((data) => setFeaturedArticle1(data))
+      .catch(console.error);
 
-        sanityClient
-          .fetch(
-            `*[_type == "contentItem" && "poetryFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "poetryFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
                 title,
                 authors[]->{name},
                 issue->{title, slug},
@@ -508,13 +509,13 @@ export default function Homepage() {
                 }
               }
             }`
-          )
-          .then((data) => setFeaturedArticle2(data))
-          .catch(console.error);
+      )
+      .then((data) => setFeaturedArticle2(data))
+      .catch(console.error);
 
-        sanityClient
-          .fetch(
-            `*[_type == "contentItem" && "fictionFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "fictionFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
                 title,
                 authors[]->{name},
                 issue->{title, slug},
@@ -528,14 +529,14 @@ export default function Homepage() {
                 }
               }
             }`
-          )
-          .then((data) => setFeaturedArticle3(data))
-          .catch(console.error);
+      )
+      .then((data) => setFeaturedArticle3(data))
+      .catch(console.error);
 
 
-          sanityClient
-            .fetch(
-              `*[_type == "contentItem" && "featuresFeaturedMiddle" in featuredOptions] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "featuresFeaturedMiddle" in featuredOptions] | order(publishedAt desc)[0] {
                   title,
                   authors[]->{name},
                   issue->{title, slug},
@@ -549,13 +550,13 @@ export default function Homepage() {
                   }
                 }
               }`
-            )
-            .then((data) => setFeaturedArticle4(data))
-            .catch(console.error);
+      )
+      .then((data) => setFeaturedArticle4(data))
+      .catch(console.error);
 
-            sanityClient
-              .fetch(
-                `*[_type == "contentItem" && "poetryFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "poetryFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
                     title,
                     authors[]->{name},
                     issue->{title, slug},
@@ -569,14 +570,14 @@ export default function Homepage() {
                     }
                   }
                 }`
-              )
-              .then((data) => setFeaturedArticle5(data))
-              .catch(console.error);
+      )
+      .then((data) => setFeaturedArticle5(data))
+      .catch(console.error);
 
 
-              sanityClient
-                .fetch(
-                  `*[_type == "contentItem" && "fictionFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "fictionFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
                       authors[]->{name},
                       issue->{title, slug},
@@ -590,13 +591,13 @@ export default function Homepage() {
                       }
                     }
                   }`
-                )
-                .then((data) => setFeaturedArticle6(data))
-                .catch(console.error);
+      )
+      .then((data) => setFeaturedArticle6(data))
+      .catch(console.error);
 
-              sanityClient
-                .fetch(
-                  `*[_type == "contentItem" && "artFeaturedMiddleRight" in featuredOptions] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "artFeaturedMiddleRight" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
                       authors[]->{name},
                       issue->{title, slug},
@@ -610,13 +611,13 @@ export default function Homepage() {
                       }
                     }
                   }`
-                )
-                .then((data) => setFeaturedArt1(data))
-                .catch(console.error);
+      )
+      .then((data) => setFeaturedArt1(data))
+      .catch(console.error);
 
-              sanityClient
-                .fetch(
-                  `*[_type == "contentItem" && "artFeaturedBottomRight" in featuredOptions] | order(publishedAt desc)[0] {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && "artFeaturedBottomRight" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
                       authors[]->{name},
                       issue->{title, slug},
@@ -630,13 +631,13 @@ export default function Homepage() {
                       }
                     }
                   }`
-                )
-                .then((data) => setFeaturedArt2(data))
-                .catch(console.error);
+      )
+      .then((data) => setFeaturedArt2(data))
+      .catch(console.error);
 
-              sanityClient
-                .fetch(
-                  `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
+    sanityClient
+      .fetch(
+        `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
                       title,
                       slug,
                       image{
@@ -646,14 +647,14 @@ export default function Homepage() {
                       }
                     }
                   }[0...3]`
-                )
-                .then((data) => setInstagramImages(data))
-                .catch(console.error);
+      )
+      .then((data) => setInstagramImages(data))
+      .catch(console.error);
 
 
-              sanityClient
-                .fetch(
-                  `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
+    sanityClient
+      .fetch(
+        `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
                       title,
                       slug,
                       image{
@@ -663,13 +664,13 @@ export default function Homepage() {
                       }
                     }
                   }[0...3]`
-                )
-                .then((data) => setInstagramImages(data))
-                .catch(console.error);
+      )
+      .then((data) => setInstagramImages(data))
+      .catch(console.error);
 
-              sanityClient
-                .fetch(
-                  `*[_type == "contentItem" && issue->title == "Winter 2009" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt desc) {
+    sanityClient
+      .fetch(
+        `*[_type == "contentItem" && issue->title == "Winter 2009" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt desc) {
                       title,
                       authors[]->{name},
                       issue->{title, slug},
@@ -677,336 +678,337 @@ export default function Homepage() {
                       body,
                       sections[]->{title, slug},
                   }`
-                )
-                .then((data) => setFromTheArchivesContent(data))
-                .catch(console.error);
-    }, []);
+      )
+      .then((data) => setFromTheArchivesContent(data))
+      .catch(console.error);
+  }, []);
 
-    if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
-      return <div>Loading...</div>;
-    }
-    else {
-      console.log("Welcome to the Harvard Advocate.");
-    }
+  if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
+    return <div>Loading...</div>;
+  }
+  else {
+    console.log("Welcome to the Harvard Advocate.");
+  }
 
   return (
     <div css={homepageSx}>
-    <div className="horizontalContainer">
-      <div className="mainContent">
-        <div className="featuredIssue">
-          <Grid className="mainGrid" columns={"2fr 3fr"}>
-            <div className="issueCover">
-              <Link to={"/issues/" + itemData.slug.current}>
-                {itemData.frontCover && "asset" in itemData.frontCover && (
-                  <img src={itemData.frontCover.asset.url} alt="" />
-                )}
-              </Link>
-            </div>
+      <SubscribeBanner/>
+      <div className="horizontalContainer">
+        <div className="mainContent">
+          <div className="featuredIssue">
+            <Grid className="mainGrid" columns={"2fr 3fr"}>
+              <div className="issueCover">
+                <Link to={"/issues/" + itemData.slug.current}>
+                  {itemData.frontCover && "asset" in itemData.frontCover && (
+                    <img src={itemData.frontCover.asset.url} alt="" />
+                  )}
+                </Link>
+              </div>
 
-            <div className="featuredArticles">
-              <div className="issueTitle">
-                <h5><b>NEWEST ISSUE</b></h5>
-                <Themed.h1>{itemData.title}</Themed.h1>
-                <hr/>
-              </div>
-              <div className="highlightedArticles">
-                <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                  {(featuredItems.slice(0,2)).map((article) => {
-                    return (
-                      <div className="featuredArticle" key={article.title}>
-                        <Link to={article.slug.current}>
-                          <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </Grid>
-                <hr/>
-                <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                  {(featuredItems.slice(2,4)).map((article) => {
-                    return (
-                      <div className="featuredArticle" key={article.title}>
-                        <Link to={article.slug.current}>
-                          <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </Grid>
-                <hr/>
-              </div>
-              <Link to={"/issues/" + itemData.slug.current}>
-                <div className="readFullIssue">
-                  <span>&#8594;</span>
-                  <h6>READ FULL ISSUE</h6>
+              <div className="featuredArticles">
+                <div className="issueTitle">
+                  <h5><b>NEWEST ISSUE</b></h5>
+                  <Themed.h1>{itemData.title}</Themed.h1>
+                  <hr />
                 </div>
-              </Link>
-            </div>
-          </Grid>
-        </div>
-        <div className="topArticles">
-          <div className="div1">
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle1.sections[0].slug.current}>{featuredArticle1.sections[0].title}</a> • <a href={"issues/" + featuredArticle1.issue.slug.current}>{featuredArticle1.issue.title}</a></i></Themed.h3>
-            </div>
-            <a href={featuredArticle1.slug.current}><Themed.h2>{featuredArticle1.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle1.slug.current}>
-            <div className = "textPreview1">
-              {featuredArticle1.body && (
-                <PortableText
-                  value={featuredArticle1.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-
-            <br/>
-            <Themed.h4>By {featuredArticle1.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div2">
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle2.sections[0].slug.current}>{featuredArticle2.sections[0].title}</a> • <a href={"issues/" + featuredArticle2.issue.slug.current}>{featuredArticle2.issue.title}</a></i></Themed.h3>
-            </div>
-            <a href={featuredArticle2.slug.current}><Themed.h2>{featuredArticle2.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle2.slug.current}>
-            <div className = "textPreview1">
-              {featuredArticle2.body && (
-                <PortableText
-                  value={featuredArticle2.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-          <br/>
-          <Themed.h4>By {featuredArticle2.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div3">
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle3.sections[0].slug.current}>{featuredArticle3.sections[0].title}</a> • <a href={"issues/" + featuredArticle3.issue.slug.current}>{featuredArticle3.issue.title}</a></i></Themed.h3>
-            </div>
-            <a href={featuredArticle3.slug.current}><Themed.h2>{featuredArticle3.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle3.slug.current}>
-            <div className = "textPreview3">
-              {featuredArticle3.body && (
-                <PortableText
-                  value={featuredArticle3.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-            <br/>
-            <Themed.h4>By {featuredArticle3.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div4">
-            <div className="div4image">
-              <a href={featuredArticle4.slug.current}><img src={featuredArticle4.mainImage.asset.url} alt="Illustration"></img></a>
-            </div>
-            <div className="div4content">
-              <div className="articleHeader">
-                <Themed.h3><i><a href={"sections/" + featuredArticle4.sections[0].slug.current}>{featuredArticle4.sections[0].title}</a> • <a href={"issues/" + featuredArticle4.issue.slug.current}>{featuredArticle4.issue.title}</a></i></Themed.h3>
-              </div>
-              <a href={featuredArticle4.slug.current}><Themed.h2>{featuredArticle4.title}</Themed.h2></a>
-              <br/>
-              <Link to={featuredArticle4.slug.current}>
-              <div className = "textPreview4">
-                {featuredArticle4.body && (
-                  <PortableText
-                    value={featuredArticle4.body}
-                    hardBreak={false}
-                    components={customComponents}
-                  />
-                )}
-              </div>
-              </Link>
-              <br/>
-              <Themed.h4>By {featuredArticle4.authors[0].name}</Themed.h4>
-            </div>
-          </div>
-          <div className="div5">
-
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle5.sections[0].slug.current}>{featuredArticle5.sections[0].title}</a> • <a href={"issues/" + featuredArticle5.issue.slug.current}>{featuredArticle5.issue.title}</a></i></Themed.h3>
-            </div>
-
-            <a href={featuredArticle5.slug.current}><Themed.h2>{featuredArticle5.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle5.slug.current}>
-            <div className = "textPreview5">
-              {featuredArticle5.body && (
-                <PortableText
-                  value={featuredArticle5.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-            <br/>
-            <Themed.h4>By {featuredArticle5.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div6">
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle6.sections[0].slug.current}>{featuredArticle6.sections[0].title}</a> • <a href={"issues/" + featuredArticle6.issue.slug.current}>{featuredArticle6.issue.title}</a></i></Themed.h3>
-            </div>
-            <a href={featuredArticle6.slug.current}><Themed.h2>{featuredArticle6.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle6.slug.current}>
-            <div className = "textPreview6">
-              {featuredArticle6.body && (
-                <PortableText
-                  value={featuredArticle6.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-            <br/>
-            <Themed.h4>By {featuredArticle6.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div7">
-            <div className="div7image">
-              <a href={featuredArt1.slug.current}><img src={featuredArt1.mainImage.asset.url} alt="Art image"></img></a>
-            </div>
-            <div className="div7content">
-              <div className="articleHeader">
-                <Themed.h3><i><a href={"sections/" + featuredArt1.sections[0].slug.current}>{featuredArt1.sections[0].title}</a> • <a href={"issues/" + featuredArt1.issue.slug.current}>{featuredArt1.issue.title}</a></i></Themed.h3>
-              </div>
-              <a href={featuredArt1.slug.current}><Themed.h2>{featuredArt1.title}</Themed.h2></a>
-              <Themed.h4>By {featuredArt1.authors[0].name}</Themed.h4>
-            </div>
-          </div>
-          <div className="div8">
-            <div className="div8image">
-              <a href={featuredArt2.slug.current}><img src={featuredArt2.mainImage.asset.url} alt="Art image"></img></a>
-            </div>
-            <div className="div8content">
-              <div className="articleHeader">
-                <Themed.h3><i><a href={"sections/" + featuredArt2.sections[0].slug.current}>{featuredArt2.sections[0].title}</a> • <a href={"issues/" + featuredArt2.issue.slug.current}>{featuredArt2.issue.title}</a></i></Themed.h3>
-              </div>
-              <a href={featuredArt2.slug.current}><Themed.h2>{featuredArt2.title}</Themed.h2></a>
-              <Themed.h4>By {featuredArt2.authors[0].name}</Themed.h4>
-            </div>
-
-          </div>
-        </div>
-        <div className="sanctumSessions">
-          <hr/>
-          <img src="/sanctum_sessions.png"/>
-        </div>
-        <div className="blog">
-          <hr/>
-          <Themed.h2><a href="sections/blog/">Blog</a></Themed.h2>
-          <hr/>
-          <Themed.p><i>The fresh online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
-          <div className="blogGrid">
-            {([featuredArticle1, featuredArticle2, featuredArticle3]).map((article) => {
-              return (
-                <div className="blogArticle" key={article.title}>
-                  <div className="articleHeader">
-                    <Themed.h3><i><a href={"sections/"+article.sections[0].slug.current}>{article.sections[0].title}</a> • <a href={"issues/"+article.issue.slug.current}>{article.issue.title}</a></i></Themed.h3>
+                <div className="highlightedArticles">
+                  <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
+                    {(featuredItems.slice(0, 2)).map((article) => {
+                      return (
+                        <div className="featuredArticle" key={article.title}>
+                          <Link to={article.slug.current}>
+                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br /> By {article.authors[0].name}</Themed.h3></div>
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </Grid>
+                  <hr />
+                  <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
+                    {(featuredItems.slice(2, 4)).map((article) => {
+                      return (
+                        <div className="featuredArticle" key={article.title}>
+                          <Link to={article.slug.current}>
+                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br /> By {article.authors[0].name}</Themed.h3></div>
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </Grid>
+                  <hr />
+                </div>
+                <Link to={"/issues/" + itemData.slug.current}>
+                  <div className="readFullIssue">
+                    <span>&#8594;</span>
+                    <h6>READ FULL ISSUE</h6>
                   </div>
-                  <a href={article.slug.current}><Themed.h2>{article.title}</Themed.h2></a>
-                  <br/>
-                  <Link to={article.slug.current}>
-                    <div className = "textPreview">
-                      {article.body && (
-                        <PortableText
-                          value={article.body}
-                          hardBreak={false}
-                          components={customComponents}
-                        />
-                      )}
-                    </div>
-                  </Link>
-                  <br/>
-                  <Themed.h4>By {article.authors[0].name}</Themed.h4>
-                </div>
-              );
-            })}
-          </div>
-          <hr/>
-        </div>
-        <div className="socialsFeed">
-          <div className="socialsGrid">
-            <a href="https://instagram.com/harvardadvocate" target="_blank">
-              <div className="instaCol">
-                <div className="fromss">
-                  <img src="/picsfrom21ss.jpg"></img>
-                </div>
-                <div className="insta1">
-                  <img src={instagramImages[2].image.asset.url}></img>
-                </div>
-                <div className="insta2">
-                  <img src={instagramImages[0].image.asset.url}></img>
-                </div>
-                <div className="insta3">
-                  <img src={instagramImages[1].image.asset.url}></img>
-                </div>
+                </Link>
               </div>
-            </a>
-            <div className="twitterCol">
-              {/*
-              <TwitterTimelineEmbed
-                sourceType="profile"
-                screenName="harvardadvocate"
-                options={{height: 600}}
-              />
-              */}
+            </Grid>
+          </div>
+          <div className="topArticles">
+            <div className="div1">
+              <div className="articleHeader">
+                <Themed.h3><i><a href={"sections/" + featuredArticle1.sections[0].slug.current}>{featuredArticle1.sections[0].title}</a> • <a href={"issues/" + featuredArticle1.issue.slug.current}>{featuredArticle1.issue.title}</a></i></Themed.h3>
+              </div>
+              <a href={featuredArticle1.slug.current}><Themed.h2>{featuredArticle1.title}</Themed.h2></a>
+              <br />
+              <Link to={featuredArticle1.slug.current}>
+                <div className="textPreview1">
+                  {featuredArticle1.body && (
+                    <PortableText
+                      value={featuredArticle1.body}
+                      hardBreak={false}
+                      components={customComponents}
+                    />
+                  )}
+                </div>
+              </Link>
+
+              <br />
+              <Themed.h4>By {featuredArticle1.authors[0].name}</Themed.h4>
+            </div>
+            <div className="div2">
+              <div className="articleHeader">
+                <Themed.h3><i><a href={"sections/" + featuredArticle2.sections[0].slug.current}>{featuredArticle2.sections[0].title}</a> • <a href={"issues/" + featuredArticle2.issue.slug.current}>{featuredArticle2.issue.title}</a></i></Themed.h3>
+              </div>
+              <a href={featuredArticle2.slug.current}><Themed.h2>{featuredArticle2.title}</Themed.h2></a>
+              <br />
+              <Link to={featuredArticle2.slug.current}>
+                <div className="textPreview1">
+                  {featuredArticle2.body && (
+                    <PortableText
+                      value={featuredArticle2.body}
+                      hardBreak={false}
+                      components={customComponents}
+                    />
+                  )}
+                </div>
+              </Link>
+              <br />
+              <Themed.h4>By {featuredArticle2.authors[0].name}</Themed.h4>
+            </div>
+            <div className="div3">
+              <div className="articleHeader">
+                <Themed.h3><i><a href={"sections/" + featuredArticle3.sections[0].slug.current}>{featuredArticle3.sections[0].title}</a> • <a href={"issues/" + featuredArticle3.issue.slug.current}>{featuredArticle3.issue.title}</a></i></Themed.h3>
+              </div>
+              <a href={featuredArticle3.slug.current}><Themed.h2>{featuredArticle3.title}</Themed.h2></a>
+              <br />
+              <Link to={featuredArticle3.slug.current}>
+                <div className="textPreview3">
+                  {featuredArticle3.body && (
+                    <PortableText
+                      value={featuredArticle3.body}
+                      hardBreak={false}
+                      components={customComponents}
+                    />
+                  )}
+                </div>
+              </Link>
+              <br />
+              <Themed.h4>By {featuredArticle3.authors[0].name}</Themed.h4>
+            </div>
+            <div className="div4">
+              <div className="div4image">
+                <a href={featuredArticle4.slug.current}><img src={featuredArticle4.mainImage.asset.url} alt="Illustration"></img></a>
+              </div>
+              <div className="div4content">
+                <div className="articleHeader">
+                  <Themed.h3><i><a href={"sections/" + featuredArticle4.sections[0].slug.current}>{featuredArticle4.sections[0].title}</a> • <a href={"issues/" + featuredArticle4.issue.slug.current}>{featuredArticle4.issue.title}</a></i></Themed.h3>
+                </div>
+                <a href={featuredArticle4.slug.current}><Themed.h2>{featuredArticle4.title}</Themed.h2></a>
+                <br />
+                <Link to={featuredArticle4.slug.current}>
+                  <div className="textPreview4">
+                    {featuredArticle4.body && (
+                      <PortableText
+                        value={featuredArticle4.body}
+                        hardBreak={false}
+                        components={customComponents}
+                      />
+                    )}
+                  </div>
+                </Link>
+                <br />
+                <Themed.h4>By {featuredArticle4.authors[0].name}</Themed.h4>
+              </div>
+            </div>
+            <div className="div5">
+
+              <div className="articleHeader">
+                <Themed.h3><i><a href={"sections/" + featuredArticle5.sections[0].slug.current}>{featuredArticle5.sections[0].title}</a> • <a href={"issues/" + featuredArticle5.issue.slug.current}>{featuredArticle5.issue.title}</a></i></Themed.h3>
+              </div>
+
+              <a href={featuredArticle5.slug.current}><Themed.h2>{featuredArticle5.title}</Themed.h2></a>
+              <br />
+              <Link to={featuredArticle5.slug.current}>
+                <div className="textPreview5">
+                  {featuredArticle5.body && (
+                    <PortableText
+                      value={featuredArticle5.body}
+                      hardBreak={false}
+                      components={customComponents}
+                    />
+                  )}
+                </div>
+              </Link>
+              <br />
+              <Themed.h4>By {featuredArticle5.authors[0].name}</Themed.h4>
+            </div>
+            <div className="div6">
+              <div className="articleHeader">
+                <Themed.h3><i><a href={"sections/" + featuredArticle6.sections[0].slug.current}>{featuredArticle6.sections[0].title}</a> • <a href={"issues/" + featuredArticle6.issue.slug.current}>{featuredArticle6.issue.title}</a></i></Themed.h3>
+              </div>
+              <a href={featuredArticle6.slug.current}><Themed.h2>{featuredArticle6.title}</Themed.h2></a>
+              <br />
+              <Link to={featuredArticle6.slug.current}>
+                <div className="textPreview6">
+                  {featuredArticle6.body && (
+                    <PortableText
+                      value={featuredArticle6.body}
+                      hardBreak={false}
+                      components={customComponents}
+                    />
+                  )}
+                </div>
+              </Link>
+              <br />
+              <Themed.h4>By {featuredArticle6.authors[0].name}</Themed.h4>
+            </div>
+            <div className="div7">
+              <div className="div7image">
+                <a href={featuredArt1.slug.current}><img src={featuredArt1.mainImage.asset.url} alt="Art image"></img></a>
+              </div>
+              <div className="div7content">
+                <div className="articleHeader">
+                  <Themed.h3><i><a href={"sections/" + featuredArt1.sections[0].slug.current}>{featuredArt1.sections[0].title}</a> • <a href={"issues/" + featuredArt1.issue.slug.current}>{featuredArt1.issue.title}</a></i></Themed.h3>
+                </div>
+                <a href={featuredArt1.slug.current}><Themed.h2>{featuredArt1.title}</Themed.h2></a>
+                <Themed.h4>By {featuredArt1.authors[0].name}</Themed.h4>
+              </div>
+            </div>
+            <div className="div8">
+              <div className="div8image">
+                <a href={featuredArt2.slug.current}><img src={featuredArt2.mainImage.asset.url} alt="Art image"></img></a>
+              </div>
+              <div className="div8content">
+                <div className="articleHeader">
+                  <Themed.h3><i><a href={"sections/" + featuredArt2.sections[0].slug.current}>{featuredArt2.sections[0].title}</a> • <a href={"issues/" + featuredArt2.issue.slug.current}>{featuredArt2.issue.title}</a></i></Themed.h3>
+                </div>
+                <a href={featuredArt2.slug.current}><Themed.h2>{featuredArt2.title}</Themed.h2></a>
+                <Themed.h4>By {featuredArt2.authors[0].name}</Themed.h4>
+              </div>
+
             </div>
           </div>
-        </div>
-        <div className="fromTheArchives">
-          <div className = "archiveHeader">
-            <hr/>
-            <Themed.h2>From The Archives</Themed.h2>
-            <hr/>
+          <div className="sanctumSessions">
+            <hr />
+            <img src="/sanctum_sessions.png" />
           </div>
-          <div className="archivesMainGrid">
-          {([fromTheArchivesContent.slice(0,2), fromTheArchivesContent.slice(9,11), fromTheArchivesContent.slice(4,6)]).map((archiveSlices) => {
-            return (
-              <div className="archivesCol">
-              {(archiveSlices).map((archiveArticle) => {
+          <div className="blog">
+            <hr />
+            <Themed.h2><a href="sections/blog/">Blog</a></Themed.h2>
+            <hr />
+            <Themed.p><i>The fresh online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
+            <div className="blogGrid">
+              {([featuredArticle1, featuredArticle2, featuredArticle3]).map((article) => {
                 return (
-                  <div className="archiveArticle" key={archiveArticle.title}>
+                  <div className="blogArticle" key={article.title}>
                     <div className="articleHeader">
-                      <Themed.h3><i><a href={"sections/"+archiveArticle.sections[0].slug.current}>{archiveArticle.sections[0].title}</a> • <a href={"issues/"+archiveArticle.issue.slug.current}>{archiveArticle.issue.title}</a></i></Themed.h3>
+                      <Themed.h3><i><a href={"sections/" + article.sections[0].slug.current}>{article.sections[0].title}</a> • <a href={"issues/" + article.issue.slug.current}>{article.issue.title}</a></i></Themed.h3>
                     </div>
-                    <a href={archiveArticle.slug.current}><Themed.h2>{archiveArticle.title}</Themed.h2></a>
-                    <br/>
-                    <Link to={archiveArticle.slug.current}>
-                      <div className = "textPreview">
-                        {archiveArticle.body && (
+                    <a href={article.slug.current}><Themed.h2>{article.title}</Themed.h2></a>
+                    <br />
+                    <Link to={article.slug.current}>
+                      <div className="textPreview">
+                        {article.body && (
                           <PortableText
-                            value={archiveArticle.body}
+                            value={article.body}
                             hardBreak={false}
                             components={customComponents}
                           />
                         )}
                       </div>
                     </Link>
-                    <br/>
-                    <Themed.h4>By {archiveArticle.authors[0].name}</Themed.h4>
+                    <br />
+                    <Themed.h4>By {article.authors[0].name}</Themed.h4>
                   </div>
                 );
               })}
+            </div>
+            <hr />
+          </div>
+          <div className="socialsFeed">
+            <div className="socialsGrid">
+              <a href="https://instagram.com/harvardadvocate" target="_blank">
+                <div className="instaCol">
+                  <div className="fromss">
+                    <img src="/picsfrom21ss.jpg"></img>
+                  </div>
+                  <div className="insta1">
+                    <img src={instagramImages[2].image.asset.url}></img>
+                  </div>
+                  <div className="insta2">
+                    <img src={instagramImages[0].image.asset.url}></img>
+                  </div>
+                  <div className="insta3">
+                    <img src={instagramImages[1].image.asset.url}></img>
+                  </div>
+                </div>
+              </a>
+              <div className="twitterCol">
+                {/*
+              <TwitterTimelineEmbed
+                sourceType="profile"
+                screenName="harvardadvocate"
+                options={{height: 600}}
+              />
+              */}
               </div>
+            </div>
+          </div>
+          <div className="fromTheArchives">
+            <div className="archiveHeader">
+              <hr />
+              <Themed.h2>From The Archives</Themed.h2>
+              <hr />
+            </div>
+            <div className="archivesMainGrid">
+              {([fromTheArchivesContent.slice(0, 2), fromTheArchivesContent.slice(9, 11), fromTheArchivesContent.slice(4, 6)]).map((archiveSlices) => {
+                return (
+                  <div className="archivesCol">
+                    {(archiveSlices).map((archiveArticle) => {
+                      return (
+                        <div className="archiveArticle" key={archiveArticle.title}>
+                          <div className="articleHeader">
+                            <Themed.h3><i><a href={"sections/" + archiveArticle.sections[0].slug.current}>{archiveArticle.sections[0].title}</a> • <a href={"issues/" + archiveArticle.issue.slug.current}>{archiveArticle.issue.title}</a></i></Themed.h3>
+                          </div>
+                          <a href={archiveArticle.slug.current}><Themed.h2>{archiveArticle.title}</Themed.h2></a>
+                          <br />
+                          <Link to={archiveArticle.slug.current}>
+                            <div className="textPreview">
+                              {archiveArticle.body && (
+                                <PortableText
+                                  value={archiveArticle.body}
+                                  hardBreak={false}
+                                  components={customComponents}
+                                />
+                              )}
+                            </div>
+                          </Link>
+                          <br />
+                          <Themed.h4>By {archiveArticle.authors[0].name}</Themed.h4>
+                        </div>
+                      );
+                    })}
+                  </div>
 
-            );
-          })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
