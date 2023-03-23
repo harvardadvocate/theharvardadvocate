@@ -9,6 +9,8 @@ import { theme } from "../theme/theme";
 import { getResources } from "../queries/homepage.js";
 import { optimizeImageLoading } from "../utils/image.js";
 import FeaturedIssue from "../components/FeaturedIssue.js";
+import MixedGrid from "../components/MixedGrid.js";
+import TextContentList from "../components/TextContentList";
 
 
 const mainColor = theme["colors"]["primary"];
@@ -381,161 +383,11 @@ export default function Homepage() {
     <div className="horizontalContainer">
       <div className="mainContent">
         <FeaturedIssue newest={true} issue={itemData} featuredItems={featuredItems}/>
-        <div className="topArticles">
-          <div className="div1">
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle1.sections[0].slug.current}>{featuredArticle1.sections[0].title}</a> • <a href={"issues/" + featuredArticle1.issue.slug.current}>{featuredArticle1.issue.title}</a></i></Themed.h3>
-            </div>
-            <a href={featuredArticle1.slug.current}><Themed.h2>{featuredArticle1.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle1.slug.current}>
-            <div className = "textPreview1">
-              {featuredArticle1.body && (
-                <PortableText
-                  value={featuredArticle1.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-
-            <br/>
-            <Themed.h4>By {featuredArticle1.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div2">
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle2.sections[0].slug.current}>{featuredArticle2.sections[0].title}</a> • <a href={"issues/" + featuredArticle2.issue.slug.current}>{featuredArticle2.issue.title}</a></i></Themed.h3>
-            </div>
-            <a href={featuredArticle2.slug.current}><Themed.h2>{featuredArticle2.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle2.slug.current}>
-            <div className = "textPreview1">
-              {featuredArticle2.body && (
-                <PortableText
-                  value={featuredArticle2.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-          <br/>
-          <Themed.h4>By {featuredArticle2.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div3">
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle3.sections[0].slug.current}>{featuredArticle3.sections[0].title}</a> • <a href={"issues/" + featuredArticle3.issue.slug.current}>{featuredArticle3.issue.title}</a></i></Themed.h3>
-            </div>
-            <a href={featuredArticle3.slug.current}><Themed.h2>{featuredArticle3.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle3.slug.current}>
-            <div className = "textPreview3">
-              {featuredArticle3.body && (
-                <PortableText
-                  value={featuredArticle3.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-            <br/>
-            <Themed.h4>By {featuredArticle3.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div4">
-            <div className="div4image">
-              <a href={featuredArticle4.slug.current}><img src={optimizeImageLoading(featuredArticle4.mainImage.asset.url)} loading="lazy" alt="Illustration"></img></a>
-            </div>
-            <div className="div4content">
-              <div className="articleHeader">
-                <Themed.h3><i><a href={"sections/" + featuredArticle4.sections[0].slug.current}>{featuredArticle4.sections[0].title}</a> • <a href={"issues/" + featuredArticle4.issue.slug.current}>{featuredArticle4.issue.title}</a></i></Themed.h3>
-              </div>
-              <a href={featuredArticle4.slug.current}><Themed.h2>{featuredArticle4.title}</Themed.h2></a>
-              <br/>
-              <Link to={featuredArticle4.slug.current}>
-              <div className = "textPreview4">
-                {featuredArticle4.body && (
-                  <PortableText
-                    value={featuredArticle4.body}
-                    hardBreak={false}
-                    components={customComponents}
-                  />
-                )}
-              </div>
-              </Link>
-              <br/>
-              <Themed.h4>By {featuredArticle4.authors[0].name}</Themed.h4>
-            </div>
-          </div>
-          <div className="div5">
-
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle5.sections[0].slug.current}>{featuredArticle5.sections[0].title}</a> • <a href={"issues/" + featuredArticle5.issue.slug.current}>{featuredArticle5.issue.title}</a></i></Themed.h3>
-            </div>
-
-            <a href={featuredArticle5.slug.current}><Themed.h2>{featuredArticle5.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle5.slug.current}>
-            <div className = "textPreview5">
-              {featuredArticle5.body && (
-                <PortableText
-                  value={featuredArticle5.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-            <br/>
-            <Themed.h4>By {featuredArticle5.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div6">
-            <div className="articleHeader">
-              <Themed.h3><i><a href={"sections/" + featuredArticle6.sections[0].slug.current}>{featuredArticle6.sections[0].title}</a> • <a href={"issues/" + featuredArticle6.issue.slug.current}>{featuredArticle6.issue.title}</a></i></Themed.h3>
-            </div>
-            <a href={featuredArticle6.slug.current}><Themed.h2>{featuredArticle6.title}</Themed.h2></a>
-            <br/>
-            <Link to={featuredArticle6.slug.current}>
-            <div className = "textPreview6">
-              {featuredArticle6.body && (
-                <PortableText
-                  value={featuredArticle6.body}
-                  hardBreak={false}
-                  components={customComponents}
-                />
-              )}
-            </div>
-            </Link>
-            <br/>
-            <Themed.h4>By {featuredArticle6.authors[0].name}</Themed.h4>
-          </div>
-          <div className="div7">
-            <div className="div7image">
-              <a href={featuredArt1.slug.current}><img src={optimizeImageLoading(featuredArt1.mainImage.asset.url)} loading="lazy" alt="Art image"></img></a>
-            </div>
-            <div className="div7content">
-              <div className="articleHeader">
-                <Themed.h3><i><a href={"sections/" + featuredArt1.sections[0].slug.current}>{featuredArt1.sections[0].title}</a> • <a href={"issues/" + featuredArt1.issue.slug.current}>{featuredArt1.issue.title}</a></i></Themed.h3>
-              </div>
-              <a href={featuredArt1.slug.current}><Themed.h2>{featuredArt1.title}</Themed.h2></a>
-              <Themed.h4>By {featuredArt1.authors[0].name}</Themed.h4>
-            </div>
-          </div>
-          <div className="div8">
-            <div className="div8image">
-              <a href={featuredArt2.slug.current}><img src={optimizeImageLoading(featuredArt2.mainImage.asset.url)} loading="lazy" alt="Art image"></img></a>
-            </div>
-            <div className="div8content">
-              <div className="articleHeader">
-                <Themed.h3><i><a href={"sections/" + featuredArt2.sections[0].slug.current}>{featuredArt2.sections[0].title}</a> • <a href={"issues/" + featuredArt2.issue.slug.current}>{featuredArt2.issue.title}</a></i></Themed.h3>
-              </div>
-              <a href={featuredArt2.slug.current}><Themed.h2>{featuredArt2.title}</Themed.h2></a>
-              <Themed.h4>By {featuredArt2.authors[0].name}</Themed.h4>
-            </div>
-
-          </div>
-        </div>
+        <MixedGrid home={true}
+          items={[featuredArticle1, featuredArticle2,
+          featuredArticle3, featuredArticle4, featuredArticle5,
+          featuredArticle6, featuredArt1, featuredArt2]}>
+        </MixedGrid>
         <div className="sanctumSessions">
           <hr/>
           <img src="/sanctum_sessions.png" loading="lazy"/>
@@ -545,32 +397,7 @@ export default function Homepage() {
           <Themed.h2><a href="sections/blog/">Blog</a></Themed.h2>
           <hr/>
           <Themed.p><i>The fresh online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
-          <div className="blogGrid">
-            {([featuredArticle1, featuredArticle2, featuredArticle3]).map((article) => {
-              return (
-                <div className="blogArticle" key={article.title}>
-                  <div className="articleHeader">
-                    <Themed.h3><i><a href={"sections/"+article.sections[0].slug.current}>{article.sections[0].title}</a> • <a href={"issues/"+article.issue.slug.current}>{article.issue.title}</a></i></Themed.h3>
-                  </div>
-                  <a href={article.slug.current}><Themed.h2>{article.title}</Themed.h2></a>
-                  <br/>
-                  <Link to={article.slug.current}>
-                    <div className = "textPreview">
-                      {article.body && (
-                        <PortableText
-                          value={article.body}
-                          hardBreak={false}
-                          components={customComponents}
-                        />
-                      )}
-                    </div>
-                  </Link>
-                  <br/>
-                  <Themed.h4>By {article.authors[0].name}</Themed.h4>
-                </div>
-              );
-            })}
-          </div>
+          <TextContentList items={[featuredArticle1, featuredArticle2, featuredArticle3]} border={false} home={false}></TextContentList>
           <hr/>
         </div>
         <div className="socialsFeed">
@@ -608,39 +435,8 @@ export default function Homepage() {
             <Themed.h2>From The Archives</Themed.h2>
             <hr/>
           </div>
-          <div className="archivesMainGrid">
-          {([fromTheArchivesContent.slice(0,2), fromTheArchivesContent.slice(9,11), fromTheArchivesContent.slice(4,6)]).map((archiveSlices) => {
-            return (
-              <div className="archivesCol">
-              {(archiveSlices).map((archiveArticle) => {
-                return (
-                  <div className="archiveArticle" key={archiveArticle.title}>
-                    <div className="articleHeader">
-                      <Themed.h3><i><a href={"sections/"+archiveArticle.sections[0].slug.current}>{archiveArticle.sections[0].title}</a> • <a href={"issues/"+archiveArticle.issue.slug.current}>{archiveArticle.issue.title}</a></i></Themed.h3>
-                    </div>
-                    <a href={archiveArticle.slug.current}><Themed.h2>{archiveArticle.title}</Themed.h2></a>
-                    <br/>
-                    <Link to={archiveArticle.slug.current}>
-                      <div className = "textPreview">
-                        {archiveArticle.body && (
-                          <PortableText
-                            value={archiveArticle.body}
-                            hardBreak={false}
-                            components={customComponents}
-                          />
-                        )}
-                      </div>
-                    </Link>
-                    <br/>
-                    <Themed.h4>By {archiveArticle.authors[0].name}</Themed.h4>
-                  </div>
-                );
-              })}
-              </div>
-
-            );
-          })}
-          </div>
+            <TextContentList items={fromTheArchivesContent.slice(0, 3)} border={true} home={true}></TextContentList>
+            <TextContentList items={fromTheArchivesContent.slice(8, 11)} border={false} home={true}></TextContentList>
         </div>
       </div>
     </div>
