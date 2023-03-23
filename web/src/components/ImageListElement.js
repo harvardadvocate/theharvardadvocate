@@ -33,9 +33,29 @@ const imageListElementSx = {
   padding: "1em",
 };
 
+
+const imageListElementSx_home = {
+  maxWidth: "100%",
+  a: {
+    color: "text",
+    textDecoration: "none",
+  },
+  ".listItemImage img": {
+    width: "100%",
+  },
+  ".listItem": {
+    display: "flex",
+    flexDirection: "column",
+  },
+  h4: {
+    "fontFamily": "Poppins",
+    "fontSize": "0.8em",
+  },
+};
+
 export default function ImageListElement(props) {
   return (
-    <div sx={imageListElementSx}>
+    <div sx={props.home ? imageListElementSx_home : imageListElementSx}>
       <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
         <div className="listItem">
           <div className="listItemImage">
@@ -47,6 +67,7 @@ export default function ImageListElement(props) {
             ) : null}
           </div>
           <div>
+            {props.home ? <Themed.h3><i>Art • {props.item.issue.title}</i></Themed.h3> : ""}
             <Themed.h2>{props.item.title}</Themed.h2>
           </div>
           <div>

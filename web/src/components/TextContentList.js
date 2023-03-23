@@ -17,14 +17,12 @@ const textContentListSx = {
     display: "grid",
     gridTemplateRows: "1fr",
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-    borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "1vh",
   },
 
   ".articleItem": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
-    alignItems: "center",
   },
 
   ".articleItem:last-child": {
@@ -33,6 +31,21 @@ const textContentListSx = {
 };
 
 
+
+const add_border = {
+
+  ".gridRow": {
+    borderBottom: "1px solid rgba(0,0,0,0.2)",
+  },
+};
+
+const no_border = {
+
+  ".gridRow": {
+    borderBottom: "0px solid rgba(0,0,0,0.2)",
+  },
+};
+
 export default function TextContentList(props) {
 
   const perChunk = 3 // items per row
@@ -40,20 +53,22 @@ export default function TextContentList(props) {
 
   return (
     <div sx={textContentListSx}>
-      <div className = "mainGrid">
-        {(resultArray).map((row) => {
-          return (
-            <div className="gridRow">
-            {(row).map((item, index) => {
-              return (
-                <div className="articleItem" key={item.name}>
-                  <TextListElement item={item} key={index} />
-                </div>
-              );
-            })}
-            </div>
-          );
-        })}
+      <div sx={props.border ? add_border : no_border}>
+        <div className = "mainGrid">
+          {(resultArray).map((row) => {
+            return (
+              <div className="gridRow">
+              {(row).map((item, index) => {
+                return (
+                  <div className="articleItem" key={item.name}>
+                    <TextListElement item={item} key={index} home={props.home} padding={true}/>
+                  </div>
+                );
+              })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

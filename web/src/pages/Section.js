@@ -98,7 +98,7 @@ export default function Section(props) {
           },
         ]}
       >
-        <TextContentList items={items} />
+      <TextContentList items={items} home={false} border={true}/>
       </SectionFrame>
       <div  className="more">
         <p style={virtualStyle}></p>
