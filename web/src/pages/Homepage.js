@@ -20,10 +20,6 @@ const homepageSx = {
   },
   margin: "0em 0em 0em 0em",
 
-  ".featuredIssue": {
-    width: "100%",
-    backgroundColor: mainColor,
-  },
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
@@ -38,46 +34,7 @@ const homepageSx = {
   ".mainContent": {
     marginLeft: "0px",
   },
-  ".issueItem": {
-    cursor: "pointer",
-  },
-  ".issueCover": {
-    height: "max-content",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: "8%",
-    marginBottom: "8%",
-    img: {
-      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-      maxWidth: "69%",
-      maxHeight: "75%",
-    },
-    a: {
-      justifyContent: "center",
-      display: "flex",
-    }
-  },
 
-  ".mainGrid": {
-    placeItems: "center",
-    display: "grid",
-    justifyItems: "start",
-  },
-
-  ".featuredArticles": {
-    color: "#FFFFFF",
-    paddingRight: "2vw",
-    paddingTop: "2vh",
-    marginTop: "8%",
-    marginBottom: "8%",
-    h5: {
-      fontFamily: "sans-serif",
-    },
-    hr: {
-      border: "0.1px solid white",
-    }
-  },
   ".sanctumSessions": {
     padding:"0em",
     hr: {
@@ -155,28 +112,7 @@ const homepageSx = {
     position: "relative",
   },
 
-  ".readFullIssue": {
-    color: "#FFFFFF",
-    span: {
-      border: "2px solid #FFFFFF",
-      borderRadius: "5px",
-      paddingInline: "10px",
-      color: mainColor,
-      backgroundColor: "#FFFFFF",
-      float: "left"
-    },
-    h6: {
-      marginLeft: "3em",
-      border: "4px solid " + mainColor,
-      paddingInline: "10px",
-      borderRadius: "5px",
-      fontFamily: "sans-serif"
-    },
-  },
 
-  ".articleLink": {
-    color: "#FFFFFF",
-  },
   ".topArticles": {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
@@ -375,18 +311,6 @@ const homepageSx = {
 
 
   "@media (max-width: 767px)": {
-    ".issueCover": {
-      marginTop: "0%",
-      padding: "5%",
-      alignItems: "flex-start"
-    },
-    ".featuredArticles": {
-      padding: "0px",
-    },
-    ".featuredGrid": {
-      display: "none",
-      height: "0",
-    },
     "hr": {
       display: "none",
     },
@@ -394,20 +318,7 @@ const homepageSx = {
       gridTemplateColumns: "1fr",
       placeItems: "unset"
     },
-    ".issueTitle": {
-      textAlign: "center",
-    },
-    ".readFullIssue": {
-      textAlign: "center",
-      span: {
-        display: "none",
-      },
-      h6: {
-        marginLeft: "0em",
-        textDecoration: "underline",
-      },
-    },
-  },
+  }
 };
 
 // // `components` object passed to PortableText
