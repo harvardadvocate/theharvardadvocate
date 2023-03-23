@@ -65,7 +65,7 @@ export default function About() {
             The Harvard Advocate can be reached at 21 South Street, Cambridge, and at publisher@theharvardadvocate.com
           </Themed.p>
           <div className="image">
-            <img src="/about.jpg" />
+            <img src="/about.jpg" loading="lazy" alt="Advocate House Drawing" />
             <figcaption>Illustration by <em>Tosca Langbert '24</em></figcaption>
           </div>
         </div>

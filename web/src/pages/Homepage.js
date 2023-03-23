@@ -7,6 +7,7 @@ import { PortableText } from "@portabletext/react";
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { theme } from "../theme/theme";
 import { getResources } from "../queries/homepage.js";
+import { optimizeImageLoading } from "../utils/image.js";
 
 const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
@@ -471,7 +472,7 @@ export default function Homepage() {
             <div className="issueCover">
               <Link to={"/issues/" + itemData.slug.current}>
                 {itemData.frontCover && "asset" in itemData.frontCover && (
-                  <img src={itemData.frontCover.asset.url} alt="" />
+                  <img src={optimizeImageLoading(itemData.frontCover.asset.url)} loading="lazy" alt="" />
                 )}
               </Link>
             </div>
@@ -581,7 +582,7 @@ export default function Homepage() {
           </div>
           <div className="div4">
             <div className="div4image">
-              <a href={featuredArticle4.slug.current}><img src={featuredArticle4.mainImage.asset.url} alt="Illustration"></img></a>
+              <a href={featuredArticle4.slug.current}><img src={optimizeImageLoading(featuredArticle4.mainImage.asset.url)} loading="lazy" alt="Illustration"></img></a>
             </div>
             <div className="div4content">
               <div className="articleHeader">
@@ -648,7 +649,7 @@ export default function Homepage() {
           </div>
           <div className="div7">
             <div className="div7image">
-              <a href={featuredArt1.slug.current}><img src={featuredArt1.mainImage.asset.url} alt="Art image"></img></a>
+              <a href={featuredArt1.slug.current}><img src={optimizeImageLoading(featuredArt1.mainImage.asset.url)} loading="lazy" alt="Art image"></img></a>
             </div>
             <div className="div7content">
               <div className="articleHeader">
@@ -660,7 +661,7 @@ export default function Homepage() {
           </div>
           <div className="div8">
             <div className="div8image">
-              <a href={featuredArt2.slug.current}><img src={featuredArt2.mainImage.asset.url} alt="Art image"></img></a>
+              <a href={featuredArt2.slug.current}><img src={optimizeImageLoading(featuredArt2.mainImage.asset.url)} loading="lazy" alt="Art image"></img></a>
             </div>
             <div className="div8content">
               <div className="articleHeader">
@@ -674,7 +675,7 @@ export default function Homepage() {
         </div>
         <div className="sanctumSessions">
           <hr/>
-          <img src="/sanctum_sessions.png"/>
+          <img src="/sanctum_sessions.png" loading="lazy"/>
         </div>
         <div className="blog">
           <hr/>
@@ -714,16 +715,16 @@ export default function Homepage() {
             <a href="https://instagram.com/harvardadvocate" target="_blank">
               <div className="instaCol">
                 <div className="fromss">
-                  <img src="/picsfrom21ss.jpg"></img>
+                  <img src="/picsfrom21ss.jpg" loading = "lazy"></img>
                 </div>
                 <div className="insta1">
-                  <img src={instagramImages[2].image.asset.url}></img>
+                  <img src={optimizeImageLoading(instagramImages[2].image.asset.url)} loading="lazy"></img>
                 </div>
                 <div className="insta2">
-                  <img src={instagramImages[0].image.asset.url}></img>
+                  <img src={optimizeImageLoading(instagramImages[0].image.asset.url)} loading="lazy"></img>
                 </div>
                 <div className="insta3">
-                  <img src={instagramImages[1].image.asset.url}></img>
+                  <img src={optimizeImageLoading(instagramImages[1].image.asset.url)} loading="lazy"></img>
                 </div>
               </div>
             </a>

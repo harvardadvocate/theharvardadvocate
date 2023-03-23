@@ -4,7 +4,9 @@ import { Themed, Grid } from "theme-ui";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { theme } from "../theme/theme.js";
-import { buildSubarraysOfSize } from "../assets/utils"
+import { buildSubarraysOfSize } from "../assets/utils";
+import { optimizeImageLoading } from "../utils/image.js";
+
 const firstColor = theme["colors"]["primary"];
 const secondColor = theme["colors"]["secondary"];
 
@@ -325,13 +327,13 @@ export default function IssuesList() {
             `
               {
                 "itemData": ${issuesToQuery(0,10)},
-                "featuredItems": *[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
-                  title,
-                  authors[]->{name},
-                  issue->{title, slug},
-                  slug,
-                  mainImage{
-                    asset->{
+                "featuredItems": *[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
+                    title,
+                    authors[]->{name},
+                    issue->{title, slug},
+                    slug,
+                    mainImage{
+                      asset->{
                       _id,
                       url
                     }
@@ -386,7 +388,7 @@ export default function IssuesList() {
               <div className="issueCover">
                 <Link to={"/issues/" + itemData[0].slug.current}>
                   {itemData[0].frontCover && "asset" in itemData[0].frontCover && (
-                    <img src={itemData[0].frontCover.asset.url} alt="" />
+                    <img src={optimizeImageLoading(itemData[0].frontCover.asset.url)} loading="lazy" alt="" />
                   )}
                 </Link>
               </div>
@@ -476,7 +478,7 @@ export default function IssuesList() {
               <div className="issueCover">
                 <Link to={"/issues/" + itemData[1].slug.current}>
                   {itemData[1].frontCover && "asset" in itemData[1].frontCover && (
-                    <img src={itemData[1].frontCover.asset.url} alt="" />
+                    <img src={optimizeImageLoading(itemData[1].frontCover.asset.url)} loading="lazy" alt="" />
                   )}
                 </Link>
               </div>
@@ -491,7 +493,7 @@ export default function IssuesList() {
                 return (
                   <Link to={"/issues/" + bigIssue.slug.current}>
                   <div className="bigIssueDiv" key={bigIssue.title}>
-                    <img src={bigIssue.frontCover.asset.url}></img>
+                    <img src={optimizeImageLoading(bigIssue.frontCover.asset.url)} loading="lazy"></img>
                     <div className="lowerInfo">
                       <Themed.h3>{bigIssue.title} Issue</Themed.h3>
                       <Link to={"/issues/" + bigIssue.slug.current}>
@@ -517,7 +519,7 @@ export default function IssuesList() {
                   return (
                     <Link to={"/issues/" + smallIssue.slug.current}>
                     <div className="smallIssueDiv" key={smallIssue.title}>
-                      <img src={smallIssue.frontCover.asset.url}></img>
+                      <img src={optimizeImageLoading(smallIssue.frontCover.asset.url)} loading="lazy"></img>
                       <div className="lowerInfo2">
                         <Themed.h4>{smallIssue.title}</Themed.h4>
                       </div>
