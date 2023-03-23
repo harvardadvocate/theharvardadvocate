@@ -53,7 +53,7 @@ export default function Footer() {
           president@theharvardadvocate.com
           <br/><br/><br/>
           <Link className="linkLogo" to={"/"}>
-            <img src={logo} alt="The Advocate Logo" />
+            <img src={logo} alt="The Advocate Logo" loading="lazy" />
             2023 <span>&copy;</span> The Harvard Advocate
           </Link>
         </div>

@@ -65,7 +65,7 @@ export default function Comp() {
           </Themed.p>
 
           <div className="image">
-            <img src="/comp.jpeg" width="261" height="364"/>
+            <img src="/comp.jpeg" width="261" height="364" loading="lazy"/>
             <figcaption>Illustration from <em>Survival</em></figcaption>
           </div>
 

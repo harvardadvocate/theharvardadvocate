@@ -10,7 +10,7 @@ const getItemData = `*[_type == "issue"] | order(publishedAt desc)[0] {
         }
       }`;
 
-const getFeaturedItems = `*[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
+const getFeaturedItems = `*[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
               title,
               authors[]->{name},
               issue->{title, slug},

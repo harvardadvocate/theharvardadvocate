@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
 import { theme } from "../theme/theme.js";
+import { optimizeImageLoading } from "../utils/image.js";
 
 const headerColor = theme['colors']['headerColor'];
 
@@ -39,10 +40,10 @@ export default function ImageListElement(props) {
         <div className="listItem">
           <div className="listItemImage">
             {props.item.mainImage ? (
-              <img src={props.item.mainImage.asset.url} alt="" />
+              <img src={optimizeImageLoading(props.item.mainImage.asset.url)} loading="lazy" alt="" />
             ) : // TODO: better (more robust) check for this
             props.item.images && props.item.images[0] ? (
-              <img src={props.item.images[0].asset.url} alt="" />
+              <img src={optimizeImageLoading(props.item.images[0].asset.url)} loading="lazy" alt="" />
             ) : null}
           </div>
           <div>

@@ -21,31 +21,24 @@ export default function Issue() {
     sanityClient
       .fetch(
         `*[_type == "issue" && slug.current == $issueSlug] {
-        _id,
-        title,
-        slug,
-        description,
-        frontCover{
-          asset->{
-            _id,
-            url
-          }
+          frontCover,
+          publishedAt,
+          slug,
+          title,
+          _createdAt,
+          _id,
+          _rev,
+          _type,
+          _updatedAt,
+          "items": *[_type == "contentItem" && ^._id == issue._ref]
+        }`,
+        {
+          issueSlug,
         }
-      }`, {issueSlug})
+      )
       .then((issueData) => {
-        setIssue(issueData[0]);
-        sanityClient
-          .fetch(
-            `*[_type == "contentItem" && issue->_id == $issueId]{
-            title,
-            slug,
-            authors[]->{name},
-            sections[]->{title}
-          }`,
-            { issueId: issueData[0]["_id"] }
-          )
-          .then((data) => setItems(data))
-          .catch(console.error);
+        setIssue({ ...issueData[0], items: undefined });
+        setItems(issueData[0].items);
       })
       .catch(console.error);
   }, [issueSlug]);
