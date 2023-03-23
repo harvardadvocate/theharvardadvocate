@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { useEffect, useState } from "react";
 import { Themed } from "theme-ui";
+import { Link } from "react-router-dom";
 import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
 import sanityClient from "../client.js";
@@ -8,6 +9,7 @@ import { useParams } from "react-router-dom";
 import imageUrlBuilder from "@sanity/image-url";
 import { unionBy } from "lodash";
 import TextContentList from "../components/TextContentList.js";
+import ImageContentGrid from "../components/ImageContentGrid.js";
 
 const authorSx = {
   ".authorHeader": {
@@ -45,8 +47,7 @@ export default function Author() {
            slug,
            image,
            bio,
-          "itemData": *[_type == "contentItem" && ^._id in authors[]._ref]{title, slug, authors[]->{name}, issue->{title}, sections[]->{title}}
-         }`,
+          "itemData": *[_type == "contentItem" && ^._id in authors[]._ref]{title, body, slug, authors[]->{name}, issue->{title}, sections[]->{title, slug}, images[]{asset->{_id, url}}, mainImage{asset->{_id,url}}}}`,
         { authorSlug }
       )
       .then((data) => {
@@ -92,10 +93,14 @@ export default function Author() {
               return (
                 <div key={section.title}>
                   <div className="sectionHeader">
-                    <Themed.h2>{section.title}</Themed.h2>
+                    <Link to={"/sections/" + section.slug.current}><Themed.h2> {section.title} </Themed.h2></Link>
                     <img src={rightArrow} alt="right-arrow" />
                   </div>
-                  <TextContentList items={sectionItems} />
+                  {section.title !== "Art" ?
+                    <TextContentList items={sectionItems} vertical={true} border={true} home={false} hideAuthor={true} padding={false}/>
+                    :
+                    <ImageContentGrid items={sectionItems} vertical={true} border={true} home={false} hideAuthor={true} padding={false}/>
+                  }
                 </div>
               );
             })

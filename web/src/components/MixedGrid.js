@@ -25,6 +25,7 @@ const gridSx = {
     gridTemplateRows: "1fr repeat(2, 0.5fr)",
     gridColumnGap: "0px",
     gridRowGap: "0px",
+    paddingInline: "2vw",
   },
 
 
@@ -43,7 +44,7 @@ const gridSx = {
     borderTop: "0px solid rgba(0, 0, 0, .2)",
     marginTop: "0em",
     display: "flex",
-    // borderBottom: "1px solid rgba(0, 0, 0, .2)",
+    borderBottom: "1px solid rgba(0, 0, 0, .2)",
     alignItems: "center",
   },
 
@@ -144,12 +145,12 @@ export default function MixedGrid (props) {
       {/* two art articles */}
 
       <div className="div7">
-        <ImageListElement item={props.items[6]} home={true}></ImageListElement>
+        <ImageListElement item={props.items[6]} home={props.home}></ImageListElement>
       </div>
 
 
       <div className="div8">
-        <ImageListElement item={props.items[7]} home={true}></ImageListElement>
+        <ImageListElement item={props.items[7]} home={props.home}></ImageListElement>
       </div>
 
     </div>

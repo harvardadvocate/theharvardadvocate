@@ -67,7 +67,7 @@ export default function ImageListElement(props) {
             ) : null}
           </div>
           <div>
-            {props.home ? <Themed.h3><i>Art • {props.item.issue.title}</i></Themed.h3> : ""}
+            {props.home ? <Themed.h3 style={{ color: headerColor }}><i>Art • {props.item.issue.title}</i></Themed.h3> : ""}
             <Themed.h2>{props.item.title}</Themed.h2>
           </div>
           <div>
