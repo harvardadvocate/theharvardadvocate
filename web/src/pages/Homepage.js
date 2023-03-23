@@ -6,6 +6,7 @@ import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { theme } from "../theme/theme";
+import { getResources } from "../queries/homepage.js";
 
 const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
@@ -433,254 +434,26 @@ export default function Homepage() {
 
   const [fromTheArchivesContent, setFromTheArchivesContent] = useState(null);
 
-
   useEffect(() => {
-      sanityClient
-        .fetch(
-          `*[_type == "issue"] | order(publishedAt desc)[0] {
-        title,
-        slug,
-        description,
-        frontCover{
-          asset->{
-            _id,
-            url
-          }
-        }
-      }`
-        )
-        .then((data) => {
-          setItemData(data);
-        })
-        .catch(console.error);
+    sanityClient
+      .fetch(getResources)
+      .then((data) => {
+        setItemData(data.itemData);
+        setFeaturedItems(data.featuredItems);
+        setFeaturedArticle1(data.featuredArticle1);
+        setFeaturedArticle2(data.featuredArticle2);
+        setFeaturedArticle3(data.featuredArticle3);
+        setFeaturedArticle4(data.featuredArticle4);
+        setFeaturedArticle5(data.featuredArticle5);
+        setFeaturedArticle6(data.featuredArticle6);
+        setFeaturedArt1(data.featuredArt1);
+        setFeaturedArt2(data.featuredArt2);
+        setInstagramImages(data.instagram);
+        setFromTheArchivesContent(data.archivedContent);
+      })
+      .catch(console.error);
+  }, []);
 
-      sanityClient
-        .fetch(
-          `*[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
-              title,
-              authors[]->{name},
-              issue->{title, slug},
-              slug,
-              mainImage{
-                asset->{
-                _id,
-                url
-              }
-            }
-          }[0...4]`
-        )
-        .then((data) => setFeaturedItems(data))
-        .catch(console.error);
-
-      sanityClient
-        .fetch(
-          `*[_type == "contentItem" && "featuresFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
-              title,
-              authors[]->{name},
-              issue->{title, slug},
-              slug,
-              body,
-              sections[]->{title, slug},
-              mainImage{
-                asset->{
-                _id,
-                url
-              }
-            }
-          }`
-        )
-        .then((data) => setFeaturedArticle1(data))
-        .catch(console.error);
-
-        sanityClient
-          .fetch(
-            `*[_type == "contentItem" && "poetryFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
-                title,
-                authors[]->{name},
-                issue->{title, slug},
-                slug,
-                body,
-                sections[]->{title, slug},
-                mainImage{
-                  asset->{
-                  _id,
-                  url
-                }
-              }
-            }`
-          )
-          .then((data) => setFeaturedArticle2(data))
-          .catch(console.error);
-
-        sanityClient
-          .fetch(
-            `*[_type == "contentItem" && "fictionFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
-                title,
-                authors[]->{name},
-                issue->{title, slug},
-                slug,
-                body,
-                sections[]->{title, slug},
-                mainImage{
-                  asset->{
-                  _id,
-                  url
-                }
-              }
-            }`
-          )
-          .then((data) => setFeaturedArticle3(data))
-          .catch(console.error);
-
-
-          sanityClient
-            .fetch(
-              `*[_type == "contentItem" && "featuresFeaturedMiddle" in featuredOptions] | order(publishedAt desc)[0] {
-                  title,
-                  authors[]->{name},
-                  issue->{title, slug},
-                  slug,
-                  body,
-                  sections[]->{title, slug},
-                  mainImage{
-                    asset->{
-                    _id,
-                    url
-                  }
-                }
-              }`
-            )
-            .then((data) => setFeaturedArticle4(data))
-            .catch(console.error);
-
-            sanityClient
-              .fetch(
-                `*[_type == "contentItem" && "poetryFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
-                    title,
-                    authors[]->{name},
-                    issue->{title, slug},
-                    slug,
-                    body,
-                    sections[]->{title, slug},
-                    mainImage{
-                      asset->{
-                      _id,
-                      url
-                    }
-                  }
-                }`
-              )
-              .then((data) => setFeaturedArticle5(data))
-              .catch(console.error);
-
-
-              sanityClient
-                .fetch(
-                  `*[_type == "contentItem" && "fictionFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
-                      title,
-                      authors[]->{name},
-                      issue->{title, slug},
-                      slug,
-                      body,
-                      sections[]->{title, slug},
-                      mainImage{
-                        asset->{
-                        _id,
-                        url
-                      }
-                    }
-                  }`
-                )
-                .then((data) => setFeaturedArticle6(data))
-                .catch(console.error);
-
-              sanityClient
-                .fetch(
-                  `*[_type == "contentItem" && "artFeaturedMiddleRight" in featuredOptions] | order(publishedAt desc)[0] {
-                      title,
-                      authors[]->{name},
-                      issue->{title, slug},
-                      slug,
-                      body,
-                      sections[]->{title, slug},
-                      mainImage{
-                        asset->{
-                        _id,
-                        url
-                      }
-                    }
-                  }`
-                )
-                .then((data) => setFeaturedArt1(data))
-                .catch(console.error);
-
-              sanityClient
-                .fetch(
-                  `*[_type == "contentItem" && "artFeaturedBottomRight" in featuredOptions] | order(publishedAt desc)[0] {
-                      title,
-                      authors[]->{name},
-                      issue->{title, slug},
-                      slug,
-                      body,
-                      sections[]->{title, slug},
-                      mainImage{
-                        asset->{
-                        _id,
-                        url
-                      }
-                    }
-                  }`
-                )
-                .then((data) => setFeaturedArt2(data))
-                .catch(console.error);
-
-              sanityClient
-                .fetch(
-                  `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
-                      title,
-                      slug,
-                      image{
-                        asset->{
-                        _id,
-                        url
-                      }
-                    }
-                  }[0...3]`
-                )
-                .then((data) => setInstagramImages(data))
-                .catch(console.error);
-
-
-              sanityClient
-                .fetch(
-                  `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
-                      title,
-                      slug,
-                      image{
-                        asset->{
-                        _id,
-                        url
-                      }
-                    }
-                  }[0...3]`
-                )
-                .then((data) => setInstagramImages(data))
-                .catch(console.error);
-
-              sanityClient
-                .fetch(
-                  `*[_type == "contentItem" && issue->title == "Winter 2009" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt desc) {
-                      title,
-                      authors[]->{name},
-                      issue->{title, slug},
-                      slug,
-                      body,
-                      sections[]->{title, slug},
-                  }`
-                )
-                .then((data) => setFromTheArchivesContent(data))
-                .catch(console.error);
-    }, []);
 
     if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
       return <div>Loading...</div>;
