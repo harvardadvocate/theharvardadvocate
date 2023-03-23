@@ -319,30 +319,31 @@ export default function IssuesList() {
       .catch(console.error)
      }
 
-    useEffect(() => {
-        sanityClient
-          .fetch(issuesToQuery(0, 10))
-          .then((data) => {
-            setItemData(data);
-          })
-          .catch(console.error);
-
+      useEffect(() => {
         sanityClient
           .fetch(
-            `*[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
-                title,
-                authors[]->{name},
-                issue->{title, slug},
-                slug,
-                mainImage{
-                  asset->{
-                  _id,
-                  url
-                }
+            `
+              {
+                "itemData": ${issuesToQuery(0,10)},
+                "featuredItems": *[_type == "contentItem" && "Featured Article" in sections[]->title]  | order(publishedAt desc) {
+                  title,
+                  authors[]->{name},
+                  issue->{title, slug},
+                  slug,
+                  mainImage{
+                    asset->{
+                      _id,
+                      url
+                    }
+                  }
+                }[0...4]
               }
-            }[0...4]`
+              `
           )
-          .then((data) => setFeaturedItems(data))
+          .then((data) => {
+            setItemData(data.itemData);
+            setFeaturedItems(data.featuredItems);
+          })
           .catch(console.error);
       }, []);
 
