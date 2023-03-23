@@ -8,6 +8,8 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { theme } from "../theme/theme";
 import { getResources } from "../queries/homepage.js";
 import { optimizeImageLoading } from "../utils/image.js";
+import FeaturedIssue from "../components/FeaturedIssue.js";
+
 
 const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
@@ -467,57 +469,7 @@ export default function Homepage() {
     <div css={homepageSx}>
     <div className="horizontalContainer">
       <div className="mainContent">
-        <div className="featuredIssue">
-          <Grid className="mainGrid" columns={"2fr 3fr"}>
-            <div className="issueCover">
-              <Link to={"/issues/" + itemData.slug.current}>
-                {itemData.frontCover && "asset" in itemData.frontCover && (
-                  <img src={optimizeImageLoading(itemData.frontCover.asset.url)} loading="lazy" alt="" />
-                )}
-              </Link>
-            </div>
-
-            <div className="featuredArticles">
-              <div className="issueTitle">
-                <h5><b>NEWEST ISSUE</b></h5>
-                <Themed.h1>{itemData.title}</Themed.h1>
-                <hr/>
-              </div>
-              <div className="highlightedArticles">
-                <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                  {(featuredItems.slice(0,2)).map((article) => {
-                    return (
-                      <div className="featuredArticle" key={article.title}>
-                        <Link to={article.slug.current}>
-                          <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </Grid>
-                <hr/>
-                <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                  {(featuredItems.slice(2,4)).map((article) => {
-                    return (
-                      <div className="featuredArticle" key={article.title}>
-                        <Link to={article.slug.current}>
-                          <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </Grid>
-                <hr/>
-              </div>
-              <Link to={"/issues/" + itemData.slug.current}>
-                <div className="readFullIssue">
-                  <span>&#8594;</span>
-                  <h6>READ FULL ISSUE</h6>
-                </div>
-              </Link>
-            </div>
-          </Grid>
-        </div>
+        <FeaturedIssue newest={true} issue={itemData} featuredItems={featuredItems}/>
         <div className="topArticles">
           <div className="div1">
             <div className="articleHeader">
