@@ -82,7 +82,7 @@ export default function ContentItem() {
             name: itemData.sections[0].title,
             slug: "/sections/" + itemData.sections[0].slug.current,
           },
-          { name: itemData.title, slug: "/" + itemData.slug.current },
+          { name: itemData.title, slug: "/content/" + itemData.slug.current },
         ]}
       >
         <div className="contentHeader">
@@ -110,7 +110,7 @@ export default function ContentItem() {
           <div className="dateShareContainer">
             <div className="date">
               <Themed.h5>
-                {moment(itemData.publishedAt).format("MMMM Do YYYY")}
+                {/*{moment(itemData.publishedAt).format("MMMM Do YYYY")}*/}
               </Themed.h5>
             </div>
             <div className="share">

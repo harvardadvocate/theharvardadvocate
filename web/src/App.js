@@ -61,7 +61,7 @@ function App() {
                   <Route element={<Submit />} path="/submit" exact />
                   <Route element={<SectionArt />} path="sections/art" exact />
                   <Route element={<Section />} path="sections/:sectionSlug" />
-                  <Route element={<ContentItem />} path="/:slug" />
+                  <Route element={<ContentItem />} path="/content/:slug" />
                   <Route element={<Author />} path="authors/:authorSlug" />
                   <Route element={<Contact />} path="/contact" exact />
                 </Routes>

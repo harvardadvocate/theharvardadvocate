@@ -57,7 +57,7 @@ https://www.smashingmagazine.com/2020/09/stack-custom-made-static-site-generator
 -   Search feature that looks pretty
 
 ### Other
-- Fix slugs (e.g. a specific item should link to /section/item, instead of /item)
+- ~~Fix slugs (e.g. a specific item should link to /section/item, instead of /item)~~
 - Make illustrations link to their articles
 - **Add most recent articles/issues to Sanity CMS**
 - **Upload blog**
