@@ -6,24 +6,11 @@ import sanityClient from "../client.js";
 import { theme } from "../theme/theme.js";
 import { buildSubarraysOfSize } from "../assets/utils";
 import { optimizeImageLoading } from "../utils/image.js";
-
+import FeaturedIssue from "../components/FeaturedIssue.js";
 const firstColor = theme["colors"]["primary"];
 const secondColor = theme["colors"]["secondary"];
 
 const issuesListSx = {
-  hr: {
-    border: "0.1px solid rgba(0, 0, 0, .2)",
-  },
-  ".featuredIssue": {
-    width: "100%",
-    backgroundColor: firstColor,
-  },
-
-  ".featuredIssue2": {
-    width: "100%",
-    backgroundColor: secondColor,
-  },
-
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
@@ -38,100 +25,7 @@ const issuesListSx = {
   ".mainContent": {
     marginLeft: "0px",
   },
-  ".issueItem": {
-    cursor: "pointer",
-  },
 
-
-  ".issueCover": {
-    height: "max-content",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: "8%",
-    marginBottom: "8%",
-    img: {
-      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-      maxWidth: "69%",
-      maxHeight: "75%",
-    },
-    a: {
-      justifyContent: "center",
-      display: "flex",
-    }
-  },
-
-  ".mainGrid": {
-    placeItems: "center",
-    display: "grid",
-    justifyItems: "start",
-  },
-
-  ".featuredArticles": {
-    color: "#FFFFFF",
-    paddingTop: "2vh",
-    paddingRight: "2vw",
-    paddingLeft: "2vw",
-    h5: {
-      fontFamily: "sans-serif",
-    },
-    hr: {
-      border: "0.1px solid white",
-    }
-  },
-
-  ".featuredArticles2": {
-    color: "#FFFFFF",
-    paddingTop: "2vh",
-    paddingRight: "2vw",
-    paddingLeft: "5vw",
-    h5: {
-      fontFamily: "sans-serif",
-    },
-    hr: {
-      border: "0.1px solid white",
-    }  },
-
-
-  ".readFullIssue": {
-    color: "#FFFFFF",
-    span: {
-      border: "2px solid #FFFFFF",
-      borderRadius: "5px",
-      paddingInline: "10px",
-      color: firstColor,
-      backgroundColor: "#FFFFFF",
-      float: "left"
-    },
-
-
-    h6: {
-      marginLeft: "3em",
-      border: "4px solid " + firstColor,
-      paddingInline: "10px",
-      borderRadius: "5px",
-      fontFamily: "sans-serif"
-    },
-  },
-
-  ".readFullIssue2": {
-    color: "#FFFFFF",
-    span: {
-      border: "2px solid #FFFFFF",
-      borderRadius: "5px",
-      paddingInline: "10px",
-      color: secondColor,
-      backgroundColor: "#FFFFFF",
-      float: "left"
-    },
-    h6: {
-      marginLeft: "3em",
-      border: "4px solid " + secondColor,
-      paddingInline: "10px",
-      borderRadius: "5px",
-      fontFamily: "sans-serif"
-    },
-    },
 
     ".readFullIssueBig": {
       color: "#000000",
@@ -154,10 +48,6 @@ const issuesListSx = {
 
     },
 
-
-  ".articleLink": {
-    color: "#FFFFFF",
-  },
   ".topArticles": {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
@@ -383,133 +273,33 @@ export default function IssuesList() {
       <div css={issuesListSx}>
       <div className="horizontalContainer">
         <div className="mainContent">
-          <div className="featuredIssue">
-            <Grid className="mainGrid" columns={"2fr 3fr"}>
-              <div className="issueCover">
-                <Link to={"/issues/" + itemData[0].slug.current}>
-                  {itemData[0].frontCover && "asset" in itemData[0].frontCover && (
-                    <img src={optimizeImageLoading(itemData[0].frontCover.asset.url)} loading="lazy" alt="" />
-                  )}
-                </Link>
-              </div>
-
-              <div className="featuredArticles">
-                <div className="issueTitle">
-                  <h5><b>NEWEST ISSUE</b></h5>
-                  <Themed.h1>{itemData[0].title}</Themed.h1>
-                  <hr/>
-                </div>
-                <div className="highlightedArticles">
-                  <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                    {(featuredItems.slice(0,2)).map((article) => {
-                      return (
-                        <div className="featuredArticle" key={article.title}>
-                          <Link to={"/" + article.slug.current}>
-                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </Grid>
-                  <hr/>
-                  <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                    {(featuredItems.slice(2,4)).map((article) => {
-                      return (
-                        <div className="featuredArticle" key={article.title}>
-                          <Link to={"/" + article.slug.current}>
-                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </Grid>
-                  <hr/>
-                </div>
-                <Link to={"/issues/" + itemData[0].slug.current}>
-                  <div className="readFullIssue">
-                    <span>&#8594;</span>
-                    <h6>READ FULL ISSUE</h6>
-                  </div>
-                </Link>
-              </div>
-            </Grid>
-          </div>
-          <div className="featuredIssue2">
-            <Grid className="mainGrid" columns={"3fr 2fr"}>
-              <div className="featuredArticles2">
-                <div className="issueTitle">
-                  <h5><b>RECENT ISSUE</b></h5>
-                  <Themed.h1>{itemData[1].title}</Themed.h1>
-                  <hr/>
-                </div>
-                <div className="highlightedArticles">
-                  <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                    {(featuredItems.slice(0,2)).map((article) => {
-                      return (
-                        <div className="featuredArticle" key={article.title}>
-                          <Link to={"/" + article.slug.current}>
-                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </Grid>
-                  <hr/>
-                  <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                    {(featuredItems.slice(2,4)).map((article) => {
-                      return (
-                        <div className="featuredArticle" key={article.title}>
-                          <Link to={"/" + article.slug.current}>
-                            <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </Grid>
-                  <hr/>
-                </div>
-                <Link to={"/issues/" + itemData[1].slug.current}>
-                  <div className="readFullIssue2">
-                    <span>&#8594;</span>
-                    <h6>READ FULL ISSUE</h6>
-                  </div>
-                </Link>
-              </div>
-              <div className="issueCover">
-                <Link to={"/issues/" + itemData[1].slug.current}>
-                  {itemData[1].frontCover && "asset" in itemData[1].frontCover && (
-                    <img src={optimizeImageLoading(itemData[1].frontCover.asset.url)} loading="lazy" alt="" />
-                  )}
-                </Link>
-              </div>
-
-            </Grid>
-          </div>
+          <FeaturedIssue newest={true} issue={itemData[0]} featuredItems={featuredItems}/>
+          <FeaturedIssue newest={false} issue={itemData[1]} featuredItems={featuredItems}/>
           <div className = "bigGrid">
-          {([itemData.slice(2,4), itemData.slice(4,6)]).map((issueSlices) => {
-            return (
-              <div className="bigGridRow">
-              {(issueSlices).map((bigIssue) => {
-                return (
-                  <Link to={"/issues/" + bigIssue.slug.current}>
-                  <div className="bigIssueDiv" key={bigIssue.title}>
-                    <img src={optimizeImageLoading(bigIssue.frontCover.asset.url)} loading="lazy"></img>
-                    <div className="lowerInfo">
-                      <Themed.h3>{bigIssue.title} Issue</Themed.h3>
-                      <Link to={"/issues/" + bigIssue.slug.current}>
-                      <div className="readFullIssueBig">
-                        <span>&#8594;</span>&nbsp;
-                        <p><b>READ FULL ISSUE</b></p>
+            {([itemData.slice(2,4), itemData.slice(4,6)]).map((issueSlices) => {
+              return (
+                <div className="bigGridRow">
+                {(issueSlices).map((bigIssue) => {
+                  return (
+                    <Link to={"/issues/" + bigIssue.slug.current}>
+                    <div className="bigIssueDiv" key={bigIssue.title}>
+                      <img src={optimizeImageLoading(bigIssue.frontCover.asset.url)} loading="lazy"></img>
+                      <div className="lowerInfo">
+                        <Themed.h3>{bigIssue.title} Issue</Themed.h3>
+                        <Link to={"/issues/" + bigIssue.slug.current}>
+                        <div className="readFullIssueBig">
+                          <span>&#8594;</span>&nbsp;
+                          <p><b>READ FULL ISSUE</b></p>
+                        </div>
+                        </Link>
                       </div>
-                      </Link>
                     </div>
-                  </div>
-                  </Link>
-                );
-              })}
-              </div>
-            );
-          })}
+                    </Link>
+                  );
+                })}
+                </div>
+              );
+            })}
           </div>
           <div className="smallGrid">
             {(resultArray).map((issueSlices) => {
