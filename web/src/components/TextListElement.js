@@ -88,7 +88,6 @@ const textListItemSx_home = {
 
 const padding = {
   padding: "2em",
-
 };
 
 const no_padding = {
@@ -134,7 +133,7 @@ export default function TextListItem(props) {
               </div>
             </Link>
             <br/>
-            <Themed.h4>By {props.item.authors[0].name}</Themed.h4>
+            {props.hideAuthor ? "" : <Themed.h4>By {props.item.authors[0].name}</Themed.h4>}
           </div>
         </Link>
 
