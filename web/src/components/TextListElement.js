@@ -44,7 +44,7 @@ const textListItemSx = {
       WebkitBoxOrient: "vertical",
       display: "-webkit-box",
       color: "text",
-      WebkitLineClamp: "5",
+      WebkitLineClamp: "3",
     }
   },
 
@@ -64,19 +64,24 @@ const textListItemSx_home = {
       "fontFamily": "Poppins",
       "color": "text",
     },
+    ".textPreview": {
+      br: {
+        display: "none",
+      },
 
-
-   ".textPreview": {
-    br: {
-      display: "none",
+      p: {
+        overflow: "hidden",
+        WebkitBoxOrient: "vertical",
+        display: "-webkit-box",
+        color: "text",
+        WebkitLineClamp: "3",
+      }
     },
 
     p: {
       color: "text",
     }
-  },
-
-};
+}
 
 
 // custom css: padding is default, no_padding is for mixedgrid
