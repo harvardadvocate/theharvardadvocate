@@ -56,7 +56,7 @@ const imageListElementSx_home = {
 export default function ImageListElement(props) {
   return (
     <div sx={props.home ? imageListElementSx_home : imageListElementSx}>
-      <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
+      <Link to={"/content/" + props.item.slug.current} key={props.item.slug.current}>
         <div className="listItem">
           <div className="listItemImage">
             {props.item.mainImage ? (

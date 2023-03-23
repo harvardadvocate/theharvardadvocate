@@ -109,7 +109,7 @@ export default function TextListItem(props) {
     <div css={props.home ? textListItemSx_home : textListItemSx}>
       <div css={props.padding ? padding : no_padding}>
 
-        <Link to={"/" + props.item.slug.current} key={props.item.slug.current}>
+        <Link to={"/content/" + props.item.slug.current} key={props.item.slug.current}>
           <div className="listItem">
             <Themed.h3 color={headerColor}>
               {!props.home
@@ -119,9 +119,9 @@ export default function TextListItem(props) {
               }
             </Themed.h3>
 
-            <Themed.h2><a href={props.item.slug.current}>{props.item.title}</a></Themed.h2>
+            <Themed.h2><a href={"content/" + props.item.slug.current}>{props.item.title}</a></Themed.h2>
             <br/>
-            <Link to={"/" + props.item.slug.current}>
+            <Link to={"/content/" + props.item.slug.current}>
               <div className = "textPreview">
                 {props.item.body && (
                   <PortableText

@@ -125,7 +125,7 @@ export default function MixedGrid (props) {
       {/* text article + accompanying art */}
       <div className="div4">
         <div className="div4image">
-          <a href={props.items[3].slug.current}><img src={props.items[3].mainImage.asset.url} alt="Illustration"></img></a>
+          <a href={"content/"+props.items[3].slug.current}><img src={props.items[3].mainImage.asset.url} alt="Illustration"></img></a>
         </div>
         <div className="div4content">
           <TextListElement item={props.items[3]} home={true}></TextListElement>
