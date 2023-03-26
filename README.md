@@ -51,13 +51,14 @@ https://www.smashingmagazine.com/2020/09/stack-custom-made-static-site-generator
 - Fix CSS of issues list, bring down text and stop stretching issue covers
 
 ### Still need to build
-- Shop page/integration with Shopify (bonus points if there’s a shop for regular people and a shop for alumni only). The shop page needs to be on the website, preferably using Shopify, but it shouldn’t link you outside the website.
+- ~~Shop page/integration with Shopify (bonus points if there’s a shop for regular people and a shop for alumni only). The shop page needs to be on the website, preferably using Shopify, but it shouldn’t link you outside the website.~~
 -   ~~**Author page that looks pretty**~~
 -   ~~**Individual issue page that looks pretty**~~
 -   Search feature that looks pretty
 
 ### Other
 - ~~Fix slugs (e.g. a specific item should link to /section/item, instead of /item)~~
+- ~~Share button now works~~
 - Make illustrations link to their articles
 - **Add most recent articles/issues to Sanity CMS**
 - **Upload blog**
