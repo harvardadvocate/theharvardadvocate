@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TextListElement from "./TextListElement";
+import { buildSubarraysOfSize } from "../assets/utils"
 
 const textContentListSx = {
   ".mainGrid": {
@@ -17,15 +18,12 @@ const textContentListSx = {
     display: "grid",
     gridTemplateRows: "1fr",
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-    borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "1vh",
   },
 
   ".articleItem": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
-    alignItems: "center",
-    maxWidth: "100%",
   },
 
   ".articleItem:last-child": {
@@ -34,39 +32,100 @@ const textContentListSx = {
 };
 
 
+const textContentListSxVertical = {
+  ".mainGrid": {
+    display: "grid",
+    gridTemplateRows: "repeat(1fr)",
+    gridTemplateColumns: "1fr",
+    gridGap: "1vh",
+    paddingTop: "1vh",
+    justifyItems: "center",
+    paddingInline: "2vw",
+  },
+
+  ".gridRow": {
+    display: "grid",
+    gridTemplateRows: "1fr",
+    gridTemplateColumns: "1fr",
+    width: "100%",
+  },
+
+  ".articleItem": {
+    borderRight: "1px solid rgba(0,0,0,0.2)",
+    display: "flex",
+  },
+
+  ".articleItem:last-child": {
+    borderRight: "none",
+  },
+};
+
+
+const add_border = {
+
+  ".gridRow": {
+    borderBottom: "1px solid rgba(0,0,0,0.2)",
+  },
+
+};
+
+const add_border_vertical = {
+
+  ".gridRow": {
+    borderBottom: "1px solid rgba(0,0,0,0.2)",
+  },
+
+  ".gridRow:last-child": {
+    borderBottom: "none",
+  },
+
+};
+
+const no_border = {
+
+  ".gridRow": {
+    borderBottom: "0px solid rgba(0,0,0,0.2)",
+  },
+};
+
 export default function TextContentList(props) {
-  console.log("props");
-  console.log(props);
-  const perChunk = 3 // items per row
+  var perChunk; // items per row
 
-  const resultArray = (props.items).reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index/perChunk)
+  if (props.vertical) {
+    var perChunk = 1;
+  }
+  else {
+    var perChunk = 3
+  }
 
-    if(!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [] // start a new chunk
-    }
+  const resultArray = buildSubarraysOfSize(props.items, perChunk);
 
-    resultArray[chunkIndex].push(item)
-
-    return resultArray
-  }, [])
+  var paddingVar;
+  if (props.padding || props.padding == false) {
+    paddingVar = props.padding;
+  }
+  else {
+    paddingVar = true;
+  }
 
   return (
-    <div sx={textContentListSx}>
-      <div className = "mainGrid">
-        {(resultArray).map((row) => {
-          return (
-            <div className="gridRow">
-            {(row).map((item, index) => {
-              return (
-                <div className="articleItem" key={item.name}>
-                  <TextListElement item={item} key={index} />
-                </div>
-              );
-            })}
-            </div>
-          );
-        })}
+    <div sx={props.vertical ? textContentListSxVertical : textContentListSx}>
+      <div sx={props.border ? (props.vertical ? add_border_vertical : add_border) : no_border}>
+        <div className = "mainGrid">
+          {(resultArray).map((row) => {
+            return (
+              <div className="gridRow">
+              {(row).map((item, index) => {
+                return (
+                  <div className="articleItem" key={item.name}>
+                    <TextListElement item={item} key={index} home={props.home} padding={paddingVar} hideAuthor={props.hideAuthor}/>
+                  </div>
+                );
+              })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

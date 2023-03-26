@@ -28,6 +28,10 @@ import Masthead from "./pages/Masthead";
 const appSx = {
   display: "grid",
   gridTemplateColumns: "1fr 8fr",
+
+  ".nonSidebarContent": {
+    minWidth: "-webkit-fill-available"
+  },
   "@media (max-width: 767px)": {
     gridTemplateColumns: "auto",
     ".nonSidebarContent": {
@@ -61,7 +65,7 @@ function App() {
                   <Route element={<Submit />} path="/submit" exact />
                   <Route element={<SectionArt />} path="sections/art" exact />
                   <Route element={<Section />} path="sections/:sectionSlug" />
-                  <Route element={<ContentItem />} path="/:slug" />
+                  <Route element={<ContentItem />} path="/content/:slug" />
                   <Route element={<Author />} path="authors/:authorSlug" />
                   <Route element={<Contact />} path="/contact" exact />
                 </Routes>

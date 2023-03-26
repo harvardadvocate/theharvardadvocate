@@ -9,13 +9,14 @@ const buttonColor = theme['colors']['buttonColor'];
 const buttonColorHover = theme['colors']['buttonColorHover'];
 
 const sidebarSx = {
-  padding: "2.5em 1.5em 0em 1.5em",
+  padding: "2.5em 1.6em 0em 1.5em",
+  //padding: "7vh 2vw 0 2vw",
   height: "100vh",
   top: "0px",
   position: "sticky",
   minWidth: "min-content",
   overflow: "auto",
-  borderRight: "0.1vh solid #000",
+  borderRight: "0.01vw solid #000",
   ".link": {
     fontSize: "2",
     textDecoration: "none",

@@ -7,6 +7,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
 import moment from "moment";
 import ContentFrame from "../components/ContentFrame";
+import Frame from "../components/Frame";
 
 const contentItemSx = {
   ".contentHeader": {
@@ -22,6 +23,10 @@ const contentItemSx = {
       justifyContent: "space-between",
       h5: { fontStyle: "normal" },
     },
+    ".share": {
+      cursor: "pointer", // add cursor property to change cursor pointer
+    },
+
   },
   p: {
     marginBottom: "1.5em",
@@ -41,6 +46,7 @@ const customComponents = {
 
 export default function ContentItem() {
   const [itemData, setItemData] = useState(null);
+  const [isLinkCopied, setIsLinkCopied] = useState(false); // new state variable
   const { slug } = useParams();
 
   useEffect(() => {
@@ -67,6 +73,12 @@ export default function ContentItem() {
       .catch(console.error);
   }, [slug]);
 
+
+  const handleShareClick = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setIsLinkCopied(true);
+  };
+
   if (!itemData) return <div>Loading...</div>;
 
   return (
@@ -81,7 +93,7 @@ export default function ContentItem() {
             name: itemData.sections[0].title,
             slug: "/sections/" + itemData.sections[0].slug.current,
           },
-          { name: itemData.title, slug: "/" + itemData.slug.current },
+          { name: itemData.title, slug: "/content/" + itemData.slug.current },
         ]}
       >
         <div className="contentHeader">
@@ -109,11 +121,15 @@ export default function ContentItem() {
           <div className="dateShareContainer">
             <div className="date">
               <Themed.h5>
-                {moment(itemData.publishedAt).format("MMMM Do YYYY")}
+                {/*{moment(itemData.publishedAt).format("MMMM Do YYYY")}*/}
               </Themed.h5>
             </div>
             <div className="share">
-              <Themed.h5>Share</Themed.h5>
+              {isLinkCopied ? (
+                <Themed.h5>Link Copied</Themed.h5> // change button text to "Link Copied" when the link is copied
+              ) : (
+                <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
+              )}
             </div>
           </div>
         </div>
