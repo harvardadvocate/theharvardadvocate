@@ -107,7 +107,8 @@ export default function TextContentList(props) {
   else {
     paddingVar = true;
   }
-
+  console.log("resultArray");
+  console.log(resultArray);
   return (
     <div sx={props.vertical ? textContentListSxVertical : textContentListSx}>
       <div sx={props.border ? (props.vertical ? add_border_vertical : add_border) : no_border}>
