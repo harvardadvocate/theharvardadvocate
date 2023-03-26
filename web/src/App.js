@@ -28,6 +28,10 @@ import Masthead from "./pages/Masthead";
 const appSx = {
   display: "grid",
   gridTemplateColumns: "1fr 8fr",
+
+  ".nonSidebarContent": {
+    minWidth: "-webkit-fill-available"
+  },
   "@media (max-width: 767px)": {
     gridTemplateColumns: "auto",
     ".nonSidebarContent": {
