@@ -20,7 +20,7 @@ const frameSx = {
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
-    paddingInline: "10em",
+    paddingInline: "10vw",
     minHeight: "100vh",
     flexDirection: "column",
     marginTop: "0em",
