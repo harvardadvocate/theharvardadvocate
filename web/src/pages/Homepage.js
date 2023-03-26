@@ -10,8 +10,8 @@ import { getResources } from "../queries/homepage.js";
 import { optimizeImageLoading } from "../utils/image.js";
 import FeaturedIssue from "../components/FeaturedIssue.js";
 import MixedGrid from "../components/MixedGrid.js";
-import TextContentList from "../components/TextContentList";
-
+import TextContentList from "../components/TextContentList.js";
+import TwitterTimeline from "../components/TwitterTimeline.js";
 
 const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
@@ -54,6 +54,8 @@ const homepageSx = {
     gridColumnGap: "10px",
     gridRowGap: "0px",
     paddingTop: "1vh",
+    maxHeight: "90vh",
+    overflow: "hidden",
   },
 
   ".twitterCol": {
@@ -230,13 +232,7 @@ export default function Homepage() {
               </div>
             </a>
             <div className="twitterCol">
-              {/*
-              <TwitterTimelineEmbed
-                sourceType="profile"
-                screenName="harvardadvocate"
-                options={{height: 600}}
-              />
-              */}
+              <TwitterTimeline height={window.innerHeight / 100 * 80}/>
             </div>
           </div>
         </div>

@@ -12,6 +12,10 @@ const issuesListSx = {
   hr: {
     border: "0.1px solid rgba(0, 0, 0, .2)",
   },
+
+  a: {
+    color: "white",
+  },
   ".featuredIssue": {
     width: "100%",
     backgroundColor: firstColor,
@@ -148,11 +152,13 @@ export default function FeaturedIssue(props) {
           </div> : ""}
 
           <div className = {props.newest ? "featuredArticles" : "featuredArticles2"}>
+            <a href={"issues/" + issue.slug.current}>
             <div className="issueTitle">
               <h5><b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b></h5>
               <Themed.h1>{issue.title}</Themed.h1>
               <hr/>
             </div>
+            </a>
             <div className="highlightedArticles">
               <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
                 {(featuredItems.slice(0,2)).map((article) => {

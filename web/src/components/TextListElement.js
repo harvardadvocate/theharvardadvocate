@@ -8,7 +8,7 @@ import { theme } from "../theme/theme.js";
 const headerColor = theme['colors']['primary'];
 
 const textListItemSx = {
-  maxWidth: "100%",
+  maxWidth: "-webkit-fill-available",
   textAlign: "auto",
   a: {
     color: "text",
@@ -55,7 +55,8 @@ const textListItemSx = {
 // custom css for textlistelement on homepage
 
 const textListItemSx_home = {
-
+   maxWidth: "-webkit-fill-available",
+   textAlign: "auto",
    h3: {
     "color": headerColor,
     },
@@ -105,6 +106,7 @@ const customComponents = {
 
 
 export default function TextListItem(props) {
+  console.log(props);
   return (
     <div css={props.home ? textListItemSx_home : textListItemSx}>
       <div css={props.padding ? padding : no_padding}>
@@ -113,7 +115,7 @@ export default function TextListItem(props) {
           <div className="listItem">
             <Themed.h3 color={headerColor}>
               {!props.home
-              ?  props.item.issue.title
+              ? <i><a style={{ color: headerColor }} href={"issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
               : <i><a style={{ color: headerColor }} href={"sections/" + props.item.sections[0].slug.current}>{props.item.sections[0].title + " "}</a>
               •  <a style={{ color: headerColor }} href={"issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
               }

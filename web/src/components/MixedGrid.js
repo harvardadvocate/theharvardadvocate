@@ -21,7 +21,7 @@ const gridSx = {
 
   ".topArticles": {
     display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
+    gridTemplateColumns: "1fr 1fr 1fr",
     gridTemplateRows: "1fr repeat(2, 0.5fr)",
     gridColumnGap: "0px",
     gridRowGap: "0px",
@@ -76,27 +76,16 @@ const gridSx = {
   },
 
   ".div7": {
-    gridArea: "1 / 3 / 3 / 4",
+    gridArea: "1 / 3 / 4 / 4",
     display: "flex",
     flexDirection: "column",
     marginTop: "0em",
     alignItems: "left",
     marginLeft: "1em",
-    borderLeft: "0px solid rgba(0, 0, 0, .2)",
-    height: "min-content",
+    height: "100%",
   },
 
   ".div7image, .div7content": {
-    minWidth: "100%",
-  },
-
-  ".div8": {
-    gridArea: "3 / 3 / 4 / 4",
-    borderLeft: "0px solid rgba(0, 0, 0, .2)",
-    marginLeft: "1em",
-  },
-
-  ".div8image, .div8content": {
     minWidth: "100%",
   },
 };
@@ -109,23 +98,31 @@ const customComponents = {
 };
 
 export default function MixedGrid (props) {
-
-
   console.log(props.home);
   console.log(props.items);
   console.log("mixedgrid props")
+
+  var showFirstList;
+  if (props.showFirstList || props.showFirstList == false) {
+    showFirstList = props.showFirstList;
+  }
+  else {
+    showFirstList = true;
+  }
 
   return (
   <div css={gridSx}>
 
     {/* first three text articles */}
-    <TextContentList items={[props.items[0], props.items[1], props.items[2]]} border={true} home={props.home}></TextContentList>
-
+    {showFirstList ?
+    <TextContentList items={[props.items[0], props.items[1], props.items[2]]} border={true} home={props.home} vertical={false} hideAuthor={false}></TextContentList>
+    :
+    ""}
     <div className="topArticles">
       {/* text article + accompanying art */}
       <div className="div4">
         <div className="div4image">
-          <a href={"content/"+props.items[3].slug.current}><img src={props.items[3].mainImage.asset.url} alt="Illustration"></img></a>
+          {props.items[3].mainImage ? <a href={"content/"+props.items[3].slug.current}><img src={props.items[3].mainImage.asset.url} alt="Illustration"></img></a> : <a href={"content/"+props.items[3].slug.current}><img src="/defaultimage.jpeg" alt="Illustration"></img></a>}
         </div>
         <div className="div4content">
           <TextListElement item={props.items[3]} home={true}></TextListElement>
@@ -146,13 +143,9 @@ export default function MixedGrid (props) {
 
       <div className="div7">
         <ImageListElement item={props.items[6]} home={props.home}></ImageListElement>
-      </div>
-
-
-      <div className="div8">
+        <hr/>
         <ImageListElement item={props.items[7]} home={props.home}></ImageListElement>
       </div>
-
     </div>
   </div>
   );
