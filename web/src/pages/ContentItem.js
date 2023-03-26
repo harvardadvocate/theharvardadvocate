@@ -23,6 +23,10 @@ const contentItemSx = {
       justifyContent: "space-between",
       h5: { fontStyle: "normal" },
     },
+    ".share": {
+      cursor: "pointer", // add cursor property to change cursor pointer
+    },
+
   },
   p: {
     marginBottom: "1.5em",
@@ -42,6 +46,7 @@ const customComponents = {
 
 export default function ContentItem() {
   const [itemData, setItemData] = useState(null);
+  const [isLinkCopied, setIsLinkCopied] = useState(false); // new state variable
   const { slug } = useParams();
 
   useEffect(() => {
@@ -67,6 +72,12 @@ export default function ContentItem() {
       .then((data) => setItemData(data[0]))
       .catch(console.error);
   }, [slug]);
+
+
+  const handleShareClick = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setIsLinkCopied(true);
+  };
 
   if (!itemData) return <div>Loading...</div>;
 
@@ -114,7 +125,11 @@ export default function ContentItem() {
               </Themed.h5>
             </div>
             <div className="share">
-              <Themed.h5>Share</Themed.h5>
+              {isLinkCopied ? (
+                <Themed.h5>Link Copied</Themed.h5> // change button text to "Link Copied" when the link is copied
+              ) : (
+                <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
+              )}
             </div>
           </div>
         </div>
