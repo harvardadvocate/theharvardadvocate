@@ -11,10 +11,6 @@ import TextListElement from "../components/TextListElement";
 import TextContentList from "../components/TextContentList";
 import ImageContentGrid from "../components/ImageContentGrid";
 const issueSx = {
-  ".mainGrid": {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-  },
   hr: {
     border: "0.1px solid rgba(0, 0, 0, .2)",
   },
