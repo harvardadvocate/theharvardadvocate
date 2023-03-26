@@ -47,7 +47,7 @@ export default function Author() {
            slug,
            image,
            bio,
-          "itemData": *[_type == "contentItem" && ^._id in authors[]._ref]{title, body, slug, authors[]->{name}, issue->{title}, sections[]->{title, slug}, images[]{asset->{_id, url}}, mainImage{asset->{_id,url}}}}`,
+          "itemData": *[_type == "contentItem" && ^._id in authors[]._ref]{title, body, slug, authors[]->{name}, issue->{title, slug}, sections[]->{title, slug}, images[]{asset->{_id, url}}, mainImage{asset->{_id,url}}}}`,
         { authorSlug }
       )
       .then((data) => {
