@@ -27,6 +27,7 @@ const shopSx = {
     width: "auto",
     maxHeight: "25vh",
     maxWidth: "10vw",
+    cursor: "pointer",
   },
 
   ".carousel-item": {
@@ -35,6 +36,13 @@ const shopSx = {
     justifyContent: "flex-end",
     alignItems: "center",
     flexDirection: "column",
+  },
+
+  ".merch": {
+    height: "25vw",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   "@media (max-width: 767px)": {
@@ -116,6 +124,9 @@ export default function Shop() {
         <MyCarousel prod={products}>
         </MyCarousel>
         <hr/>
+      </div>
+      <div className="merch">
+        <Themed.h2>merch coming soon!</Themed.h2>
       </div>
     </div>
   );
