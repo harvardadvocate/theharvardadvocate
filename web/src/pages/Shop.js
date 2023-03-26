@@ -23,12 +23,17 @@ const shopSx = {
 
   img: {
     boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
+    height: "auto",
+    width: "auto",
+    maxHeight: "25vh",
+    maxWidth: "10vw",
   },
 
   ".carousel-item": {
-    height: "25vw",
+    height: "30vh",
     display: "flex",
     justifyContent: "flex-end",
+    alignItems: "center",
     flexDirection: "column",
   },
 
