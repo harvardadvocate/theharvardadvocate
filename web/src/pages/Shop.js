@@ -4,38 +4,32 @@ import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
 import ShopifyBuy from 'shopify-buy';
 import React, { useEffect, useState } from "react";
-
+import MyCarousel from '../components/Carousel';
 
 const shopSx = {
-  ".shopBody": {
-    display: "flex",
-    flexWrap: "wrap",
-    marginTop: "0 em",
-    justifyContent: "center",
-    justifyItems: "center",
-    textAlign: "center",
-    alignItems: "center",
-    figcaption: {
-      fontSize: "16px",
-    },
-  },
   i: {
     textAlign: "center",
     display: "block"
   },
 
-  ".productContainer": {
-    width: "60%",
-    marginBottom: "1em",
+  paddingInline: "10vw",
+  paddingTop: "5vh",
+
+  ".header": {
+    width:"100%",
+    display: "flex",
+    justifyContent: "center",
   },
 
-  ".productImage": {
-    width: "100%",
-    marginBottom: "0.5em",
+  img: {
+    boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
   },
 
-  ".productButton": {
-    width: "100%",
+  ".carousel-item": {
+    height: "25vw",
+    display: "flex",
+    justifyContent: "flex-end",
+    flexDirection: "column",
   },
 
   "@media (max-width: 767px)": {
@@ -48,71 +42,76 @@ const shopSx = {
 
 export default function Shop() {
   const [products, setProducts] = React.useState([]);
+  const [issues, setIssues] = React.useState([])
+  const [merch, setMerch] = React.useState([])
   const [cart, setCart] = useState(null);
 
   const addToCart = (variantId, quantity) => {
     const lineItemsToAdd = [{ variantId, quantity }];
-    const checkoutId = cart.id;
-    const client = ShopifyBuy.buildClient({
-      domain: 'the-harvard-advocate.myshopify.com',
-      storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
-    });
-    client.checkout.addLineItems(checkoutId, lineItemsToAdd).then((checkout) => {
-      setCart(checkout);
-      window.location.href = checkout.webUrl;
-    });
-  };
-
-  const openCart = () => {
     const client = ShopifyBuy.buildClient({
       domain: 'the-harvard-advocate.myshopify.com',
       storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
     });
     client.checkout.create().then((checkout) => {
-      window.open(checkout.webUrl);
+      client.checkout.addLineItems(checkout.id, lineItemsToAdd).then((checkout) => {
+        window.open(checkout.webUrl);
+      }).catch((error) => {
+        console.log(error);
+      });
     });
   };
 
-useEffect(() => {
-  const client = ShopifyBuy.buildClient({
-    domain: 'the-harvard-advocate.myshopify.com',
-    storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
-  });
+  useEffect(() => {
+    const client = ShopifyBuy.buildClient({
+      domain: 'the-harvard-advocate.myshopify.com',
+      storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
+    });
 
-  //PAT: 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
+    //fetching all products
+    client.product.fetchAll().then((products) => {
+      setProducts(products);
+      console.log(products)
+    }).catch((error) => {
+      console.log(error);
+    });
 
-  client.product.fetchAll().then((products) => {
-    setProducts(products);
+    //fetching merch (once merch collection exists)
+    //const merchCollectionId = 'gid://shopify/Collection/INSERT-COLLECTION-ID-HERE';
+    // Set a parameter for first x products, defaults to 20 if you don't provide a param
+
+    // client.collection.fetchWithProducts(merchCollectionId).then((collections) => {
+    //   // Do something with the collection
+    //   setMerch(collections.products);
+    //   console.log(collections.products);
+
+    // fetching just issues
+    const issueCollectionId = 'gid://shopify/Collection/71491354679';
+    // Set a parameter for first x products, defaults to 20 if you don't provide a param
+
+    // client.collection.fetchWithProducts(issueCollectionId).then((collections) => {
+    //   // Do something with the collection
+    //   setIssues(collections.products);
+    //   console.log(collections.products);
+    // });
+  }, []);
+
+  if (!products) {
+    return "Loading..."
+  }
+  else {
     console.log(products);
-  }).catch((error) => {
-    console.error(error);
-  });
-},
-  []);
+  }
   return (
     <div sx={shopSx}>
-      <Frame
-        path={[
-          {
-            name: "Shop",
-            slug: "/shop",
-          },
-        ]}
-      >
-        <div className="shopBody" sx={{ display: "flex", flexWrap: "wrap" }}>
-          {products.map((product) => (
-            <div key={product.id} sx={{ width: "calc(33%)", margin: "0.5em" }}>
-              <Themed.p>{product.title}</Themed.p>
-              <img src={product.images[0].src} alt={product.title} />
-              <Themed.p>{product.price}</Themed.p>
-              <div data-element="product.buttonWrapper">
-                <button data-element="product.button" onClick={() => addToCart(product.variants[0].id, 1)}>ADD TO CART</button>
-              </div>
-              <hr />
-            </div>
-          ))}
-        </div>
-      </Frame>
+      <div className="header">
+        <Themed.h2>Shop</Themed.h2>
+      </div>
+      <div className="c">
+        <hr/>
+        <MyCarousel prod={products}>
+        </MyCarousel>
+        <hr/>
+      </div>
     </div>
   );
 }
