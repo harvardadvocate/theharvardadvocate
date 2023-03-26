@@ -9,7 +9,6 @@ const advertiseSx = {
     display: "flex",
     flexDirection: "column",
     alignItems:"center",
-    margin: "0em 21vw 0vh 21vw",
   },
   ".image": {
     display: "flex",
@@ -64,7 +63,7 @@ export default function Advertise() {
             For inquiries, contact our Business Manager at business@theharvardadvocate.com.
           </Themed.p>
           <div className="image">
-            <img src="/advertise.jpeg" width="309" height="414"/>
+            <img src="/advertise.jpeg" width="309" height="414" loading="lazy"/>
             <figcaption>Illustration from <em>Azazel Anonymous</em></figcaption>
           </div>
 

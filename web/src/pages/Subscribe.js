@@ -141,7 +141,7 @@ export default function Subscribe() {
             </div>
           </div>
           <div className="image">
-            <img src="/subscribe_image.jpg"/>
+            <img src="/subscribe_image.jpg" loading="lazy"/>
             <figcaption>Illustration from <em>The Importance of Knees as a Bracing Thing</em></figcaption>
           </div>
         </div>

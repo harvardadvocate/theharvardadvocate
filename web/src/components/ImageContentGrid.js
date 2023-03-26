@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ImageListElement from "./ImageListElement";
 import { Grid } from "theme-ui";
+import { buildSubarraysOfSize } from "../assets/utils"
 
 const imageContentGridSx = {
   ".mainGrid": {
@@ -26,7 +27,37 @@ const imageContentGridSx = {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
     alignItems: "center",
-    maxWidth: "100%",
+    justifyContent: "center",
+  },
+
+  ".artItem:last-child": {
+    borderRight: "none",
+  },
+};
+
+const imageContentGridSxVertical = {
+  ".mainGrid": {
+    display: "grid",
+    gridTemplateRows: "repeat(1fr)",
+    gridTemplateColumns: "1fr",
+    gridGap: "1vh",
+    paddingTop: "1vh",
+    justifyItems: "center",
+    paddingInline: "2vw",
+  },
+
+  ".gridRow": {
+    display: "grid",
+    gridTemplateRows: "1fr",
+    gridTemplateColumns: "1fr",
+    width: "100%",
+  },
+
+
+  ".artItem": {
+    borderRight: "1px solid rgba(0,0,0,0.2)",
+    display: "flex",
+    alignItems: "center",
   },
 
   ".artItem:last-child": {
@@ -35,24 +66,22 @@ const imageContentGridSx = {
 };
 
 
+
 export default function ImageContentGrid(props) {
 
-  const perChunk = 3 // items per row
+  var perChunk; // items per row
 
-  const resultArray = (props.items).reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index/perChunk)
+  if (props.vertical) {
+    var perChunk = 1;
+  }
+  else {
+    var perChunk = 3
+  }
 
-    if(!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = [] // start a new chunk
-    }
-
-    resultArray[chunkIndex].push(item)
-
-    return resultArray
-  }, [])
+  const resultArray = buildSubarraysOfSize(props.items, perChunk);
 
   return (
-    <div sx={imageContentGridSx}>
+    <div sx={props.vertical ? imageContentGridSxVertical : imageContentGridSx}>
       <div className = "mainGrid">
         {(resultArray).map((row, index1) => {
           return (
@@ -60,7 +89,7 @@ export default function ImageContentGrid(props) {
             {(row).map((artItem, index2) => {
               return (
                 <div className="artItem" key={artItem.name}>
-                  <ImageListElement item={artItem} key={index2} />
+                  <ImageListElement item={artItem} key={index2} home={false} hideAuthor={props.hideAuthor}/>
                 </div>
               );
             })}

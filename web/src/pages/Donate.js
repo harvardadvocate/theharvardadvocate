@@ -9,7 +9,6 @@ const donateSx = {
     display: "flex",
     flexDirection: "column",
     alignItems:"center",
-    margin: "0em 21vw 5vh 21vw",
   },
   i: {
     textAlign: "center",
@@ -89,7 +88,7 @@ export default function Donate() {
           </Themed.p>
 
             <div className="image">
-              <img src="/donate.jpeg" width="381" height="271"/>
+              <img src="/donate.jpeg" width="381" height="271" loading="lazy"/>
               <figcaption>Illustration from <em>Land of Tomorrow, Dark and Bloody Ground</em></figcaption>
             </div>
         </div>

@@ -7,7 +7,7 @@ import { useLocation, Link } from "react-router-dom";
 const submitSx = {
   ".submitBody": {
     margin: "auto",
-    width: "60%",
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
@@ -130,7 +130,7 @@ export default function Submit() {
             You can submit your work through the link above, or by emailing art@theharvardadvocate.com
           </Themed.p>
           <div className="image">
-            <img src="/submit.jpeg" width="400" height="400"/>
+            <img src="/submit.jpeg" width="400" height="400" loading="lazy"/>
             <figcaption>Illustration from <em>The Leaving</em></figcaption>
           </div>
         </div>

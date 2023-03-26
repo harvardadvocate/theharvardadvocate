@@ -6,7 +6,7 @@ import sanityClient from "../client.js";
 import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
-import Frame from "../components/Frame";
+import SectionFrame from "../components/SectionFrame";
 const sectionsOverviewSx = {
 
   ".sectionHeader": {
@@ -72,20 +72,20 @@ export default function SectionsOverview(props) {
 
   useEffect(() => {
     sanityClient
-      .fetch(sectionToQuery("Art"))
-      .then((data) => setArtItems(data))
-      .catch(console.error);
-    sanityClient
-      .fetch(sectionToQuery("Fiction"))
-      .then((data) => setFictionItems(data))
-      .catch(console.error);
-    sanityClient
-      .fetch(sectionToQuery("Features"))
-      .then((data) => setFeaturesItems(data))
-      .catch(console.error);
-    sanityClient
-      .fetch(sectionToQuery("Poetry"))
-      .then((data) => setPoetryItems(data))
+      .fetch(
+        `{
+          "artItems": ${sectionToQuery("Art")},
+          "fictionItems": ${sectionToQuery("Fiction")},
+          "featuresItems": ${sectionToQuery("Features")},
+          "poetryItems": ${sectionToQuery("Poetry")}
+       }`
+      )
+      .then((data) => {
+        setArtItems(data.artItems);
+        setFictionItems(data.fictionItems);
+        setFeaturesItems(data.featuresItems);
+        setPoetryItems(data.poetryItems);
+      })
       .catch(console.error);
   }, []);
 
@@ -103,7 +103,7 @@ export default function SectionsOverview(props) {
 
   return (
     <div sx={sectionsOverviewSx}>
-      <Frame
+      <SectionFrame
         path={[
           {
             name: "Sections",
@@ -126,7 +126,7 @@ export default function SectionsOverview(props) {
           {sectionHeader("Poetry")}
           <TextContentList items={poetryItems} />
         </div>
-      </Frame>
+      </SectionFrame>
     </div>
   );
 }

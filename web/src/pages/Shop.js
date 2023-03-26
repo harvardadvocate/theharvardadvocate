@@ -2,16 +2,39 @@
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
+import ShopifyBuy from 'shopify-buy';
+import React, { useEffect, useState } from "react";
+import MyCarousel from '../components/Carousel';
 
 const shopSx = {
-  ".shopBody": {
-    marginTop: "0.4em",
-    marginLeft: "22%",
-    marginRight: "25%"
-  },
   i: {
     textAlign: "center",
     display: "block"
+  },
+
+  paddingInline: "10vw",
+  paddingTop: "5vh",
+
+  ".header": {
+    width:"100%",
+    display: "flex",
+    justifyContent: "center",
+  },
+
+  img: {
+    boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
+    height: "auto",
+    width: "auto",
+    maxHeight: "25vh",
+    maxWidth: "10vw",
+  },
+
+  ".carousel-item": {
+    height: "30vh",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    flexDirection: "column",
   },
 
   "@media (max-width: 767px)": {
@@ -20,25 +43,80 @@ const shopSx = {
       marginTop: "1em",
     },
   },
-
 };
 
 export default function Shop() {
+  const [products, setProducts] = React.useState([]);
+  const [issues, setIssues] = React.useState([])
+  const [merch, setMerch] = React.useState([])
+  const [cart, setCart] = useState(null);
+
+  const addToCart = (variantId, quantity) => {
+    const lineItemsToAdd = [{ variantId, quantity }];
+    const client = ShopifyBuy.buildClient({
+      domain: 'the-harvard-advocate.myshopify.com',
+      storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
+    });
+    client.checkout.create().then((checkout) => {
+      client.checkout.addLineItems(checkout.id, lineItemsToAdd).then((checkout) => {
+        window.open(checkout.webUrl);
+      }).catch((error) => {
+        console.log(error);
+      });
+    });
+  };
+
+  useEffect(() => {
+    const client = ShopifyBuy.buildClient({
+      domain: 'the-harvard-advocate.myshopify.com',
+      storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
+    });
+
+    //fetching all products
+    client.product.fetchAll().then((products) => {
+      setProducts(products);
+      console.log(products)
+    }).catch((error) => {
+      console.log(error);
+    });
+
+    //fetching merch (once merch collection exists)
+    //const merchCollectionId = 'gid://shopify/Collection/INSERT-COLLECTION-ID-HERE';
+    // Set a parameter for first x products, defaults to 20 if you don't provide a param
+
+    // client.collection.fetchWithProducts(merchCollectionId).then((collections) => {
+    //   // Do something with the collection
+    //   setMerch(collections.products);
+    //   console.log(collections.products);
+
+    // fetching just issues
+    const issueCollectionId = 'gid://shopify/Collection/71491354679';
+    // Set a parameter for first x products, defaults to 20 if you don't provide a param
+
+    // client.collection.fetchWithProducts(issueCollectionId).then((collections) => {
+    //   // Do something with the collection
+    //   setIssues(collections.products);
+    //   console.log(collections.products);
+    // });
+  }, []);
+
+  if (!products) {
+    return "Loading..."
+  }
+  else {
+    console.log(products);
+  }
   return (
     <div sx={shopSx}>
-      <Frame
-        path={[
-          {
-            name: "Shop",
-            slug: "/shop",
-          },
-        ]}
-      >
-        <div className="shopBody">
-          <Themed.p>
-          </Themed.p>
-        </div>
-      </Frame>
+      <div className="header">
+        <Themed.h2>Shop</Themed.h2>
+      </div>
+      <div className="c">
+        <hr/>
+        <MyCarousel prod={products}>
+        </MyCarousel>
+        <hr/>
+      </div>
     </div>
   );
 }
