@@ -71,7 +71,8 @@ export default function ImageListElement(props) {
             <Themed.h2>{props.item.title}</Themed.h2>
           </div>
           <div>
-            {"authors" in props.item && (
+          {"authors" in props.item && (
+            props.hideAuthor ? "" : (
               <Themed.h4>
                 By{" "}
                 {
@@ -80,7 +81,9 @@ export default function ImageListElement(props) {
                 {props.item.authors
                   .map(({ name }) => name).join(", ")}
               </Themed.h4>
-            )}
+            )
+          )}
+
           </div>
         </div>
       </Link>

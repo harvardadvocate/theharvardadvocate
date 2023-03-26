@@ -27,6 +27,7 @@ const imageContentGridSx = {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
   },
 
   ".artItem:last-child": {
@@ -88,7 +89,7 @@ export default function ImageContentGrid(props) {
             {(row).map((artItem, index2) => {
               return (
                 <div className="artItem" key={artItem.name}>
-                  <ImageListElement item={artItem} key={index2} home={false}/>
+                  <ImageListElement item={artItem} key={index2} home={false} hideAuthor={props.hideAuthor}/>
                 </div>
               );
             })}

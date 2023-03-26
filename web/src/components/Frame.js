@@ -32,9 +32,7 @@ const frameSx = {
   ".mainContent": {
     marginLeft: "auto",
     marginRight: "auto",
-    paddingLeft: "3vw",
-    paddingRight: "3vw",
-    width: "100%",
+    width: "69%",
   },
 
   "@media (max-width: 767px)": {
