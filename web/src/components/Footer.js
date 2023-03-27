@@ -34,6 +34,7 @@ const footerSx = {
     flexDirection: "column",
     alignItems: "center",
     marginTop: "2vh",
+    gridColumnGap: "5vw",
   },
 
   img: {

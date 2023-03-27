@@ -9,7 +9,7 @@ const headerColor = theme['colors']['headerColor'];
 
 const imageListElementSx = {
   maxWidth: "100%",
-  padding: "2em",
+  padding: "1em",
   a: {
     color: "text",
     textDecoration: "none",
@@ -44,8 +44,8 @@ const imageListElementSx = {
 
 
 const imageListElementSx_home = {
+  padding: "1em",
   maxWidth: "100%",
-  padding: "2em",
   a: {
     color: "text",
     textDecoration: "none",
