@@ -129,7 +129,7 @@ export default function Subscribe() {
         <div className="mainContent">
           <div className="mainText">
           {isMobile ? <Themed.h3>Thank you for considering subscribing to the Harvard Advocate!</Themed.h3> : <Themed.h2>Thank you for considering subscribing to the Harvard Advocate!</Themed.h2>}
-          <p align="center">By subscribing, you receive four print issues a year, printed on high-quality paper, delivered straight to your doorstep.</p>
+          <p align="center">By subscribing, you receive two print issues a year, printed on high-quality paper, delivered straight to your doorstep.</p>
           </div>
           <br></br>
           <div className="bigBox">

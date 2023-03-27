@@ -42,7 +42,7 @@ React Router (https://v5.reactrouter.com/)
 
 
 ### CSS / Design
--   **The website needs to be responsive / work on mobile (CSS heavy job) and resize well on different screen sizes**
+-   ~~**The website needs to be responsive / work on mobile (CSS heavy job) and resize well on different screen sizes**~~
 - **Fix the layout of the fiction, features, poetry, blog, and columns pages (all of these are section.js), and make them less ugly. Add illustrations to make it look prettier.**
 - **Fix "pics from 21 south street"**
 - Make homepage more interactive on hover
