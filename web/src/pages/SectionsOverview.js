@@ -114,7 +114,7 @@ export default function SectionsOverview(props) {
       >
         <div className="sectionContainer">
           {sectionHeader("Art")}
-          <ImageContentGrid items={artItems} noLastBorder={true}/>
+          <ImageContentGrid items={artItems} home={false} noLastBorder={true}/>
         </div>
         <div className="sectionContainer">
           {sectionHeader("Fiction")}

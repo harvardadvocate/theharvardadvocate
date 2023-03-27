@@ -31,6 +31,12 @@ const imageListElementSx = {
 
   },
   padding: "1em",
+  ".authorName": {
+    p: {
+      fontFamily: 'Poppins!important',
+      fontSize: 'medium',
+    },
+  },
 };
 
 
@@ -51,6 +57,12 @@ const imageListElementSx_home = {
     "fontFamily": "Poppins",
     "fontSize": "0.8em",
   },
+  ".authorName": {
+    p: {
+      fontFamily: 'Poppins!important',
+      fontSize: 'medium',
+    },
+  },
 };
 
 export default function ImageListElement(props) {
@@ -67,20 +79,31 @@ export default function ImageListElement(props) {
             ) : null}
           </div>
           <div>
-            {props.home ? <Themed.h3 style={{ color: headerColor }}><i>Art • {props.item.issue.title}</i></Themed.h3> : ""}
+            <Themed.h3 style={{ color: headerColor }}>
+              {props.home && (
+                <React.Fragment>
+                  {' '}
+                  <i>Art •</i>
+                </React.Fragment>
+              )}
+
+              <i> {props.item.issue.title}</i>
+            </Themed.h3>
             <Themed.h2>{props.item.title}</Themed.h2>
           </div>
           <div>
           {"authors" in props.item && (
             props.hideAuthor ? "" : (
-              <Themed.h4>
-                By{" "}
-                {
-                  //TODO: link to author page
-                }
-                {props.item.authors
-                  .map(({ name }) => name).join(", ")}
-              </Themed.h4>
+              <div className="authorName">
+                <Themed.p>
+                  By{" "}
+                  {
+                    //TODO: link to author page
+                  }
+                  {props.item.authors
+                    .map(({ name }) => name).join(", ")}
+                </Themed.p>
+              </div>
             )
           )}
 

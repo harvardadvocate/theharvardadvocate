@@ -112,7 +112,7 @@ export default function ImageContentGrid(props) {
             {(row).map((artItem, index2) => {
               return (
                 <div className={props.noLastBorder ? "artItemNoLastBorder" : "artItem"} key={index2}>
-                  <ImageListElement item={artItem} key={index2} home={false} hideAuthor={props.hideAuthor}/>
+                  <ImageListElement item={artItem} key={index2} home={props.home} hideAuthor={props.hideAuthor}/>
                 </div>
               );
             })}
