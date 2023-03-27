@@ -15,7 +15,6 @@ const sectionSx = {
     h2: { display: "inline-block", marginRight: "0.4em" },
     img: { height: "0.6em", display: "inline-block" },
   },
-  maxWidth: "100vw",
 };
 
 const virtualStyle = {
@@ -72,20 +71,24 @@ export default function Section(props) {
       })
       .catch(console.error);
   }, [sectionSlug]);
-  const intersectionObserver = new IntersectionObserver(entries => {
-    if (entries[0].intersectionRatio === 0) return;
-    loadItems(9);
-  })
-  useEffect(() => {
-    var  currentElement = document.querySelector(".more")
-    intersectionObserver.observe(currentElement)
 
-    return () => {
+  const intersectionObserver = new IntersectionObserver((entries) => {
+      if (entries[0].intersectionRatio === 0) return;
+      loadItems(9);
+    });
+
+    useEffect(() => {
+      const currentElement = document.querySelector(".more");
       if (currentElement) {
-        intersectionObserver.unobserve(currentElement);
+        intersectionObserver.observe(currentElement);
       }
-    }
-  },[intersectionObserver])
+      return () => {
+        if (currentElement) {
+          intersectionObserver.unobserve(currentElement);
+        }
+      };
+    }, [intersectionObserver]);
+
   if (!items) return <div>Loading...</div>;
 
   return (
@@ -98,7 +101,7 @@ export default function Section(props) {
           },
         ]}
       >
-      <TextContentList items={items} home={false} border={true}/>
+        <TextContentList items={items} home={false} border={true}></TextContentList>
       </SectionFrame>
       <div  className="more">
         <p style={virtualStyle}></p>

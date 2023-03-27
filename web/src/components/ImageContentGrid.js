@@ -24,16 +24,19 @@ const imageContentGridSx = {
     paddingBottom: "1vh",
   },
 
-  ".artItem": {
+  ".artItem, .artItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
   },
 
   ".artItem:last-child": {
     borderRight: "none",
   },
+
+  ".artItemNoLastBorder:last-child": {
+    borderRight: "none",
+  }
 };
 
 const imageContentGridSxVertical = {
@@ -55,7 +58,7 @@ const imageContentGridSxVertical = {
   },
 
 
-  ".artItem": {
+  ".artItem, .artItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
     alignItems: "center",
@@ -66,10 +69,15 @@ const imageContentGridSxVertical = {
   },
 
   "@media (max-width: 835px)": {
-    ".artItem": {
+    ".artItem, .artItemNoLastBorder": {
       borderRight: "0",
       borderBottom: "1px solid rgba(0,0,0,0.2)",
     },
+
+    ".artItemNoLastBorder:last-child": {
+      borderBottom: "0",
+    },
+
   },
 };
 
@@ -103,7 +111,7 @@ export default function ImageContentGrid(props) {
             <div className="gridRow" key={index1}>
             {(row).map((artItem, index2) => {
               return (
-                <div className="artItem" key={artItem.name}>
+                <div className={props.noLastBorder ? "artItemNoLastBorder" : "artItem"} key={index2}>
                   <ImageListElement item={artItem} key={index2} home={false} hideAuthor={props.hideAuthor}/>
                 </div>
               );

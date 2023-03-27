@@ -246,21 +246,22 @@ export default function IssuesList() {
       }, []);
 
 
-      const intersectionObserver = new IntersectionObserver(entries => {
+      const intersectionObserver = new IntersectionObserver((entries) => {
         if (entries[0].intersectionRatio === 0) return;
         loadItems(4);
-      })
+      });
 
       useEffect(() => {
-        var  currentElement = document.querySelector(".more")
-        intersectionObserver.observe(currentElement)
-
+        const currentElement = document.querySelector(".more");
+        if (currentElement) {
+          intersectionObserver.observe(currentElement);
+        }
         return () => {
           if (currentElement) {
             intersectionObserver.unobserve(currentElement);
           }
-        }
-      },[intersectionObserver])
+        };
+      }, [intersectionObserver]);
 
 
       if (!itemData || !featuredItems) {

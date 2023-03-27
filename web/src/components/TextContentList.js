@@ -20,9 +20,10 @@ const textContentListSx = {
     gridTemplateRows: "1fr",
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
     paddingBottom: "1vh",
+    paddingTop: "1vh",
   },
 
-  ".articleItem": {
+  ".articleItem, .articleItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
   },
@@ -30,14 +31,18 @@ const textContentListSx = {
   ".articleItem:last-child": {
     borderRight: "none",
   },
+
+  ".articleItemNoLastBorder:last-child": {
+    borderRight: "none",
+  }
 };
 
 
 const textContentListSxVertical = {
   ".mainGrid": {
     display: "grid",
-    gridTemplateRows: "repeat(1fr)",
-    gridTemplateColumns: "1fr",
+    gridTemplateRows: "repeat(minmax(0,1fr))",
+    gridTemplateColumns: "minmax(0,1fr)",
     gridGap: "1vh",
     paddingTop: "1vh",
     justifyItems: "center",
@@ -48,25 +53,20 @@ const textContentListSxVertical = {
     display: "grid",
     gridTemplateRows: "1fr",
     gridTemplateColumns: "1fr",
-    width: "100%",
+    wordBreak: "break-word",
   },
 
-  ".articleItem": {
+  ".articleItem, .articleItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
   },
 
-  ".articleItem:last-child": {
+  ".articleItem:last-child, .articleItemNoLastBorder": {
     borderRight: "none",
   },
 
   "@media (max-width: 835px)": {
-    ".articleItem": {
-      borderRight: "0",
-      borderBottom: "1px solid rgba(0,0,0,0.2)",
-    },
-
-    ".articleItemNoLastBorder": {
+    ".articleItem, .articleItemNoLastBorder": {
       borderRight: "0",
       borderBottom: "1px solid rgba(0,0,0,0.2)",
     },
