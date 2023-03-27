@@ -89,6 +89,9 @@ const textListItemSx_home = {
 
 const padding = {
   padding: "2em",
+  "@media (max-width: 835px)": {
+    padding: "1em",
+  },
 };
 
 const no_padding = {

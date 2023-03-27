@@ -11,6 +11,7 @@ import TextListElement from "../components/TextListElement";
 import TextContentList from "../components/TextContentList";
 import ImageContentGrid from "../components/ImageContentGrid";
 import { useIsMobile } from "../utils/isMobile.js";
+import ColorRingLoader from "../components/LoadingRing.js";
 
 const issueSx = {
   hr: {
@@ -185,7 +186,7 @@ export default function Issue() {
 
 
   if (!items || !issue || !sections) {
-    return <div>Loading...</div>
+    return <ColorRingLoader/>
   }
   else {
     contentItemsBySection = groupContentItemsBySection(items, sections);

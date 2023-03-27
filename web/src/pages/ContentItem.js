@@ -8,6 +8,7 @@ import { Themed } from "theme-ui";
 import moment from "moment";
 import ContentFrame from "../components/ContentFrame";
 import Frame from "../components/Frame";
+import ColorRingLoader from "../components/LoadingRing.js";
 
 const contentItemSx = {
   ".contentHeader": {
@@ -79,7 +80,7 @@ export default function ContentItem() {
     setIsLinkCopied(true);
   };
 
-  if (!itemData) return <div>Loading...</div>;
+  if (!itemData) return <ColorRingLoader/>;
 
   return (
     <div sx={contentItemSx}>

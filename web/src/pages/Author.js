@@ -10,6 +10,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { unionBy } from "lodash";
 import TextContentList from "../components/TextContentList.js";
 import ImageContentGrid from "../components/ImageContentGrid.js";
+import ColorRingLoader from "../components/LoadingRing.js";
 
 const authorSx = {
   ".authorHeader": {
@@ -62,7 +63,7 @@ export default function Author() {
       .catch(console.error);
   }, [authorSlug]);
 
-  if (!authorData) return <div>Loading...</div>;
+  if (!authorData) return <ColorRingLoader/>;
 
   return (
     <div sx={authorSx}>

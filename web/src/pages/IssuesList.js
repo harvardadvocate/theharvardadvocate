@@ -8,6 +8,7 @@ import { buildSubarraysOfSize } from "../assets/utils";
 import { optimizeImageLoading } from "../utils/image.js";
 import FeaturedIssue from "../components/FeaturedIssue.js";
 import { useIsMobile } from "../utils/isMobile.js";
+import ColorRingLoader from "../components/LoadingRing.js";
 
 const firstColor = theme["colors"]["primary"];
 const secondColor = theme["colors"]["secondary"];
@@ -274,7 +275,7 @@ export default function IssuesList() {
 
 
       if (!itemData || !featuredItems) {
-        return <div>Loading...</div>;
+        return <ColorRingLoader/>
       }
       else {
 

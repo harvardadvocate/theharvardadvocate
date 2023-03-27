@@ -5,6 +5,7 @@ import rightArrow from "../assets/images/right-arrow.svg";
 import ShopifyBuy from 'shopify-buy';
 import React, { useEffect, useState } from "react";
 import MyCarousel from '../components/Carousel';
+import ColorRingLoader from "../components/LoadingRing.js";
 
 const shopSx = {
   i: {
@@ -115,7 +116,7 @@ export default function Shop() {
   }, []);
 
   if (!products) {
-    return "Loading..."
+    return <ColorRingLoader/>
   }
   else {
 

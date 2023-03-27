@@ -28,9 +28,11 @@ import Masthead from "./pages/Masthead";
 const appSx = {
   display: "grid",
   gridTemplateColumns: "1fr 8fr",
+  position: "relative",
 
   ".nonSidebarContent": {
-    minWidth: "-webkit-fill-available"
+    minWidth: "-webkit-fill-available",
+    paddingBottom: "5rem",           /* Footer height */
   },
   "@media (max-width: 835px)": {
     gridTemplateColumns: "auto",
