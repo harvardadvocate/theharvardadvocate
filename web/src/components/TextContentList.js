@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TextListElement from "./TextListElement";
-import { buildSubarraysOfSize } from "../assets/utils"
+import { buildSubarraysOfSize } from "../utils/buildSubarrays";
+import { useIsMobile } from "../utils/isMobile";
 
 const textContentListSx = {
   ".mainGrid": {
@@ -58,6 +59,28 @@ const textContentListSxVertical = {
   ".articleItem:last-child": {
     borderRight: "none",
   },
+
+  "@media (max-width: 835px)": {
+    ".articleItem": {
+      borderRight: "0",
+      borderBottom: "1px solid rgba(0,0,0,0.2)",
+    },
+
+    ".articleItemNoLastBorder": {
+      borderRight: "0",
+      borderBottom: "1px solid rgba(0,0,0,0.2)",
+    },
+
+    ".articleItemNoLastBorder:last-child": {
+      borderRight: "0",
+      borderBottom: "0",
+    },
+
+
+    ".mainGrid": {
+      paddingTop: "0",
+    },
+  },
 };
 
 
@@ -82,13 +105,19 @@ const add_border_vertical = {
 };
 
 const no_border = {
-
   ".gridRow": {
     borderBottom: "0px solid rgba(0,0,0,0.2)",
   },
 };
 
 export default function TextContentList(props) {
+
+  var vertical = false;
+  var isMobile = useIsMobile();
+  if (props.vertical || isMobile) {
+    vertical = true;
+  }
+
   var perChunk; // items per row
 
   if (props.vertical) {
@@ -107,18 +136,18 @@ export default function TextContentList(props) {
   else {
     paddingVar = true;
   }
-  console.log("resultArray");
-  console.log(resultArray);
+
+
   return (
-    <div sx={props.vertical ? textContentListSxVertical : textContentListSx}>
-      <div sx={props.border ? (props.vertical ? add_border_vertical : add_border) : no_border}>
+    <div sx={vertical ? textContentListSxVertical : textContentListSx}>
+      <div sx={props.border ? (vertical ? add_border_vertical : add_border) : no_border}>
         <div className = "mainGrid">
           {(resultArray).map((row) => {
             return (
               <div className="gridRow">
               {(row).map((item, index) => {
                 return (
-                  <div className="articleItem" key={item.name}>
+                  <div className={props.noLastBorder ? "articleItemNoLastBorder" : "articleItem"} key={item.name}>
                     <TextListElement item={item} key={index} home={props.home} padding={paddingVar} hideAuthor={props.hideAuthor}/>
                   </div>
                 );

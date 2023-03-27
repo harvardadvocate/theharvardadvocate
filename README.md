@@ -46,7 +46,7 @@ React Router (https://v5.reactrouter.com/)
 - **Fix the layout of the fiction, features, poetry, blog, and columns pages (all of these are section.js), and make them less ugly. Add illustrations to make it look prettier.**
 - **Fix "pics from 21 south street"**
 - Make homepage more interactive on hover
-- Fix CSS of issues list, bring down text and stop stretching issue covers
+- ~~Fix CSS of issues list, bring down text and stop stretching issue covers~~
 
 ### Still need to build
 - ~~Shop page/integration with Shopify (bonus points if there’s a shop for regular people and a shop for alumni only). The shop page needs to be on the website, preferably using Shopify, but it shouldn’t link you outside the website.~~

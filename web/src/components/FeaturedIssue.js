@@ -4,7 +4,7 @@ import { Themed, Grid } from "theme-ui";
 import { Link } from "react-router-dom";
 import { theme } from "../theme/theme.js";
 import { optimizeImageLoading } from "../utils/image.js";
-
+import { useIsMobile } from "../utils/isMobile.js";
 const firstColor = theme["colors"]["primary"];
 const secondColor = theme["colors"]["secondary"];
 
@@ -122,6 +122,38 @@ const issuesListSx = {
 
   img: {
     marginBottom: "1vh",
+  },
+
+  "@media (max-width: 835px)": {
+
+    ".issueCover": {
+      marginBottom: "0",
+    },
+    ".featuredArticles, .featuredArticles2": {
+      paddingTop: "0vh",
+      display: "flex",
+      flexDirection: "column",
+      width: "100%",
+      alignItems: "center",
+      hr: {
+        display: "none",
+      },
+    },
+
+    ".featuredIssue, .featuredIssue2": {
+      a: {
+        textAlign: "center",
+      }
+    },
+
+    ".highlightedArticles": {
+      display: "none!important",
+    },
+
+    ".mainGrid": {
+      gridTemplateColumns: "1fr",
+      placeItems: "unset"
+    },
   }
 };
 
@@ -138,11 +170,13 @@ export default function FeaturedIssue(props) {
   const issue = props.issue;
   const featuredItems = props.featuredItems;
 
+  var isMobile = useIsMobile();
+
   return (
     <div css={issuesListSx}>
       <div className= {props.newest ? "featuredIssue" : "featuredIssue2"}>
         <Grid className="mainGrid" columns={props.newest ? "2fr 3fr" : "3fr 2fr"}>
-          {props.newest ?
+          {(props.newest || isMobile) ?
             <div className="issueCover">
               <Link to={"/issues/" + issue.slug.current}>
                 {issue.frontCover && "asset" in issue.frontCover && (
@@ -193,7 +227,7 @@ export default function FeaturedIssue(props) {
             </Link>
           </div>
 
-          {!props.newest ?
+          {!props.newest && !isMobile ?
                 <div className="issueCover">
                   <Link to={"/issues/" + issue.slug.current}>
                     {issue.frontCover && "asset" in issue.frontCover && (<img src={optimizeImageLoading(issue.frontCover.asset.url)} loading="lazy" alt="" />) }

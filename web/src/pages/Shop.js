@@ -45,7 +45,7 @@ const shopSx = {
     alignItems: "center",
   },
 
-  "@media (max-width: 767px)": {
+  "@media (max-width: 835px)": {
     ".shopBody": {
       margin: "0em 0em 0em 0em",
       marginTop: "1em",
@@ -69,7 +69,7 @@ export default function Shop() {
       client.checkout.addLineItems(checkout.id, lineItemsToAdd).then((checkout) => {
         window.open(checkout.webUrl);
       }).catch((error) => {
-        console.log(error);
+
       });
     });
   };
@@ -83,9 +83,8 @@ export default function Shop() {
     //fetching all products
     client.product.fetchAll().then((products) => {
       setProducts(products);
-      console.log(products)
     }).catch((error) => {
-      console.log(error);
+
     });
 
     //fetching merch (once merch collection exists)
@@ -95,7 +94,7 @@ export default function Shop() {
     // client.collection.fetchWithProducts(merchCollectionId).then((collections) => {
     //   // Do something with the collection
     //   setMerch(collections.products);
-    //   console.log(collections.products);
+    //
 
     // fetching just issues
     const issueCollectionId = 'gid://shopify/Collection/71491354679';
@@ -104,7 +103,7 @@ export default function Shop() {
     // client.collection.fetchWithProducts(issueCollectionId).then((collections) => {
     //   // Do something with the collection
     //   setIssues(collections.products);
-    //   console.log(collections.products);
+    //
     // });
   }, []);
 
@@ -112,7 +111,7 @@ export default function Shop() {
     return "Loading..."
   }
   else {
-    console.log(products);
+
   }
   return (
     <div sx={shopSx}>

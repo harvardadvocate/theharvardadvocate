@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ImageListElement from "./ImageListElement";
 import { Grid } from "theme-ui";
 import { buildSubarraysOfSize } from "../assets/utils"
+import { useIsMobile } from "../utils/isMobile";
 
 const imageContentGridSx = {
   ".mainGrid": {
@@ -63,11 +64,24 @@ const imageContentGridSxVertical = {
   ".artItem:last-child": {
     borderRight: "none",
   },
+
+  "@media (max-width: 835px)": {
+    ".artItem": {
+      borderRight: "0",
+      borderBottom: "1px solid rgba(0,0,0,0.2)",
+    },
+  },
 };
 
 
 
 export default function ImageContentGrid(props) {
+
+  var vertical = false;
+  var isMobile = useIsMobile();
+  if (props.vertical || isMobile) {
+    vertical = true;
+  }
 
   var perChunk; // items per row
 
@@ -80,8 +94,9 @@ export default function ImageContentGrid(props) {
 
   const resultArray = buildSubarraysOfSize(props.items, perChunk);
 
+
   return (
-    <div sx={props.vertical ? imageContentGridSxVertical : imageContentGridSx}>
+    <div sx={vertical ? imageContentGridSxVertical : imageContentGridSx}>
       <div className = "mainGrid">
         {(resultArray).map((row, index1) => {
           return (

@@ -30,7 +30,7 @@ const compSx = {
   },
 
 
-  "@media (max-width: 767px)": {
+  "@media (max-width: 835px)": {
     ".compBody": {
       margin: "0em 0em 0em 0em",
       marginTop: "1em",

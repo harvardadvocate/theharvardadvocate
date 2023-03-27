@@ -49,7 +49,7 @@ const donateSx = {
     backgroundColor: "#000000",
   },
 
-  "@media (max-width: 767px)": {
+  "@media (max-width: 835px)": {
     ".donateBody": {
       margin: "0em 0em 0em 0em",
       marginTop: "1em",

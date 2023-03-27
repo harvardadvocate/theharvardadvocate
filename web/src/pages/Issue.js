@@ -115,13 +115,13 @@ export default function Issue() {
 
       if (!isInSectionArt && item.images && item.images.length > 0) {
         const index = contentItems.indexOf(item);
-        console.log("before");
-        console.log(contentItems);
+
+
         if (index > -1) { // only splice array when item is found
           contentItems.splice(index, 1); // 2nd parameter means remove one item only
         }
-        console.log("after");
-        console.log(contentItems);
+
+
         return item;
       }
     }
@@ -167,7 +167,7 @@ export default function Issue() {
         { issueSlug }
       )
       .then((issueData) => {
-        console.log(issueData);
+
         setIssue(issueData[0]);
         setItems(issueData[0].itemData);
         setSections(
@@ -225,8 +225,8 @@ export default function Issue() {
     textContent = [].concat.apply([], Object.values(contentItemsBySection));
   }
 
-  console.log(textContent);
-  console.log(artContent);
+
+
 
   return (
     <div css={issueSx}>

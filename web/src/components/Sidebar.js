@@ -4,7 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
-
+import { useIsMobile } from "../utils/isMobile.js";
 const buttonColor = theme['colors']['buttonColor'];
 const buttonColorHover = theme['colors']['buttonColorHover'];
 
@@ -89,7 +89,7 @@ const sidebarSx = {
     },
   },
 
-  "@media (max-width: 767px)": {
+  "@media (max-width: 835px)": {
     width: "100vw",
     height: "min-content",
     marginLeft: "0",
@@ -176,7 +176,7 @@ export default function Sidebar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const isMobile = windowDimension <= 767;
+  const isMobile = useIsMobile();
 
   const location = useLocation();
   const [sectionsExpanded, setSectionsExpanded] = useState(() =>
