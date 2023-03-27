@@ -10,19 +10,51 @@ import { optimizeImageLoading } from "../utils/image.js";
 import TextListElement from "../components/TextListElement";
 import TextContentList from "../components/TextContentList";
 import ImageContentGrid from "../components/ImageContentGrid";
+import { useIsMobile } from "../utils/isMobile.js";
+
 const issueSx = {
   hr: {
     border: "0.1px solid rgba(0, 0, 0, .2)",
   },
+  ".featuredIssue": {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "25%",
+    overflow: "hidden",
+    boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
+    img: {
+      maxWidth: "100%",
+      maxHeight: "100%",
+      display: "block",
+      margin: "0 auto",
+    }
+  },
+  "mixedGridContainer": {
+    borderBottom: "1px solid rgba(0,0,0,0.2)",
+  },
+
+  ".issueContainer": {
+    width: "100%",
+    borderBottom: "1px solid rgba(0,0,0,0.2)",
+  },
+
+  "@media (max-width: 835px)": {
+    ".featuredIssue": {
+      width: "100%!important",
+    },
+    ".issueContainer": {
+      marginTop: "2vh",
+      paddingBottom: "2vh",
+    }
+  }
 };
 
 const topGridCSS = {
-  width: "100%",
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr",
   justifyItems: "center",
   alignItems: "center",
-  borderBottom: "1px solid rgba(0,0,0,0.2)",
   paddingBottom: "2vh",
 
   ".articleItem": {
@@ -35,53 +67,27 @@ const topGridCSS = {
   },
 
   ".featuredIssue": {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     width: "80%",
     overflow: "hidden",
-    boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-    img: {
-      maxWidth: "100%",
-      maxHeight: "100%",
-      display: "block",
-      margin: "0 auto",
-    }
   },
-  "mixedGridContainer": {
-    borderBottom: "1px solid rgba(0,0,0,0.2)",
-  }
 }
 
 const topCSSNoGrid = {
-  width: "100%",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   paddingInline: "5%",
   paddingBottom: "2%",
-  borderBottom: "1px solid rgba(0,0,0,0.2)",
 
   ".featuredIssue": {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     width: "25%",
     overflow: "hidden",
-    backgroundColor: "red",
-    boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-    img: {
-      maxWidth: "100%",
-      maxHeight: "100%",
-      display: "block",
-      margin: "0 auto",
-    }
   },
-  "mixedGridContainer": {
-    borderBottom: "1px solid rgba(0,0,0,0.2)",
-  }
 }
 export default function Issue() {
+
+  var isMobile = useIsMobile();
+
   function pop(object, propertyName) {
     let temp = object[propertyName];
     delete object[propertyName];
@@ -183,7 +189,7 @@ export default function Issue() {
   }
   else {
     contentItemsBySection = groupContentItemsBySection(items, sections);
-    if (contentItemsBySection["Art"]) {
+    if (contentItemsBySection["Art"] && !isMobile) {
       if ((contentItemsBySection["Art"].length > 1) && (items.length - contentItemsBySection["Art"].length > 5)) { // use mixed grid implementation
         useMixedGrid = true;
         artContent = pop(contentItemsBySection, "Art")

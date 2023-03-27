@@ -50,6 +50,13 @@ const shopSx = {
       margin: "0em 0em 0em 0em",
       marginTop: "1em",
     },
+    img: {
+      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
+      minWidth: "-webkit-fill-available",
+      height: "-webkit-fill-available"
+    },
+    ".carousel-item": {
+    },
   },
 };
 

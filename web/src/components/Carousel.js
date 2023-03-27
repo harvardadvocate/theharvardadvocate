@@ -2,7 +2,7 @@ import React from 'react';
 import InfiniteCarousel from 'react-leaf-carousel';
 import { Themed } from "theme-ui";
 import ShopifyBuy from 'shopify-buy';
-
+import { useIsMobile } from "../utils/isMobile.js";
 
 
 const addToCart = (variantId, quantity) => {
@@ -15,47 +15,41 @@ const addToCart = (variantId, quantity) => {
     client.checkout.addLineItems(checkout.id, lineItemsToAdd).then((checkout) => {
       window.open(checkout.webUrl);
     }).catch((error) => {
-      console.log(error);
+
     });
   });
 };
 
 
-const carouselOptions = {
-  breakpoints: [
-    {
-      breakpoint: 500,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-      },
-    },
-  ],
-  autoCycle: true,
-  cycleInterval: 5000,
-  dots: false,
-  showSides: true,
-  sidesOpacity: 0.5,
-  sideSize: 0.4,
-  slidesToScroll: 3,
-  slidesToShow: 3,
-  scrollOnDevice: true,
-};
+
+function createCarouselOptions(numToShow) {
+  const toReturn = {
+    autoCycle: true,
+    cycleInterval: 1500,
+    dots: false,
+    showSides: true,
+    sidesOpacity: 0.5,
+    sideSize: 0.1,
+    slidesToScroll: numToShow,
+    slidesToShow: numToShow,
+    scrollOnDevice: true,
+  };
+  return toReturn;
+}
 
 const carouselSx = {
 
 };
 
 
+
 export default function MyCarousel(props) {
-  console.log(props.prod);
+  var isMobile = useIsMobile();
+  var modifier = 3;
+  if (isMobile) {
+    modifier = 1;
+  }
+  const carouselOptions = createCarouselOptions(modifier);
   return (
     <>
       {props.prod.length > 0 ? (
