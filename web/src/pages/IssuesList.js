@@ -7,6 +7,8 @@ import { theme } from "../theme/theme.js";
 import { buildSubarraysOfSize } from "../assets/utils";
 import { optimizeImageLoading } from "../utils/image.js";
 import FeaturedIssue from "../components/FeaturedIssue.js";
+import { useIsMobile } from "../utils/isMobile.js";
+
 const firstColor = theme["colors"]["primary"];
 const secondColor = theme["colors"]["secondary"];
 
@@ -135,7 +137,6 @@ const issuesListSx = {
     borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "2vh",
     paddingTop: "2vh",
-
   },
 
   ".smallGridRow:last-child": {
@@ -171,7 +172,13 @@ const issuesListSx = {
 
   img: {
     marginBottom: "1vh",
-  }
+  },
+
+  "@media (max-width: 835px)": {
+    ".smallGridRow": {
+      gridTemplateColumns: "1fr 1fr",
+    },
+  },
 };
 
 const virtualStyle = {
@@ -204,6 +211,8 @@ const customComponents = {
 };
 
 export default function IssuesList() {
+    var isMobile = useIsMobile();
+
 
     const [itemData, setItemData] = useState(null);
     const [featuredItems, setFeaturedItems] = useState(null);
@@ -271,8 +280,17 @@ export default function IssuesList() {
 
       }
 
-      const perChunk = 4 // items per row
-      const resultArray = buildSubarraysOfSize(itemData.slice(6), perChunk);
+      var perChunk = 4; // items per row
+
+
+      if (isMobile) {
+        perChunk = 2;
+      }
+
+      // map 4 to 6
+      // map 2 to 2
+
+      const resultArray = buildSubarraysOfSize(itemData.slice((2*perChunk) - 2), perChunk);
 
 
 
@@ -282,6 +300,7 @@ export default function IssuesList() {
         <div className="mainContent">
           <FeaturedIssue newest={true} issue={itemData[0]} featuredItems={featuredItems}/>
           <FeaturedIssue newest={false} issue={itemData[1]} featuredItems={featuredItems}/>
+          {!isMobile ?
           <div className = "bigGrid">
             {([itemData.slice(2,4), itemData.slice(4,6)]).map((issueSlices) => {
               return (
@@ -308,7 +327,7 @@ export default function IssuesList() {
                 </div>
               );
             })}
-          </div>
+          </div> : ""}
           <div className="smallGrid">
             {(resultArray).map((issueSlices) => {
               return (

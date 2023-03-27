@@ -58,13 +58,14 @@ const submitSx = {
     ".submitBody": {
       margin: "0em 0em 0em 0em",
       marginTop: "1em",
-      margin:"auto",
-      width: "80%",
-      flexDirection: "column",
-      flexWrap: "wrap",
+    },
+    ".image": {
+      width: "100%",
+    },
+    ".buttonLink": {
+      width: "60%",
     },
   },
-
 
 };
 
