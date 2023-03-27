@@ -39,7 +39,7 @@ const subscribeSx = {
     flexDirection: "column",
     border: "2px solid lightgrey",
     justifyContent: "center",
-    width: "20rem",
+    width: "27rem",
     height: "38%",
     borderRadius: "10px",
     boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
@@ -94,6 +94,7 @@ const subscribeSx = {
       marginTop: "1em",
     },
     ".bigBox": {
+      height: "20%",
       display: "flex",
       padding: "3vh",
       flexDirection: "column",
