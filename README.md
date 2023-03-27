@@ -39,8 +39,6 @@ React Router (https://v5.reactrouter.com/)
 -   ~~Lazy load for images on all pages, and for articles on most pages~~
 - **~~Load more than 25 articles per section in Section.js, load more than 25 issues in IssuesList (infinite content scroll)~~**
 -   ~~Code cleanup – clean up Homepage.js, make it use more modular components instead of hardcoding everything. Take inspiration from SectionsOverview and Section.js to get a sense of what I mean. Feel free to clean up other pages like the static pages since a lot of them have near identical CSS and can be made into components.~~
-- Move to static site generation to reduce Sanity bandwidth --
-https://www.smashingmagazine.com/2020/09/stack-custom-made-static-site-generator/
 
 
 ### CSS / Design

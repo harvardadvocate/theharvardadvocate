@@ -61,27 +61,27 @@ export default function Footer() {
           <div className="sections">
             <b>Sections</b>
             <br/><br/>
-            <a href="sections/art">Art</a>
+            <a href="/sections/art">Art</a>
             <br/>
-            <a href="sections/fiction">Fiction</a>
+            <a href="/sections/fiction">Fiction</a>
             <br/>
-            <a href="sections/features">Features</a>
+            <a href="/sections/features">Features</a>
             <br/>
-            <a href="sections/poetry">Poetry</a>
+            <a href="/sections/poetry">Poetry</a>
             <br/>
-            <a href="sections/blog">Blog</a>
+            <a href="/sections/blog">Blog</a>
           </div>
           <div className="more">
             <b>More</b>
             <br/>
             <br/>
-            <a href="advertise">Advertise</a>
+            <a href="/advertise">Advertise</a>
             <br/>
-            <a href="comp">Comp</a>
+            <a href="/comp">Comp</a>
             <br/>
-            <a href="shop">Shop</a>
+            <a href="/shop">Shop</a>
             <br/>
-            <a href="donate">Donate</a>
+            <a href="/donate">Donate</a>
             <br/>
 
           </div>

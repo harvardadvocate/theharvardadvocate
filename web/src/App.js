@@ -70,7 +70,6 @@ function App() {
                   <Route element={<Contact />} path="/contact" exact />
                 </Routes>
                 <Footer />
-
               </div>
           </div>
         </BrowserRouter>

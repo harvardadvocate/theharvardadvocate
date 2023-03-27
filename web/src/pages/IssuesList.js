@@ -72,12 +72,18 @@ const issuesListSx = {
     display: "grid",
     gridTemplateRows: "1fr",
     gridTemplateColumns: "1fr 1fr",
-    img: {
-      maxHeight: "62vh",
-      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-    },
     borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "5vh",
+    alignItems: "end",
+  },
+
+  ".issueCover": {
+    display: "flex",
+    justifyContent: "center",
+    img: {
+      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
+    },
+    width: "100%",
   },
 
   ".bigGridRow:last-child": {
@@ -89,8 +95,8 @@ const issuesListSx = {
     display: "flex",
     justifyItems: "center",
     justifyContent: "center",
-    paddingLeft: "7vw",
-    paddingRight: "7vw",
+    paddingLeft: "11vw",
+    paddingRight: "11vw",
     flexDirection: "column",
     borderRight: "1px solid rgba(0,0,0,0.2)",
   },
@@ -127,8 +133,8 @@ const issuesListSx = {
     },
     alignItems: "baseline",
     borderBottom: "1px solid rgba(0,0,0,0.2)",
-    paddingBottom: "5vh",
-    paddingTop: "5vh",
+    paddingBottom: "2vh",
+    paddingTop: "2vh",
 
   },
 
@@ -283,13 +289,14 @@ export default function IssuesList() {
                   return (
                     <Link to={"/issues/" + bigIssue.slug.current}>
                     <div className="bigIssueDiv" key={bigIssue.title}>
-                      <img src={optimizeImageLoading(bigIssue.frontCover.asset.url)} loading="lazy"></img>
+                      <div className="issueCover">
+                        <img src={optimizeImageLoading(bigIssue.frontCover.asset.url)} loading="lazy"></img>
+                      </div>
                       <div className="lowerInfo">
-                        <Themed.h3>{bigIssue.title} Issue</Themed.h3>
+                        <Themed.h3>{bigIssue.title}</Themed.h3>
                         <Link to={"/issues/" + bigIssue.slug.current}>
                         <div className="readFullIssueBig">
                           <span>&#8594;</span>&nbsp;
-                          <p><b>READ FULL ISSUE</b></p>
                         </div>
                         </Link>
                       </div>
