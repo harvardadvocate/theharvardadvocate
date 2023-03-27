@@ -25,7 +25,7 @@ const addToCart = (variantId, quantity) => {
 function createCarouselOptions(numToShow) {
   const toReturn = {
     autoCycle: true,
-    cycleInterval: 1500,
+    cycleInterval: 3000,
     dots: false,
     showSides: true,
     sidesOpacity: 0.5,
