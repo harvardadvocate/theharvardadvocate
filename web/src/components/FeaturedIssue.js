@@ -193,7 +193,7 @@ export default function FeaturedIssue(props) {
           <div className = {props.newest ? "featuredArticles" : "featuredArticles2"}>
             <a href={"issues/" + issue.slug.current}>
             <div className="issueTitle">
-              <h5><b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b></h5>
+              <Themed.h5><b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b></Themed.h5>
               <Themed.h1>{issue.title}</Themed.h1>
               <hr/>
             </div>
@@ -227,7 +227,7 @@ export default function FeaturedIssue(props) {
             <Link to={"/issues/" + issue.slug.current}>
               <div className={props.newest ? "readFullIssue" : "readFullIssue2"}>
                 <span>&#8594;</span>
-                <h6>READ FULL ISSUE</h6>
+                <Themed.h6>READ FULL ISSUE</Themed.h6>
               </div>
             </Link>
           </div>

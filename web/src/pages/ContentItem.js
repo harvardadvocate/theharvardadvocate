@@ -127,7 +127,7 @@ export default function ContentItem() {
             </div>
             <div className="share">
               {isLinkCopied ? (
-                <Themed.h5>Link Copied</Themed.h5> // change button text to "Link Copied" when the link is copied
+                <Themed.h5><i>Link Copied</i></Themed.h5> // change button text to "Link Copied" when the link is copied
               ) : (
                 <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
               )}

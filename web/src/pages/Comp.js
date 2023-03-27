@@ -55,7 +55,7 @@ export default function Comp() {
       >
         <div className="compBody">
           <Themed.p>
-            <i>Our Spring 2023 comp is already underway. Decisions will be released by April 10th.</i>
+            <i>Our Spring 2023 comp is already underway</i>
             <br/><br/>
             The Harvard Advocate has been a home for arts and literature at Harvard since 1866, and we're always looking forward to meeting new members through our comp process! Across its seven boards, The Advocate welcomes critics, artists, writers, designers, programmers, and dealmakers alike. No previous experience is necessary. You don’t have to be a writer or an artist—as long as you’re interested in what we do, Advo has a place for you. The Advocate holds comps for all seven boards: Art, Features, Fiction, Poetry, Design, Business, and Tech. To learn more about the organization, our boards, and the comp process, visit our Instagram, Facebook, or Twitter.
             <br/><br/>

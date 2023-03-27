@@ -5,7 +5,7 @@ import { Themed } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { optimizeImageLoading } from "../utils/image.js";
 
-const headerColor = theme['colors']['headerColor'];
+const headerColor = theme['colors']['primary'];
 
 const imageListElementSx = {
   maxWidth: "100%",

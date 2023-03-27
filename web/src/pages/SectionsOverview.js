@@ -24,7 +24,6 @@ const sectionsOverviewSx = {
   },
 };
 
-// TODO: paginate
 const sectionToQuery = (section) =>
   section !== "Art"
     ? `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
