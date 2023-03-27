@@ -4,6 +4,7 @@ import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
 import { theme } from "../theme/theme.js";
+import { useIsMobile } from "../utils/isMobile.js";
 
 const buttonColor = theme['colors']['buttonColor'];
 const buttonColorHover = theme['colors']['buttonColorHover'];
@@ -119,19 +120,23 @@ const subscribeSx = {
 };
 
 export default function Subscribe() {
+
+  var isMobile = useIsMobile();
+
   return (
     <div sx={subscribeSx}>
       <div className="horizontalContainer">
         <div className="mainContent">
           <div className="mainText">
-          <Themed.h2>Thank you for considering subscribing to the Harvard Advocate!</Themed.h2>
+          {isMobile ? <Themed.h3>Thank you for considering subscribing to the Harvard Advocate!</Themed.h3> : <Themed.h2>Thank you for considering subscribing to the Harvard Advocate!</Themed.h2>}
           <p align="center">By subscribing, you receive four print issues a year, printed on high-quality paper, delivered straight to your doorstep.</p>
           </div>
           <br></br>
           <div className="bigBox">
-            <h3 align="center">Full Subscription</h3>
+            {isMobile ? <h4 align="center">Full Subscription</h4> : <h2 align="center">Full Subscription</h2>}
+
             <br/>
-            <Themed.h2><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h2>
+            <Themed.h3><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h3>
             <br/>
             <p>Renews automatically. Cancel anytime. Non-refundable.</p>
             <div  align="center">
