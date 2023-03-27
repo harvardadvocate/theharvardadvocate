@@ -26,9 +26,14 @@ export default {
         { title: "H2", value: "h2" },
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
+        {title: 'H5', value: 'h5'},
+        {title: 'H6', value: 'h6'},
         { title: "Quote", value: "blockquote" },
+        { title: "Code", value: "code" },
+        { title: "Preformatted", value: "pre" },
       ],
-      lists: [{ title: "Bullet", value: "bullet" }],
+      lists: [{ title: "Bullet", value: "bullet" },
+      { title: "Numbered", value: "number" }],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -36,6 +41,8 @@ export default {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          { title: "Underline", value: "underline" },
+          { title: "Strikethrough", value: "strike-through" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -48,6 +55,11 @@ export default {
                 title: "URL",
                 name: "href",
                 type: "url",
+              },
+              {
+                title: "Open link in new tab",
+                name: "blank",
+                type: "boolean",
               },
             ],
           },

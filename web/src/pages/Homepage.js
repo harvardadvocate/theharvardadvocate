@@ -203,7 +203,9 @@ export default function Homepage() {
         </MixedGrid>
         <div className="sanctumSessions">
           <hr/>
-          <img src="/sanctum_sessions.png" loading="lazy"/>
+          <a href="https://www.youtube.com/watch?v=xsu4cDyrMeQ" target="_blank">
+            <img src="/sanctum_sessions.png" loading="lazy"/>
+          </a>
         </div>
         <div className="blog">
           <hr/>
@@ -239,7 +241,7 @@ export default function Homepage() {
         <div className="fromTheArchives">
           <div className = "archiveHeader">
             <hr/>
-            <Themed.h2>From The Archives</Themed.h2>
+            <Themed.h2>From the Archives</Themed.h2>
             <hr/>
           </div>
             <TextContentList items={fromTheArchivesContent.slice(0, 3)} border={true} home={true}></TextContentList>
