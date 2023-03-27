@@ -39,11 +39,10 @@ export default function Contact() {
           <Themed.p>
           You can reach the content board heads at the following emails:
           <br/><br/>
-          <b>Art: </b>art@theharvardadvocate.com <br/>
-          <b>Features: </b>features@theharvardadvocate.com <br/>
-          <b>Fiction: </b>fiction@theharvardadvocate.com <br/>
-          <b>Poetry: </b>poetry@theharvardadvocate.com <br/>
-          <br/>
+          <b>Art</b><br/>art@theharvardadvocate.com <br/><br/>
+          <b>Features</b><br/>features@theharvardadvocate.com <br/><br/>
+          <b>Fiction</b><br/>fiction@theharvardadvocate.com <br/><br/>
+          <b>Poetry</b><br/>poetry@theharvardadvocate.com <br/><br/>
 
           To arrange a subscription, visit the <a href="/subscribe">subscribe page</a> or email us at hermes@theharvardadvocate.com.
           <br/><br/>
