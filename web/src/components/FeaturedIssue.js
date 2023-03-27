@@ -16,13 +16,18 @@ const issuesListSx = {
   a: {
     color: "white",
   },
-  ".featuredIssue": {
+
+  ".featuredIssue, .featuredIssue2": {
     width: "100%",
+    paddingInline: "3vw",
+    paddingTop: "2vh"
+  },
+
+  ".featuredIssue": {
     backgroundColor: firstColor,
   },
 
   ".featuredIssue2": {
-    width: "100%",
     backgroundColor: secondColor,
   },
 
