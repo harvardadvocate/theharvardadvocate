@@ -112,19 +112,19 @@ export default function SectionsOverview(props) {
       >
         <div className="sectionContainer">
           {sectionHeader("Art")}
-          <ImageContentGrid items={artItems} />
+          <ImageContentGrid items={artItems} noLastBorder={true}/>
         </div>
         <div className="sectionContainer">
           {sectionHeader("Fiction")}
-          <TextContentList items={fictionItems} />
+          <TextContentList items={fictionItems} noLastBorder={true}/>
         </div>
         <div className="sectionContainer">
           {sectionHeader("Features")}
-          <TextContentList items={featuresItems} />
+          <TextContentList items={featuresItems} noLastBorder={true}/>
         </div>
         <div className="sectionContainer">
           {sectionHeader("Poetry")}
-          <TextContentList items={poetryItems} />
+          <TextContentList items={poetryItems} noLastBorder={true}/>
         </div>
       </SectionFrame>
     </div>

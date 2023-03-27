@@ -72,20 +72,22 @@ export default function SectionArt(props) {
       .catch(console.error);
   }, [sectionSlug]);
 
-  const intersectionObserver = new IntersectionObserver(entries => {
-    if (entries[0].intersectionRatio === 0) return;
-    loadItems(3);
-  })
-  useEffect(() => {
-    var  currentElement = document.querySelector(".more")
-    intersectionObserver.observe(currentElement)
+  const intersectionObserver = new IntersectionObserver((entries) => {
+      if (entries[0].intersectionRatio === 0) return;
+      loadItems(3);
+    });
 
-    return () => {
+    useEffect(() => {
+      const currentElement = document.querySelector(".more");
       if (currentElement) {
-        intersectionObserver.unobserve(currentElement);
+        intersectionObserver.observe(currentElement);
       }
-    }
-  },[intersectionObserver])
+      return () => {
+        if (currentElement) {
+          intersectionObserver.unobserve(currentElement);
+        }
+      };
+    }, [intersectionObserver]);
 
   if (!items) return <div>Loading...</div>;
 

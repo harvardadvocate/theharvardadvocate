@@ -36,7 +36,6 @@ const frameSx = {
   },
 
   "@media (max-width: 835px)": {
-    margin: "0em 0.8em 2em 0.8em",
     ".header": {
       paddingInline: "inherit",
       marginTop: "1em",
