@@ -29,7 +29,7 @@ const advertiseSx = {
   },
 
 
-    "@media (max-width: 767px)": {
+    "@media (max-width: 835px)": {
       ".advertiseBody": {
         margin: "0em 0em 0em 0em",
         marginTop: "1em",

@@ -106,7 +106,7 @@ const customComponents = {
 
 
 export default function TextListItem(props) {
-  console.log(props);
+
   return (
     <div css={props.home ? textListItemSx_home : textListItemSx}>
       <div css={props.padding ? padding : no_padding}>

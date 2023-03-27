@@ -15,7 +15,7 @@ const mastheadSx = {
     display: "block"
   },
 
-  "@media (max-width: 767px)": {
+  "@media (max-width: 835px)": {
     ".mastheadBody": {
       margin: "0em 0em 0em 0em",
       marginTop: "1em",

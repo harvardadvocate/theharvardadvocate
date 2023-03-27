@@ -267,12 +267,12 @@ export default function IssuesList() {
         return <div>Loading...</div>;
       }
       else {
-        console.log("Welcome to the Harvard Advocate.");
+
       }
 
       const perChunk = 4 // items per row
       const resultArray = buildSubarraysOfSize(itemData.slice(6), perChunk);
-      console.log(resultArray);
+
 
 
     return (

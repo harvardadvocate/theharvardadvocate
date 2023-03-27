@@ -3,27 +3,33 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
-
+import { useIsMobile } from "../utils/isMobile.js";
 const footerSx = {
   borderTop: "1px solid rgba(0,0,0,0.20)",
   display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
   paddingTop: "3vh",
   paddingLeft: "5vw",
-  paddingRight: "10vw",
+  paddingRight: "5vw",
   paddingBottom: "3vh",
   ".footerContainer": {
     width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 
   ".leftMost": {
-    float: "left",
+    textAlign: "center",
+    marginBottom: "2vh",
   },
 
   ".sectionsAndMore": {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    float: "right",
-    gridGap: "5vw",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: "2vh",
   },
 
   img: {
@@ -34,12 +40,45 @@ const footerSx = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    float: "left",
+    marginBottom: "2vh",
+  },
+
+  "@media (min-width: 835px)": {
+    ".footerContainer": {
+      flexDirection: "row",
+      justifyContent: "space-between",
+    },
+
+    ".leftMost": {
+      marginBottom: "0",
+      marginRight: "5vw",
+      textAlign: "left",
+      float: "none",
+    },
+
+    ".sectionsAndMore": {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      alignItems: "flex-start",
+      marginTop: "0",
+    },
+
+    ".sections": {
+      marginBottom: "2vh",
+    },
+
+    ".more": {
+      marginBottom: "2vh",
+    },
   },
 };
 
 
+
 export default function Footer() {
+
+  var isMobile = useIsMobile();
+
   return (
     <div sx={footerSx}>
       <div className="footerContainer">
@@ -54,9 +93,10 @@ export default function Footer() {
           <br/><br/><br/>
           <Link className="linkLogo" to={"/"}>
             <img src={logo} alt="The Advocate Logo" loading="lazy" />
-            2023 <span>&copy;</span> The Harvard Advocate
+            2023 &nbsp; <span>&copy;</span> &nbsp; The Harvard Advocate
           </Link>
         </div>
+        {isMobile ? "" :
         <div className="sectionsAndMore">
           <div className="sections">
             <b>Sections</b>
@@ -69,23 +109,29 @@ export default function Footer() {
             <br/>
             <a href="/sections/poetry">Poetry</a>
             <br/>
+            <a href="/sections/columns">Columns</a>
+            <br/>
             <a href="/sections/blog">Blog</a>
           </div>
           <div className="more">
             <b>More</b>
             <br/>
             <br/>
-            <a href="/advertise">Advertise</a>
-            <br/>
-            <a href="/comp">Comp</a>
-            <br/>
             <a href="/shop">Shop</a>
             <br/>
             <a href="/donate">Donate</a>
             <br/>
-
+            <a href="/advertise">Advertise</a>
+            <br/>
+            <a href="/comp">Comp</a>
+            <br/>
+            <a href="/masthead">Masthead</a>
+            <br/>
+            <a href="/contact">Contact</a>
+            <br/>
           </div>
         </div>
+        }
       </div>
     </div>
   );

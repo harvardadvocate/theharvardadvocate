@@ -5,8 +5,9 @@ import { PortableText } from "@portabletext/react";
 import TextListElement from "../components/TextListElement.js";
 import TextContentList from "../components/TextContentList.js";
 import ImageListElement from "../components/ImageListElement.js";
+import ImageContentGrid from "../components/ImageContentGrid.js";
 import { theme } from "../theme/theme";
-
+import { useIsMobile } from "../utils/isMobile";
 
 // MixedGrid: takes 8 items in as props, sorts them as irregular grid
 // indices: 0-2 text, 3 text+art, 4-5 text, 6-7 art
@@ -98,9 +99,6 @@ const customComponents = {
 };
 
 export default function MixedGrid (props) {
-  console.log(props.home);
-  console.log(props.items);
-  console.log("mixedgrid props")
 
   var showFirstList;
   if (props.showFirstList || props.showFirstList == false) {
@@ -110,14 +108,20 @@ export default function MixedGrid (props) {
     showFirstList = true;
   }
 
+  var isMobile = useIsMobile();
+
   return (
   <div css={gridSx}>
 
     {/* first three text articles */}
     {showFirstList ?
-    <TextContentList items={[props.items[0], props.items[1], props.items[2]]} border={true} home={props.home} vertical={false} hideAuthor={false}></TextContentList>
+    <TextContentList items={[props.items[0], props.items[1], props.items[2]]} border={true} home={props.home} vertical={isMobile} hideAuthor={false}></TextContentList>
     :
     ""}
+    {isMobile ?
+      <ImageContentGrid items={[props.items[6], props.items[7]]} home={props.home} border={true} vertical={true}/>
+      :
+
     <div className="topArticles">
       {/* text article + accompanying art */}
       <div className="div4">
@@ -147,6 +151,7 @@ export default function MixedGrid (props) {
         <ImageListElement item={props.items[7]} home={props.home}></ImageListElement>
       </div>
     </div>
+    }
   </div>
   );
 }

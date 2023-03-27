@@ -35,7 +35,7 @@ const sectionFrameSx = {
     width: "100%",
   },
 
-  "@media (max-width: 767px)": {
+  "@media (max-width: 835px)": {
     margin: "0em 0.8em 2em 0.8em",
     ".header": {
       paddingInline: "inherit",
@@ -52,13 +52,12 @@ const sectionFrameSx = {
 };
 // TODO: assumes only up to 3 elements in path
 export default function SectionFrame(props) {
-
   return (
     <div sx={sectionFrameSx}>
       <div className="horizontalContainer">
         <div className="header">
           <div className="headerNormal">
-          <Themed.h2>{props.path[0].name}</Themed.h2>
+            <Themed.h2>{props.path[0].name}</Themed.h2>
           </div>
         </div>
 

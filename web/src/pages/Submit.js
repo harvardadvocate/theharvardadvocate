@@ -54,7 +54,7 @@ const submitSx = {
     textAlign: "center",
   },
 
-  "@media (max-width: 767px)": {
+  "@media (max-width: 835px)": {
     ".submitBody": {
       margin: "0em 0em 0em 0em",
       marginTop: "1em",

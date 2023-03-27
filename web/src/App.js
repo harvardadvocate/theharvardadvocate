@@ -32,7 +32,7 @@ const appSx = {
   ".nonSidebarContent": {
     minWidth: "-webkit-fill-available"
   },
-  "@media (max-width: 767px)": {
+  "@media (max-width: 835px)": {
     gridTemplateColumns: "auto",
     ".nonSidebarContent": {
       width: "100vw",

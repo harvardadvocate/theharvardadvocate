@@ -12,7 +12,7 @@ import FeaturedIssue from "../components/FeaturedIssue.js";
 import MixedGrid from "../components/MixedGrid.js";
 import TextContentList from "../components/TextContentList.js";
 import TwitterTimeline from "../components/TwitterTimeline.js";
-
+import { useIsMobile } from "../utils/isMobile.js";
 const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
 
@@ -125,13 +125,26 @@ const homepageSx = {
     textAlign: "center",
   },
 
-  "@media (max-width: 767px)": {
-    "hr": {
-      display: "none",
-    },
+  "@media (max-width: 835px)": {
+
     ".mainGrid": {
       gridTemplateColumns: "1fr",
       placeItems: "unset"
+    },
+
+    ".socialsGrid": {
+      display: "grid",
+      gridTemplateColumns: "1fr",
+      gridTemplateRows: "1fr",
+      gridColumnGap: "0",
+      gridRowGap: "0",
+      paddingTop: "1vh",
+      maxHeight: "90vh",
+      overflow: "hidden",
+    },
+
+    ".blogHeader, .archiveHeader": {
+      paddingInline: "5vw",
     },
   }
 };
@@ -144,6 +157,8 @@ const customComponents = {
 };
 
 export default function Homepage() {
+  var isMobile = useIsMobile();
+
 
   const [itemData, setItemData] = useState(null);
   const [featuredItems, setFeaturedItems] = useState(null);
@@ -188,7 +203,7 @@ export default function Homepage() {
       return <div>Loading...</div>;
     }
     else {
-      console.log("Welcome to the Harvard Advocate.");
+
     }
 
   return (
@@ -202,19 +217,23 @@ export default function Homepage() {
           featuredArticle6, featuredArt1, featuredArt2]}>
         </MixedGrid>
         <div className="sanctumSessions">
-          <hr/>
+          {!isMobile ? <hr/> : ""}
           <a href="https://www.youtube.com/watch?v=xsu4cDyrMeQ" target="_blank">
             <img src="/sanctum_sessions.png" loading="lazy"/>
           </a>
         </div>
         <div className="blog">
-          <hr/>
-          <Themed.h2><a href="sections/blog/">Blog</a></Themed.h2>
-          <hr/>
-          <Themed.p><i>The fresh online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
-          <TextContentList items={[featuredArticle1, featuredArticle2, featuredArticle3]} border={false} home={false}></TextContentList>
-          <hr/>
+          <div className="blogHeader">
+            <hr/>
+            <Themed.h2><a href="sections/blog/">Blog</a></Themed.h2>
+            <hr/>
+            <Themed.p><i>The fresh online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
+            {isMobile ? <hr/> : ""}
+          </div>
+          <TextContentList items={[featuredArticle1, featuredArticle2, featuredArticle3]} border={false} home={false} noLastBorder={isMobile}></TextContentList>
+          {!isMobile ? <hr/> : ""}
         </div>
+        {!isMobile ?
         <div className="socialsFeed">
           <div className="socialsGrid">
             <a href="https://instagram.com/harvardadvocate" target="_blank">
@@ -238,6 +257,7 @@ export default function Homepage() {
             </div>
           </div>
         </div>
+        : ""}
         <div className="fromTheArchives">
           <div className = "archiveHeader">
             <hr/>
@@ -245,7 +265,7 @@ export default function Homepage() {
             <hr/>
           </div>
             <TextContentList items={fromTheArchivesContent.slice(0, 3)} border={true} home={true}></TextContentList>
-            <TextContentList items={fromTheArchivesContent.slice(8, 11)} border={false} home={true}></TextContentList>
+            <TextContentList items={fromTheArchivesContent.slice(8, 11)} border={false} home={true}  noLastBorder={isMobile}></TextContentList>
         </div>
       </div>
     </div>
