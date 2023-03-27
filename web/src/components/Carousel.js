@@ -3,7 +3,7 @@ import InfiniteCarousel from 'react-leaf-carousel';
 import { Themed } from "theme-ui";
 import ShopifyBuy from 'shopify-buy';
 import { useIsMobile } from "../utils/isMobile.js";
-
+import ColorRingLoader from "./LoadingRing.js";
 
 const addToCart = (variantId, quantity) => {
   const lineItemsToAdd = [{ variantId, quantity }];
@@ -74,7 +74,7 @@ export default function MyCarousel(props) {
           </InfiniteCarousel>
         </div>
       ) : (
-        <div>Loading...</div>
+        <ColorRingLoader/>
       )}
     </>
   );

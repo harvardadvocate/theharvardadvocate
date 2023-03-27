@@ -7,6 +7,8 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
 import SectionFrame from "../components/SectionFrame";
+import ColorRingLoader from "../components/LoadingRing.js";
+
 const sectionsOverviewSx = {
 
   ".sectionHeader": {
@@ -99,7 +101,7 @@ export default function SectionsOverview(props) {
   );
 
   if (!artItems || !fictionItems || !featuresItems || !poetryItems)
-    return <div>Loading...</div>;
+    return <ColorRingLoader/>
 
   return (
     <div sx={sectionsOverviewSx}>

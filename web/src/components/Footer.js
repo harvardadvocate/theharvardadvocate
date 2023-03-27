@@ -5,6 +5,9 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 import { useIsMobile } from "../utils/isMobile.js";
 const footerSx = {
+  width: "-webkit-fill-available",
+  height: "5rem",           /* Footer height */
+
   borderTop: "1px solid rgba(0,0,0,0.20)",
   display: "flex",
   flexDirection: "column",
@@ -13,6 +16,7 @@ const footerSx = {
   paddingLeft: "5vw",
   paddingRight: "5vw",
   paddingBottom: "3vh",
+
   ".footerContainer": {
     width: "100%",
     display: "flex",

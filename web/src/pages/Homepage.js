@@ -13,6 +13,8 @@ import MixedGrid from "../components/MixedGrid.js";
 import TextContentList from "../components/TextContentList.js";
 import TwitterTimeline from "../components/TwitterTimeline.js";
 import { useIsMobile } from "../utils/isMobile.js";
+import ColorRingLoader from "../components/LoadingRing.js";
+
 const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
 
@@ -200,7 +202,7 @@ export default function Homepage() {
 
 
     if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
-      return <div>Loading...</div>;
+      return <ColorRingLoader/>
     }
     else {
 

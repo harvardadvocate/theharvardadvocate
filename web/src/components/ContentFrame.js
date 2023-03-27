@@ -5,7 +5,8 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 
 const frameSx = {
-  margin: "0em 15em 2em 15em",
+  marginBottom: "5vh",
+
   ".header": {
     marginLeft: "5%",
     marginRight: "2em",
@@ -17,6 +18,7 @@ const frameSx = {
     h5: {
       margin: "0.5em",
     },
+
     a: {
       color: "#000",
       textDecoration: "none",
@@ -47,6 +49,7 @@ const frameSx = {
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
+    paddingInline: "10vw",
     marginTop: "0em",
     minHeight: "100vh",
     flexDirection: "column",
@@ -60,17 +63,22 @@ const frameSx = {
     display: "none",
   },
   ".mainContent": {
-    marginLeft: "0px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "69%",
   },
   "@media (max-width: 835px)": {
-    margin: "0em 0.8em 2em 0.8em",
     ".header": {
       marginBottom: "0em",
       display: "none",
     },
-    ".horizontalContainer": {
-      marginTop: "1em",
+    ".mainContent": {
+      width: "90%",
     },
+    ".horizontalContainer": {
+      paddingInline: "2vw",
+      marginTop: "2vh"
+    }
   },
 };
 // TODO: assumes only up to 3 elements in path

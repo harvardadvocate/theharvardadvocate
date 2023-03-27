@@ -7,6 +7,7 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { useParams, Link } from "react-router-dom";
 import SectionFrame from "../components/SectionFrame";
+import ColorRingLoader from "../components/LoadingRing.js";
 
 const sectionSx = {
   ".sectionHeader": {
@@ -89,7 +90,7 @@ export default function SectionArt(props) {
       };
     }, [intersectionObserver]);
 
-  if (!items) return <div>Loading...</div>;
+  if (!items) return <ColorRingLoader/>;
 
   return (
     <div sx={sectionSx}>
