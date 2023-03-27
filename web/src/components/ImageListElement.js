@@ -9,7 +9,7 @@ const headerColor = theme['colors']['headerColor'];
 
 const imageListElementSx = {
   maxWidth: "100%",
-  padding: "0.8em",
+  padding: "2em",
   a: {
     color: "text",
     textDecoration: "none",
@@ -30,18 +30,22 @@ const imageListElementSx = {
     color: headerColor,
 
   },
-  padding: "1em",
   ".authorName": {
     p: {
       fontFamily: 'Poppins!important',
       fontSize: 'medium',
     },
   },
+
+  "@media (max-width: 835px)": {
+    padding: "1em",
+  },
 };
 
 
 const imageListElementSx_home = {
   maxWidth: "100%",
+  padding: "2em",
   a: {
     color: "text",
     textDecoration: "none",
@@ -62,6 +66,9 @@ const imageListElementSx_home = {
       fontFamily: 'Poppins!important',
       fontSize: 'medium',
     },
+  },
+  "@media (max-width: 835px)": {
+    padding: "1em",
   },
 };
 
