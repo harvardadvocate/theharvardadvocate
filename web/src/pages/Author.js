@@ -85,7 +85,6 @@ export default function Author() {
           <Themed.p>{authorData.bio}</Themed.p>
         </div>
         {
-          // TODO: do we want to differentiate between textual and art pieces?
           sections &&
             sections.map((section) => {
               const sectionItems = authoredItems.filter(

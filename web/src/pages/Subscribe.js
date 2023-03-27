@@ -133,12 +133,12 @@ export default function Subscribe() {
           </div>
           <br></br>
           <div className="bigBox">
-            {isMobile ? <h4 align="center">Full Subscription</h4> : <h2 align="center">Full Subscription</h2>}
+            {isMobile ? <Themed.h4 align="center">Full Subscription</Themed.h4> : <Themed.h2 align="center">Full Subscription</Themed.h2>}
 
             <br/>
             <Themed.h3><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h3>
             <br/>
-            <p>Renews automatically. Cancel anytime. Non-refundable.</p>
+            <Themed.p>Renews automatically. Cancel anytime. Non-refundable.</Themed.p>
             <div  align="center">
                 <a className = "buttonLink" href={"https://buy.stripe.com/eVa9Ej3Hy4Hw7T26oo"} target="_blank">
                   SUBSCRIBE NOW

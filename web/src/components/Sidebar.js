@@ -325,6 +325,7 @@ export default function Sidebar() {
           <div
             sx={{
               fontStyle: moreExpanded ? "italic" : "none",
+              fontSize: "24px",
             }}
             className={(moreExpanded ? " rotated" : "")}
             onClick={() => setMoreExpanded(!moreExpanded)}
