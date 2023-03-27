@@ -50,6 +50,12 @@ const textListItemSx = {
 
   padding: "0em",
 
+  ".authorName": {
+    p: {
+      fontFamily: 'Poppins!important',
+      fontSize: 'medium',
+    },
+  },
 };
 
 // custom css for textlistelement on homepage
@@ -81,7 +87,14 @@ const textListItemSx_home = {
 
     p: {
       color: "text",
-    }
+    },
+
+    ".authorName": {
+      p: {
+        fontFamily: 'Poppins!important',
+        fontSize: 'medium',
+      },
+    },
 }
 
 
@@ -138,7 +151,7 @@ export default function TextListItem(props) {
               </div>
             </Link>
             <br/>
-            {props.hideAuthor ? "" : <Themed.h4>By {props.item.authors[0].name}</Themed.h4>}
+            {props.hideAuthor ? "" : <div className="authorName"><Themed.p>By {props.item.authors[0].name}</Themed.p></div>}
           </div>
         </Link>
 
