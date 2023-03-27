@@ -40,7 +40,7 @@ export default function Masthead() {
           <i align="center">
             Annika Inampudi '25, President
             <br/>
-            Primo Lagaso Goldberg '25, Editor In Chief
+            Primo Lagaso Goldberg '25, Publisher
             <br/><br/>
             U. Roven '25, Dionysus
             <br/>

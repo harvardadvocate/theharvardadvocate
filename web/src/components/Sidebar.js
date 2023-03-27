@@ -5,6 +5,7 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
+
 const buttonColor = theme['colors']['buttonColor'];
 const buttonColorHover = theme['colors']['buttonColorHover'];
 
@@ -100,7 +101,7 @@ const sidebarSx = {
     backgroundColor: "white",
     ".advoStyle": {
       alignItems: "center",
-      fontSize: "3vh",
+      fontSize: "2.5vh",
       marginTop: "0vh",
     },
     ".logo": {
@@ -141,12 +142,12 @@ const sidebarSx = {
     ".buttonLinkMobile": {
       color: "white",
       backgroundColor: buttonColor,
-      padding: "1vh 1vh",
+      padding: "1vh",
       textAlign: "center",
       textDecoration: "none",
       display: "inline-block",
       borderRadius: "4px",
-      fontSize: "1vh",
+      fontSize: "1.2vh",
       width: "100%",
       fontFamily: "sans-serif",
       fontWeight: "600",
