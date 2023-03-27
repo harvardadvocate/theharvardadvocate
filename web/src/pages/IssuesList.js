@@ -186,7 +186,7 @@ const virtualStyle = {
   position: "absolute",
   height: "200px",
   top: "-200px",
-  width: "100%",
+  width: "1px",
   pointerEvent:"none"
 }
 
