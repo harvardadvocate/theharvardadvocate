@@ -47,6 +47,12 @@ const frameSx = {
         width: "auto",
       },
     },
+    ".mainContent": {
+      width: "90%",
+    },
+    ".horizontalContainer": {
+      paddingInline: "2vw",
+    }
   },
 };
 // TODO: assumes only up to 3 elements in path

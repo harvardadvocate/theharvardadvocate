@@ -56,6 +56,9 @@ const donateSx = {
     },
     ".image": {
       width: "100%",
+    },
+    ".buttonLink": {
+      width: "50%",
     }
   },
 
