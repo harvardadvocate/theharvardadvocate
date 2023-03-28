@@ -108,11 +108,10 @@ export default function Shop() {
     const issueCollectionId = 'gid://shopify/Collection/71491354679';
     // Set a parameter for first x products, defaults to 20 if you don't provide a param
 
-    // client.collection.fetchWithProducts(issueCollectionId).then((collections) => {
-    //   // Do something with the collection
-    //   setIssues(collections.products);
-    //
-    // });
+    client.collection.fetchWithProducts(issueCollectionId).then((collections) => {
+      // Do something with the collection
+      setIssues(collections.products);
+    });
   }, []);
 
   if (!products) {
@@ -128,7 +127,7 @@ export default function Shop() {
       </div>
       <div className="c">
         <hr/>
-        <MyCarousel prod={products}>
+        <MyCarousel prod={issues}>
         </MyCarousel>
         <hr/>
       </div>
