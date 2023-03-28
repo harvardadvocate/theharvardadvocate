@@ -9,6 +9,7 @@ import moment from "moment";
 import ContentFrame from "../components/ContentFrame";
 import Frame from "../components/Frame";
 import ColorRingLoader from "../components/LoadingRing.js";
+import urlBuilder from '@sanity/image-url'
 
 const contentItemSx = {
   ".contentHeader": {
@@ -32,6 +33,11 @@ const contentItemSx = {
   p: {
     marginBottom: "1.5em",
   },
+  ".images": {
+    img: {
+      width: "100%",
+    },
+  },
 };
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -42,7 +48,46 @@ function urlFor(source) {
 const customComponents = {
   block: {
     normal: ({ children }) => <Themed.p>{children}</Themed.p>,
+    h1: ({ children }) => <h1>{children}</h1>,
+    h2: ({ children }) => <h2>{children}</h2>,
+    h3: ({ children }) => <h3>{children}</h3>,
+    h4: ({ children }) => <h4>{children}</h4>,
+    h5: ({ children }) => <h5>{children}</h5>,
+    h6: ({ children }) => <h6>{children}</h6>,
+    blockquote: ({ children }) => <blockquote>{children}</blockquote>,
+    pre: ({ children }) => <pre>{children}</pre>,
   },
+  list: {
+    bullet: ({children}) => <ul className="mt-xl">{children}</ul>,
+    number: ({children}) => <ol className="mt-lg">{children}</ol>,
+  },
+  listItem: {
+    bullet: ({children}) => <li style={{listStyleType: 'disclosure-closed'}}>{children}</li>,
+    number: ({children}) => <li style={{listStyleType: 'disclosure-closed'}}>{children}</li>,
+  },
+  marks: {
+    em: ({children}) => <em>{children}</em>,
+    strong: ({children}) => <strong>{children}</strong>,
+    link: ({value, children}) => {
+      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+      return (
+        <a href={value?.href} target={target} rel={target === '_blank' && 'noindex nofollow'}>
+          {children}
+        </a>
+      )
+    },
+    underline: ({children}) => <u>{children}</u>,
+    strikethrough: ({children}) => <s>{children}</s>,
+    },
+    types: {
+        image: ({value}) => <img src={urlFor(value).url()} />,
+        callToAction: ({value, isInline}) =>
+          isInline ? (
+            <a href={value.url}>{value.text}</a>
+          ) : (
+            <div className="callToAction">{value.text}</div>
+          ),
+      },
 };
 
 export default function ContentItem() {
@@ -67,6 +112,7 @@ export default function ContentItem() {
          issue->{title, slug},
          authors[]->{name, slug},
          sections[]->{title, slug},
+         images[]{asset->{_id, url}}
        }`,
         { slug }
       )
@@ -82,6 +128,7 @@ export default function ContentItem() {
 
   if (!itemData) return <ColorRingLoader/>;
 
+  console.log(itemData);
   return (
     <div sx={contentItemSx}>
       <ContentFrame
@@ -134,12 +181,13 @@ export default function ContentItem() {
             </div>
           </div>
         </div>
-        {
-          // TODO: figure out multiple image display
-          itemData.mainImage && (
-            <img src={urlFor(itemData.mainImage).width(200).url()} alt="" />
-          )
-        }
+        <div className="images">
+          {
+            itemData.images && itemData.images.map((image, i) => (
+              <img src={image.asset.url} key={i} />
+            ))
+          }
+        </div>
         <div>
           {itemData.body && (
             <PortableText

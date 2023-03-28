@@ -31,8 +31,6 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-// TODO: include list of author's pieces
-
 export default function Author() {
   const [authorData, setAuthorData] = useState(null);
   const [authoredItems, setAuthoredItems] = useState(null);
