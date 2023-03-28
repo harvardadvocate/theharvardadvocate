@@ -185,7 +185,7 @@ const issuesListSx = {
 const virtualStyle = {
   position: "absolute",
   height: "200px",
-  top: "-200px",
+  top: "-500px",
   width: "1px",
   pointerEvent:"none"
 }
@@ -330,27 +330,25 @@ export default function IssuesList() {
             })}
           </div> : ""}
           <div className="smallGrid">
-            {(resultArray).map((issueSlices) => {
+            {(resultArray).map((issueSlices, index) => {
               return (
-                <div className="smallGridRow">
-                {(issueSlices).map((smallIssue) => {
-                  return (
-                    <Link to={"/issues/" + smallIssue.slug.current}>
-                    <div className="smallIssueDiv" key={smallIssue.title}>
-                      <img src={optimizeImageLoading(smallIssue.frontCover.asset.url)} loading="lazy"></img>
-                      <div className="lowerInfo2">
-                        <Themed.h4>{smallIssue.title}</Themed.h4>
-                      </div>
-                    </div>
-                    </Link>
-                  );
-                })}
+                <div key={index} className="smallGridRow">
+                  {(issueSlices).map((smallIssue) => {
+                    return (
+                      <Link to={"/issues/" + smallIssue.slug.current}>
+                        <div className="smallIssueDiv" key={smallIssue.title}>
+                          <img src={optimizeImageLoading(smallIssue.frontCover.asset.url)} loading="lazy"></img>
+                          <div className="lowerInfo2">
+                            <Themed.h4>{smallIssue.title}</Themed.h4>
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                  {(resultArray.length - 2 === index) ? <div className="more"><p style={virtualStyle}></p></div> : ""}
                 </div>
               );
             })}
-          </div>
-          <div className="more">
-            <p style={virtualStyle}></p>
           </div>
         </div>
       </div>
