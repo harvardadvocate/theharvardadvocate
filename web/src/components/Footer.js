@@ -4,6 +4,8 @@ import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 import { useIsMobile } from "../utils/isMobile.js";
+import { FaTwitter, FaInstagram } from "react-icons/fa";
+
 const footerSx = {
   width: "-webkit-fill-available",
   height: "5rem",           /* Footer height */
@@ -46,6 +48,22 @@ const footerSx = {
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "2vh",
+  },
+
+  ".socialIcons": {
+    display: "flex",
+    alignItems: "flexStart",
+    height: "100%",
+    flexDirection: "row",
+
+  },
+  ".socialIcon": {
+    margin: "0 1vw",
+    fontSize: "1.5rem",
+    color: "black",
+    "&:hover": {
+      color: "gray",
+    },
   },
 
   "@media (min-width: 835px)": {
@@ -100,6 +118,24 @@ export default function Footer() {
             <img src={logo} alt="The Advocate Logo" loading="lazy" />
             2023 &nbsp; <span>&copy;</span> &nbsp; The Harvard Advocate
           </Link>
+        </div>
+        <div className="socialIcons">
+          <a
+            href="https://twitter.com/harvardadvocate"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="socialIcon"
+          >
+            <FaTwitter />
+          </a>
+          <a
+            href="https://www.instagram.com/harvardadvocate"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="socialIcon"
+          >
+            <FaInstagram />
+          </a>
         </div>
         {isMobile ? "" :
         <div className="sectionsAndMore">
