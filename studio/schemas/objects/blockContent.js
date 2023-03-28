@@ -43,6 +43,12 @@ export default {
           { title: "Emphasis", value: "em" },
           { title: "Underline", value: "underline" },
           { title: "Strikethrough", value: "strikethrough" },
+          {
+            title: 'Center',
+            value: 'center',
+            icon: () => '≡'
+          }
+
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [

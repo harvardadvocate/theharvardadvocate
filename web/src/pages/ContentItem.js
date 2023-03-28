@@ -38,6 +38,17 @@ const contentItemSx = {
       width: "100%",
     },
   },
+  ".centerText": {
+    textAlign: "center",
+  },
+  blockquote: {
+    background: "#f9f9f9",
+    borderLeft: "10px solid #ccc",
+    margin: "1.5em 10px",
+    padding: "0.5em 10px",
+    fontStyle: "italic",
+    lineHeight: "1.5em",
+  }
 };
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -68,6 +79,7 @@ const customComponents = {
   marks: {
     em: ({children}) => <em>{children}</em>,
     strong: ({children}) => <strong>{children}</strong>,
+    center: ({children}) => <div className="centerText">{children}</div>,
     link: ({value, children}) => {
       const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
       return (
