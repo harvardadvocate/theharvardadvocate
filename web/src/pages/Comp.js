@@ -28,6 +28,10 @@ const compSx = {
       fontSize: "16px",
     },
   },
+  a: {
+    color: "#00008B",
+    textDecoration: "underline",
+  },
 
 
   "@media (max-width: 835px)": {
@@ -57,7 +61,7 @@ export default function Comp() {
           <Themed.p>
             <i>Our Spring 2023 comp is already underway</i>
             <br/><br/>
-            The Harvard Advocate has been a home for arts and literature at Harvard since 1866, and we're always looking forward to meeting new members through our comp process! Across its seven boards, The Advocate welcomes critics, artists, writers, designers, programmers, and dealmakers alike. No previous experience is necessary. You don’t have to be a writer or an artist—as long as you’re interested in what we do, Advo has a place for you. The Advocate holds comps for all seven boards: Art, Features, Fiction, Poetry, Design, Business, and Tech. To learn more about the organization, our boards, and the comp process, visit our Instagram, Facebook, or Twitter.
+            The Harvard Advocate has been a home for arts and literature at Harvard since 1866, and we're always looking forward to meeting new members through our comp process! Across its seven boards, The Advocate welcomes critics, artists, writers, designers, programmers, and dealmakers alike. No previous experience is necessary. You don’t have to be a writer or an artist—as long as you’re interested in what we do, Advo has a place for you. The Advocate holds comps for all seven boards: Art, Features, Fiction, Poetry, Design, Business, and Tech. To learn more about the organization, our boards, and the comp process, visit our <a href="https://www.instagram.com/harvardadvocate/" target="_blank">Instagram</a> and <a href="https://www.twitter.com/harvardadvocate/" target="_blank">Twitter</a>.
             <br/><br/>
             Intro Comp meetings are happening Wednesday February 1 and Thursday February 2 at 9pm at 21 South St, and Saturday February 4 at 3pm on Zoom. Visit here to sign up. For any questions, comments or concerns, contact dionysi@theharvardadvocate.com.
             <br/><br/>

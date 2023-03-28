@@ -16,7 +16,7 @@ const contactSx = {
   },
 
   a: {
-    color: "blue",
+    color: "#00008B",
     textDecoration: "underline",
   },
 
