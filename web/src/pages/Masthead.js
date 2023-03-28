@@ -54,7 +54,7 @@ export default function Masthead() {
             <br/>
             H. Hinze '26, Pegasus
             <br/>
-            V. Lyapvena '26, Pegasus
+            V. Lyapneva '26, Pegasus
             <br/>
             M. Wong '26, Pegasus
             <br/>
