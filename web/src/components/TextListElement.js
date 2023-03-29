@@ -131,13 +131,13 @@ export default function TextListItem(props) {
           <div className="listItem">
             <Themed.h3 color={headerColor}>
               {!props.home
-              ? <i><a style={{ color: headerColor }} href={"issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
-              : <i><a style={{ color: headerColor }} href={"sections/" + props.item.sections[0].slug.current}>{props.item.sections[0].title + " "}</a>
-              •  <a style={{ color: headerColor }} href={"issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
+              ? <i><a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
+              : <i><a style={{ color: headerColor }} href={"/sections/" + props.item.sections[0].slug.current}>{props.item.sections[0].title + " "}</a>
+              •  <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>{" " + props.item.issue.title}</a></i>
               }
             </Themed.h3>
 
-            <Themed.h2><a href={"content/" + props.item.slug.current}>{props.item.title}</a></Themed.h2>
+            <Themed.h2><a href={"/content/" + props.item.slug.current}>{props.item.title}</a></Themed.h2>
             <br/>
             <Link to={"/content/" + props.item.slug.current}>
               <div className = "textPreview">
