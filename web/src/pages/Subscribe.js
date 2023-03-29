@@ -49,8 +49,8 @@ const subscribeSx = {
       marginBottom: "5%",
     },
     strike: {
-      opacity: "0.5",
       marginRight: "0.5em",
+      color: "rgba(0,0,0,0.5)",
     },
   },
   p: {
@@ -95,22 +95,12 @@ const subscribeSx = {
     },
     ".bigBox": {
       height: "20%",
-      display: "flex",
       padding: "3vh",
-      flexDirection: "column",
-      border: "2px solid lightgrey",
-      justifyContent: "center",
       width: "90%",
       borderRadius: "10px",
-      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-      opacity: "1",
       p: {
         opacity: "1",
         marginBottom: "5%",
-      },
-      strike: {
-        color: "rgba(0,0,0,0.5)",
-        marginRight: "0.5em",
       },
     },
     ".image": {
