@@ -53,11 +53,15 @@ const shopSx = {
     },
     img: {
       boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-      minWidth: "-webkit-fill-available",
-      height: "-webkit-fill-available"
+      maxHeight: "100%",
+      maxWidth: "100%",
     },
     ".carousel-item": {
+      height: "100%",
     },
+    ".InfiniteCarouselSlide": {
+      width: "auto",
+    }
   },
 };
 
