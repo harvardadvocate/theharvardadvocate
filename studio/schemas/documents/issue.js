@@ -23,6 +23,7 @@ export default {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "description",
@@ -33,6 +34,7 @@ export default {
       name: "frontCover",
       title: "Front Cover",
       type: "image",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "backCover",
