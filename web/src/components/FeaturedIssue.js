@@ -31,6 +31,11 @@ const issuesListSx = {
     backgroundColor: secondColor,
   },
 
+  "*:hover": {
+    color: "#fffaf1",
+  },
+
+
   ".issueCover": {
     height: "max-content",
     display: "flex",
@@ -42,6 +47,11 @@ const issuesListSx = {
       boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
       maxWidth: "69%",
       maxHeight: "75%",
+      // new styles for hover
+      transition: "transform 0.2s ease-in-out",
+      ":hover": {
+        transform: "scale(1.01)",
+      },
     },
     a: {
       justifyContent: "center",
@@ -78,7 +88,8 @@ const issuesListSx = {
     },
     hr: {
       border: "0.1px solid white",
-    }  },
+    }
+  },
 
 
   ".readFullIssue": {

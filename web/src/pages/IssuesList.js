@@ -217,6 +217,7 @@ export default function IssuesList() {
 
     const [itemData, setItemData] = useState(null);
     const [featuredItems, setFeaturedItems] = useState(null);
+    const [featuredItems2, setFeaturedItems2] = useState(null);
 
     const loadItems = (num) => {
       var currentIssue = itemData.length
@@ -226,6 +227,7 @@ export default function IssuesList() {
       )
       .catch(console.error)
      }
+
 
       useEffect(() => {
         sanityClient
@@ -244,13 +246,14 @@ export default function IssuesList() {
                       url
                     }
                   }
-                }[0...4]
+                }
               }
               `
           )
           .then((data) => {
             setItemData(data.itemData);
-            setFeaturedItems(data.featuredItems);
+            setFeaturedItems2(data.featuredItems.filter(item => item.issue.title == data.itemData[1].title));
+            setFeaturedItems(data.featuredItems.filter(item => item.issue.title == data.itemData[0].title));
           })
           .catch(console.error);
       }, []);
@@ -300,7 +303,7 @@ export default function IssuesList() {
       <div className="horizontalContainer">
         <div className="mainContent">
           <FeaturedIssue newest={true} issue={itemData[0]} featuredItems={featuredItems}/>
-          <FeaturedIssue newest={false} issue={itemData[1]} featuredItems={featuredItems}/>
+          <FeaturedIssue newest={false} issue={itemData[1]} featuredItems={featuredItems2}/>
           {!isMobile ?
           <div className = "bigGrid">
             {([itemData.slice(2,4), itemData.slice(4,6)]).map((issueSlices) => {
