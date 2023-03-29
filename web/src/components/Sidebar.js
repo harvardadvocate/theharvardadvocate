@@ -264,14 +264,14 @@ export default function Sidebar() {
             sx={{
               fontStyle: sectionsExpanded ? "italic" : "none",
             }}
-            onClick={() => setSectionsExpanded(!sectionsExpanded)}
+            onClick={() => {setSectionsExpanded(!sectionsExpanded); setMoreExpanded(false);}}
             to={"/sections"}
           >
             Sections
           </Link>
           <div
             className={"dropdownButton" + (sectionsExpanded ? " rotated" : "")}
-            onClick={() => setSectionsExpanded(!sectionsExpanded)}
+            onClick={() => {setSectionsExpanded(!sectionsExpanded); setMoreExpanded(false);}}
           ></div>
         </div>
         {sectionsExpanded && (
@@ -328,13 +328,13 @@ export default function Sidebar() {
               fontSize: "24px",
             }}
             className={(moreExpanded ? " rotated" : "")}
-            onClick={() => setMoreExpanded(!moreExpanded)}
+            onClick={() => {setMoreExpanded(!moreExpanded); setSectionsExpanded(false)}}
           >
             More
           </div>
           <div
             className={"dropdownButton" + (moreExpanded ? " rotated" : "")}
-            onClick={() => setMoreExpanded(!moreExpanded)}
+            onClick={() => {setMoreExpanded(!moreExpanded); setSectionsExpanded(false)}}
           ></div>
         </div>
         {moreExpanded && (

@@ -24,6 +24,7 @@ export default {
       title: "Authors",
       type: "array",
       of: [{ type: "reference", to: { type: "author" } }],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "mainImage",
@@ -46,6 +47,7 @@ export default {
       title: "Sections",
       type: "array",
       of: [{ type: "reference", to: { type: "section" } }],
+      validation: (Rule) => Rule.required(),
     },
 
     {
@@ -73,6 +75,7 @@ export default {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "year",
@@ -84,6 +87,7 @@ export default {
       title: "Issue",
       type: "reference",
       to: { type: "issue" },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "body",
