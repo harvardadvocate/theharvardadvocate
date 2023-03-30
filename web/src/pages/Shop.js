@@ -107,8 +107,11 @@ export default function Shop() {
 
   if (!products) {
     return <ColorRingLoader />;
-  } else {
   }
+  else {
+    console.log(merch);
+  }
+
   return (
     <div sx={shopSx}>
       <div className="header">
