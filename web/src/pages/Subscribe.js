@@ -23,6 +23,7 @@ const subscribeSx = {
     marginLeft: "0px",
     paddingLeft: "10px",
     paddingRight: "10px",
+    paddingBottom: "2vh",
     marginTop: "100px",
     display: "flex",
     flexDirection: "column",
