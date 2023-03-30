@@ -29,9 +29,9 @@ const issueSx = {
       maxHeight: "100%",
       display: "block",
       margin: "0 auto",
-    }
+    },
   },
-  "mixedGridContainer": {
+  mixedGridContainer: {
     borderBottom: "1px solid rgba(0,0,0,0.2)",
   },
 
@@ -47,8 +47,8 @@ const issueSx = {
     ".issueContainer": {
       marginTop: "2vh",
       paddingBottom: "2vh",
-    }
-  }
+    },
+  },
 };
 
 const topGridCSS = {
@@ -71,7 +71,7 @@ const topGridCSS = {
     width: "80%",
     overflow: "hidden",
   },
-}
+};
 
 const topCSSNoGrid = {
   display: "flex",
@@ -84,9 +84,8 @@ const topCSSNoGrid = {
     width: "25%",
     overflow: "hidden",
   },
-}
+};
 export default function Issue() {
-
   var isMobile = useIsMobile();
 
   function pop(object, propertyName) {
@@ -123,11 +122,10 @@ export default function Issue() {
       if (!isInSectionArt && item.images && item.images.length > 0) {
         const index = contentItems.indexOf(item);
 
-
-        if (index > -1) { // only splice array when item is found
+        if (index > -1) {
+          // only splice array when item is found
           contentItems.splice(index, 1); // 2nd parameter means remove one item only
         }
-
 
         return item;
       }
@@ -136,7 +134,6 @@ export default function Issue() {
     // Return null if no content item meets the criteria
     return null;
   }
-
 
   const [items, setItems] = useState(null);
   const [issue, setIssue] = useState(null);
@@ -174,32 +171,40 @@ export default function Issue() {
         { issueSlug }
       )
       .then((issueData) => {
-
         setIssue(issueData[0]);
         setItems(issueData[0].itemData);
         setSections(
-          unionBy(...(issueData[0].itemData).map((item) => item.sections), "title")
+          unionBy(
+            ...issueData[0].itemData.map((item) => item.sections),
+            "title"
+          )
         );
       })
       .catch(console.error);
   }, [issueSlug]);
 
-
   if (!items || !issue || !sections) {
-    return <ColorRingLoader/>
-  }
-  else {
+    return <ColorRingLoader />;
+  } else {
     contentItemsBySection = groupContentItemsBySection(items, sections);
     if (contentItemsBySection["Art"] && !isMobile) {
-      if ((contentItemsBySection["Art"].length > 1) && (items.length - contentItemsBySection["Art"].length > 5)) { // use mixed grid implementation
+      if (
+        contentItemsBySection["Art"].length > 1 &&
+        items.length - contentItemsBySection["Art"].length > 5
+      ) {
+        // use mixed grid implementation
         useMixedGrid = true;
-        artContent = pop(contentItemsBySection, "Art")
+        artContent = pop(contentItemsBySection, "Art");
         textContent = [].concat.apply([], Object.values(contentItemsBySection));
         var remainingArray = textContent;
-        if (firstNonArtWithImage && Object.keys(firstNonArtWithImage).length !== 0) {
-          var reminingArray = remainingArray.filter(item => item !== firstNonArtWithImage)
-        }
-        else {
+        if (
+          firstNonArtWithImage &&
+          Object.keys(firstNonArtWithImage).length !== 0
+        ) {
+          var reminingArray = remainingArray.filter(
+            (item) => item !== firstNonArtWithImage
+          );
+        } else {
           firstNonArtWithImage = remainingArray.shift();
         }
         // remainingArray: has all textContent except findFirstNonArtWithImage. There are at least 5 of these.
@@ -220,20 +225,19 @@ export default function Issue() {
         articlesToFeature.push(artContent.shift());
         articlesToFeature.push(artContent.shift());
 
-        contentItemsBySection = groupContentItemsBySection(remainingArray.concat(artContent), sections);
-      }
-      else {
+        contentItemsBySection = groupContentItemsBySection(
+          remainingArray.concat(artContent),
+          sections
+        );
+      } else {
         useMixedGrid = false;
       }
     }
     if (contentItemsBySection["Art"]) {
-      artContent = pop(contentItemsBySection, "Art")
+      artContent = pop(contentItemsBySection, "Art");
     }
     textContent = [].concat.apply([], Object.values(contentItemsBySection));
   }
-
-
-
 
   return (
     <div css={issueSx}>
@@ -243,34 +247,64 @@ export default function Issue() {
           { name: issue.title, slug: "/issues/" + issue.slug.current },
         ]}
       >
-      <div className="issueContainer" css={useGridTop ? topGridCSS : topCSSNoGrid}>
-        <div className="featuredIssue">
-          <img src={optimizeImageLoading(issue.frontCover.asset.url)} loading="lazy" alt="" />
+        <div
+          className="issueContainer"
+          css={useGridTop ? topGridCSS : topCSSNoGrid}
+        >
+          <div className="featuredIssue">
+            <img
+              src={optimizeImageLoading(issue.frontCover.asset.url)}
+              loading="lazy"
+              alt=""
+            />
+          </div>
+          {useGridTop ? (
+            <>
+              <div className="articleItem">
+                <TextListElement
+                  home={true}
+                  padding={true}
+                  item={gridTop1}
+                ></TextListElement>
+              </div>
+              <div className="articleItem">
+                <TextListElement
+                  home={true}
+                  padding={true}
+                  item={gridTop2}
+                ></TextListElement>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
         </div>
-        {useGridTop ?
-        <>
-        <div className="articleItem">
-          <TextListElement home={true} padding={true} item={gridTop1}></TextListElement>
-        </div>
-        <div className="articleItem">
-          <TextListElement home={true} padding={true} item={gridTop2}></TextListElement>
-        </div>
-        </>
-        : ""}
 
-      </div>
+        {useMixedGrid ? (
+          <div className="mixedGridContainer">
+            {" "}
+            <MixedGrid
+              home={true}
+              items={articlesToFeature}
+              showFirstList={false}
+            ></MixedGrid>{" "}
+            <hr />{" "}
+          </div>
+        ) : (
+          ""
+        )}
 
-      {useMixedGrid ?
-        <div className="mixedGridContainer"> <MixedGrid home={true} items={articlesToFeature} showFirstList={false}></MixedGrid> <hr/> </div>
-        :
-        ""
-      }
-
-      {textContent.length > 0 ? (<TextContentList items={textContent} home={true} border={true}/>) : ""}
-      {artContent.length > 0 ? (<ImageContentGrid items={artContent} home={true} border={true}/>) : ""}
-
+        {textContent.length > 0 ? (
+          <TextContentList items={textContent} home={true} border={true} />
+        ) : (
+          ""
+        )}
+        {artContent.length > 0 ? (
+          <ImageContentGrid items={artContent} home={true} border={true} />
+        ) : (
+          ""
+        )}
       </SectionFrame>
     </div>
-
   );
 }

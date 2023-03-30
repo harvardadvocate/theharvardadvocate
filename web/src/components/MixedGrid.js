@@ -16,9 +16,7 @@ const mainColor = theme["colors"]["primary"];
 const headerColor = theme["colors"]["headerColor"];
 
 const gridSx = {
-
   margin: "0em 0em 0em 0em",
-
 
   ".topArticles": {
     display: "grid",
@@ -29,13 +27,12 @@ const gridSx = {
     paddingInline: "2vw",
   },
 
-
   ".div4, .div5, .div6, .div7, .div8, .blogArticle, .archiveArticle": {
     h3: {
       color: "headerColor",
     },
     h4: {
-      "fontFamily": "Poppins",
+      fontFamily: "Poppins",
     },
     padding: "1em",
   },
@@ -64,12 +61,10 @@ const gridSx = {
     verticalAlign: "middle",
   },
 
-
   ".div5": {
     gridArea: "2 / 1  / 3 / 3",
     borderBottom: "1px solid rgba(0, 0, 0, .2)",
     paddingBottom: "1em",
-
   },
 
   ".div6": {
@@ -98,60 +93,96 @@ const customComponents = {
   },
 };
 
-export default function MixedGrid (props) {
-
+export default function MixedGrid(props) {
   var showFirstList;
   if (props.showFirstList || props.showFirstList == false) {
     showFirstList = props.showFirstList;
-  }
-  else {
+  } else {
     showFirstList = true;
   }
 
   var isMobile = useIsMobile();
 
   return (
-  <div css={gridSx}>
+    <div css={gridSx}>
+      {/* first three text articles */}
+      {showFirstList ? (
+        <TextContentList
+          items={[props.items[0], props.items[1], props.items[2]]}
+          border={true}
+          home={props.home}
+          vertical={isMobile}
+          hideAuthor={false}
+        ></TextContentList>
+      ) : (
+        ""
+      )}
+      {isMobile ? (
+        <ImageContentGrid
+          items={[props.items[6], props.items[7]]}
+          home={props.home}
+          border={true}
+          vertical={true}
+        />
+      ) : (
+        <div className="topArticles">
+          {/* text article + accompanying art */}
+          <div className="div4">
+            <div className="div4image">
+              {props.items[3].mainImage ? (
+                <a href={"content/" + props.items[3].slug.current}>
+                  <img
+                    src={props.items[3].mainImage.asset.url}
+                    alt="Illustration"
+                  ></img>
+                </a>
+              ) : (
+                <a href={"content/" + props.items[3].slug.current}>
+                  <img src="/defaultimage.jpeg" alt="Illustration"></img>
+                </a>
+              )}
+            </div>
+            <div className="div4content">
+              <TextListElement
+                item={props.items[3]}
+                home={true}
+              ></TextListElement>
+            </div>
+          </div>
 
-    {/* first three text articles */}
-    {showFirstList ?
-    <TextContentList items={[props.items[0], props.items[1], props.items[2]]} border={true} home={props.home} vertical={isMobile} hideAuthor={false}></TextContentList>
-    :
-    ""}
-    {isMobile ?
-      <ImageContentGrid items={[props.items[6], props.items[7]]} home={props.home} border={true} vertical={true}/>
-      :
+          {/* two text articles */}
 
-    <div className="topArticles">
-      {/* text article + accompanying art */}
-      <div className="div4">
-        <div className="div4image">
-          {props.items[3].mainImage ? <a href={"content/"+props.items[3].slug.current}><img src={props.items[3].mainImage.asset.url} alt="Illustration"></img></a> : <a href={"content/"+props.items[3].slug.current}><img src="/defaultimage.jpeg" alt="Illustration"></img></a>}
+          <div className="div5">
+            <TextListElement
+              item={props.items[4]}
+              home={props.home}
+              padding={false}
+            ></TextListElement>
+          </div>
+
+          <div className="div6">
+            <TextListElement
+              item={props.items[5]}
+              home={props.home}
+              padding={false}
+            ></TextListElement>
+          </div>
+
+          {/* two art articles */}
+
+          <div className="div7">
+            <ImageListElement
+              item={props.items[6]}
+              home={props.home}
+            ></ImageListElement>
+            <hr />
+            <ImageListElement
+              item={props.items[7]}
+              home={props.home}
+            ></ImageListElement>
+          </div>
         </div>
-        <div className="div4content">
-          <TextListElement item={props.items[3]} home={true}></TextListElement>
-        </div>
-      </div>
-
-      {/* two text articles */}
-
-      <div className="div5">
-        <TextListElement item={props.items[4]} home={props.home} padding={false}></TextListElement>
-      </div>
-
-      <div className="div6">
-        <TextListElement item={props.items[5]} home={props.home} padding={false}></TextListElement>
-      </div>
-
-      {/* two art articles */}
-
-      <div className="div7">
-        <ImageListElement item={props.items[6]} home={props.home}></ImageListElement>
-        <hr/>
-        <ImageListElement item={props.items[7]} home={props.home}></ImageListElement>
-      </div>
+      )}
     </div>
-    }
-  </div>
   );
 }

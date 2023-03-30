@@ -61,7 +61,7 @@ export default function Author() {
       .catch(console.error);
   }, [authorSlug]);
 
-  if (!authorData) return <ColorRingLoader/>;
+  if (!authorData) return <ColorRingLoader />;
 
   return (
     <div sx={authorSx}>
@@ -82,27 +82,41 @@ export default function Author() {
           )}
           <Themed.p>{authorData.bio}</Themed.p>
         </div>
-        {
-          sections &&
-            sections.map((section) => {
-              const sectionItems = authoredItems.filter(
-                (i) => i.sections[0].title === section.title
-              );
-              return (
-                <div key={section.title}>
-                  <div className="sectionHeader">
-                    <Link to={"/sections/" + section.slug.current}><Themed.h2> {section.title} </Themed.h2></Link>
-                    <img src={rightArrow} alt="right-arrow" />
-                  </div>
-                  {section.title !== "Art" ?
-                    <TextContentList items={sectionItems} vertical={true} border={true} home={false} hideAuthor={true} padding={false}/>
-                    :
-                    <ImageContentGrid items={sectionItems} vertical={true} border={true} home={false} hideAuthor={true} padding={false}/>
-                  }
+        {sections &&
+          sections.map((section) => {
+            const sectionItems = authoredItems.filter(
+              (i) => i.sections[0].title === section.title
+            );
+            return (
+              <div key={section.title}>
+                <div className="sectionHeader">
+                  <Link to={"/sections/" + section.slug.current}>
+                    <Themed.h2> {section.title} </Themed.h2>
+                  </Link>
+                  <img src={rightArrow} alt="right-arrow" />
                 </div>
-              );
-            })
-        }
+                {section.title !== "Art" ? (
+                  <TextContentList
+                    items={sectionItems}
+                    vertical={true}
+                    border={true}
+                    home={false}
+                    hideAuthor={true}
+                    padding={false}
+                  />
+                ) : (
+                  <ImageContentGrid
+                    items={sectionItems}
+                    vertical={true}
+                    border={true}
+                    home={false}
+                    hideAuthor={true}
+                    padding={false}
+                  />
+                )}
+              </div>
+            );
+          })}
       </Frame>
     </div>
   );

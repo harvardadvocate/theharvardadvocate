@@ -32,17 +32,15 @@ const appSx = {
 
   ".nonSidebarContent": {
     minWidth: "-webkit-fill-available",
-    paddingBottom: "5rem",           /* Footer height */
+    paddingBottom: "5rem" /* Footer height */,
   },
   "@media (max-width: 835px)": {
     gridTemplateColumns: "auto",
     ".nonSidebarContent": {
       width: "100vw",
-    }
+    },
   },
 };
-
-
 
 function App() {
   return (
@@ -50,29 +48,29 @@ function App() {
       <div>
         <BrowserRouter>
           <div css={appSx}>
-              <Sidebar />
-              <div className="nonSidebarContent">
-                <Routes>
-                  <Route element={<Homepage />} path="/" exact />
-                  <Route element={<About />} path="/about" exact />
-                  <Route element={<IssuesList />} path="/issues" exact />
-                  <Route element={<Issue />} path="/issues/:issueSlug" />
-                  <Route element={<Advertise />} path="/advertise" exact />
-                  <Route element={<Masthead />} path="/masthead" exact />
-                  <Route element={<Comp />} path="/comp" exact />
-                  <Route element={<Donate />} path="/donate" exact />
-                  <Route element={<Shop />} path="/shop" exact />
-                  <Route element={<SectionsOverview />} path="/sections" exact />
-                  <Route element={<Subscribe />} path="/subscribe" exact />
-                  <Route element={<Submit />} path="/submit" exact />
-                  <Route element={<SectionArt />} path="sections/art" exact />
-                  <Route element={<Section />} path="sections/:sectionSlug" />
-                  <Route element={<ContentItem />} path="/content/:slug" />
-                  <Route element={<Author />} path="authors/:authorSlug" />
-                  <Route element={<Contact />} path="/contact" exact />
-                </Routes>
-                <Footer />
-              </div>
+            <Sidebar />
+            <div className="nonSidebarContent">
+              <Routes>
+                <Route element={<Homepage />} path="/" exact />
+                <Route element={<About />} path="/about" exact />
+                <Route element={<IssuesList />} path="/issues" exact />
+                <Route element={<Issue />} path="/issues/:issueSlug" />
+                <Route element={<Advertise />} path="/advertise" exact />
+                <Route element={<Masthead />} path="/masthead" exact />
+                <Route element={<Comp />} path="/comp" exact />
+                <Route element={<Donate />} path="/donate" exact />
+                <Route element={<Shop />} path="/shop" exact />
+                <Route element={<SectionsOverview />} path="/sections" exact />
+                <Route element={<Subscribe />} path="/subscribe" exact />
+                <Route element={<Submit />} path="/submit" exact />
+                <Route element={<SectionArt />} path="sections/art" exact />
+                <Route element={<Section />} path="sections/:sectionSlug" />
+                <Route element={<ContentItem />} path="/content/:slug" />
+                <Route element={<Author />} path="authors/:authorSlug" />
+                <Route element={<Contact />} path="/contact" exact />
+              </Routes>
+              <Footer />
+            </div>
           </div>
         </BrowserRouter>
       </div>

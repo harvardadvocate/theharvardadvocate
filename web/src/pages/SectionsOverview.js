@@ -10,7 +10,6 @@ import SectionFrame from "../components/SectionFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
 
 const sectionsOverviewSx = {
-
   ".sectionHeader": {
     fontStyle: "italic",
     borderBottom: "1px solid #000",
@@ -100,7 +99,7 @@ export default function SectionsOverview(props) {
   );
 
   if (!artItems || !fictionItems || !featuresItems || !poetryItems)
-    return <ColorRingLoader/>
+    return <ColorRingLoader />;
 
   return (
     <div sx={sectionsOverviewSx}>
@@ -113,19 +112,19 @@ export default function SectionsOverview(props) {
       >
         <div className="sectionContainer">
           {sectionHeader("Art")}
-          <ImageContentGrid items={artItems} home={false} noLastBorder={true}/>
+          <ImageContentGrid items={artItems} home={false} noLastBorder={true} />
         </div>
         <div className="sectionContainer">
           {sectionHeader("Fiction")}
-          <TextContentList items={fictionItems} noLastBorder={true}/>
+          <TextContentList items={fictionItems} noLastBorder={true} />
         </div>
         <div className="sectionContainer">
           {sectionHeader("Features")}
-          <TextContentList items={featuresItems} noLastBorder={true}/>
+          <TextContentList items={featuresItems} noLastBorder={true} />
         </div>
         <div className="sectionContainer">
           {sectionHeader("Poetry")}
-          <TextContentList items={poetryItems} noLastBorder={true}/>
+          <TextContentList items={poetryItems} noLastBorder={true} />
         </div>
       </SectionFrame>
     </div>

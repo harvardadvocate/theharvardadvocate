@@ -9,7 +9,7 @@ import moment from "moment";
 import ContentFrame from "../components/ContentFrame";
 import Frame from "../components/Frame";
 import ColorRingLoader from "../components/LoadingRing.js";
-import urlBuilder from '@sanity/image-url'
+import urlBuilder from "@sanity/image-url";
 
 const contentItemSx = {
   ".contentHeader": {
@@ -28,7 +28,6 @@ const contentItemSx = {
     ".share": {
       cursor: "pointer", // add cursor property to change cursor pointer
     },
-
   },
   p: {
     marginBottom: "1.5em",
@@ -48,7 +47,7 @@ const contentItemSx = {
     padding: "0.5em 10px",
     fontStyle: "italic",
     lineHeight: "1.5em",
-  }
+  },
 };
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -69,37 +68,47 @@ const customComponents = {
     pre: ({ children }) => <pre>{children}</pre>,
   },
   list: {
-    bullet: ({children}) => <ul className="mt-xl">{children}</ul>,
-    number: ({children}) => <ol className="mt-lg">{children}</ol>,
+    bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
+    number: ({ children }) => <ol className="mt-lg">{children}</ol>,
   },
   listItem: {
-    bullet: ({children}) => <li style={{listStyleType: 'disclosure-closed'}}>{children}</li>,
-    number: ({children}) => <li style={{listStyleType: 'disclosure-closed'}}>{children}</li>,
+    bullet: ({ children }) => (
+      <li style={{ listStyleType: "disclosure-closed" }}>{children}</li>
+    ),
+    number: ({ children }) => (
+      <li style={{ listStyleType: "disclosure-closed" }}>{children}</li>
+    ),
   },
   marks: {
-    em: ({children}) => <em>{children}</em>,
-    strong: ({children}) => <strong>{children}</strong>,
-    center: ({children}) => <div className="centerText">{children}</div>,
-    link: ({value, children}) => {
-      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+    em: ({ children }) => <em>{children}</em>,
+    strong: ({ children }) => <strong>{children}</strong>,
+    center: ({ children }) => <div className="centerText">{children}</div>,
+    link: ({ value, children }) => {
+      const target = (value?.href || "").startsWith("http")
+        ? "_blank"
+        : undefined;
       return (
-        <a href={value?.href} target={target} rel={target === '_blank' && 'noindex nofollow'}>
+        <a
+          href={value?.href}
+          target={target}
+          rel={target === "_blank" && "noindex nofollow"}
+        >
           {children}
         </a>
-      )
+      );
     },
-    underline: ({children}) => <u>{children}</u>,
-    strikethrough: ({children}) => <s>{children}</s>,
-    },
-    types: {
-        image: ({value}) => <img src={urlFor(value).url()} />,
-        callToAction: ({value, isInline}) =>
-          isInline ? (
-            <a href={value.url}>{value.text}</a>
-          ) : (
-            <div className="callToAction">{value.text}</div>
-          ),
-      },
+    underline: ({ children }) => <u>{children}</u>,
+    strikethrough: ({ children }) => <s>{children}</s>,
+  },
+  types: {
+    image: ({ value }) => <img src={urlFor(value).url()} />,
+    callToAction: ({ value, isInline }) =>
+      isInline ? (
+        <a href={value.url}>{value.text}</a>
+      ) : (
+        <div className="callToAction">{value.text}</div>
+      ),
+  },
 };
 
 export default function ContentItem() {
@@ -132,13 +141,12 @@ export default function ContentItem() {
       .catch(console.error);
   }, [slug]);
 
-
   const handleShareClick = () => {
     navigator.clipboard.writeText(window.location.href);
     setIsLinkCopied(true);
   };
 
-  if (!itemData) return <ColorRingLoader/>;
+  if (!itemData) return <ColorRingLoader />;
 
   console.log(itemData);
   return (
@@ -159,7 +167,13 @@ export default function ContentItem() {
         <div className="contentHeader">
           <div className="topLine">
             <Themed.h5>
-              <Link to={"/sections/" + itemData.sections[0].slug.current}>{itemData.sections[0].title}</Link> • <Link to={"/issues/" + itemData.issue.slug.current}>{itemData.issue.title} Issue </Link>
+              <Link to={"/sections/" + itemData.sections[0].slug.current}>
+                {itemData.sections[0].title}
+              </Link>{" "}
+              •{" "}
+              <Link to={"/issues/" + itemData.issue.slug.current}>
+                {itemData.issue.title} Issue{" "}
+              </Link>
             </Themed.h5>
           </div>
           <div className="title">
@@ -186,7 +200,9 @@ export default function ContentItem() {
             </div>
             <div className="share">
               {isLinkCopied ? (
-                <Themed.h5><i>Link Copied</i></Themed.h5> // change button text to "Link Copied" when the link is copied
+                <Themed.h5>
+                  <i>Link Copied</i>
+                </Themed.h5> // change button text to "Link Copied" when the link is copied
               ) : (
                 <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
               )}
@@ -194,11 +210,10 @@ export default function ContentItem() {
           </div>
         </div>
         <div className="images">
-          {
-            itemData.images && itemData.images.map((image, i) => (
+          {itemData.images &&
+            itemData.images.map((image, i) => (
               <img src={image.asset.url} key={i} />
-            ))
-          }
+            ))}
         </div>
         <div>
           {itemData.body && (

@@ -52,22 +52,21 @@ const frameSx = {
     },
     ".horizontalContainer": {
       paddingInline: "2vw",
-    }
+    },
   },
 };
 // TODO: assumes only up to 3 elements in path
 export default function Frame(props) {
-
   return (
     <div sx={frameSx}>
       <div className="horizontalContainer">
-          <div className="header">
-            <div className="headerNormal">
+        <div className="header">
+          <div className="headerNormal">
             <Themed.h2>{props.path[0].name}</Themed.h2>
-            </div>
           </div>
+        </div>
 
-          <div className="mainContent">{props.children}</div>
+        <div className="mainContent">{props.children}</div>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { Themed, Grid } from "theme-ui";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { theme } from "../theme/theme";
 import { getResources } from "../queries/homepage.js";
 import { optimizeImageLoading } from "../utils/image.js";
@@ -40,13 +40,13 @@ const homepageSx = {
   },
 
   ".sanctumSessions": {
-    padding:"0em",
+    padding: "0em",
     hr: {
       color: "rgba(0,0,0,0.2)",
     },
     img: {
       padding: "5vw",
-    }
+    },
   },
 
   ".socialsGrid": {
@@ -85,7 +85,6 @@ const homepageSx = {
     paddingTop: "20%",
     zIndex: "1",
     transform: "rotate(3deg)",
-
   },
 
   ".insta2": {
@@ -118,7 +117,6 @@ const homepageSx = {
     position: "relative",
   },
 
-
   ".blog": {
     textAlign: "center",
   },
@@ -128,10 +126,9 @@ const homepageSx = {
   },
 
   "@media (max-width: 835px)": {
-
     ".mainGrid": {
       gridTemplateColumns: "1fr",
-      placeItems: "unset"
+      placeItems: "unset",
     },
 
     ".socialsGrid": {
@@ -148,7 +145,7 @@ const homepageSx = {
     ".blogHeader, .archiveHeader": {
       paddingInline: "5vw",
     },
-  }
+  },
 };
 
 // // `components` object passed to PortableText
@@ -160,7 +157,6 @@ const customComponents = {
 
 export default function Homepage() {
   var isMobile = useIsMobile();
-
 
   const [itemData, setItemData] = useState(null);
   const [featuredItems, setFeaturedItems] = useState(null);
@@ -200,77 +196,140 @@ export default function Homepage() {
       .catch(console.error);
   }, []);
 
-
-    if (!itemData || !featuredItems || !featuredArticle1 || !featuredArticle2 || !featuredArticle3 || !featuredArticle4 || !featuredArticle5 || !featuredArticle6 || !featuredArt1 || !featuredArt2 || !instagramImages || !fromTheArchivesContent) {
-      return <ColorRingLoader/>
-    }
-    else {
-
-    }
+  if (
+    !itemData ||
+    !featuredItems ||
+    !featuredArticle1 ||
+    !featuredArticle2 ||
+    !featuredArticle3 ||
+    !featuredArticle4 ||
+    !featuredArticle5 ||
+    !featuredArticle6 ||
+    !featuredArt1 ||
+    !featuredArt2 ||
+    !instagramImages ||
+    !fromTheArchivesContent
+  ) {
+    return <ColorRingLoader />;
+  } else {
+  }
 
   return (
     <div css={homepageSx}>
-    <div className="horizontalContainer">
-      <div className="mainContent">
-        <FeaturedIssue newest={true} issue={itemData} featuredItems={featuredItems}/>
-        <MixedGrid home={true}
-          items={[featuredArticle1, featuredArticle2,
-          featuredArticle3, featuredArticle4, featuredArticle5,
-          featuredArticle6, featuredArt1, featuredArt2]}>
-        </MixedGrid>
-        <div className="sanctumSessions">
-          {!isMobile ? <hr/> : ""}
-          <a href="https://www.youtube.com/watch?v=xsu4cDyrMeQ" target="_blank">
-            <img src="/sanctum_sessions.png" loading="lazy"/>
-          </a>
-        </div>
-        <div className="blog">
-          <div className="blogHeader">
-            <hr/>
-            <Themed.h2><a href="sections/blog/">Blog</a></Themed.h2>
-            <hr/>
-            <Themed.p><i>The fresh online pieces we experiment with outside of our print cycle. Or just a blog.</i></Themed.p>
-            {isMobile ? <hr/> : ""}
+      <div className="horizontalContainer">
+        <div className="mainContent">
+          <FeaturedIssue
+            newest={true}
+            issue={itemData}
+            featuredItems={featuredItems}
+          />
+          <MixedGrid
+            home={true}
+            items={[
+              featuredArticle1,
+              featuredArticle2,
+              featuredArticle3,
+              featuredArticle4,
+              featuredArticle5,
+              featuredArticle6,
+              featuredArt1,
+              featuredArt2,
+            ]}
+          ></MixedGrid>
+          <div className="sanctumSessions">
+            {!isMobile ? <hr /> : ""}
+            <a
+              href="https://www.youtube.com/watch?v=xsu4cDyrMeQ"
+              target="_blank"
+            >
+              <img src="/sanctum_sessions.png" loading="lazy" />
+            </a>
           </div>
-          <TextContentList items={[featuredArticle1, featuredArticle2, featuredArticle3]} border={false} home={false} noLastBorder={isMobile}></TextContentList>
-          {!isMobile ? <hr/> : ""}
-        </div>
-        {!isMobile ?
-        <div className="socialsFeed">
-          <div className="socialsGrid">
-            <a href="https://instagram.com/harvardadvocate" target="_blank">
-              <div className="instaCol">
-                <div className="fromss">
-                  <img src="/picsfrom21ss.jpg" loading = "lazy"></img>
-                </div>
-                <div className="insta1">
-                  <img src={optimizeImageLoading(instagramImages[2].image.asset.url)} loading="lazy"></img>
-                </div>
-                <div className="insta2">
-                  <img src={optimizeImageLoading(instagramImages[0].image.asset.url)} loading="lazy"></img>
-                </div>
-                <div className="insta3">
-                  <img src={optimizeImageLoading(instagramImages[1].image.asset.url)} loading="lazy"></img>
+          <div className="blog">
+            <div className="blogHeader">
+              <hr />
+              <Themed.h2>
+                <a href="sections/blog/">Blog</a>
+              </Themed.h2>
+              <hr />
+              <Themed.p>
+                <i>
+                  The fresh online pieces we experiment with outside of our
+                  print cycle. Or just a blog.
+                </i>
+              </Themed.p>
+              {isMobile ? <hr /> : ""}
+            </div>
+            <TextContentList
+              items={[featuredArticle1, featuredArticle2, featuredArticle3]}
+              border={false}
+              home={false}
+              noLastBorder={isMobile}
+            ></TextContentList>
+            {!isMobile ? <hr /> : ""}
+          </div>
+          {!isMobile ? (
+            <div className="socialsFeed">
+              <div className="socialsGrid">
+                <a href="https://instagram.com/harvardadvocate" target="_blank">
+                  <div className="instaCol">
+                    <div className="fromss">
+                      <img src="/picsfrom21ss.jpg" loading="lazy"></img>
+                    </div>
+                    <div className="insta1">
+                      <img
+                        src={optimizeImageLoading(
+                          instagramImages[2].image.asset.url
+                        )}
+                        loading="lazy"
+                      ></img>
+                    </div>
+                    <div className="insta2">
+                      <img
+                        src={optimizeImageLoading(
+                          instagramImages[0].image.asset.url
+                        )}
+                        loading="lazy"
+                      ></img>
+                    </div>
+                    <div className="insta3">
+                      <img
+                        src={optimizeImageLoading(
+                          instagramImages[1].image.asset.url
+                        )}
+                        loading="lazy"
+                      ></img>
+                    </div>
+                  </div>
+                </a>
+                <div className="twitterCol">
+                  <TwitterTimeline height={(window.innerHeight / 100) * 80} />
                 </div>
               </div>
-            </a>
-            <div className="twitterCol">
-              <TwitterTimeline height={window.innerHeight / 100 * 80}/>
             </div>
+          ) : (
+            ""
+          )}
+          <div className="fromTheArchives">
+            <div className="archiveHeader">
+              <hr />
+              <Themed.h2>From the Archives</Themed.h2>
+              <hr />
+            </div>
+            <TextContentList
+              items={fromTheArchivesContent.slice(0, 3)}
+              border={true}
+              home={true}
+            ></TextContentList>
+            <TextContentList
+              items={fromTheArchivesContent.slice(8, 11)}
+              border={false}
+              home={true}
+              noLastBorder={isMobile}
+            ></TextContentList>
           </div>
-        </div>
-        : ""}
-        <div className="fromTheArchives">
-          <div className = "archiveHeader">
-            <hr/>
-            <Themed.h2>From the Archives</Themed.h2>
-            <hr/>
-          </div>
-            <TextContentList items={fromTheArchivesContent.slice(0, 3)} border={true} home={true}></TextContentList>
-            <TextContentList items={fromTheArchivesContent.slice(8, 11)} border={false} home={true}  noLastBorder={isMobile}></TextContentList>
         </div>
       </div>
-    </div>
     </div>
   );
 }

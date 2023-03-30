@@ -29,27 +29,24 @@ const issuesListSx = {
     marginLeft: "0px",
   },
 
-
-    ".readFullIssueBig": {
-      color: "#000000",
-      display: "flex",
-      alignItems: "center",
-      span: {
-        border: "2px solid #000000",
-        borderRadius: "5px",
-        paddingInline: "10px",
-        color: "#FFFFFF",
-        backgroundColor: "#000000",
-        float: "left"
-      },
-      p: {
-        paddingInline: "10px",
-        fontFamily: "sans-serif",
-        fontSize: "0.6em",
-      },
-
-
+  ".readFullIssueBig": {
+    color: "#000000",
+    display: "flex",
+    alignItems: "center",
+    span: {
+      border: "2px solid #000000",
+      borderRadius: "5px",
+      paddingInline: "10px",
+      color: "#FFFFFF",
+      backgroundColor: "#000000",
+      float: "left",
     },
+    p: {
+      paddingInline: "10px",
+      fontFamily: "sans-serif",
+      fontSize: "0.6em",
+    },
+  },
 
   ".topArticles": {
     display: "grid",
@@ -62,13 +59,11 @@ const issuesListSx = {
     gridRowGap: "0px",
   },
 
-
   ".bigGrid": {
     display: "grid",
     gridTemplateRows: "1fr 1fr",
     gridTemplateColumns: "1fr",
     paddingTop: "5vh",
-
   },
 
   ".bigGridRow": {
@@ -116,14 +111,12 @@ const issuesListSx = {
     justifyContent: "space-between",
   },
 
-
   ".smallGrid": {
     display: "grid",
     gridTemplateRows: "1fr 1fr",
     gridTemplateColumns: "1fr",
     paddingLeft: "1vw",
     paddingRight: "1vw",
-
   },
 
   ".smallGridRow": {
@@ -187,11 +180,11 @@ const virtualStyle = {
   height: "200px",
   top: "-500px",
   width: "1px",
-  pointerEvent:"none"
-}
+  pointerEvent: "none",
+};
 
 const issuesToQuery = (start, end) =>
-    `*[_type == "issue"] | order(publishedAt desc) {
+  `*[_type == "issue"] | order(publishedAt desc) {
       title,
       slug,
       description,
@@ -203,7 +196,6 @@ const issuesToQuery = (start, end) =>
         }
       }[${start}...${end}]`;
 
-
 // // `components` object passed to PortableText
 const customComponents = {
   block: {
@@ -212,29 +204,26 @@ const customComponents = {
 };
 
 export default function IssuesList() {
-    var isMobile = useIsMobile();
+  var isMobile = useIsMobile();
 
+  const [itemData, setItemData] = useState(null);
+  const [featuredItems, setFeaturedItems] = useState(null);
+  const [featuredItems2, setFeaturedItems2] = useState(null);
 
-    const [itemData, setItemData] = useState(null);
-    const [featuredItems, setFeaturedItems] = useState(null);
-    const [featuredItems2, setFeaturedItems2] = useState(null);
+  const loadItems = (num) => {
+    var currentIssue = itemData.length;
+    sanityClient
+      .fetch(issuesToQuery(currentIssue, currentIssue + num)) // query section
+      .then((data) => setItemData([...itemData, ...data]))
+      .catch(console.error);
+  };
 
-    const loadItems = (num) => {
-      var currentIssue = itemData.length
-      sanityClient
-      .fetch(issuesToQuery(currentIssue, currentIssue+num)) // query section
-        .then((data) => setItemData([...itemData, ...data])
-      )
-      .catch(console.error)
-     }
-
-
-      useEffect(() => {
-        sanityClient
-          .fetch(
-            `
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `
               {
-                "itemData": ${issuesToQuery(0,10)},
+                "itemData": ${issuesToQuery(0, 10)},
                 "featuredItems": *[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
                     title,
                     authors[]->{name},
@@ -249,98 +238,125 @@ export default function IssuesList() {
                 }
               }
               `
+      )
+      .then((data) => {
+        setItemData(data.itemData);
+        setFeaturedItems2(
+          data.featuredItems.filter(
+            (item) => item.issue.title == data.itemData[1].title
           )
-          .then((data) => {
-            setItemData(data.itemData);
-            setFeaturedItems2(data.featuredItems.filter(item => item.issue.title == data.itemData[1].title));
-            setFeaturedItems(data.featuredItems.filter(item => item.issue.title == data.itemData[0].title));
-          })
-          .catch(console.error);
-      }, []);
+        );
+        setFeaturedItems(
+          data.featuredItems.filter(
+            (item) => item.issue.title == data.itemData[0].title
+          )
+        );
+      })
+      .catch(console.error);
+  }, []);
 
+  const intersectionObserver = new IntersectionObserver((entries) => {
+    if (entries[0].intersectionRatio === 0) return;
+    loadItems(4);
+  });
 
-      const intersectionObserver = new IntersectionObserver((entries) => {
-        if (entries[0].intersectionRatio === 0) return;
-        loadItems(4);
-      });
-
-      useEffect(() => {
-        const currentElement = document.querySelector(".more");
-        if (currentElement) {
-          intersectionObserver.observe(currentElement);
-        }
-        return () => {
-          if (currentElement) {
-            intersectionObserver.unobserve(currentElement);
-          }
-        };
-      }, [intersectionObserver]);
-
-
-      if (!itemData || !featuredItems) {
-        return <ColorRingLoader/>
+  useEffect(() => {
+    const currentElement = document.querySelector(".more");
+    if (currentElement) {
+      intersectionObserver.observe(currentElement);
+    }
+    return () => {
+      if (currentElement) {
+        intersectionObserver.unobserve(currentElement);
       }
-      else {
+    };
+  }, [intersectionObserver]);
 
-      }
+  if (!itemData || !featuredItems) {
+    return <ColorRingLoader />;
+  } else {
+  }
 
-      var perChunk = 4; // items per row
+  var perChunk = 4; // items per row
 
+  if (isMobile) {
+    perChunk = 2;
+  }
 
-      if (isMobile) {
-        perChunk = 2;
-      }
+  // map 4 to 6
+  // map 2 to 2
 
-      // map 4 to 6
-      // map 2 to 2
+  const resultArray = buildSubarraysOfSize(
+    itemData.slice(2 * perChunk - 2),
+    perChunk
+  );
 
-      const resultArray = buildSubarraysOfSize(itemData.slice((2*perChunk) - 2), perChunk);
-
-
-
-    return (
-      <div css={issuesListSx}>
+  return (
+    <div css={issuesListSx}>
       <div className="horizontalContainer">
         <div className="mainContent">
-          <FeaturedIssue newest={true} issue={itemData[0]} featuredItems={featuredItems}/>
-          <FeaturedIssue newest={false} issue={itemData[1]} featuredItems={featuredItems2}/>
-          {!isMobile ?
-          <div className = "bigGrid">
-            {([itemData.slice(2,4), itemData.slice(4,6)]).map((issueSlices) => {
-              return (
-                <div className="bigGridRow">
-                {(issueSlices).map((bigIssue) => {
+          <FeaturedIssue
+            newest={true}
+            issue={itemData[0]}
+            featuredItems={featuredItems}
+          />
+          <FeaturedIssue
+            newest={false}
+            issue={itemData[1]}
+            featuredItems={featuredItems2}
+          />
+          {!isMobile ? (
+            <div className="bigGrid">
+              {[itemData.slice(2, 4), itemData.slice(4, 6)].map(
+                (issueSlices) => {
                   return (
-                    <Link to={"/issues/" + bigIssue.slug.current}>
-                    <div className="bigIssueDiv" key={bigIssue.title}>
-                      <div className="issueCover">
-                        <img src={optimizeImageLoading(bigIssue.frontCover.asset.url)} loading="lazy"></img>
-                      </div>
-                      <div className="lowerInfo">
-                        <Themed.h3>{bigIssue.title}</Themed.h3>
-                        <Link to={"/issues/" + bigIssue.slug.current}>
-                        <div className="readFullIssueBig">
-                          <span>&#8594;</span>&nbsp;
-                        </div>
-                        </Link>
-                      </div>
+                    <div className="bigGridRow">
+                      {issueSlices.map((bigIssue) => {
+                        return (
+                          <Link to={"/issues/" + bigIssue.slug.current}>
+                            <div className="bigIssueDiv" key={bigIssue.title}>
+                              <div className="issueCover">
+                                <img
+                                  src={optimizeImageLoading(
+                                    bigIssue.frontCover.asset.url
+                                  )}
+                                  loading="lazy"
+                                ></img>
+                              </div>
+                              <div className="lowerInfo">
+                                <Themed.h3>{bigIssue.title}</Themed.h3>
+                                <Link to={"/issues/" + bigIssue.slug.current}>
+                                  <div className="readFullIssueBig">
+                                    <span>&#8594;</span>&nbsp;
+                                  </div>
+                                </Link>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
-                    </Link>
                   );
-                })}
-                </div>
-              );
-            })}
-          </div> : ""}
+                }
+              )}
+            </div>
+          ) : (
+            ""
+          )}
           <div className="smallGrid">
-            {(resultArray).map((issueSlices, index) => {
+            {resultArray.map((issueSlices, index) => {
               return (
                 <div key={index} className="smallGridRow">
-                  {(issueSlices).map((smallIssue) => {
+                  {issueSlices.map((smallIssue) => {
                     return (
                       <Link to={"/issues/" + smallIssue.slug.current}>
                         <div className="smallIssueDiv" key={smallIssue.title}>
-                          <img src={optimizeImageLoading(smallIssue.frontCover.asset.url)} loading="lazy"></img>
+                          <img
+                            src={optimizeImageLoading(
+                              smallIssue.frontCover.asset.url
+                            )}
+                            loading="lazy"
+                          ></img>
                           <div className="lowerInfo2">
                             <Themed.h4>{smallIssue.title}</Themed.h4>
                           </div>
@@ -348,13 +364,19 @@ export default function IssuesList() {
                       </Link>
                     );
                   })}
-                  {(resultArray.length - 2 === index) ? <div className="more"><p style={virtualStyle}></p></div> : ""}
+                  {resultArray.length - 2 === index ? (
+                    <div className="more">
+                      <p style={virtualStyle}></p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               );
             })}
           </div>
         </div>
       </div>
-      </div>
-    );
-  }
+    </div>
+  );
+}
