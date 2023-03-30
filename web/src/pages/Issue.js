@@ -195,11 +195,12 @@ export default function Issue() {
         artContent = pop(contentItemsBySection, "Art");
         textContent = [].concat.apply([], Object.values(contentItemsBySection));
         var remainingArray = textContent;
+        firstNonArtWithImage = findFirstNonArtWithImage(remainingArray);
         if (
           firstNonArtWithImage &&
           Object.keys(firstNonArtWithImage).length !== 0
         ) {
-          var reminingArray = remainingArray.filter(
+          remainingArray = remainingArray.filter(
             (item) => item !== firstNonArtWithImage
           );
         } else {
