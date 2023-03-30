@@ -44,9 +44,10 @@
     ]
   },
   "devDependencies": {
-    "@emotion/react": "^11.8.2"
+    "@emotion/react": "^11.8.2",
+    "mini-css-extract-plugin": "2.4.5"
   },
-  "resolutions": {
-    "mini-css-extract-plugin": "~2.4.5"
+  "overrides": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }
