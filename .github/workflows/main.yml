@@ -19,6 +19,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        
+      - name: Install sanity
+        run: npm install -g @sanity/cli
 
       - name: Build
         run: npm run build
