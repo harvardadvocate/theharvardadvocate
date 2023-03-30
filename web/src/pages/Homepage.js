@@ -1,10 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from "react";
-import { Themed, Grid } from "theme-ui";
-import { Link } from "react-router-dom";
+import { Themed } from "theme-ui";
 import sanityClient from "../client.js";
-import { PortableText } from "@portabletext/react";
-import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { theme } from "../theme/theme";
 import { getResources } from "../queries/homepage.js";
 import { optimizeImageLoading } from "../utils/image.js";
@@ -14,9 +11,6 @@ import TextContentList from "../components/TextContentList.js";
 import TwitterTimeline from "../components/TwitterTimeline.js";
 import { useIsMobile } from "../utils/isMobile.js";
 import ColorRingLoader from "../components/LoadingRing.js";
-
-const mainColor = theme["colors"]["primary"];
-const headerColor = theme["colors"]["headerColor"];
 
 const homepageSx = {
   hr: {
@@ -111,7 +105,6 @@ const homepageSx = {
     gridColumn: "-1 / 2",
     gridRow: "1",
     width: "10vw",
-    zIndex: "0",
     padding: "1em",
     zIndex: "1",
     position: "relative",
@@ -148,20 +141,11 @@ const homepageSx = {
   },
 };
 
-// // `components` object passed to PortableText
-const customComponents = {
-  block: {
-    normal: ({ children }) => <Themed.p>{children}</Themed.p>,
-  },
-};
-
 export default function Homepage() {
   var isMobile = useIsMobile();
 
   const [itemData, setItemData] = useState(null);
   const [featuredItems, setFeaturedItems] = useState(null);
-  const [featuredRow1, setFeaturedRow1] = useState(null);
-  const [featuredRow2, setFeaturedRow2] = useState(null);
 
   const [featuredArticle1, setFeaturedArticle1] = useState(null);
   const [featuredArticle2, setFeaturedArticle2] = useState(null);
@@ -241,8 +225,9 @@ export default function Homepage() {
             <a
               href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
               target="_blank"
+              rel="noreferrer"
             >
-              <img src="/sanctum_sessions.png" loading="lazy" />
+              <img src="/sanctum_sessions.png" loading="lazy" alt="An image of the Harvard Advocate sanctum, with a musician playing to a small crowd."/>
             </a>
           </div>
           <div className="blog">
@@ -271,7 +256,7 @@ export default function Homepage() {
           {!isMobile ? (
             <div className="socialsFeed">
               <div className="socialsGrid">
-                <a href="https://instagram.com/harvardadvocate" target="_blank">
+                <a href="https://instagram.com/harvardadvocate" target="_blank" rel="noreferrer">
                   <div className="instaCol">
                     <div className="fromss">
                       <img src="/picsfrom21ss.jpg" loading="lazy"></img>
@@ -282,6 +267,7 @@ export default function Homepage() {
                           instagramImages[2].image.asset.url
                         )}
                         loading="lazy"
+                        alt=""
                       ></img>
                     </div>
                     <div className="insta2">
@@ -290,6 +276,7 @@ export default function Homepage() {
                           instagramImages[0].image.asset.url
                         )}
                         loading="lazy"
+                        alt=""
                       ></img>
                     </div>
                     <div className="insta3">
@@ -298,6 +285,7 @@ export default function Homepage() {
                           instagramImages[1].image.asset.url
                         )}
                         loading="lazy"
+                        alt=""
                       ></img>
                     </div>
                   </div>

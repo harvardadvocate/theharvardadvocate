@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import TextListElement from "./TextListElement";
 import { buildSubarraysOfSize } from "../utils/buildSubarrays";
 import { useIsMobile } from "../utils/isMobile";
@@ -113,15 +112,15 @@ export default function TextContentList(props) {
   var perChunk; // items per row
 
   if (props.vertical) {
-    var perChunk = 1;
+    perChunk = 1;
   } else {
-    var perChunk = 3;
+    perChunk = 3;
   }
 
   const resultArray = buildSubarraysOfSize(props.items, perChunk);
 
   var paddingVar;
-  if (props.padding || props.padding == false) {
+  if (props.padding || props.padding === false) {
     paddingVar = props.padding;
   } else {
     paddingVar = true;

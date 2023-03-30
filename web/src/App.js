@@ -2,8 +2,7 @@
 
 import { ThemeProvider } from "theme-ui";
 import { theme } from "./theme/theme";
-import { Grid } from "theme-ui";
-import React, { useEffect, useState, componentDidMount } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContentItem from "./pages/ContentItem";
 import Homepage from "./pages/Homepage";

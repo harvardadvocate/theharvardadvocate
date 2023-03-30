@@ -1,11 +1,8 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import TextContentList from "../components/TextContentList.js";
-import ImageContentGrid from "../components/ImageContentGrid.js";
 import sanityClient from "../client.js";
-import { Themed } from "theme-ui";
-import rightArrow from "../assets/images/right-arrow.svg";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SectionFrame from "../components/SectionFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
 
@@ -85,7 +82,7 @@ export default function Section(props) {
         intersectionObserver.unobserve(currentElement);
       }
     };
-  }, [intersectionObserver]);
+  });
 
   if (!items) return <ColorRingLoader />;
 

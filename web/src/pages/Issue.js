@@ -1,8 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from "react";
-import { Themed } from "theme-ui";
 import sanityClient from "../client.js";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SectionFrame from "../components/SectionFrame";
 import MixedGrid from "../components/MixedGrid";
 import { unionBy } from "lodash";
@@ -138,7 +137,6 @@ export default function Issue() {
   const [items, setItems] = useState(null);
   const [issue, setIssue] = useState(null);
   const [sections, setSections] = useState(null);
-  const [sectionItems, setSectionItems] = useState(null);
   const { issueSlug } = useParams();
 
   var contentItemsBySection = null;

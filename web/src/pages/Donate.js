@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
-import rightArrow from "../assets/images/right-arrow.svg";
 
 const donateSx = {
   ".donateBody": {
@@ -34,7 +33,6 @@ const donateSx = {
     padding: "10px 10px",
     textAlign: "center",
     textDecoration: "none",
-    display: "inline-block",
     fontSize: "18px",
     width: "35%",
     fontFamily: "sans-serif",
@@ -98,6 +96,7 @@ export default function Donate() {
                 className="buttonLink"
                 href={"https://donate.stripe.com/8wM2bRa5Wfma1uE5kl"}
                 target="_blank"
+                rel="noreferrer"
               >
                 Click here to donate
               </a>
@@ -105,7 +104,7 @@ export default function Donate() {
           </Themed.p>
 
           <div className="image">
-            <img src="/donate.jpeg" width="381" height="271" loading="lazy" />
+            <img src="/donate.jpeg" width="381" height="271" loading="lazy" alt="donate graphic"/>
             <figcaption>
               Illustration from{" "}
               <em>Land of Tomorrow, Dark and Bloody Ground</em>
