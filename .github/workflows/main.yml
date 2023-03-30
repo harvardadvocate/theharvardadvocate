@@ -24,7 +24,7 @@ jobs:
         run: npm install -g @sanity/cli
 
       - name: Build
-        run: npm run build
+        run: CI=false npm run build
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v1.5.0
