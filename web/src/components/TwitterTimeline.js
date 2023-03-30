@@ -7,18 +7,14 @@ const TwitterContainer = ({ height }) => {
     anchor.setAttribute("class", "twitter-timeline");
     anchor.setAttribute("data-theme", "light");
     anchor.setAttribute("data-height", height);
-    anchor.setAttribute("href", "https://twitter.com/harvestadvocate");
+
+    anchor.setAttribute("href", "https://twitter.com/harvardadvocate");
     document.getElementsByClassName("twitter-embed")[0].appendChild(anchor);
 
     const script = document.createElement("script");
     script.setAttribute("src", "https://platform.twitter.com/widgets.js");
     document.getElementsByClassName("twitter-embed")[0].appendChild(script);
-
-    return () => {
-      document.getElementsByClassName("twitter-embed")[0].removeChild(anchor);
-      document.getElementsByClassName("twitter-embed")[0].removeChild(script);
-    };
-  }, [height]);
+  }, []);
 
   return (
     <section className="twitterContainer">
