@@ -144,8 +144,6 @@ export default function ContentItem() {
   };
 
   if (!itemData) return <ColorRingLoader />;
-
-  console.log(itemData);
   return (
     <div sx={contentItemSx}>
       <ContentFrame
