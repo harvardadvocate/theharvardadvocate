@@ -45,5 +45,8 @@
   },
   "devDependencies": {
     "@emotion/react": "^11.8.2"
-  }
+  },
+  "resolutions": {
+    "mini-css-extract-plugin": "~2.4.5"
+  },
 }
