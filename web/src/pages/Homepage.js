@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Themed } from "theme-ui";
 import sanityClient from "../client.js";
-import { theme } from "../theme/theme";
 import { getResources } from "../queries/homepage.js";
 import { optimizeImageLoading } from "../utils/image.js";
 import FeaturedIssue from "../components/FeaturedIssue.js";
@@ -227,7 +226,7 @@ export default function Homepage() {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="/sanctum_sessions.png" loading="lazy" alt="An image of the Harvard Advocate sanctum, with a musician playing to a small crowd."/>
+              <img src="/sanctum_sessions.png" loading="lazy" alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."/>
             </a>
           </div>
           <div className="blog">
@@ -259,7 +258,7 @@ export default function Homepage() {
                 <a href="https://instagram.com/harvardadvocate" target="_blank" rel="noreferrer">
                   <div className="instaCol">
                     <div className="fromss">
-                      <img src="/picsfrom21ss.jpg" loading="lazy"></img>
+                      <img src="/picsfrom21ss.jpg" loading="lazy" alt="Text: pics from 21 south street"></img>
                     </div>
                     <div className="insta1">
                       <img
