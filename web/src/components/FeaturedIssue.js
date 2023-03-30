@@ -169,15 +169,7 @@ const issuesListSx = {
   },
 };
 
-const customComponents = {
-  block: {
-    normal: ({ children }) => <Themed.p>{children}</Themed.p>,
-  },
-};
-
 export default function FeaturedIssue(props) {
-  // index 0 for newest, 1 for recent
-  const i = props.newest ? 0 : 1;
   const issue = props.issue;
   const featuredItems = props.featuredItems;
 

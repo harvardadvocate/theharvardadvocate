@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from "react";
-import { Themed, Grid } from "theme-ui";
+import { Themed } from "theme-ui";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import { theme } from "../theme/theme.js";
@@ -9,9 +9,6 @@ import { optimizeImageLoading } from "../utils/image.js";
 import FeaturedIssue from "../components/FeaturedIssue.js";
 import { useIsMobile } from "../utils/isMobile.js";
 import ColorRingLoader from "../components/LoadingRing.js";
-
-const firstColor = theme["colors"]["primary"];
-const secondColor = theme["colors"]["secondary"];
 
 const issuesListSx = {
   ".horizontalContainer": {
@@ -196,12 +193,6 @@ const issuesToQuery = (start, end) =>
         }
       }[${start}...${end}]`;
 
-// // `components` object passed to PortableText
-const customComponents = {
-  block: {
-    normal: ({ children }) => <Themed.p>{children}</Themed.p>,
-  },
-};
 
 export default function IssuesList() {
   var isMobile = useIsMobile();
@@ -243,12 +234,12 @@ export default function IssuesList() {
         setItemData(data.itemData);
         setFeaturedItems2(
           data.featuredItems.filter(
-            (item) => item.issue.title == data.itemData[1].title
+            (item) => item.issue.title === data.itemData[1].title
           )
         );
         setFeaturedItems(
           data.featuredItems.filter(
-            (item) => item.issue.title == data.itemData[0].title
+            (item) => item.issue.title === data.itemData[0].title
           )
         );
       })
@@ -270,7 +261,7 @@ export default function IssuesList() {
         intersectionObserver.unobserve(currentElement);
       }
     };
-  }, [intersectionObserver]);
+  });
 
   if (!itemData || !featuredItems) {
     return <ColorRingLoader />;
@@ -321,6 +312,7 @@ export default function IssuesList() {
                                     bigIssue.frontCover.asset.url
                                   )}
                                   loading="lazy"
+                                  alt="Issue cover"
                                 ></img>
                               </div>
                               <div className="lowerInfo">
@@ -356,6 +348,7 @@ export default function IssuesList() {
                               smallIssue.frontCover.asset.url
                             )}
                             loading="lazy"
+                            alt="Issue cover"
                           ></img>
                           <div className="lowerInfo2">
                             <Themed.h4>{smallIssue.title}</Themed.h4>

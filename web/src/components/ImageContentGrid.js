@@ -1,8 +1,6 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import ImageListElement from "./ImageListElement";
-import { Grid } from "theme-ui";
 import { buildSubarraysOfSize } from "../assets/utils";
 import { useIsMobile } from "../utils/isMobile";
 
@@ -89,9 +87,9 @@ export default function ImageContentGrid(props) {
   var perChunk; // items per row
 
   if (props.vertical) {
-    var perChunk = 1;
+    perChunk = 1;
   } else {
-    var perChunk = 3;
+    perChunk = 3;
   }
 
   const resultArray = buildSubarraysOfSize(props.items, perChunk);

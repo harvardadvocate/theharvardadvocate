@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
-import rightArrow from "../assets/images/right-arrow.svg";
 
 const advertiseSx = {
   ".advertiseBody": {
@@ -79,6 +78,7 @@ export default function Advertise() {
               width="309"
               height="414"
               loading="lazy"
+              alt="advertising graphic"
             />
             <figcaption>
               Illustration from <em>Azazel Anonymous</em>
