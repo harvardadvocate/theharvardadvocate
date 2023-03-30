@@ -13,7 +13,7 @@ npm install -g @sanity/cli
 
 (if npm install -g @sanity/cli doesn't work try dropping the -g)
 
-Might need to run `npm install` within directories idk
+Might need to run `npm install` within directories idk.
 
 ## Running
 ```
