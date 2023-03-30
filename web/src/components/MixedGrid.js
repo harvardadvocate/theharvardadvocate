@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import { Themed, Grid } from "theme-ui";
-import { PortableText } from "@portabletext/react";
+import { Themed } from "theme-ui";
 import TextListElement from "../components/TextListElement.js";
 import TextContentList from "../components/TextContentList.js";
 import ImageListElement from "../components/ImageListElement.js";
@@ -11,9 +10,6 @@ import { useIsMobile } from "../utils/isMobile";
 
 // MixedGrid: takes 8 items in as props, sorts them as irregular grid
 // indices: 0-2 text, 3 text+art, 4-5 text, 6-7 art
-
-const mainColor = theme["colors"]["primary"];
-const headerColor = theme["colors"]["headerColor"];
 
 const gridSx = {
   margin: "0em 0em 0em 0em",
@@ -47,13 +43,12 @@ const gridSx = {
   },
 
   ".div4image": {
-    display: "inline-block",
+    display: "flex",
     verticalAlign: "middle",
     minWidth: "50%",
     alignItems: "center",
     justifyItems: "center",
     justifyContent: "center",
-    display: "flex",
   },
 
   ".div4content": {
@@ -86,16 +81,9 @@ const gridSx = {
   },
 };
 
-// // `components` object passed to PortableText
-const customComponents = {
-  block: {
-    normal: ({ children }) => <Themed.p>{children}</Themed.p>,
-  },
-};
-
 export default function MixedGrid(props) {
   var showFirstList;
-  if (props.showFirstList || props.showFirstList == false) {
+  if (props.showFirstList || props.showFirstList === false) {
     showFirstList = props.showFirstList;
   } else {
     showFirstList = true;

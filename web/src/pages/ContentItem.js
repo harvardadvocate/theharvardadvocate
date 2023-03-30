@@ -5,11 +5,8 @@ import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
-import moment from "moment";
 import ContentFrame from "../components/ContentFrame";
-import Frame from "../components/Frame";
 import ColorRingLoader from "../components/LoadingRing.js";
-import urlBuilder from "@sanity/image-url";
 
 const contentItemSx = {
   ".contentHeader": {
@@ -101,7 +98,7 @@ const customComponents = {
     strikethrough: ({ children }) => <s>{children}</s>,
   },
   types: {
-    image: ({ value }) => <img src={urlFor(value).url()} />,
+    image: ({ value }) => <img src={urlFor(value).url()} alt=""/>,
     callToAction: ({ value, isInline }) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>
@@ -212,7 +209,7 @@ export default function ContentItem() {
         <div className="images">
           {itemData.images &&
             itemData.images.map((image, i) => (
-              <img src={image.asset.url} key={i} />
+              <img src={image.asset.url} key={i} alt=""/>
             ))}
         </div>
         <div>

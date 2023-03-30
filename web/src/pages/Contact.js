@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
-import rightArrow from "../assets/images/right-arrow.svg";
 
 const contactSx = {
   ".contactBody": {
@@ -86,11 +85,14 @@ export default function Contact() {
             <a
               href="https://www.instagram.com/harvardadvocate/"
               target="_blank"
+              rel="noreferrer"
             >
               Instagram
             </a>{" "}
             and{" "}
-            <a href="https://www.twitter.com/harvardadvocate/" target="_blank">
+            <a href="https://www.twitter.com/harvardadvocate/"
+               target="_blank"
+               rel="noreferrer">
               Twitter
             </a>
             !

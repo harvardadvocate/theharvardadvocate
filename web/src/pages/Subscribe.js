@@ -1,8 +1,5 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
-import Frame from "../components/Frame";
-import rightArrow from "../assets/images/right-arrow.svg";
-import { Link } from "react-router-dom";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
 
@@ -65,7 +62,6 @@ const subscribeSx = {
   ".buttonLink": {
     color: "white",
     backgroundColor: buttonColor,
-    padding: "10px 10px",
     textAlign: "center",
     textDecoration: "none",
     display: "inline-block",
@@ -153,13 +149,14 @@ export default function Subscribe() {
                 className="buttonLink"
                 href={"https://buy.stripe.com/eVa9Ej3Hy4Hw7T26oo"}
                 target="_blank"
+                rel="noreferrer"
               >
                 SUBSCRIBE NOW
               </a>
             </div>
           </div>
           <div className="image">
-            <img src="/subscribe_image.jpg" loading="lazy" />
+            <img src="/subscribe_image.jpg" loading="lazy" alt="subscribe graphic"/>
             <figcaption>
               Illustration from{" "}
               <em>The Importance of Knees as a Bracing Thing</em>
