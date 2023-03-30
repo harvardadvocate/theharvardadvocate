@@ -1,8 +1,6 @@
 /** @jsxImportSource theme-ui */
-import { Themed, Grid } from "theme-ui";
+import { Themed, } from "theme-ui";
 import Frame from "../components/Frame";
-import rightArrow from "../assets/images/right-arrow.svg";
-import { useLocation, Link } from "react-router-dom";
 
 const submitSx = {
   ".submitBody": {
@@ -23,7 +21,6 @@ const submitSx = {
     padding: "10px 10px",
     textAlign: "center",
     textDecoration: "none",
-    display: "inline-block",
     fontSize: "18px",
     width: "35%",
     fontFamily: "sans-serif",
@@ -101,6 +98,7 @@ export default function Submit() {
                   "https://docs.google.com/forms/d/e/1FAIpQLSdHCYzDkX4ZAuip4NwjCeWXODfQSrheQDGEcgFApdhLrF35sg/viewform?usp=sf_link"
                 }
                 target="_blank"
+                rel="noreferrer"
               >
                 Submit to Fiction
               </a>
@@ -141,6 +139,7 @@ export default function Submit() {
                   "https://docs.google.com/forms/d/e/1FAIpQLSfMcuyiu8TM0AUSnOjCvUvA59lWIfVYgvJ-8uX_RgIRjKuypA/viewform?usp=sf_link"
                 }
                 target="_blank"
+                rel="noreferrer"
               >
                 Submit to Poetry
               </a>
@@ -183,6 +182,7 @@ export default function Submit() {
                   "https://docs.google.com/forms/d/e/1FAIpQLSdzLqsA__rvkRkBVwszgrA1UWFXcjffGJms7PUTgo5emHTYcQ/viewform?usp=sf_link"
                 }
                 target="_blank"
+                rel="noreferrer"
               >
                 Submit to Art
               </a>
@@ -192,7 +192,7 @@ export default function Submit() {
             art@theharvardadvocate.com
           </Themed.p>
           <div className="image">
-            <img src="/submit.jpeg" width="400" height="400" loading="lazy" />
+            <img src="/submit.jpeg" width="400" height="400" loading="lazy" alt="submit graphic"/>
             <figcaption>
               Illustration from <em>The Leaving</em>
             </figcaption>

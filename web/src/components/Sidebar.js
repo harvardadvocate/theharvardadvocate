@@ -161,21 +161,6 @@ const sidebarSx = {
 };
 
 export default function Sidebar() {
-  const [windowDimension, setWindowDimension] = useState(null);
-
-  useEffect(() => {
-    setWindowDimension(window.innerWidth);
-  }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimension(window.innerWidth);
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   const isMobile = useIsMobile();
 
   const location = useLocation();

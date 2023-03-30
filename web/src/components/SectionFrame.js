@@ -1,8 +1,6 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { Themed } from "theme-ui";
-import rightArrow from "../assets/images/right-arrow.svg";
 
 const sectionFrameSx = {
   marginBottom: "5vh",
