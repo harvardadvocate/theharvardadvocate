@@ -8,7 +8,7 @@ import { FaTwitter, FaInstagram } from "react-icons/fa";
 
 const footerSx = {
   width: "-webkit-fill-available",
-  height: "5rem",           /* Footer height */
+  height: "5rem" /* Footer height */,
 
   borderTop: "1px solid rgba(0,0,0,0.20)",
   display: "flex",
@@ -55,7 +55,6 @@ const footerSx = {
     alignItems: "flexStart",
     height: "100%",
     flexDirection: "row",
-
   },
   ".socialIcon": {
     margin: "0 1vw",
@@ -96,10 +95,7 @@ const footerSx = {
   },
 };
 
-
-
 export default function Footer() {
-
   var isMobile = useIsMobile();
 
   return (
@@ -107,13 +103,15 @@ export default function Footer() {
       <div className="footerContainer">
         <div className="leftMost">
           <b>The Harvard Advocate</b>
-          <br/>
+          <br />
           21 South Street
-          <br/>
+          <br />
           Cambridge, MA 02138
-          <br/>
+          <br />
           president@theharvardadvocate.com
-          <br/><br/><br/>
+          <br />
+          <br />
+          <br />
           <Link className="linkLogo" to={"/"}>
             <img src={logo} alt="The Advocate Logo" loading="lazy" />
             2023 &nbsp; <span>&copy;</span> &nbsp; The Harvard Advocate
@@ -137,42 +135,45 @@ export default function Footer() {
             <FaInstagram />
           </a>
         </div>
-        {isMobile ? "" :
-        <div className="sectionsAndMore">
-          <div className="sections">
-            <b>Sections</b>
-            <br/><br/>
-            <a href="/sections/art">Art</a>
-            <br/>
-            <a href="/sections/fiction">Fiction</a>
-            <br/>
-            <a href="/sections/features">Features</a>
-            <br/>
-            <a href="/sections/poetry">Poetry</a>
-            <br/>
-            <a href="/sections/columns">Columns</a>
-            <br/>
-            <a href="/sections/blog">Blog</a>
+        {isMobile ? (
+          ""
+        ) : (
+          <div className="sectionsAndMore">
+            <div className="sections">
+              <b>Sections</b>
+              <br />
+              <br />
+              <a href="/sections/art">Art</a>
+              <br />
+              <a href="/sections/fiction">Fiction</a>
+              <br />
+              <a href="/sections/features">Features</a>
+              <br />
+              <a href="/sections/poetry">Poetry</a>
+              <br />
+              <a href="/sections/columns">Columns</a>
+              <br />
+              <a href="/sections/blog">Blog</a>
+            </div>
+            <div className="more">
+              <b>More</b>
+              <br />
+              <br />
+              <a href="/shop">Shop</a>
+              <br />
+              <a href="/donate">Donate</a>
+              <br />
+              <a href="/advertise">Advertise</a>
+              <br />
+              <a href="/comp">Comp</a>
+              <br />
+              <a href="/masthead">Masthead</a>
+              <br />
+              <a href="/contact">Contact</a>
+              <br />
+            </div>
           </div>
-          <div className="more">
-            <b>More</b>
-            <br/>
-            <br/>
-            <a href="/shop">Shop</a>
-            <br/>
-            <a href="/donate">Donate</a>
-            <br/>
-            <a href="/advertise">Advertise</a>
-            <br/>
-            <a href="/comp">Comp</a>
-            <br/>
-            <a href="/masthead">Masthead</a>
-            <br/>
-            <a href="/contact">Contact</a>
-            <br/>
-          </div>
-        </div>
-        }
+        )}
       </div>
     </div>
   );

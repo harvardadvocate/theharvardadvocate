@@ -34,9 +34,8 @@ const textContentListSx = {
 
   ".articleItemNoLastBorder:last-child": {
     borderRight: "none",
-  }
+  },
 };
-
 
 const textContentListSxVertical = {
   ".mainGrid": {
@@ -76,24 +75,19 @@ const textContentListSxVertical = {
       borderBottom: "0",
     },
 
-
     ".mainGrid": {
       paddingTop: "0",
     },
   },
 };
 
-
 const add_border = {
-
   ".gridRow": {
     borderBottom: "1px solid rgba(0,0,0,0.2)",
   },
-
 };
 
 const add_border_vertical = {
-
   ".gridRow": {
     borderBottom: "1px solid rgba(0,0,0,0.2)",
   },
@@ -101,7 +95,6 @@ const add_border_vertical = {
   ".gridRow:last-child": {
     borderBottom: "none",
   },
-
 };
 
 const no_border = {
@@ -111,7 +104,6 @@ const no_border = {
 };
 
 export default function TextContentList(props) {
-
   var vertical = false;
   var isMobile = useIsMobile();
   if (props.vertical || isMobile) {
@@ -122,9 +114,8 @@ export default function TextContentList(props) {
 
   if (props.vertical) {
     var perChunk = 1;
-  }
-  else {
-    var perChunk = 3
+  } else {
+    var perChunk = 3;
   }
 
   const resultArray = buildSubarraysOfSize(props.items, perChunk);
@@ -132,26 +123,45 @@ export default function TextContentList(props) {
   var paddingVar;
   if (props.padding || props.padding == false) {
     paddingVar = props.padding;
-  }
-  else {
+  } else {
     paddingVar = true;
   }
 
-
   return (
     <div sx={vertical ? textContentListSxVertical : textContentListSx}>
-      <div sx={props.border ? (vertical ? add_border_vertical : add_border) : no_border}>
-        <div className = "mainGrid">
-          {(resultArray).map((row) => {
+      <div
+        sx={
+          props.border
+            ? vertical
+              ? add_border_vertical
+              : add_border
+            : no_border
+        }
+      >
+        <div className="mainGrid">
+          {resultArray.map((row) => {
             return (
               <div className="gridRow">
-              {(row).map((item, index) => {
-                return (
-                  <div className={props.noLastBorder ? "articleItemNoLastBorder" : "articleItem"} key={item.name}>
-                    <TextListElement item={item} key={index} home={props.home} padding={paddingVar} hideAuthor={props.hideAuthor}/>
-                  </div>
-                );
-              })}
+                {row.map((item, index) => {
+                  return (
+                    <div
+                      className={
+                        props.noLastBorder
+                          ? "articleItemNoLastBorder"
+                          : "articleItem"
+                      }
+                      key={item.name}
+                    >
+                      <TextListElement
+                        item={item}
+                        key={index}
+                        home={props.home}
+                        padding={paddingVar}
+                        hideAuthor={props.hideAuthor}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             );
           })}

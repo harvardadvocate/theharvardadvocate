@@ -2,22 +2,22 @@
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
-import ShopifyBuy from 'shopify-buy';
+import ShopifyBuy from "shopify-buy";
 import React, { useEffect, useState } from "react";
-import MyCarousel from '../components/Carousel';
+import MyCarousel from "../components/Carousel";
 import ColorRingLoader from "../components/LoadingRing.js";
 
 const shopSx = {
   i: {
     textAlign: "center",
-    display: "block"
+    display: "block",
   },
 
   paddingInline: "10vw",
   paddingTop: "5vh",
 
   ".header": {
-    width:"100%",
+    width: "100%",
     display: "flex",
     justifyContent: "center",
   },
@@ -61,43 +61,45 @@ const shopSx = {
     },
     ".InfiniteCarouselSlide": {
       width: "auto",
-    }
+    },
   },
 };
 
 export default function Shop() {
   const [products, setProducts] = React.useState([]);
-  const [issues, setIssues] = React.useState([])
-  const [merch, setMerch] = React.useState([])
+  const [issues, setIssues] = React.useState([]);
+  const [merch, setMerch] = React.useState([]);
   const [cart, setCart] = useState(null);
 
   const addToCart = (variantId, quantity) => {
     const lineItemsToAdd = [{ variantId, quantity }];
     const client = ShopifyBuy.buildClient({
-      domain: 'the-harvard-advocate.myshopify.com',
-      storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
+      domain: "the-harvard-advocate.myshopify.com",
+      storefrontAccessToken: "005d55feb024fc1214eaf8b8dd90aad0",
     });
     client.checkout.create().then((checkout) => {
-      client.checkout.addLineItems(checkout.id, lineItemsToAdd).then((checkout) => {
-        window.open(checkout.webUrl);
-      }).catch((error) => {
-
-      });
+      client.checkout
+        .addLineItems(checkout.id, lineItemsToAdd)
+        .then((checkout) => {
+          window.open(checkout.webUrl);
+        })
+        .catch((error) => {});
     });
   };
 
   useEffect(() => {
     const client = ShopifyBuy.buildClient({
-      domain: 'the-harvard-advocate.myshopify.com',
-      storefrontAccessToken: '005d55feb024fc1214eaf8b8dd90aad0'
+      domain: "the-harvard-advocate.myshopify.com",
+      storefrontAccessToken: "005d55feb024fc1214eaf8b8dd90aad0",
     });
 
     //fetching all products
-    client.product.fetchAll().then((products) => {
-      setProducts(products);
-    }).catch((error) => {
-
-    });
+    client.product
+      .fetchAll()
+      .then((products) => {
+        setProducts(products);
+      })
+      .catch((error) => {});
 
     //fetching merch (once merch collection exists)
     //const merchCollectionId = 'gid://shopify/Collection/INSERT-COLLECTION-ID-HERE';
@@ -109,20 +111,20 @@ export default function Shop() {
     //
 
     // fetching just issues
-    const issueCollectionId = 'gid://shopify/Collection/71491354679';
+    const issueCollectionId = "gid://shopify/Collection/71491354679";
     // Set a parameter for first x products, defaults to 20 if you don't provide a param
 
-    client.collection.fetchWithProducts(issueCollectionId).then((collections) => {
-      // Do something with the collection
-      setIssues(collections.products);
-    });
+    client.collection
+      .fetchWithProducts(issueCollectionId)
+      .then((collections) => {
+        // Do something with the collection
+        setIssues(collections.products);
+      });
   }, []);
 
   if (!products) {
-    return <ColorRingLoader/>
-  }
-  else {
-
+    return <ColorRingLoader />;
+  } else {
   }
   return (
     <div sx={shopSx}>
@@ -130,10 +132,9 @@ export default function Shop() {
         <Themed.h2>Shop</Themed.h2>
       </div>
       <div className="c">
-        <hr/>
-        <MyCarousel prod={issues}>
-        </MyCarousel>
-        <hr/>
+        <hr />
+        <MyCarousel prod={issues}></MyCarousel>
+        <hr />
       </div>
       <div className="merch">
         <Themed.h2>merch coming soon!</Themed.h2>

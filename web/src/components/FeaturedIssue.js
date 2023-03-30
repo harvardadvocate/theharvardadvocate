@@ -20,7 +20,7 @@ const issuesListSx = {
   ".featuredIssue, .featuredIssue2": {
     width: "100%",
     paddingInline: "3vw",
-    paddingTop: "2vh"
+    paddingTop: "2vh",
   },
 
   ".featuredIssue": {
@@ -34,7 +34,6 @@ const issuesListSx = {
   "*:hover": {
     color: "#fffaf1",
   },
-
 
   ".issueCover": {
     height: "max-content",
@@ -56,7 +55,7 @@ const issuesListSx = {
     a: {
       justifyContent: "center",
       display: "flex",
-    }
+    },
   },
 
   ".mainGrid": {
@@ -75,7 +74,7 @@ const issuesListSx = {
     },
     hr: {
       border: "0.1px solid white",
-    }
+    },
   },
 
   ".featuredArticles2": {
@@ -88,9 +87,8 @@ const issuesListSx = {
     },
     hr: {
       border: "0.1px solid white",
-    }
+    },
   },
-
 
   ".readFullIssue": {
     color: "#FFFFFF",
@@ -100,16 +98,15 @@ const issuesListSx = {
       paddingInline: "10px",
       color: firstColor,
       backgroundColor: "#FFFFFF",
-      float: "left"
+      float: "left",
     },
-
 
     h6: {
       marginLeft: "3em",
       border: "4px solid " + firstColor,
       paddingInline: "10px",
       borderRadius: "5px",
-      fontFamily: "sans-serif"
+      fontFamily: "sans-serif",
     },
   },
 
@@ -121,14 +118,14 @@ const issuesListSx = {
       paddingInline: "10px",
       color: secondColor,
       backgroundColor: "#FFFFFF",
-      float: "left"
+      float: "left",
     },
     h6: {
       marginLeft: "3em",
       border: "4px solid " + secondColor,
       paddingInline: "10px",
       borderRadius: "5px",
-      fontFamily: "sans-serif"
+      fontFamily: "sans-serif",
     },
   },
 
@@ -141,7 +138,6 @@ const issuesListSx = {
   },
 
   "@media (max-width: 835px)": {
-
     ".issueCover": {
       marginBottom: "0",
     },
@@ -159,7 +155,7 @@ const issuesListSx = {
     ".featuredIssue, .featuredIssue2": {
       a: {
         textAlign: "center",
-      }
+      },
     },
 
     ".highlightedArticles": {
@@ -168,9 +164,9 @@ const issuesListSx = {
 
     ".mainGrid": {
       gridTemplateColumns: "1fr",
-      placeItems: "unset"
+      placeItems: "unset",
     },
-  }
+  },
 };
 
 const customComponents = {
@@ -180,7 +176,6 @@ const customComponents = {
 };
 
 export default function FeaturedIssue(props) {
-
   // index 0 for newest, 1 for recent
   const i = props.newest ? 0 : 1;
   const issue = props.issue;
@@ -190,65 +185,100 @@ export default function FeaturedIssue(props) {
 
   return (
     <div css={issuesListSx}>
-      <div className= {props.newest ? "featuredIssue" : "featuredIssue2"}>
-        <Grid className="mainGrid" columns={props.newest ? "2fr 3fr" : "3fr 2fr"}>
-          {(props.newest || isMobile) ?
+      <div className={props.newest ? "featuredIssue" : "featuredIssue2"}>
+        <Grid
+          className="mainGrid"
+          columns={props.newest ? "2fr 3fr" : "3fr 2fr"}
+        >
+          {props.newest || isMobile ? (
             <div className="issueCover">
               <Link to={"/issues/" + issue.slug.current}>
                 {issue.frontCover && "asset" in issue.frontCover && (
-                  <img src={optimizeImageLoading(issue.frontCover.asset.url)} loading="lazy" alt="" />
+                  <img
+                    src={optimizeImageLoading(issue.frontCover.asset.url)}
+                    loading="lazy"
+                    alt=""
+                  />
                 )}
               </Link>
-          </div> : ""}
-
-          <div className = {props.newest ? "featuredArticles" : "featuredArticles2"}>
-            <a href={"issues/" + issue.slug.current}>
-            <div className="issueTitle">
-              <Themed.h5><b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b></Themed.h5>
-              <Themed.h1>{issue.title}</Themed.h1>
-              <hr/>
             </div>
+          ) : (
+            ""
+          )}
+
+          <div
+            className={props.newest ? "featuredArticles" : "featuredArticles2"}
+          >
+            <a href={"issues/" + issue.slug.current}>
+              <div className="issueTitle">
+                <Themed.h5>
+                  <b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b>
+                </Themed.h5>
+                <Themed.h1>{issue.title}</Themed.h1>
+                <hr />
+              </div>
             </a>
             <div className="highlightedArticles">
               <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                {(featuredItems.slice(0,2)).map((article) => {
+                {featuredItems.slice(0, 2).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
                       <Link to={"/content/" + article.slug.current}>
-                        <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
+                        <div className="articleLink">
+                          <Themed.h3>
+                            <b>{article.title}</b> <br /> By{" "}
+                            {article.authors[0].name}
+                          </Themed.h3>
+                        </div>
                       </Link>
                     </div>
                   );
                 })}
               </Grid>
-              <hr/>
+              <hr />
               <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                {(featuredItems.slice(2,4)).map((article) => {
+                {featuredItems.slice(2, 4).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
                       <Link to={"/content/" + article.slug.current}>
-                        <div className="articleLink"><Themed.h3><b>{article.title}</b> <br/> By {article.authors[0].name}</Themed.h3></div>
+                        <div className="articleLink">
+                          <Themed.h3>
+                            <b>{article.title}</b> <br /> By{" "}
+                            {article.authors[0].name}
+                          </Themed.h3>
+                        </div>
                       </Link>
                     </div>
                   );
                 })}
               </Grid>
-              <hr/>
+              <hr />
             </div>
             <Link to={"/issues/" + issue.slug.current}>
-              <div className={props.newest ? "readFullIssue" : "readFullIssue2"}>
+              <div
+                className={props.newest ? "readFullIssue" : "readFullIssue2"}
+              >
                 <span>&#8594;</span>
                 <Themed.h6>READ FULL ISSUE</Themed.h6>
               </div>
             </Link>
           </div>
 
-          {!props.newest && !isMobile ?
-                <div className="issueCover">
-                  <Link to={"/issues/" + issue.slug.current}>
-                    {issue.frontCover && "asset" in issue.frontCover && (<img src={optimizeImageLoading(issue.frontCover.asset.url)} loading="lazy" alt="" />) }
-                  </Link>
-                </div> : ""}
+          {!props.newest && !isMobile ? (
+            <div className="issueCover">
+              <Link to={"/issues/" + issue.slug.current}>
+                {issue.frontCover && "asset" in issue.frontCover && (
+                  <img
+                    src={optimizeImageLoading(issue.frontCover.asset.url)}
+                    loading="lazy"
+                    alt=""
+                  />
+                )}
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
         </Grid>
       </div>
     </div>

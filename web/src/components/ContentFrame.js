@@ -77,16 +77,15 @@ const frameSx = {
     },
     ".horizontalContainer": {
       paddingInline: "2vw",
-      marginTop: "2vh"
-    }
+      marginTop: "2vh",
+    },
   },
 };
 // TODO: assumes only up to 3 elements in path
 export default function ContentFrame(props) {
   return (
     <div sx={frameSx}>
-      <div className="header">
-      </div>
+      <div className="header"></div>
       <div className="horizontalContainer">
         <div className="mainContent">{props.children}</div>
       </div>

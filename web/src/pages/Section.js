@@ -23,11 +23,11 @@ const virtualStyle = {
   height: "200px",
   top: "-200px",
   width: "100%",
-  pointerEvent:"none"
-}
+  pointerEvent: "none",
+};
 
 const sectionToQuery = (section, start, end) =>
-    `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
+  `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
         authors[]->{name},
         issue->{title,slug},
@@ -43,24 +43,21 @@ const sectionToQuery = (section, start, end) =>
     }[${start}...${end}]`;
 
 export default function Section(props) {
-
   const [items, setItems] = useState(null);
   const [section, setSection] = useState("");
   const { sectionSlug } = useParams();
 
   const loadItems = (num) => {
-    var currentPost = items.length
+    var currentPost = items.length;
     sanityClient
-    .fetch(sectionToQuery(section, currentPost, currentPost+num)) // query section
-      .then((data) => setItems([...items, ...data])
-
-
-    )
-    .catch(console.error)
-   }
+      .fetch(sectionToQuery(section, currentPost, currentPost + num)) // query section
+      .then((data) => setItems([...items, ...data]))
+      .catch(console.error);
+  };
   useEffect(() => {
     sanityClient
-      .fetch(`*[_type == "section" && slug.current == $sectionSlug]`, { // fetch section data to get section name
+      .fetch(`*[_type == "section" && slug.current == $sectionSlug]`, {
+        // fetch section data to get section name
         sectionSlug,
       })
       .then((sectionData) => {
@@ -74,23 +71,23 @@ export default function Section(props) {
   }, [sectionSlug]);
 
   const intersectionObserver = new IntersectionObserver((entries) => {
-      if (entries[0].intersectionRatio === 0) return;
-      loadItems(9);
-    });
+    if (entries[0].intersectionRatio === 0) return;
+    loadItems(9);
+  });
 
-    useEffect(() => {
-      const currentElement = document.querySelector(".more");
+  useEffect(() => {
+    const currentElement = document.querySelector(".more");
+    if (currentElement) {
+      intersectionObserver.observe(currentElement);
+    }
+    return () => {
       if (currentElement) {
-        intersectionObserver.observe(currentElement);
+        intersectionObserver.unobserve(currentElement);
       }
-      return () => {
-        if (currentElement) {
-          intersectionObserver.unobserve(currentElement);
-        }
-      };
-    }, [intersectionObserver]);
+    };
+  }, [intersectionObserver]);
 
-  if (!items) return <ColorRingLoader/>;
+  if (!items) return <ColorRingLoader />;
 
   return (
     <div sx={sectionSx}>
@@ -102,9 +99,13 @@ export default function Section(props) {
           },
         ]}
       >
-        <TextContentList items={items} home={false} border={true}></TextContentList>
+        <TextContentList
+          items={items}
+          home={false}
+          border={true}
+        ></TextContentList>
       </SectionFrame>
-      <div  className="more">
+      <div className="more">
         <p style={virtualStyle}></p>
       </div>
     </div>

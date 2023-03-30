@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ImageListElement from "./ImageListElement";
 import { Grid } from "theme-ui";
-import { buildSubarraysOfSize } from "../assets/utils"
+import { buildSubarraysOfSize } from "../assets/utils";
 import { useIsMobile } from "../utils/isMobile";
 
 const imageContentGridSx = {
@@ -36,7 +36,7 @@ const imageContentGridSx = {
 
   ".artItemNoLastBorder:last-child": {
     borderRight: "none",
-  }
+  },
 };
 
 const imageContentGridSxVertical = {
@@ -57,7 +57,6 @@ const imageContentGridSxVertical = {
     width: "100%",
   },
 
-
   ".artItem, .artItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
@@ -77,14 +76,10 @@ const imageContentGridSxVertical = {
     ".artItemNoLastBorder:last-child": {
       borderBottom: "0",
     },
-
   },
 };
 
-
-
 export default function ImageContentGrid(props) {
-
   var vertical = false;
   var isMobile = useIsMobile();
   if (props.vertical || isMobile) {
@@ -95,27 +90,35 @@ export default function ImageContentGrid(props) {
 
   if (props.vertical) {
     var perChunk = 1;
-  }
-  else {
-    var perChunk = 3
+  } else {
+    var perChunk = 3;
   }
 
   const resultArray = buildSubarraysOfSize(props.items, perChunk);
 
-
   return (
     <div sx={vertical ? imageContentGridSxVertical : imageContentGridSx}>
-      <div className = "mainGrid">
-        {(resultArray).map((row, index1) => {
+      <div className="mainGrid">
+        {resultArray.map((row, index1) => {
           return (
             <div className="gridRow" key={index1}>
-            {(row).map((artItem, index2) => {
-              return (
-                <div className={props.noLastBorder ? "artItemNoLastBorder" : "artItem"} key={index2}>
-                  <ImageListElement item={artItem} key={index2} home={props.home} hideAuthor={props.hideAuthor}/>
-                </div>
-              );
-            })}
+              {row.map((artItem, index2) => {
+                return (
+                  <div
+                    className={
+                      props.noLastBorder ? "artItemNoLastBorder" : "artItem"
+                    }
+                    key={index2}
+                  >
+                    <ImageListElement
+                      item={artItem}
+                      key={index2}
+                      home={props.home}
+                      hideAuthor={props.hideAuthor}
+                    />
+                  </div>
+                );
+              })}
             </div>
           );
         })}

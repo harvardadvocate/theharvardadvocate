@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
 
-const buttonColor = theme['colors']['buttonColor'];
-const buttonColorHover = theme['colors']['buttonColorHover'];
+const buttonColor = theme["colors"]["buttonColor"];
+const buttonColorHover = theme["colors"]["buttonColorHover"];
 
 const subscribeSx = {
   ".horizontalContainer": {
@@ -29,7 +29,7 @@ const subscribeSx = {
     flexDirection: "column",
     alignItems: "center",
   },
-  ".mainText" : {
+  ".mainText": {
     width: "80%",
     textAlign: "center",
   },
@@ -106,13 +106,11 @@ const subscribeSx = {
     },
     ".image": {
       width: "100%",
-    }
+    },
   },
-
 };
 
 export default function Subscribe() {
-
   var isMobile = useIsMobile();
 
   return (
@@ -120,26 +118,52 @@ export default function Subscribe() {
       <div className="horizontalContainer">
         <div className="mainContent">
           <div className="mainText">
-          {isMobile ? <Themed.h3>Thank you for considering subscribing to the Harvard Advocate!</Themed.h3> : <Themed.h2>Thank you for considering subscribing to the Harvard Advocate!</Themed.h2>}
-          <p align="center">By subscribing, you receive two print issues a year, printed on high-quality paper, delivered straight to your doorstep.</p>
+            {isMobile ? (
+              <Themed.h3>
+                Thank you for considering subscribing to the Harvard Advocate!
+              </Themed.h3>
+            ) : (
+              <Themed.h2>
+                Thank you for considering subscribing to the Harvard Advocate!
+              </Themed.h2>
+            )}
+            <p align="center">
+              By subscribing, you receive two print issues a year, printed on
+              high-quality paper, delivered straight to your doorstep.
+            </p>
           </div>
           <br></br>
           <div className="bigBox">
-            {isMobile ? <Themed.h4 align="center">Full Subscription</Themed.h4> : <Themed.h2 align="center">Full Subscription</Themed.h2>}
+            {isMobile ? (
+              <Themed.h4 align="center">Full Subscription</Themed.h4>
+            ) : (
+              <Themed.h2 align="center">Full Subscription</Themed.h2>
+            )}
 
-            <br/>
-            <Themed.h3><strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr </Themed.h3>
-            <br/>
-            <Themed.p>Renews automatically. Cancel anytime. Non-refundable.</Themed.p>
-            <div  align="center">
-                <a className = "buttonLink" href={"https://buy.stripe.com/eVa9Ej3Hy4Hw7T26oo"} target="_blank">
-                  SUBSCRIBE NOW
-                </a>
+            <br />
+            <Themed.h3>
+              <strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr{" "}
+            </Themed.h3>
+            <br />
+            <Themed.p>
+              Renews automatically. Cancel anytime. Non-refundable.
+            </Themed.p>
+            <div align="center">
+              <a
+                className="buttonLink"
+                href={"https://buy.stripe.com/eVa9Ej3Hy4Hw7T26oo"}
+                target="_blank"
+              >
+                SUBSCRIBE NOW
+              </a>
             </div>
           </div>
           <div className="image">
-            <img src="/subscribe_image.jpg" loading="lazy"/>
-            <figcaption>Illustration from <em>The Importance of Knees as a Bracing Thing</em></figcaption>
+            <img src="/subscribe_image.jpg" loading="lazy" />
+            <figcaption>
+              Illustration from{" "}
+              <em>The Importance of Knees as a Bracing Thing</em>
+            </figcaption>
           </div>
         </div>
       </div>

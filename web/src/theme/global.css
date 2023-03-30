@@ -1,143 +1,143 @@
 /* import fonts */
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: normal;
   font-weight: 400;
-  src: url(../assets/fonts/EBGaramond-Regular.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-Regular.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: italic;
   font-weight: 400;
-  src: url(../assets/fonts/EBGaramond-Italic.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-Italic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: normal;
   font-weight: 500;
-  src: url(../assets/fonts/EBGaramond-Medium.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-Medium.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: italic;
   font-weight: 500;
-  src: url(../assets/fonts/EBGaramond-MediumItalic.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-MediumItalic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: normal;
   font-weight: 600;
-  src: url(../assets/fonts/EBGaramond-SemiBold.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-SemiBold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: italic;
   font-weight: 600;
-  src: url(../assets/fonts/EBGaramond-SemiBoldItalic.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-SemiBoldItalic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: normal;
   font-weight: 700;
-  src: url(../assets/fonts/EBGaramond-Bold.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-Bold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: italic;
   font-weight: 700;
-  src: url(../assets/fonts/EBGaramond-BoldItalic.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-BoldItalic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: normal;
   font-weight: 800;
-  src: url(../assets/fonts/EBGaramond-ExtraBold.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-ExtraBold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: "EB Garamond";
   font-style: italic;
   font-weight: 800;
-  src: url(../assets/fonts/EBGaramond-ExtraBoldItalic.ttf) format('truetype');
+  src: url(../assets/fonts/EBGaramond-ExtraBoldItalic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url(../assets/fonts/Poppins-Regular.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-Regular.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: italic;
   font-weight: 400;
-  src: url(../assets/fonts/Poppins-Italic.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-Italic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  src: url(../assets/fonts/Poppins-Medium.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-Medium.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: italic;
   font-weight: 500;
-  src: url(../assets/fonts/Poppins-MediumItalic.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-MediumItalic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  src: url(../assets/fonts/Poppins-SemiBold.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-SemiBold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: italic;
   font-weight: 600;
-  src: url(../assets/fonts/Poppins-SemiBoldItalic.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-SemiBoldItalic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  src: url(../assets/fonts/Poppins-Bold.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-Bold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: italic;
   font-weight: 700;
-  src: url(../assets/fonts/Poppins-BoldItalic.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-BoldItalic.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 800;
-  src: url(../assets/fonts/Poppins-ExtraBold.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-ExtraBold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: italic;
   font-weight: 800;
-  src: url(../assets/fonts/Poppins-ExtraBoldItalic.ttf) format('truetype');
+  src: url(../assets/fonts/Poppins-ExtraBoldItalic.ttf) format("truetype");
 }
 
 html {
@@ -173,8 +173,8 @@ a {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -217,7 +217,7 @@ select {
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
 
   *,
@@ -229,7 +229,6 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
 
 .nonSidebarContent {
   max-width: 100%;

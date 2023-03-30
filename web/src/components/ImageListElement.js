@@ -5,7 +5,7 @@ import { Themed } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { optimizeImageLoading } from "../utils/image.js";
 
-const headerColor = theme['colors']['primary'];
+const headerColor = theme["colors"]["primary"];
 
 const imageListElementSx = {
   maxWidth: "100%",
@@ -25,15 +25,14 @@ const imageListElementSx = {
     alignItems: "center",
   },
   h4: {
-    "fontFamily": "Poppins",
-    "fontSize": "0.7em",
+    fontFamily: "Poppins",
+    fontSize: "0.7em",
     color: headerColor,
-
   },
   ".authorName": {
     p: {
-      fontFamily: 'Poppins!important',
-      fontSize: 'medium',
+      fontFamily: "Poppins!important",
+      fontSize: "medium",
     },
   },
 
@@ -41,7 +40,6 @@ const imageListElementSx = {
     padding: "1em",
   },
 };
-
 
 const imageListElementSx_home = {
   padding: "1em",
@@ -58,13 +56,13 @@ const imageListElementSx_home = {
     flexDirection: "column",
   },
   h4: {
-    "fontFamily": "Poppins",
-    "fontSize": "0.8em",
+    fontFamily: "Poppins",
+    fontSize: "0.8em",
   },
   ".authorName": {
     p: {
-      fontFamily: 'Poppins!important',
-      fontSize: 'medium',
+      fontFamily: "Poppins!important",
+      fontSize: "medium",
     },
   },
   "@media (max-width: 835px)": {
@@ -75,21 +73,32 @@ const imageListElementSx_home = {
 export default function ImageListElement(props) {
   return (
     <div sx={props.home ? imageListElementSx_home : imageListElementSx}>
-      <Link to={"/content/" + props.item.slug.current} key={props.item.slug.current}>
+      <Link
+        to={"/content/" + props.item.slug.current}
+        key={props.item.slug.current}
+      >
         <div className="listItem">
           <div className="listItemImage">
             {props.item.mainImage ? (
-              <img src={optimizeImageLoading(props.item.mainImage.asset.url)} loading="lazy" alt="" />
+              <img
+                src={optimizeImageLoading(props.item.mainImage.asset.url)}
+                loading="lazy"
+                alt=""
+              />
             ) : // TODO: better (more robust) check for this
             props.item.images && props.item.images[0] ? (
-              <img src={optimizeImageLoading(props.item.images[0].asset.url)} loading="lazy" alt="" />
+              <img
+                src={optimizeImageLoading(props.item.images[0].asset.url)}
+                loading="lazy"
+                alt=""
+              />
             ) : null}
           </div>
           <div>
             <Themed.h3 style={{ color: headerColor }}>
               {props.home && (
                 <React.Fragment>
-                  {' '}
+                  {" "}
                   <i>Art •</i>
                 </React.Fragment>
               )}
@@ -99,21 +108,20 @@ export default function ImageListElement(props) {
             <Themed.h2>{props.item.title}</Themed.h2>
           </div>
           <div>
-          {"authors" in props.item && (
-            props.hideAuthor ? "" : (
-              <div className="authorName">
-                <Themed.p>
-                  By{" "}
-                  {
-                    //TODO: link to author page
-                  }
-                  {props.item.authors
-                    .map(({ name }) => name).join(", ")}
-                </Themed.p>
-              </div>
-            )
-          )}
-
+            {"authors" in props.item &&
+              (props.hideAuthor ? (
+                ""
+              ) : (
+                <div className="authorName">
+                  <Themed.p>
+                    By{" "}
+                    {
+                      //TODO: link to author page
+                    }
+                    {props.item.authors.map(({ name }) => name).join(", ")}
+                  </Themed.p>
+                </div>
+              ))}
           </div>
         </div>
       </Link>
