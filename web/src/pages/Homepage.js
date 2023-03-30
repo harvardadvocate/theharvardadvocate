@@ -239,7 +239,7 @@ export default function Homepage() {
           <div className="sanctumSessions">
             {!isMobile ? <hr /> : ""}
             <a
-              href="https://www.youtube.com/watch?v=xsu4cDyrMeQ"
+              href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
               target="_blank"
             >
               <img src="/sanctum_sessions.png" loading="lazy" />
