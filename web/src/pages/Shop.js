@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import ShopifyBuy from "shopify-buy";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MyCarousel from "../components/Carousel";
 import ColorRingLoader from "../components/LoadingRing.js";
 

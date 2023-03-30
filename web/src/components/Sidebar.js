@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";

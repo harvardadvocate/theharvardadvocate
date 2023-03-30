@@ -2,7 +2,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
-import { Grid } from "theme-ui";
 import { useIsMobile } from "../utils/isMobile.js";
 import { FaTwitter, FaInstagram } from "react-icons/fa";
 

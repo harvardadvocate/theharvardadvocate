@@ -1,11 +1,9 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import { Themed } from "theme-ui";
 import TextListElement from "../components/TextListElement.js";
 import TextContentList from "../components/TextContentList.js";
 import ImageListElement from "../components/ImageListElement.js";
 import ImageContentGrid from "../components/ImageContentGrid.js";
-import { theme } from "../theme/theme";
 import { useIsMobile } from "../utils/isMobile";
 
 // MixedGrid: takes 8 items in as props, sorts them as irregular grid

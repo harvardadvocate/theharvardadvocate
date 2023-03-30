@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
 
 const frameSx = {

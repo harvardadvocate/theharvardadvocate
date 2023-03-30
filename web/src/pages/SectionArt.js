@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import ImageContentGrid from "../components/ImageContentGrid.js";
 import sanityClient from "../client.js";
-import { useParams } from "react-router-dom";
 import SectionFrame from "../components/SectionFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
 
