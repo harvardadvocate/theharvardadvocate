@@ -138,22 +138,9 @@ export default function ContentItem() {
       .catch(console.error);
   }, [slug]);
 
-  const handleShareClick = async () => {
-    try {
-      await navigator.share({
-        title: document.title,
-        url: window.location.href,
-      });
-      setIsLinkCopied(true);
-    } catch (error) {
-      console.error("Error sharing:", error);
-      try {
-        navigator.clipboard.writeText(window.location.href);
-        setIsLinkCopied(true);
-      } catch (error) {
-        console.error("Error copying link:", error);
-      }
-    }
+  const handleShareClick = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setIsLinkCopied(true);
   };
 
   if (!itemData) return <ColorRingLoader />;
