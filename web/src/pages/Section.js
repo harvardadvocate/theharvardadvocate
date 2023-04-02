@@ -5,6 +5,7 @@ import sanityClient from "../client.js";
 import { useParams } from "react-router-dom";
 import SectionFrame from "../components/SectionFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
+import ImageContentGrid from "../components/ImageContentGrid.js";
 
 const sectionSx = {
   ".sectionHeader": {
@@ -96,11 +97,13 @@ export default function Section(props) {
           },
         ]}
       >
-        <TextContentList
-          items={items}
-          home={false}
-          border={true}
-        ></TextContentList>
+        {sectionSlug === "art" ? <ImageContentGrid items={items} />
+                               : <TextContentList
+                                  items={items}
+                                  home={false}
+                                  border={true}
+                                 ></TextContentList>
+        }
       </SectionFrame>
       <div className="more">
         <p style={virtualStyle}></p>
