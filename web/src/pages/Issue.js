@@ -169,6 +169,7 @@ export default function Issue() {
         { issueSlug }
       )
       .then((issueData) => {
+        console.log(issueData);
         setIssue(issueData[0]);
         setItems(issueData[0].itemData);
         setSections(
@@ -188,7 +189,7 @@ export default function Issue() {
     if (contentItemsBySection["Art"] && !isMobile) {
       if (
         contentItemsBySection["Art"].length > 1 &&
-        items.length - contentItemsBySection["Art"].length > 5
+        items.length - contentItemsBySection["Art"].length >= 3
       ) {
         // use mixed grid implementation
         useMixedGrid = true;
@@ -229,6 +230,7 @@ export default function Issue() {
           sections
         );
       } else {
+        if  (items.length - contentItemsBySection["Art"].length == 4)
         useMixedGrid = false;
       }
     }
