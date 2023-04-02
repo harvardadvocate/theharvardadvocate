@@ -8,7 +8,6 @@ import ContentItem from "./pages/ContentItem";
 import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import SectionsOverview from "./pages/SectionsOverview";
-import SectionArt from "./pages/SectionArt";
 import Section from "./pages/Section";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
@@ -62,7 +61,6 @@ function App() {
                 <Route element={<SectionsOverview />} path="/sections" exact />
                 <Route element={<Subscribe />} path="/subscribe" exact />
                 <Route element={<Submit />} path="/submit" exact />
-                <Route element={<SectionArt />} path="sections/art" exact />
                 <Route element={<Section />} path="sections/:sectionSlug" />
                 <Route element={<ContentItem />} path="/content/:slug" />
                 <Route element={<Author />} path="authors/:authorSlug" />

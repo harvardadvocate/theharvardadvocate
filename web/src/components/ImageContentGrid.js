@@ -20,6 +20,7 @@ const imageContentGridSx = {
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
     borderBottom: "1px solid rgba(0,0,0,0.2)",
     paddingBottom: "1vh",
+    width: "100%",
   },
 
   ".artItem, .artItemNoLastBorder": {

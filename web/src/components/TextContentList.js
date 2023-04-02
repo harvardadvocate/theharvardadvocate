@@ -20,6 +20,7 @@ const textContentListSx = {
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
     paddingBottom: "1vh",
     paddingTop: "1vh",
+    width: "100%",
   },
 
   ".articleItem, .articleItemNoLastBorder": {
@@ -52,6 +53,7 @@ const textContentListSxVertical = {
     gridTemplateRows: "1fr",
     gridTemplateColumns: "1fr",
     wordBreak: "break-word",
+    width: "100%",
   },
 
   ".articleItem, .articleItemNoLastBorder": {
