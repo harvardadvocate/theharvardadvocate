@@ -160,6 +160,7 @@ export default function Homepage() {
   const [fromTheArchivesContent, setFromTheArchivesContent] = useState(null);
 
   useEffect(() => {
+    document.title = "The Harvard Advocate";
     sanityClient
       .fetch(getResources)
       .then((data) => {
