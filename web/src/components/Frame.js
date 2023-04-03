@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React from "react";
+import React, { useEffect } from "react";
 import { Themed } from "theme-ui";
 
 const frameSx = {
@@ -55,6 +55,9 @@ const frameSx = {
 };
 // TODO: assumes only up to 3 elements in path
 export default function Frame(props) {
+  useEffect(() => {
+    document.title = props.path[0].name;
+  });
   return (
     <div sx={frameSx}>
       <div className="horizontalContainer">

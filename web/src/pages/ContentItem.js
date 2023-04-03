@@ -134,7 +134,10 @@ export default function ContentItem() {
        }`,
         { slug }
       )
-      .then((data) => setItemData(data[0]))
+      .then((data) => {
+        setItemData(data[0]);
+        document.title = data[0].title;
+      })
       .catch(console.error);
   }, [slug]);
 

@@ -2,7 +2,7 @@
 import { Themed } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
-
+import { useEffect } from "react";
 const buttonColor = theme["colors"]["buttonColor"];
 const buttonColorHover = theme["colors"]["buttonColorHover"];
 
@@ -108,7 +108,9 @@ const subscribeSx = {
 
 export default function Subscribe() {
   var isMobile = useIsMobile();
-
+  useEffect(() => {
+    document.title = "Susbscribe";
+  });
   return (
     <div sx={subscribeSx}>
       <div className="horizontalContainer">
