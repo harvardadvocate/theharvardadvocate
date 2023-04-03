@@ -69,6 +69,7 @@ export default function Shop() {
   const [merch, setMerch] = React.useState([]);
 
   useEffect(() => {
+    document.title = "Shop";
     const client = ShopifyBuy.buildClient({
       domain: "the-harvard-advocate.myshopify.com",
       storefrontAccessToken: "005d55feb024fc1214eaf8b8dd90aad0",

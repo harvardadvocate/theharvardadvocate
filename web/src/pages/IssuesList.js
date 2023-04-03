@@ -209,6 +209,7 @@ export default function IssuesList() {
   };
 
   useEffect(() => {
+    document.title = "Issues";
     sanityClient
       .fetch(
         `

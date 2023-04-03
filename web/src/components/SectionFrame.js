@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React from "react";
+import React, { useEffect } from "react";
 import { Themed } from "theme-ui";
 
 const sectionFrameSx = {
@@ -50,6 +50,11 @@ const sectionFrameSx = {
 };
 // TODO: assumes only up to 3 elements in path
 export default function SectionFrame(props) {
+
+  useEffect(() => {
+    document.title = props.path[0].name;
+  });
+
   return (
     <div sx={sectionFrameSx}>
       <div className="horizontalContainer">

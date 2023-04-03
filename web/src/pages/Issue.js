@@ -170,6 +170,7 @@ export default function Issue() {
       )
       .then((issueData) => {
         console.log(issueData);
+        document.title = issueData[0].title;
         setIssue(issueData[0]);
         setItems(issueData[0].itemData);
         setSections(
