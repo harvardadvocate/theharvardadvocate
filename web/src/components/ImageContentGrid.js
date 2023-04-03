@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import ImageListElement from "./ImageListElement";
-import { buildSubarraysOfSize } from "../assets/utils";
+import { buildSubarraysOfSize } from "../utils/buildSubarrays";
 import { useIsMobile } from "../utils/isMobile";
 
 const imageContentGridSx = {
