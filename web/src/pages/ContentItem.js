@@ -209,6 +209,7 @@ export default function ContentItem() {
             itemData.images.map((image, i) => (
               <img src={image.asset.url} key={i} alt=""/>
             ))}
+          {(!itemData.images && itemData.mainImage) ? <img src={itemData.mainImage.asset.url} alt="" /> : ""}
         </div>
         <div>
           {itemData.body && (

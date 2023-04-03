@@ -230,7 +230,7 @@ export default function Issue() {
           sections
         );
       } else {
-        if  (items.length - contentItemsBySection["Art"].length == 4)
+        if  (items.length - contentItemsBySection["Art"].length === 4)
         useMixedGrid = false;
       }
     }
