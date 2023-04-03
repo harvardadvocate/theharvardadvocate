@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Themed } from "theme-ui";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
-import { buildSubarraysOfSize } from "../assets/utils";
+import { buildSubarraysOfSize } from "../utils/buildSubarrays";
 import { optimizeImageLoading } from "../utils/image.js";
 import FeaturedIssue from "../components/FeaturedIssue.js";
 import { useIsMobile } from "../utils/isMobile.js";

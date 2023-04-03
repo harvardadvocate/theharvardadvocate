@@ -22,6 +22,7 @@ import Subscribe from "./pages/Subscribe";
 import Submit from "./pages/Submit";
 import Contact from "./pages/Contact";
 import Masthead from "./pages/Masthead";
+import Success from "./pages/Success";
 
 const appSx = {
   display: "grid",
@@ -60,6 +61,7 @@ function App() {
                 <Route element={<Shop />} path="/shop" exact />
                 <Route element={<SectionsOverview />} path="/sections" exact />
                 <Route element={<Subscribe />} path="/subscribe" exact />
+                <Route element={<Success />} path="/success" exact />
                 <Route element={<Submit />} path="/submit" exact />
                 <Route element={<Section />} path="sections/:sectionSlug" />
                 <Route element={<ContentItem />} path="/content/:slug" />
