@@ -36,8 +36,9 @@ const sectionToQuery = (section, start, end) =>
           asset->{
           _id,
           url
-        }
-      }
+          }
+        },
+        images[]{asset->{_id, url}}
     }[${start}...${end}]`;
 
 export default function Section(props) {
@@ -46,7 +47,10 @@ export default function Section(props) {
   const { sectionSlug } = useParams();
 
   const loadItems = (num) => {
-    var currentPost = items.length;
+    var currentPost = 0;
+    if (items) {
+      currentPost = items.length;
+    }
     sanityClient
       .fetch(sectionToQuery(section, currentPost, currentPost + num)) // query section
       .then((data) => setItems([...items, ...data]))
@@ -85,7 +89,9 @@ export default function Section(props) {
     };
   });
 
-  if (!items) return <ColorRingLoader />;
+  if (!items) {
+    return <ColorRingLoader />
+  }
 
   return (
     <div sx={sectionSx}>

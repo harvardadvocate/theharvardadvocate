@@ -44,6 +44,7 @@ const gridSx = {
     display: "flex",
     verticalAlign: "middle",
     minWidth: "50%",
+    maxWidth: "51%",
     alignItems: "center",
     justifyItems: "center",
     justifyContent: "center",
