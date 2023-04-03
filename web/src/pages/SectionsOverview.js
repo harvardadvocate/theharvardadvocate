@@ -25,7 +25,7 @@ const sectionsOverviewSx = {
 
 const sectionToQuery = (section) =>
   section !== "Art"
-    ? `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(issue->publishedAt desc) {
+    ? `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
         authors[]->{name},
         issue->{title,slug},
@@ -39,7 +39,7 @@ const sectionToQuery = (section) =>
         }
     }
   }[0...3]`
-    : `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(issue->publishedAt desc) {
+    : `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
         authors[]->{name},
         issue->{title,slug},
