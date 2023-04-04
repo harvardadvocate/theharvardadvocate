@@ -217,7 +217,7 @@ export default function IssuesList() {
                 "itemData": ${issuesToQuery(0, 10)},
                 "featuredItems": *[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
                     title,
-                    authors[]->{name},
+                    authors[]->{name, slug},
                     issue->{title, slug},
                     slug,
                     mainImage{

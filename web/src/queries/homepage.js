@@ -12,7 +12,7 @@ const getItemData = `*[_type == "issue"] | order(publishedAt desc)[0] {
 
 const getFeaturedItems = `*[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
               title,
-              authors[]->{name},
+              authors[]->{name, slug},
               issue->{title, slug},
               slug,
               mainImage{
@@ -25,7 +25,7 @@ const getFeaturedItems = `*[_type == "contentItem" && "newIssueFeatured" in feat
 
 const getFeaturedArticle1 = `*[_type == "contentItem" && "featuresFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
               title,
-              authors[]->{name},
+              authors[]->{name, slug},
               issue->{title, slug},
               slug,
               body,
@@ -40,7 +40,7 @@ const getFeaturedArticle1 = `*[_type == "contentItem" && "featuresFeaturedTop" i
 
 const getFeaturedArticle2 = `*[_type == "contentItem" && "poetryFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
                 title,
-                authors[]->{name},
+                authors[]->{name, slug},
                 issue->{title, slug},
                 slug,
                 body,
@@ -55,7 +55,7 @@ const getFeaturedArticle2 = `*[_type == "contentItem" && "poetryFeaturedTop" in 
 
 const getFeaturedArticle3 = `*[_type == "contentItem" && "fictionFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
                 title,
-                authors[]->{name},
+                authors[]->{name, slug},
                 issue->{title, slug},
                 slug,
                 body,
@@ -70,7 +70,7 @@ const getFeaturedArticle3 = `*[_type == "contentItem" && "fictionFeaturedTop" in
 
 const getFeaturedArticle4 = `*[_type == "contentItem" && "featuresFeaturedMiddle" in featuredOptions] | order(publishedAt desc)[0] {
                   title,
-                  authors[]->{name},
+                  authors[]->{name, slug},
                   issue->{title, slug},
                   slug,
                   body,
@@ -85,7 +85,7 @@ const getFeaturedArticle4 = `*[_type == "contentItem" && "featuresFeaturedMiddle
 
 const getFeaturedArticle5 = `*[_type == "contentItem" && "poetryFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
                     title,
-                    authors[]->{name},
+                    authors[]->{name, slug},
                     issue->{title, slug},
                     slug,
                     body,
@@ -100,7 +100,7 @@ const getFeaturedArticle5 = `*[_type == "contentItem" && "poetryFeaturedBottom" 
 
 const getFeaturedArticle6 = `*[_type == "contentItem" && "fictionFeaturedBottom" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
-                      authors[]->{name},
+                      authors[]->{name, slug},
                       issue->{title, slug},
                       slug,
                       body,
@@ -115,7 +115,7 @@ const getFeaturedArticle6 = `*[_type == "contentItem" && "fictionFeaturedBottom"
 
 const getFeaturedArt1 = `*[_type == "contentItem" && "artFeaturedMiddleRight" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
-                      authors[]->{name},
+                      authors[]->{name, slug},
                       issue->{title, slug},
                       slug,
                       body,
@@ -130,7 +130,7 @@ const getFeaturedArt1 = `*[_type == "contentItem" && "artFeaturedMiddleRight" in
 
 const getFeaturedArt2 = `*[_type == "contentItem" && "artFeaturedBottomRight" in featuredOptions] | order(publishedAt desc)[0] {
                       title,
-                      authors[]->{name},
+                      authors[]->{name, slug},
                       issue->{title, slug},
                       slug,
                       body,
@@ -156,7 +156,7 @@ const getInstagram = `*[_type == "imageAsset" && picsFrom21SouthStreet == true] 
 
 const getArchivedContent = `*[_type == "contentItem" && issue->title == "Winter 2009" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt desc) {
                       title,
-                      authors[]->{name},
+                      authors[]->{name, slug},
                       issue->{title, slug},
                       slug,
                       body,

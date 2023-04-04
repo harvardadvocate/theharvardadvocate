@@ -165,7 +165,7 @@ export default function Issue() {
             _rev,
             _type,
             _updatedAt,
-          "itemData": *[_type == "contentItem" && ^._id == issue._ref]{title, body, slug, authors[]->{name}, sections[]->{title, slug}, images[]{asset->{_id, url}}, issue->{title, slug}, mainImage{asset->{_id,url}}}}`,
+          "itemData": *[_type == "contentItem" && ^._id == issue._ref]{title, body, slug, authors[]->{name, slug}, sections[]->{title, slug}, images[]{asset->{_id, url}}, issue->{title, slug}, mainImage{asset->{_id,url}}}}`,
         { issueSlug }
       )
       .then((issueData) => {

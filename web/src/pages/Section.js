@@ -27,7 +27,7 @@ const virtualStyle = {
 const sectionToQuery = (section, start, end) =>
   `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
-        authors[]->{name},
+        authors[]->{name, slug},
         issue->{title,slug},
         sections[]->{title,slug},
         slug,
