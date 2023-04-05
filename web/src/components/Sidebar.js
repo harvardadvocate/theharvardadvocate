@@ -264,6 +264,14 @@ export default function Sidebar() {
             >
               Issues
             </Link>
+            {isMobile ?
+            <Link
+              className={`link ${highlightLink("/submit")}`}
+              to="/submit"
+              onClick={() => setNavbarExpanded(false)}
+            >
+              Submit
+            </Link> : ""}
             <div className="sectionsLink">
               <Link
                 className={`link ${highlightLink("/sections")}`}
