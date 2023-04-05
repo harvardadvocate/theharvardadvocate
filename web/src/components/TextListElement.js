@@ -178,7 +178,16 @@ export default function TextListItem(props) {
               ""
             ) : (
               <div className="authorName">
-                <Themed.p>By {props.item.authors[0].name}</Themed.p>
+                <Themed.p>By{" "}
+                {props.item.authors.map((author, i) => (
+                  <>
+                    {i !== 0 && ", "}
+                    <Link to={"/authors/" + author.slug.current}>
+                      {author.name}
+                    </Link>{" "}
+                  </>
+                ))}
+                </Themed.p>
               </div>
             )}
           </div>

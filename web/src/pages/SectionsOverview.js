@@ -27,7 +27,7 @@ const sectionToQuery = (section) =>
   section !== "Art"
     ? `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
-        authors[]->{name},
+        authors[]->{name, slug},
         issue->{title,slug},
         sections[]->{title,slug},
         slug,
@@ -41,7 +41,7 @@ const sectionToQuery = (section) =>
   }[0...3]`
     : `*[_type == "contentItem" && "${section}" in sections[]->title]  | order(publishedAt desc) {
         title,
-        authors[]->{name},
+        authors[]->{name, slug},
         issue->{title,slug},
         slug,
         sections[]->{title,slug},

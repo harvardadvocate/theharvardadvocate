@@ -217,9 +217,17 @@ export default function FeaturedIssue(props) {
                     <div className="featuredArticle" key={article.title}>
                       <Link to={"/content/" + article.slug.current}>
                         <div className="articleLink">
+                          <b>{article.title}</b> <br />
                           <Themed.h3>
-                            <b>{article.title}</b> <br /> By{" "}
-                            {article.authors[0].name}
+                          By{" "}
+                          {article.authors.map((author, i) => (
+                            <>
+                              {i !== 0 && ", "}
+                              <Link to={"/authors/" + author.slug.current}>
+                                {author.name}
+                              </Link>{" "}
+                            </>
+                          ))}
                           </Themed.h3>
                         </div>
                       </Link>
@@ -235,8 +243,17 @@ export default function FeaturedIssue(props) {
                       <Link to={"/content/" + article.slug.current}>
                         <div className="articleLink">
                           <Themed.h3>
-                            <b>{article.title}</b> <br /> By{" "}
-                            {article.authors[0].name}
+                            <b>{article.title}</b> <br />
+                            By{" "}
+                            {article.authors.map((author, i) => (
+                              <>
+                                {i !== 0 && ", "}
+                                <Link to={"/authors/" + author.slug.current}>
+                                  {author.name}
+                                </Link>{" "}
+                              </>
+                            ))}
+
                           </Themed.h3>
                         </div>
                       </Link>
