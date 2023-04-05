@@ -98,7 +98,7 @@ const customComponents = {
     strikethrough: ({ children }) => <s>{children}</s>,
   },
   types: {
-    image: ({ value }) => <img src={urlFor(value).url()} alt=""/>,
+    image: ({ value }) => <img src={urlFor(value).url()} alt="" />,
     callToAction: ({ value, isInline }) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>
@@ -210,9 +210,13 @@ export default function ContentItem() {
         <div className="images">
           {itemData.images &&
             itemData.images.map((image, i) => (
-              <img src={image.asset.url} key={i} alt=""/>
+              <img src={image.asset.url} key={i} alt="" />
             ))}
-          {(!itemData.images && itemData.mainImage) ? <img src={itemData.mainImage.asset.url} alt="" /> : ""}
+          {!itemData.images && itemData.mainImage ? (
+            <img src={itemData.mainImage.asset.url} alt="" />
+          ) : (
+            ""
+          )}
         </div>
         <div>
           {itemData.body && (

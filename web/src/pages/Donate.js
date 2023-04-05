@@ -104,7 +104,13 @@ export default function Donate() {
           </Themed.p>
 
           <div className="image">
-            <img src="/donate.jpeg" width="381" height="271" loading="lazy" alt="donate graphic"/>
+            <img
+              src="/donate.jpeg"
+              width="381"
+              height="271"
+              loading="lazy"
+              alt="donate graphic"
+            />
             <figcaption>
               Illustration from{" "}
               <em>Land of Tomorrow, Dark and Bloody Ground</em>

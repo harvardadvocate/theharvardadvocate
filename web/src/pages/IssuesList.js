@@ -192,7 +192,6 @@ const issuesToQuery = (start, end) =>
         }
       }[${start}...${end}]`;
 
-
 export default function IssuesList() {
   var isMobile = useIsMobile();
 

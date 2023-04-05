@@ -76,9 +76,11 @@ export default function Comp() {
               Instagram
             </a>{" "}
             and{" "}
-            <a href="https://www.twitter.com/harvardadvocate/"
-               target="_blank"
-               rel="noreferrer">
+            <a
+              href="https://www.twitter.com/harvardadvocate/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Twitter
             </a>
             .
@@ -95,7 +97,13 @@ export default function Comp() {
           </Themed.p>
 
           <div className="image">
-            <img src="/comp.jpeg" width="261" height="364" loading="lazy" alt ="comp graphic"/>
+            <img
+              src="/comp.jpeg"
+              width="261"
+              height="364"
+              loading="lazy"
+              alt="comp graphic"
+            />
             <figcaption>
               Illustration from <em>Survival</em>
             </figcaption>
