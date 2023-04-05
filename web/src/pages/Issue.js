@@ -231,8 +231,8 @@ export default function Issue() {
           sections
         );
       } else {
-        if  (items.length - contentItemsBySection["Art"].length === 4)
-        useMixedGrid = false;
+        if (items.length - contentItemsBySection["Art"].length === 4)
+          useMixedGrid = false;
       }
     }
     if (contentItemsBySection["Art"]) {

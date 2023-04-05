@@ -227,7 +227,11 @@ export default function Homepage() {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="/sanctum_sessions.png" loading="lazy" alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."/>
+              <img
+                src="/sanctum_sessions.png"
+                loading="lazy"
+                alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."
+              />
             </a>
           </div>
           <div className="blog">
@@ -256,10 +260,18 @@ export default function Homepage() {
           {!isMobile ? (
             <div className="socialsFeed">
               <div className="socialsGrid">
-                <a href="https://instagram.com/harvardadvocate" target="_blank" rel="noreferrer">
+                <a
+                  href="https://instagram.com/harvardadvocate"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <div className="instaCol">
                     <div className="fromss">
-                      <img src="/picsfrom21ss.jpg" loading="lazy" alt="Text: pics from 21 south street"></img>
+                      <img
+                        src="/picsfrom21ss.jpg"
+                        loading="lazy"
+                        alt="Text: pics from 21 south street"
+                      ></img>
                     </div>
                     <div className="insta1">
                       <img

@@ -50,7 +50,6 @@ const sectionFrameSx = {
 };
 // TODO: assumes only up to 3 elements in path
 export default function SectionFrame(props) {
-
   useEffect(() => {
     document.title = props.path[0].name;
   });

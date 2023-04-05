@@ -109,7 +109,7 @@ const subscribeSx = {
 export default function Subscribe() {
   var isMobile = useIsMobile();
   useEffect(() => {
-    document.title = "Susbscribe";
+    document.title = "Subscribe";
   });
   return (
     <div sx={subscribeSx}>
@@ -158,7 +158,11 @@ export default function Subscribe() {
             </div>
           </div>
           <div className="image">
-            <img src="/subscribe_image.jpg" loading="lazy" alt="subscribe graphic"/>
+            <img
+              src="/subscribe_image.jpg"
+              loading="lazy"
+              alt="subscribe graphic"
+            />
             <figcaption>
               Illustration from{" "}
               <em>The Importance of Knees as a Bracing Thing</em>

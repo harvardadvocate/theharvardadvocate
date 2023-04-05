@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { Themed, } from "theme-ui";
+import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 
 const submitSx = {
@@ -192,7 +192,13 @@ export default function Submit() {
             art@theharvardadvocate.com
           </Themed.p>
           <div className="image">
-            <img src="/submit.jpeg" width="400" height="400" loading="lazy" alt="submit graphic"/>
+            <img
+              src="/submit.jpeg"
+              width="400"
+              height="400"
+              loading="lazy"
+              alt="submit graphic"
+            />
             <figcaption>
               Illustration from <em>The Leaving</em>
             </figcaption>

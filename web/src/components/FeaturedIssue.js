@@ -219,15 +219,15 @@ export default function FeaturedIssue(props) {
                         <div className="articleLink">
                           <b>{article.title}</b> <br />
                           <Themed.h3>
-                          By{" "}
-                          {article.authors.map((author, i) => (
-                            <>
-                              {i !== 0 && ", "}
-                              <Link to={"/authors/" + author.slug.current}>
-                                {author.name}
-                              </Link>{" "}
-                            </>
-                          ))}
+                            By{" "}
+                            {article.authors.map((author, i) => (
+                              <>
+                                {i !== 0 && ", "}
+                                <Link to={"/authors/" + author.slug.current}>
+                                  {author.name}
+                                </Link>{" "}
+                              </>
+                            ))}
                           </Themed.h3>
                         </div>
                       </Link>
@@ -253,7 +253,6 @@ export default function FeaturedIssue(props) {
                                 </Link>{" "}
                               </>
                             ))}
-
                           </Themed.h3>
                         </div>
                       </Link>

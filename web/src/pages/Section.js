@@ -90,7 +90,7 @@ export default function Section(props) {
   });
 
   if (!items) {
-    return <ColorRingLoader />
+    return <ColorRingLoader />;
   }
 
   return (
@@ -103,13 +103,15 @@ export default function Section(props) {
           },
         ]}
       >
-        {sectionSlug === "art" ? <ImageContentGrid items={items} />
-                               : <TextContentList
-                                  items={items}
-                                  home={false}
-                                  border={true}
-                                 ></TextContentList>
-        }
+        {sectionSlug === "art" ? (
+          <ImageContentGrid items={items} />
+        ) : (
+          <TextContentList
+            items={items}
+            home={false}
+            border={true}
+          ></TextContentList>
+        )}
       </SectionFrame>
       <div className="more">
         <p style={virtualStyle}></p>

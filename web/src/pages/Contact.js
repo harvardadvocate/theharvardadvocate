@@ -90,9 +90,11 @@ export default function Contact() {
               Instagram
             </a>{" "}
             and{" "}
-            <a href="https://www.twitter.com/harvardadvocate/"
-               target="_blank"
-               rel="noreferrer">
+            <a
+              href="https://www.twitter.com/harvardadvocate/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Twitter
             </a>
             !

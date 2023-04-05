@@ -84,7 +84,7 @@ export default function Shop() {
       .catch((error) => {});
 
     //fetching merch (once merch collection exists)
-    const merchCollectionId = 'gid://shopify/Collection/71491190839';
+    const merchCollectionId = "gid://shopify/Collection/71491190839";
     // Set a parameter for first x products, defaults to 20 if you don't provide a param
     client.collection
       .fetchWithProducts(merchCollectionId)
@@ -92,7 +92,6 @@ export default function Shop() {
         // Do something with the collection
         setMerch(collections.products);
       });
-
 
     // fetching just issues
     const issueCollectionId = "gid://shopify/Collection/71491354679";
@@ -108,8 +107,7 @@ export default function Shop() {
 
   if (!products) {
     return <ColorRingLoader />;
-  }
-  else {
+  } else {
     console.log(merch);
   }
 
