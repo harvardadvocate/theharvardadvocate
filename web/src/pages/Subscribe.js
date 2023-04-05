@@ -109,7 +109,7 @@ const subscribeSx = {
 export default function Subscribe() {
   var isMobile = useIsMobile();
   useEffect(() => {
-    document.title = "Susbscribe";
+    document.title = "Subscribe";
   });
   return (
     <div sx={subscribeSx}>
