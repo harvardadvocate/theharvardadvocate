@@ -35,11 +35,8 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "react-icons": "^4.8.0",
-    "react-infinite-scroll-hook": "^4.0.4",
     "react-lazyload": "^3.2.0",
     "react-leaf-carousel": "^3.0.0",
-    "react-share": "^4.4.1",
-    "react-twitter-embed": "^4.0.4",
     "shopify-buy": "^2.18.0"
   }
 }
