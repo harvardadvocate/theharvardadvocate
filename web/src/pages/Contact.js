@@ -19,6 +19,26 @@ const contactSx = {
     textDecoration: "underline",
   },
 
+  ".buttonLink": {
+    color: "#000000",
+    backgroundColor: "#ffffff",
+    padding: "10px 10px",
+    textAlign: "center",
+    textDecoration: "none",
+    fontSize: "18px",
+    width: "35%",
+    fontFamily: "sans-serif",
+    fontWeight: "500",
+    justifyContent: "center",
+    display: "flex",
+    border: "2px solid black",
+    borderRadius: "10px",
+  },
+  ".buttonLink:hover": {
+    color: "#ffffff",
+    backgroundColor: "#000000",
+  },
+
   "@media (max-width: 835px)": {
     ".contactBody": {
       margin: "0em 0em 0em 0em",
@@ -43,20 +63,13 @@ export default function Contact() {
             You can reach the content board heads at the following emails:
             <br />
             <br />
-            <b>Art</b>
-            <br />
+            <b>Art: </b>
             art@theharvardadvocate.com <br />
-            <br />
-            <b>Features</b>
-            <br />
+            <b>Features: </b>
             features@theharvardadvocate.com <br />
-            <br />
-            <b>Fiction</b>
-            <br />
+            <b>Fiction: </b>
             fiction@theharvardadvocate.com <br />
-            <br />
-            <b>Poetry</b>
-            <br />
+            <b>Poetry: </b>
             poetry@theharvardadvocate.com <br />
             <br />
             To arrange a subscription, visit the{" "}
@@ -107,6 +120,20 @@ export default function Contact() {
             <br />
             <br />
             All other inquiries can be sent to president@theharvardadvocate.com.
+            <br />
+            <br />
+            <br />
+            <div align="center">
+              <a
+                className="buttonLink"
+                href={"https://dashboard.mailerlite.com/forms/324641/84914182071256382/share"}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Subscribe to our mailing list
+              </a>
+            </div>
+
           </Themed.p>
         </div>
       </Frame>
