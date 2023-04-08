@@ -88,7 +88,7 @@ export default function Submit() {
             <Themed.h2>Spring 2023 Issue</Themed.h2>
             <hr />
             <i align="center">
-              Our winter 2023 Review Period ends on Friday, October 14th, 2022.
+              We are not currently accepting submissions. Please check back in June.
             </i>
             <br />
             <div align="center">
