@@ -49,7 +49,7 @@ export default function Masthead() {
               <br />
               E. Jones '25, Hermes, Fiction Editor
               <br />
-              J. Coe '25, Pegasus
+              J. Coe '25, Hermes
               <br />
               H. Hinze '26, Pegasus
               <br />
