@@ -95,7 +95,7 @@ export default function Submit() {
               <a
                 className="buttonLink"
                 href={
-                  "https://docs.google.com/forms/d/e/1FAIpQLSdHCYzDkX4ZAuip4NwjCeWXODfQSrheQDGEcgFApdhLrF35sg/viewform?usp=sf_link"
+                  "mailto:fiction@theharvardadvocate.com"
                 }
                 target="_blank"
                 rel="noreferrer"
@@ -136,7 +136,7 @@ export default function Submit() {
               <a
                 className="buttonLink"
                 href={
-                  "mailto:fiction@theharvardadvocate.com"
+                  "https://forms.gle/SreCuNx4NA4zDVDUA"
                 }
                 target="_blank"
                 rel="noreferrer"
