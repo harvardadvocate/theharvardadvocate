@@ -88,7 +88,7 @@ export default function Submit() {
             <Themed.h2>Spring 2023 Issue</Themed.h2>
             <hr />
             <i align="center">
-              We are not currently accepting submissions. Please check back in June.
+              We are currently accepting short fiction for the Begley Prize. Submissions to the Begley Prize are due April 15.
             </i>
             <br />
             <div align="center">
@@ -126,7 +126,7 @@ export default function Submit() {
                 immediately if your work is accepted elsewhere.
               </li>
             </ul>
-            You can submit you work through the link above, or by emailing
+            You can submit your work by emailing
             fiction@theharvardadvocate.com
             <br />
             <br />
@@ -136,7 +136,7 @@ export default function Submit() {
               <a
                 className="buttonLink"
                 href={
-                  "https://docs.google.com/forms/d/e/1FAIpQLSfMcuyiu8TM0AUSnOjCvUvA59lWIfVYgvJ-8uX_RgIRjKuypA/viewform?usp=sf_link"
+                  "mailto:fiction@theharvardadvocate.com"
                 }
                 target="_blank"
                 rel="noreferrer"
