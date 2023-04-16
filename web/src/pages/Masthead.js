@@ -104,6 +104,44 @@ export default function Masthead() {
               M. K. Lee '24, Advocate Cafe Manager
               <br />
               K. Liu '25, Advocate Cafe Manager
+              
+              <b> <i> Board of Trustees </ b>
+              <br />
+              D.T. Max, President
+              <br />
+              Douglas McIntyre, Treasurer, Vice Chairman
+              <br />
+              Charles Atkinson, Secretary
+              <br />
+              Amelia Atlas, Secretary
+              <br />
+              Louis Begley, Chairman Emeritus
+              <br />
+              Peter Brooks
+              <br />
+              Casey Cep
+              <br />
+              Emily Chertoff
+              <br />
+              Jonathan Galassi 
+              <br />
+              Lev Grossman
+              <br />
+              Leslie Jamison
+              <br />
+              Julian Lucas
+              <br />
+              Angela Mariani
+              <br />
+              Susan Morrison
+              <br />
+              Celia McGee
+              <br />
+              Thomas A. Stewart
+              <br />
+              Jean Strouse
+              <br />
+              </i>
             </i>
           </Themed.p>
         </div>
