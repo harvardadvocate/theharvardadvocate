@@ -104,9 +104,9 @@ export default function Masthead() {
               M. K. Lee '24, Advocate Cafe Manager
               <br />
               K. Liu '25, Advocate Cafe Manager
-              
-              <b> <i> Board of Trustees </ b>
-              <br />
+              <br /> <br /> <br />
+              <b>Board of Trustees</b>
+              <br /><br />
               D.T. Max, President
               <br />
               Douglas McIntyre, Treasurer, Vice Chairman
@@ -123,7 +123,7 @@ export default function Masthead() {
               <br />
               Emily Chertoff
               <br />
-              Jonathan Galassi 
+              Jonathan Galassi
               <br />
               Lev Grossman
               <br />
@@ -141,7 +141,6 @@ export default function Masthead() {
               <br />
               Jean Strouse
               <br />
-              </i>
             </i>
           </Themed.p>
         </div>
