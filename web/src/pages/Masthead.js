@@ -89,7 +89,7 @@ export default function Masthead() {
               <br />
               A. Kaushik '24, D&I Chair
               <br />
-              J. Yang '24, D&I Chair
+              J. Yang '26, D&I Chair
               <br />
               K. Mandell '25, Blog Editor
               <br />
