@@ -235,7 +235,7 @@ export default function FeaturedIssue(props) {
                   );
                 })}
               </Grid>
-              <hr />
+              {featuredItems.length > 2 ? <hr /> : <></>}
               <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
                 {featuredItems.slice(2, 4).map((article) => {
                   return (
@@ -267,7 +267,7 @@ export default function FeaturedIssue(props) {
                 className={props.newest ? "readFullIssue" : "readFullIssue2"}
               >
                 <span>&#8594;</span>
-                <Themed.h6>READ FULL ISSUE</Themed.h6>
+                <Themed.h6>READ FULL ISSUE {props.newest ? "(new piece out every week)" : ""}</Themed.h6>
               </div>
             </Link>
           </div>

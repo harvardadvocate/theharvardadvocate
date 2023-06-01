@@ -165,7 +165,9 @@ export default function Homepage() {
       .fetch(getResources)
       .then((data) => {
         setItemData(data.itemData);
-        setFeaturedItems(data.featuredItems);
+        setFeaturedItems(data.featuredItems.filter(
+                          (item) => item.issue.title === data.itemData.title
+                        ));
         setFeaturedArticle1(data.featuredArticle1);
         setFeaturedArticle2(data.featuredArticle2);
         setFeaturedArticle3(data.featuredArticle3);
