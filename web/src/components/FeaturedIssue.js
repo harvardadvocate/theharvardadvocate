@@ -219,15 +219,8 @@ export default function FeaturedIssue(props) {
                         <div className="articleLink">
                           <b>{article.title}</b> <br />
                           <Themed.h3>
-                            By{" "}
-                            {article.authors.map((author, i) => (
-                              <>
-                                {i !== 0 && ", "}
-                                <Link to={"/authors/" + author.slug.current}>
-                                  {author.name}
-                                </Link>{" "}
-                              </>
-                            ))}
+                            By{" "}{article.authors[0].name}
+                            {article.authors.length > 1 ? ", ..." : ""}
                           </Themed.h3>
                         </div>
                       </Link>
