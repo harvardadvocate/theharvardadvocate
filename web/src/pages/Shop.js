@@ -1,129 +1,135 @@
-/** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
-import ShopifyBuy from "shopify-buy";
-import React, { useEffect } from "react";
-import MyCarousel from "../components/Carousel";
-import ColorRingLoader from "../components/LoadingRing.js";
+import React, { useEffect, useRef } from 'react';
+import Frame from '../components/Frame';
 
-const shopSx = {
-  i: {
-    textAlign: "center",
-    display: "block",
+const styleOptions = {
+  product: {
+    '@media (min-width: 601px)': {
+      'max-width': 'calc(25% - 20px)',
+      'margin-left': '10px',
+      'margin-bottom': '50px',
+      'min-height': '375px',
+      'margin-right': '10px',
+    }
   },
-
-  paddingInline: "10vw",
-  paddingTop: "5vh",
-
-  ".header": {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
+  title: {
+    'font-size': '16px',
+    'min-height': '2em', // Allow for up to 2 lines of text, adjust as needed
+    'overflow': 'hidden',
+    'text-overflow': 'ellipsis',
+    'display': '-webkit-box',
+    '-webkit-line-clamp': '2',
+    '-webkit-box-orient': 'vertical',
   },
-
+  button: {
+    'background-color': 'white',
+    'border-color': 'black',
+    'border': '1px solid black',
+    'color': 'black',
+    ':hover': {
+      'background-color': 'black',
+      'color': 'white',
+    },
+    ':focus': {
+      'background-color': 'white',
+      'color': 'black',
+    }
+  },
   img: {
-    boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-    height: "auto",
-    width: "auto",
-    maxHeight: "25vh",
-    maxWidth: "10vw",
-    cursor: "pointer",
-  },
-
-  ".carousel-item": {
-    height: "30vh",
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-
-  ".merch": {
-    height: "25vw",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  "@media (max-width: 835px)": {
-    ".shopBody": {
-      margin: "0em 0em 0em 0em",
-      marginTop: "1em",
-    },
-    img: {
-      boxShadow: "0 4px 4px 0px rgba(0, 0, 0, 0.4)",
-      maxHeight: "100%",
-      maxWidth: "100%",
-    },
-    ".carousel-item": {
-      height: "100%",
-    },
-    ".InfiniteCarouselSlide": {
-      width: "auto",
-    },
+    'height': '300px',  // set a fixed height
+    'width': 'auto', // make sure it takes up full width
+    'object-fit': 'cover',  // cover to make sure it's responsive
+    'margin-left': 'auto',
+    'margin-right': 'auto',
+    'display': 'block',
+    'padding-top': '10px',
   },
 };
 
-export default function Shop() {
-  const [products, setProducts] = React.useState([]);
-  const [issues, setIssues] = React.useState([]);
-  const [merch, setMerch] = React.useState([]);
+
+const Shop = () => {
+  const shopifyContainer1 = useRef();
+  const shopifyContainer2 = useRef();
 
   useEffect(() => {
-    document.title = "Shop";
-    const client = ShopifyBuy.buildClient({
-      domain: "the-harvard-advocate.myshopify.com",
-      storefrontAccessToken: "005d55feb024fc1214eaf8b8dd90aad0",
-    });
+    const scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    const script = document.createElement('script');
+    script.src = scriptURL;
+    script.async = true;
+    document.body.appendChild(script);
 
-    //fetching all products
-    client.product
-      .fetchAll()
-      .then((products) => {
-        setProducts(products);
-      })
-      .catch((error) => {});
-
-    //fetching merch (once merch collection exists)
-    const merchCollectionId = "gid://shopify/Collection/71491190839";
-    // Set a parameter for first x products, defaults to 20 if you don't provide a param
-    client.collection
-      .fetchWithProducts(merchCollectionId)
-      .then((collections) => {
-        // Do something with the collection
-        setMerch(collections.products);
-      });
-
-    // fetching just issues
-    const issueCollectionId = "gid://shopify/Collection/71491354679";
-    // Set a parameter for first x products, defaults to 20 if you don't provide a param
-
-    client.collection
-      .fetchWithProducts(issueCollectionId)
-      .then((collections) => {
-        // Do something with the collection
-        setIssues(collections.products);
-      });
+    script.onload = () => {
+      if (window.ShopifyBuy) {
+        const client = window.ShopifyBuy.buildClient({
+          domain: 'the-harvard-advocate.myshopify.com',
+          storefrontAccessToken: 'c352e31888e06717ad665e51df596558',
+        });
+        
+        window.ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('collection', {
+            id: '71491354679',
+            node: shopifyContainer1.current,
+            options: {
+              product: {
+                styles: styleOptions
+              },
+            }          
+          });
+        });
+      }
+    }
   }, []);
 
-  if (!products) {
-    return <ColorRingLoader />;
-  } else {
-    console.log(merch);
-  }
+  useEffect(() => {
+    const scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    const script = document.createElement('script');
+    script.src = scriptURL;
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      if (window.ShopifyBuy) {
+        const client = window.ShopifyBuy.buildClient({
+          domain: 'the-harvard-advocate.myshopify.com',
+          storefrontAccessToken: 'c352e31888e06717ad665e51df596558',
+        });
+
+        window.ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('collection', {
+            id: '71491190839',
+            node: shopifyContainer2.current,
+            options: {
+              product: {
+                buttonDestination: 'modal',
+                contents: {
+                  options: false
+                },
+                styles: styleOptions,
+              },
+            },          
+          });
+        });
+      }
+    }
+  }, []);
+
+  console.log(shopifyContainer1)
 
   return (
-    <div sx={shopSx}>
-      <div className="header">
-        <Themed.h2>Shop</Themed.h2>
+    <Frame
+      path={[
+        {
+          name: "Shop",
+          slug: "/shop",
+        },
+      ]}
+    >
+      <div>
+        <div ref={shopifyContainer2} id="collection-component-1685694291099"></div>
+        <hr/>
+        <div ref={shopifyContainer1} id="collection-component-1685694291098"></div>
       </div>
-      <div className="c">
-        <hr />
-        <MyCarousel prod={issues}></MyCarousel>
-        <hr />
-      </div>
-      <div className="merch">
-        <Themed.h2>merch coming soon!</Themed.h2>
-      </div>
-    </div>
+    </Frame>
   );
-}
+};
+
+export default Shop;
