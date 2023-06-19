@@ -94,7 +94,7 @@ export default function Donate() {
             <div align="center">
               <a
                 className="buttonLink"
-                href={"https://donate.stripe.com/8wM2bRa5Wfma1uE5kl"}
+                href={"https://donate.stripe.com/6oE00W6lc7xQeVW144"}
                 target="_blank"
                 rel="noreferrer"
               >
