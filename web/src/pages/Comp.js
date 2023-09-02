@@ -55,7 +55,7 @@ export default function Comp() {
       >
         <div className="compBody">
           <Themed.p>
-            <i>Our Spring 2023 comp is already underway</i>
+            <i>Interested in Fall 2023 Comp?</i>
             <br />
             <br />
             The Harvard Advocate has been a home for arts and literature at
