@@ -86,10 +86,10 @@ export default function Comp() {
             .
             <br />
             <br />
-            Intro Comp meetings are happening Wednesday February 1 and Thursday
-            February 2 at 9pm at 21 South St, and Saturday February 4 at 3pm on
+            Intro Comp meetings are happening Wednesday September 13 and Thursday
+            September 14 at 9pm at 21 South St, and Saturday September 16 at 3pm on
             Zoom. Visit here to sign up. For any questions, comments or
-            concerns, contact dionysi@theharvardadvocate.com.
+            concerns, contact hermes@theharvardadvocate.com.
             <br />
             <br />
             The Harvard Advocate can be reached at 21 South Street, Cambridge,
