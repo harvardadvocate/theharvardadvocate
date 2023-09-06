@@ -88,7 +88,15 @@ export default function Comp() {
             <br />
             Intro Comp meetings are happening Wednesday September 13 and Thursday
             September 14 at 9pm at 21 South St, and Saturday September 16 at 3pm on
-            Zoom. Visit here to sign up. For any questions, comments or
+            Zoom. Sign up for the Zoom Intro Comp meeting {" "}
+            <a
+              href="https://forms.gle/TdueEXzXwEqidTQh6"
+              target="_blank"
+              rel="noreferrer"
+            >
+              here.
+            </a>{" "}
+            For any questions, comments or
             concerns, contact hermes@theharvardadvocate.com.
             <br />
             <br />
