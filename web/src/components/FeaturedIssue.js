@@ -260,7 +260,7 @@ export default function FeaturedIssue(props) {
                 className={props.newest ? "readFullIssue" : "readFullIssue2"}
               >
                 <span>&#8594;</span>
-                <Themed.h6>READ FULL ISSUE {props.newest ? "(new piece out every week)" : ""}</Themed.h6>
+                <Themed.h6>READ FULL ISSUE {props.newest ? "" : ""}</Themed.h6>
               </div>
             </Link>
           </div>
