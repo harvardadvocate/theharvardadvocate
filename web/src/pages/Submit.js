@@ -85,10 +85,10 @@ export default function Submit() {
             <br />
             <br />
             <hr />
-            <Themed.h2>Spring 2023 Issue</Themed.h2>
+            <Themed.h2>Fall 2023 Issue</Themed.h2>
             <hr />
             <i align="center">
-              We are currently accepting short fiction for the Begley Prize. Submissions to the Begley Prize are due April 15.
+              The Advocate is currently soliciting submissions for our Fall 2023 issue. Submissions are due November 7th.
             </i>
             <br />
             <div align="center">
