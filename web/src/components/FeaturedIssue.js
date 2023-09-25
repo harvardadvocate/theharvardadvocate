@@ -207,7 +207,7 @@ export default function FeaturedIssue(props) {
                   <b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b>
                 </Themed.h5>
                 <Themed.h1>{issue.title}</Themed.h1>
-                <hr />
+                {featuredItems.length > 0 ? <hr /> : <></>}
               </div>
             </a>
             <div className="highlightedArticles">
@@ -253,14 +253,14 @@ export default function FeaturedIssue(props) {
                   );
                 })}
               </Grid>
-              <hr />
+              {featuredItems.length > 0 ? <hr /> : <></>}
             </div>
             <Link to={"/issues/" + issue.slug.current}>
               <div
                 className={props.newest ? "readFullIssue" : "readFullIssue2"}
               >
                 <span>&#8594;</span>
-                <Themed.h6>READ FULL ISSUE {props.newest ? "" : ""}</Themed.h6>
+                <Themed.h6>READ IN FULL</Themed.h6>
               </div>
             </Link>
           </div>
