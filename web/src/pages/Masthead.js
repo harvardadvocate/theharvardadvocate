@@ -78,7 +78,7 @@ export default function Masthead() {
               <br />
               I. Specht '24, Design Editor
               <br />
-              A. Lordos '25, Tech Editor
+              C. Lu '26, Tech Editor
               <br />
               A. Mark '24, Business Manager
               <br />
