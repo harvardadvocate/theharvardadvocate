@@ -154,6 +154,9 @@ export default function Homepage() {
   const [featuredArticle6, setFeaturedArticle6] = useState(null);
   const [featuredArt1, setFeaturedArt1] = useState(null);
   const [featuredArt2, setFeaturedArt2] = useState(null);
+  const [Blog1, setBlog1] = useState(null);
+  const [Blog2, setBlog2] = useState(null);
+
 
   const [instagramImages, setInstagramImages] = useState(null);
 
@@ -161,6 +164,7 @@ export default function Homepage() {
 
   useEffect(() => {
     document.title = "The Harvard Advocate";
+    console.log("Hiiiiii");
     sanityClient
       .fetch(getResources)
       .then((data) => {
@@ -178,6 +182,9 @@ export default function Homepage() {
         setFeaturedArt2(data.featuredArt2);
         setInstagramImages(data.instagram);
         setFromTheArchivesContent(data.archivedContent);
+        setBlog1(data.blog1);
+        setBlog2(data.blog2);
+
       })
       .catch(console.error);
   }, []);
@@ -191,6 +198,8 @@ export default function Homepage() {
     !featuredArticle4 ||
     !featuredArticle5 ||
     !featuredArticle6 ||
+    !Blog1 ||
+    !Blog2 ||
     !featuredArt1 ||
     !featuredArt2 ||
     !instagramImages ||
@@ -252,7 +261,7 @@ export default function Homepage() {
               {isMobile ? <hr /> : ""}
             </div>
             <TextContentList
-              items={[featuredArticle1, featuredArticle2, featuredArticle3]}
+              items={[Blog1, Blog2, Blog1]}
               border={false}
               home={false}
               noLastBorder={isMobile}
