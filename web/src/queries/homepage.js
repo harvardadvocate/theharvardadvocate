@@ -38,6 +38,40 @@ const getFeaturedArticle1 = `*[_type == "contentItem" && "featuresFeaturedTop" i
             }
           }`;
 
+
+
+
+
+//           const getBlogArticle1 = *[_type == 'contentItem' && _id == '39909580-a8e9-4328-9772-da2e42576b82'] | order(publishedAt desc)[0] {
+//             title,
+//             authors[]->{name, slug},
+//             issue->{title, slug},
+//             slug,
+//             body,
+//             sections[]->{title, slug},
+//             mainImage{
+//               asset->{
+//               _id,
+//               url
+//             }
+//           }
+//         };
+
+// const getBlogArticle2 = *[_type == 'contentItem' && _id == 'fbb35fe7-7705-4369-b6a0-75b17d9da175' ] | order(publishedAt desc)[0]{
+//             title,
+//             authors[]->{name, slug},
+//             issue->{title, slug},
+//             slug,
+//             body,
+//             sections[]->{title, slug},
+//             mainImage{
+//               asset->{
+//               _id,
+//               url
+//             }
+//           }
+//         };
+
 const getFeaturedArticle2 = `*[_type == "contentItem" && "poetryFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
                 title,
                 authors[]->{name, slug},
@@ -143,6 +177,38 @@ const getFeaturedArt2 = `*[_type == "contentItem" && "artFeaturedBottomRight" in
                     }
                   }`;
 
+
+const getBlog1 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions] | order(publishedAt desc)[0] {
+                    title,
+                    authors[]->{name, slug},
+                    issue->{title, slug},
+                    slug,
+                    body,
+                    sections[]->{title, slug},
+                    mainImage{
+                      asset->{
+                      _id,
+                      url
+                    }
+                  }
+                }`;  
+                
+                
+const getBlog2 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions] | order(publishedAt desc)[1] {
+                  title,
+                  authors[]->{name, slug},
+                  issue->{title, slug},
+                  slug,
+                  body,
+                  sections[]->{title, slug},
+                  mainImage{
+                    asset->{
+                    _id,
+                    url
+                  }
+                }
+              }`;  
+
 const getInstagram = `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
                       title,
                       slug,
@@ -175,6 +241,9 @@ const getResources = `
   "featuredArticle6": ${getFeaturedArticle6},
   "featuredArt1": ${getFeaturedArt1},
   "featuredArt2": ${getFeaturedArt2},
+  "blog1": ${getBlog1},
+  "blog2": ${getBlog2},
+
   "instagram": ${getInstagram},
   "archivedContent": ${getArchivedContent}
 }`;

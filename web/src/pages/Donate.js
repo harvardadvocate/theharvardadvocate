@@ -63,6 +63,7 @@ const donateSx = {
 
 export default function Donate() {
   return (
+
     <div sx={donateSx}>
       <Frame
         path={[
@@ -72,7 +73,18 @@ export default function Donate() {
           },
         ]}
       >
+
+        
+
+
+
+
+
+
+
+        
         <div className="donateBody">
+
           <Themed.p>
             <i>Thank you for considering a donation to The Harvard Advocate!</i>
             <br />
@@ -119,5 +131,8 @@ export default function Donate() {
         </div>
       </Frame>
     </div>
-  );
-}
+  
+  
+
+    );
+  }

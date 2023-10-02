@@ -7,7 +7,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
 import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
-
+import Zoom from "../components/Zoom"
 const contentItemSx = {
   ".contentHeader": {
     display: "flex",
@@ -210,10 +210,14 @@ export default function ContentItem() {
         <div className="images">
           {itemData.images &&
             itemData.images.map((image, i) => (
-              <img src={image.asset.url} key={i} alt="" />
+              // <img src={image.asset.url} key={i} alt="" />
+              <Zoom src={image.asset.url}></Zoom>
+
             ))}
           {!itemData.images && itemData.mainImage ? (
-            <img src={itemData.mainImage.asset.url} alt="" />
+            // <img src={itemData.mainImage.asset.url} alt="" />
+            <Zoom src={itemData.mainImage.asset.url}></Zoom>
+
           ) : (
             ""
           )}
