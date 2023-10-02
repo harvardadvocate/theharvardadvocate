@@ -65,7 +65,7 @@ export default {
           {title: 'Featured Bottom Right (Art)', value: 'artFeaturedBottomRight'},
           {title: 'Featured Bottom Row (Poetry)', value: 'poetryFeaturedBottom'},
           {title: 'Featured Bottom Row (Fiction)', value: 'fictionFeaturedBottom'},
-          {title: 'Featured NEW ISSUE HIGHLIGHT', value: 'newIssueFeatured'},
+          {title: 'Featured Blog', value: 'featuredBlog'},
         ]
       }
     },

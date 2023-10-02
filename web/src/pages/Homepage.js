@@ -145,13 +145,14 @@ export default function Homepage() {
 
   const [itemData, setItemData] = useState(null);
   const [featuredItems, setFeaturedItems] = useState(null);
-
   const [featuredArticle1, setFeaturedArticle1] = useState(null);
   const [featuredArticle2, setFeaturedArticle2] = useState(null);
   const [featuredArticle3, setFeaturedArticle3] = useState(null);
   const [featuredArticle4, setFeaturedArticle4] = useState(null);
   const [featuredArticle5, setFeaturedArticle5] = useState(null);
   const [featuredArticle6, setFeaturedArticle6] = useState(null);
+  const [BlogArticle1, setBlogArticle1] = useState(null); // emma
+  const [BlogArticle2, setBlogArticle2] = useState(null); // emma
   const [featuredArt1, setFeaturedArt1] = useState(null);
   const [featuredArt2, setFeaturedArt2] = useState(null);
 
@@ -165,6 +166,8 @@ export default function Homepage() {
       .fetch(getResources)
       .then((data) => {
         setItemData(data.itemData);
+        setBlogArticle1(data.BlogArticle1); // emma
+        setBlogArticle2(data.BlogArticle2); // emma
         setFeaturedItems(data.featuredItems.filter(
                           (item) => item.issue.title === data.itemData.title
                         ));
@@ -182,6 +185,7 @@ export default function Homepage() {
       .catch(console.error);
   }, []);
 
+
   if (
     !itemData ||
     !featuredItems ||
@@ -191,6 +195,8 @@ export default function Homepage() {
     !featuredArticle4 ||
     !featuredArticle5 ||
     !featuredArticle6 ||
+    !BlogArticle1 || // emma
+    !BlogArticle2 || // emma
     !featuredArt1 ||
     !featuredArt2 ||
     !instagramImages ||
@@ -252,7 +258,7 @@ export default function Homepage() {
               {isMobile ? <hr /> : ""}
             </div>
             <TextContentList
-              items={[featuredArticle1, featuredArticle2, featuredArticle3]}
+              items={[BlogArticle1, BlogArticle2]}
               border={false}
               home={false}
               noLastBorder={isMobile}
