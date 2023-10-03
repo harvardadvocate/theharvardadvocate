@@ -19,7 +19,7 @@ export const theme = {
     text: "#000",
     background: "#fff",
     headerColor: "#D34C21",
-    primary: "#3B505A", // primary color of the website + background color of the first highlighted issue in the issues page + homepage
+    primary: "#000000", // primary color of the website + background color of the first highlighted issue in the issues page + homepage
     secondary: "#b56353", // this controls the background color of the second highlighted issue in the issues page
     lightGrey: "#9F9F9F",
     buttonColor: "#e2251e",
