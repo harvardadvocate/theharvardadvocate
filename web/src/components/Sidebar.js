@@ -177,7 +177,7 @@ export default function Sidebar() {
       : false
   );
   const [moreExpanded, setMoreExpanded] = useState(() =>
-    ["/shop", "/donate", "/advertise", "/comp", "/contact"].includes(
+    ["/shop", "/donate", "/advertise", "/comp", "/masthead", "/contact"].includes(
       location.pathname
     )
       ? true
@@ -214,13 +214,10 @@ export default function Sidebar() {
               <img src={logo} alt="The Advocate Logo" />
               <div className="advoStyle">The Harvard Advocate</div>
             </Link>
-            <Link
-              className="buttonLinkMobile"
-              to={"/subscribe"}
-              onClick={() => setNavbarExpanded(false)}
-            >
+            <a href="/subscribe">
               Subscribe
-            </Link>
+            </a>
+            <br />
           </div>
         ) : (
           <Link
@@ -250,13 +247,13 @@ export default function Sidebar() {
             >
               Home
             </Link>
-            <Link
-              className={`link ${highlightLink("/about")}`}
-              to={"/about"}
-              onClick={() => setNavbarExpanded(false)}
-            >
+            
+            <a style={{
+              fontSize: 24
+            }} href="/about">
               About
-            </Link>
+            </a>
+
             <Link
               className={`link ${highlightLink("/issues")}`}
               to={"/issues"}
@@ -369,48 +366,42 @@ export default function Sidebar() {
             </div>
             {moreExpanded && (
               <Grid className="sublinks" columns={1} gap={3}>
-                <Link
-                  className={`link ${highlightLink("/shop")}`}
-                  to="/shop"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+
+                <a style={{
+                fontSize: 24
+                }} href="/shop" Shop>
                   Shop
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/donate")}`}
-                  to="/donate"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+                </a>
+
+                <a style={{
+                fontSize: 24
+                }} href="/donate" Donate>
                   Donate
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/advertise")}`}
-                  to="/advertise"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+                </a>
+
+                <a style={{
+                fontSize: 24
+                }} href="/advertise" Advertise>
                   Advertise
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/comp")}`}
-                  to="/comp"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+                </a>
+
+                <a style={{
+                fontSize: 24
+                }} href="/comp" Comp>
                   Comp
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/masthead")}`}
-                  to="/masthead"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+                </a>
+
+                <a style={{
+                fontSize: 24
+                }} href="/masthead" Masthead>
                   Masthead
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/contact")}`}
-                  to="/contact"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+                </a>
+
+                <a style={{
+                fontSize: 24
+                }} href="/contact" Contact>
                   Contact
-                </Link>
+                </a>
               </Grid>
             )}
             <div
@@ -426,13 +417,13 @@ export default function Sidebar() {
 
         <div className="horizontalLine2"></div>
 
-        <Link className="buttonLink" to={"/submit"}>
+        <a href="/submit" class="buttonLink">
           Submit
-        </Link>
+        </a>
 
-        <Link className="buttonLink" to={"/subscribe"}>
+        <a href="/subscribe" class="buttonLink">
           Subscribe
-        </Link>
+        </a>
       </Grid>
     </div>
   );
