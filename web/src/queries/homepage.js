@@ -154,7 +154,7 @@ const getInstagram = `*[_type == "imageAsset" && picsFrom21SouthStreet == true] 
                     }
                   }[0...3]`;
 
-const getArchivedContent = `*[_type == "contentItem" && issue->title == "Winter 2009" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt desc) {
+const getArchivedContent = `*[_type == "contentItem" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt asc) {
                       title,
                       authors[]->{name, slug},
                       issue->{title, slug},
@@ -162,6 +162,7 @@ const getArchivedContent = `*[_type == "contentItem" && issue->title == "Winter 
                       body,
                       sections[]->{title, slug},
                   }`;
+
 
 const getResources = `
 {

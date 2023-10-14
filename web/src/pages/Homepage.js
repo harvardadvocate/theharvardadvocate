@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Themed } from "theme-ui";
 import sanityClient from "../client.js";
 import { getResources } from "../queries/homepage.js";
@@ -10,6 +10,7 @@ import TextContentList from "../components/TextContentList.js";
 import TwitterTimeline from "../components/TwitterTimeline.js";
 import { useIsMobile } from "../utils/isMobile.js";
 import ColorRingLoader from "../components/LoadingRing.js";
+import Update from "../components/Update.js";
 
 const homepageSx = {
   hr: {
@@ -158,6 +159,11 @@ export default function Homepage() {
   const [instagramImages, setInstagramImages] = useState(null);
 
   const [fromTheArchivesContent, setFromTheArchivesContent] = useState(null);
+  const [randArray, setRandArray] = useState([0,1,2,3,4,5,6]);
+
+  const handleUpdate = (newNumbers) => {
+    setRandArray(newNumbers);
+  };
 
   useEffect(() => {
     document.title = "The Harvard Advocate";
@@ -194,7 +200,7 @@ export default function Homepage() {
     !featuredArt1 ||
     !featuredArt2 ||
     !instagramImages ||
-    !fromTheArchivesContent
+    !fromTheArchivesContent 
   ) {
     return <ColorRingLoader />;
   } else {
@@ -202,6 +208,7 @@ export default function Homepage() {
 
   return (
     <div css={homepageSx}>
+      <Update onUpdate={handleUpdate} />
       <div className="horizontalContainer">
         <div className="mainContent">
           <FeaturedIssue
@@ -319,12 +326,13 @@ export default function Homepage() {
               <hr />
             </div>
             <TextContentList
-              items={fromTheArchivesContent.slice(0, 3)}
+              //items={fromTheArchivesContent.slice(randArray[0], randArray[0] + 3)}
+              items={[fromTheArchivesContent[randArray[0]], fromTheArchivesContent[randArray[1]], fromTheArchivesContent[randArray[2]]]}
               border={true}
               home={true}
             ></TextContentList>
             <TextContentList
-              items={fromTheArchivesContent.slice(8, 11)}
+              items={[fromTheArchivesContent[randArray[3]], fromTheArchivesContent[randArray[4]], fromTheArchivesContent[randArray[5]]]}
               border={false}
               home={true}
               noLastBorder={isMobile}
