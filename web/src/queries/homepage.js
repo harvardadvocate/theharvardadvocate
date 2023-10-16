@@ -209,6 +209,22 @@ const getBlog2 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions]
                 }
               }`;  
 
+
+const getBlog3 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions] | order(publishedAt desc)[2] {
+                title,
+                authors[]->{name, slug},
+                issue->{title, slug},
+                slug,
+                body,
+                sections[]->{title, slug},
+                mainImage{
+                  asset->{
+                  _id,
+                  url
+                }
+              }
+            }`;  
+
 const getInstagram = `*[_type == "imageAsset" && picsFrom21SouthStreet == true]  | order(publishedAt desc) {
                       title,
                       slug,
@@ -243,7 +259,7 @@ const getResources = `
   "featuredArt2": ${getFeaturedArt2},
   "blog1": ${getBlog1},
   "blog2": ${getBlog2},
-
+  "blog3": ${getBlog3},
   "instagram": ${getInstagram},
   "archivedContent": ${getArchivedContent}
 }`;
