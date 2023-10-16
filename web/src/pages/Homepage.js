@@ -156,7 +156,7 @@ export default function Homepage() {
   const [featuredArt2, setFeaturedArt2] = useState(null);
   const [Blog1, setBlog1] = useState(null);
   const [Blog2, setBlog2] = useState(null);
-
+  const [Blog3, setBlog3] = useState(null);
 
   const [instagramImages, setInstagramImages] = useState(null);
 
@@ -184,6 +184,7 @@ export default function Homepage() {
         setFromTheArchivesContent(data.archivedContent);
         setBlog1(data.blog1);
         setBlog2(data.blog2);
+        setBlog3(data.blog3);
 
       })
       .catch(console.error);
@@ -200,6 +201,7 @@ export default function Homepage() {
     !featuredArticle6 ||
     !Blog1 ||
     !Blog2 ||
+    !Blog3 ||
     !featuredArt1 ||
     !featuredArt2 ||
     !instagramImages ||
@@ -261,7 +263,7 @@ export default function Homepage() {
               {isMobile ? <hr /> : ""}
             </div>
             <TextContentList
-              items={[Blog1, Blog2, Blog1]}
+              items={[Blog1, Blog2, Blog3]}
               border={false}
               home={false}
               noLastBorder={isMobile}
