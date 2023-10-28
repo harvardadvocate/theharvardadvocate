@@ -109,7 +109,7 @@ export default function Masthead() {
               <br /><br />
               D.T. Max, President
               <br />
-              Douglas McIntyre, Treasurer, Vice Chairman
+              Douglas McIntyre, Chairman and Treasurer
               <br />
               Charles Atkinson, Secretary
               <br />
