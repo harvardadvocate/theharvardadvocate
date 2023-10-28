@@ -5,7 +5,7 @@ import LoadingRing from './LoadingRing';
 
 const AIGeneratedImage = (props) => {
   const [imageUrl, setImageUrl] = useState("");
-  const API_KEY = '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'; // hard-coded my own api-key but should replace later
+  const API_KEY = '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'; 
   const rawText = props.content.map((block) =>
         block.children.map((child) => child.text).join('')
     ).join(' ').substring(0, 3000);
