@@ -6,6 +6,7 @@ import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
 import ContentFrame from "../components/ContentFrame";
+import AIGeneratedImage from "../components/AIGeneratedImage.js";
 import ColorRingLoader from "../components/LoadingRing.js";
 
 const contentItemSx = {
@@ -212,6 +213,9 @@ export default function ContentItem() {
             itemData.images.map((image, i) => (
               <img src={image.asset.url} key={i} alt="" />
             ))}
+            <AIGeneratedImage
+              content={itemData.body}
+            />
           {!itemData.images && itemData.mainImage ? (
             <img src={itemData.mainImage.asset.url} alt="" />
           ) : (
