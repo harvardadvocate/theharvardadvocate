@@ -185,7 +185,7 @@ export default function TextListItem(props) {
                       {i !== 0 && ", "}
                       <Link to={"/authors/" + author.slug.current}>
                         {author.name}
-                      </Link>{" "}
+                      </Link>
                     </>
                   ))}
                 </Themed.p>

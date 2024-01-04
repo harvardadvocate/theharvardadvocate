@@ -5,6 +5,7 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const buttonColor = theme["colors"]["buttonColor"];
 const buttonColorHover = theme["colors"]["buttonColorHover"];
@@ -161,6 +162,16 @@ const sidebarSx = {
 };
 
 export default function Sidebar() {
+
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  const toSearch = () =>{
+    // e.preventDefault();
+    navigate('/search',{state:{query: searchQuery}});
+      }
+
+
   const isMobile = useIsMobile();
 
   const location = useLocation();
@@ -263,6 +274,13 @@ export default function Sidebar() {
               onClick={() => setNavbarExpanded(false)}
             >
               Issues
+            </Link>
+            <Link
+              className={`link ${highlightLink("/search")}`}
+              to={"/search"}
+              onClick={() => setNavbarExpanded(false)}
+            >
+              Search
             </Link>
             {isMobile ? (
               <Link
@@ -433,6 +451,52 @@ export default function Sidebar() {
         <Link className="buttonLink" to={"/subscribe"}>
           Subscribe
         </Link>
+
+        <form id="form" 
+        
+        // onSubmit={toSearch(e)}
+        
+         >
+
+</form>
+
+
+
+            <input type="text" 
+    placeholder="  Browse titles here"
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+    // onSubmit={toSearch()}
+    style={{}
+      
+    //   {display: 'inline-block',
+    // // textAlign: "center", justifyContent: "center", alignItems: "center", 
+    // width: '50%' }
+    
+    
+    }></input>
+
+
+            <button style={{
+              
+              // display: 'inline-block', width: '10%'
+              
+              }}onClick={() => toSearch()}>Search</button>
+
+{/* <input type="submit" value="Submit" onSubmit={toSearch()} /> */}
+
+
+        {/* <input
+            type="submit"
+            placeholder="  Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onSubmit={toSearch()}
+            style={{display: 'flex',
+            // textAlign: "center", justifyContent: "center", alignItems: "center", 
+            width: '100%' }} // Add the style here
+          /> */}
+
       </Grid>
     </div>
   );

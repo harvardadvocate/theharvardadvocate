@@ -13,11 +13,10 @@ const issuesListSx = {
     border: "0.1px solid rgba(0, 0, 0, .2)",
   },
 
-  a: {
-    color: "white",
-  },
-
   ".featuredIssue, .featuredIssue2": {
+    a: {
+      color: "white",
+    },
     width: "100%",
     paddingInline: "3vw",
     paddingTop: "2vh",
@@ -65,7 +64,7 @@ const issuesListSx = {
   },
 
   ".featuredArticles": {
-    color: "#FFFFFF",
+    color: "blue",
     paddingTop: "2vh",
     paddingRight: "2vw",
     paddingLeft: "2vw",
@@ -78,7 +77,7 @@ const issuesListSx = {
   },
 
   ".featuredArticles2": {
-    color: "#FFFFFF",
+    color: "blue",
     paddingTop: "2vh",
     paddingRight: "2vw",
     paddingLeft: "5vw",
@@ -212,7 +211,7 @@ export default function FeaturedIssue(props) {
             </a>
             <div className="highlightedArticles">
               <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                {featuredItems.slice(0, 2).map((article) => {
+                {featuredItems.slice(0, 4).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
                       <Link to={"/content/" + article.slug.current}>

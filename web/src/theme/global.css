@@ -167,11 +167,6 @@ dd {
   margin: 0;
 }
 
-a {
-  color: #000;
-  text-decoration: none;
-}
-
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
 ol[role="list"] {
@@ -181,6 +176,11 @@ ol[role="list"] {
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
 }
 
 /* Set core body defaults */

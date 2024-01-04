@@ -18,6 +18,7 @@ import Comp from "./pages/Comp";
 import Advertise from "./pages/Advertise";
 import Shop from "./pages/Shop";
 import Donate from "./pages/Donate";
+import Search from "./pages/Search";
 import Subscribe from "./pages/Subscribe";
 import Submit from "./pages/Submit";
 import Contact from "./pages/Contact";
@@ -52,12 +53,13 @@ function App() {
               <Routes>
                 <Route element={<Homepage />} path="/" exact />
                 <Route element={<About />} path="/about" exact />
-                <Route element={<IssuesList />} path="/issues" exact />
+                <Route element={<IssuesList />} p ath="/issues" exact />
                 <Route element={<Issue />} path="/issues/:issueSlug" />
                 <Route element={<Advertise />} path="/advertise" exact />
                 <Route element={<Masthead />} path="/masthead" exact />
                 <Route element={<Comp />} path="/comp" exact />
                 <Route element={<Donate />} path="/donate" exact />
+                <Route element={<Search />} path="/search" exact />
                 <Route element={<Shop />} path="/shop" exact />
                 <Route element={<SectionsOverview />} path="/sections" exact />
                 <Route element={<Subscribe />} path="/subscribe" exact />

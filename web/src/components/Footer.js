@@ -37,6 +37,11 @@ const footerSx = {
     marginTop: "2vh",
     gridColumnGap: "5vw",
   },
+  
+  // a: {
+  //   color: "#000",
+  //   textDecoration: "none"
+  // },
 
   img: {
     marginRight: "1vw",

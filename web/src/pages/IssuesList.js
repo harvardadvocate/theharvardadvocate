@@ -21,6 +21,10 @@ const issuesListSx = {
       flexGrow: 1,
     },
   },
+  a: {
+    color: "#000",
+    textDecoration: "none",
+  },
   ".mainContent": {
     marginLeft: "0px",
   },
