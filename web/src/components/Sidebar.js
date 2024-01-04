@@ -167,6 +167,7 @@ export default function Sidebar() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const toSearch = () =>{
+    setNavbarExpanded(false);
     // e.preventDefault();
     navigate('/search',{state:{query: searchQuery}});
       }
