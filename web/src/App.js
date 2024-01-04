@@ -53,7 +53,7 @@ function App() {
               <Routes>
                 <Route element={<Homepage />} path="/" exact />
                 <Route element={<About />} path="/about" exact />
-                <Route element={<IssuesList />} p ath="/issues" exact />
+                <Route element={<IssuesList />} path="/issues" exact />
                 <Route element={<Issue />} path="/issues/:issueSlug" />
                 <Route element={<Advertise />} path="/advertise" exact />
                 <Route element={<Masthead />} path="/masthead" exact />

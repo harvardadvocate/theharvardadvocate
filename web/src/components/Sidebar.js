@@ -216,6 +216,7 @@ export default function Sidebar() {
               <span className="line"></span>
               <span className="line"></span>
               <span className="line"></span>
+              
             </div>
             <Link
               className={"link logo"}
@@ -275,13 +276,8 @@ export default function Sidebar() {
             >
               Issues
             </Link>
-            <Link
-              className={`link ${highlightLink("/search")}`}
-              to={"/search"}
-              onClick={() => setNavbarExpanded(false)}
-            >
-              Search
-            </Link>
+
+            
             {isMobile ? (
               <Link
                 className={`link ${highlightLink("/submit")}`}
@@ -290,6 +286,9 @@ export default function Sidebar() {
               >
                 Submit
               </Link>
+
+
+
             ) : (
               ""
             )}
@@ -385,6 +384,9 @@ export default function Sidebar() {
                 }}
               ></div>
             </div>
+
+            
+
             {moreExpanded && (
               <Grid className="sublinks" columns={1} gap={3}>
                 <Link
@@ -431,7 +433,11 @@ export default function Sidebar() {
                 </Link>
               </Grid>
             )}
-            <div
+
+
+
+
+<div
               className="horizontalLine1"
               style={{
                 borderTop: "1px solid #000000 ",
@@ -439,6 +445,20 @@ export default function Sidebar() {
                 marginRight: 0,
               }}
             ></div>
+            
+            
+<input type="text" 
+    placeholder="  Browse titles here"
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+    style={{}}></input>
+
+
+            <button onClick={() => toSearch()}>Search</button>
+
+
+
+            
           </div>
         )}
 
@@ -452,50 +472,10 @@ export default function Sidebar() {
           Subscribe
         </Link>
 
-        <form id="form" 
         
-        // onSubmit={toSearch(e)}
-        
-         >
-
-</form>
 
 
 
-            <input type="text" 
-    placeholder="  Browse titles here"
-    value={searchQuery}
-    onChange={(e) => setSearchQuery(e.target.value)}
-    // onSubmit={toSearch()}
-    style={{}
-      
-    //   {display: 'inline-block',
-    // // textAlign: "center", justifyContent: "center", alignItems: "center", 
-    // width: '50%' }
-    
-    
-    }></input>
-
-
-            <button style={{
-              
-              // display: 'inline-block', width: '10%'
-              
-              }}onClick={() => toSearch()}>Search</button>
-
-{/* <input type="submit" value="Submit" onSubmit={toSearch()} /> */}
-
-
-        {/* <input
-            type="submit"
-            placeholder="  Search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onSubmit={toSearch()}
-            style={{display: 'flex',
-            // textAlign: "center", justifyContent: "center", alignItems: "center", 
-            width: '100%' }} // Add the style here
-          /> */}
 
       </Grid>
     </div>
