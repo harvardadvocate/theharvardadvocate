@@ -5,6 +5,7 @@ import logo from "../assets/images/logo.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const buttonColor = theme["colors"]["buttonColor"];
 const buttonColorHover = theme["colors"]["buttonColorHover"];
@@ -161,6 +162,17 @@ const sidebarSx = {
 };
 
 export default function Sidebar() {
+
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  const toSearch = () =>{
+    setNavbarExpanded(false);
+    // e.preventDefault();
+    navigate('/search',{state:{query: searchQuery}});
+      }
+
+
   const isMobile = useIsMobile();
 
   const location = useLocation();
@@ -205,6 +217,7 @@ export default function Sidebar() {
               <span className="line"></span>
               <span className="line"></span>
               <span className="line"></span>
+              
             </div>
             <Link
               className={"link logo"}
@@ -264,6 +277,8 @@ export default function Sidebar() {
             >
               Issues
             </Link>
+
+            
             {isMobile ? (
               <Link
                 className={`link ${highlightLink("/submit")}`}
@@ -272,6 +287,9 @@ export default function Sidebar() {
               >
                 Submit
               </Link>
+
+
+
             ) : (
               ""
             )}
@@ -367,6 +385,9 @@ export default function Sidebar() {
                 }}
               ></div>
             </div>
+
+            
+
             {moreExpanded && (
               <Grid className="sublinks" columns={1} gap={3}>
                 <Link
@@ -413,7 +434,11 @@ export default function Sidebar() {
                 </Link>
               </Grid>
             )}
-            <div
+
+
+
+
+<div
               className="horizontalLine1"
               style={{
                 borderTop: "1px solid #000000 ",
@@ -421,6 +446,20 @@ export default function Sidebar() {
                 marginRight: 0,
               }}
             ></div>
+            
+            
+<input type="text" 
+    placeholder="  Browse titles here"
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+    style={{}}></input>
+
+
+            <button onClick={() => toSearch()}>Search</button>
+
+
+
+            
           </div>
         )}
 
@@ -433,6 +472,12 @@ export default function Sidebar() {
         <Link className="buttonLink" to={"/subscribe"}>
           Subscribe
         </Link>
+
+        
+
+
+
+
       </Grid>
     </div>
   );

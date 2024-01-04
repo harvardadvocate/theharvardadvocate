@@ -21,7 +21,27 @@ const sectionsOverviewSx = {
     paddingBottom: "2em",
     paddingInline: "2vw",
   },
+  ".searchBarContainer": {
+    margin: "10px auto",
+    // marginLeft: "5.8em",
+    // marginRight: "5.8em",
+    verticalAlign: "middle",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  ".horizontalContainer": {
+    width: "100%",
+    display: "flex",
+    minHeight: "100vh",
+    flexDirection: "column",
+    marginTop: "0em",
+    ".mainContent": {
+      flexGrow: 1,
+    },
+  },
 };
+
 
 const sectionToQuery = (section) =>
   section !== "Art"
@@ -65,11 +85,14 @@ const sectionToUrl = (section) => {
 };
 
 export default function SectionsOverview(props) {
+
   const [artItems, setArtItems] = useState(null);
   const [fictionItems, setFictionItems] = useState(null);
   const [featuresItems, setFeaturesItems] = useState(null);
   const [poetryItems, setPoetryItems] = useState(null);
 
+
+  
   useEffect(() => {
     sanityClient
       .fetch(
@@ -103,14 +126,17 @@ export default function SectionsOverview(props) {
 
   return (
     <div sx={sectionsOverviewSx}>
-      <SectionFrame
+
+
+<SectionFrame
         path={[
           {
             name: "Sections",
           },
         ]}
       >
-        <div className="sectionContainer">
+
+ <div className="sectionContainer">
           {sectionHeader("Art")}
           <ImageContentGrid items={artItems} home={false} noLastBorder={true} />
         </div>
@@ -127,6 +153,9 @@ export default function SectionsOverview(props) {
           <TextContentList items={poetryItems} noLastBorder={true} />
         </div>
       </SectionFrame>
-    </div>
+    </div> 
+
+
+    
   );
 }

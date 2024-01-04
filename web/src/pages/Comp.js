@@ -94,8 +94,8 @@ export default function Comp() {
               target="_blank"
               rel="noreferrer"
             >
-              here.
-            </a>{" "}
+              here
+            </a>{". "}
             For any questions, comments or
             concerns, contact hermes@theharvardadvocate.com.
             <br />

@@ -66,10 +66,11 @@ export default {
           {title: 'Featured Bottom Row (Poetry)', value: 'poetryFeaturedBottom'},
           {title: 'Featured Bottom Row (Fiction)', value: 'fictionFeaturedBottom'},
           {title: 'Featured Blog', value: 'featuredBlog'},
+          {title: 'Featured Issue Highlight', value: 'newIssueFeatured'},
+
         ]
       }
     },
-
 
     {
       name: "publishedAt",
