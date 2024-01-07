@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Isabelle Zheng <isa.zheng@gmail.com>",
+  "author": "Isabelle Zheng <isa.zheng@gmailx.com>",
   "license": "UNLICENSED",
   "scripts": {
     "dev": "sanity start",

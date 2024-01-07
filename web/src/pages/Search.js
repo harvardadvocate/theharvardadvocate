@@ -7,6 +7,7 @@ import { Themed } from "theme-ui";
 import rightArrow from "../assets/images/right-arrow.svg";
 import { Link } from "react-router-dom";
 import SectionFrame from "../components/SectionFrame";
+import Frame from "../components/Frame";
 import ColorRingLoader from "../components/LoadingRing.js";
 import { useLocation } from "react-router-dom";
 
@@ -151,22 +152,14 @@ const sectionToUrl = (section) => {
 
 export default function Search(props) {
 
-
-
-  // const [searchQuery, setSearchQuery] = useState("");
   const [filteredItems, setFilteredItems] = useState(null);
 
   const location = useLocation();
   const searchQuery = location.state.query;
+  const titleText = "Search results for \"" + searchQuery + "\"";
 
 
 
-
-
-  // useEffect(() => {
-  //   setSearchQuery(location.state.query)
-
-  // }, []);
 
 
   useEffect(() => {
@@ -191,62 +184,31 @@ export default function Search(props) {
 
 
   return (
+
     <div sx={sectionsOverviewSx}>
 
-<div sx={sectionFrameSx}>
-      {/* <div className="horizontalContainer"> */}
-        <div className="header">
-          <div className="headerNormal">
-            <Themed.h2>Search results for {searchQuery}</Themed.h2>
-          </div>
+
+
+    <Frame
+        path={[
+          {
+            name: titleText,
+            slug: "/search",
+          },
+        ]}
+      >
+
+
+        <div className="sectionContainer">
+          {filteredItems && filteredItems.length > 0 ? (
+              <ImageContentGrid items={filteredItems} />
+            ) : 
+            <div>
+              </div>
+          }
         </div>
 
-      {/* </div> */}
-    </div>
-      
-
-{/* <div className="searchBarContainer">
-          <input
-            type="text"
-            placeholder="Browse titles here"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            style={{display: 'flex', textAlign: "center", justifyContent: "center", alignItems: "center", width: '50%' }} // Add the style here
-          />
-</div> */}
-
-<div className="sectionContainer">
-            {filteredItems && filteredItems.length > 0 ? (
-                <ImageContentGrid items={filteredItems} />
-              ) : 
-              <div>
-                </div>
-}
-
-
-
-{/* <div sx={sectionFrameSx}>
-      <div className="horizontalContainer">
-
-      <div className="image">
-            <img
-              src="/donate.jpeg"
-              width="381"
-              height="271"
-              loading="lazy"
-              alt="donate graphic"
-            />
-            <figcaption>
-              Illustration from{" "}
-              <em>Land of Tomorrow, Dark and Bloody Ground</em>
-            </figcaption>
-          </div>
-
-      </div>
-    </div> */}
-
-               
-</div>
+      </Frame> 
 
 
     </div> 
