@@ -189,7 +189,7 @@ export default function Sidebar() {
       : false
   );
   const [moreExpanded, setMoreExpanded] = useState(() =>
-    ["/shop", "/donate", "/advertise", "/comp", "/contact"].includes(
+    ["/shop", "/donate", "/advertise", "/comp", "/masthead", "/contact"].includes(
       location.pathname
     )
       ? true
@@ -302,6 +302,7 @@ export default function Sidebar() {
                 onClick={() => {
                   setSectionsExpanded(!sectionsExpanded);
                   setMoreExpanded(false);
+                  setNavbarExpanded(false);
                 }}
                 to={"/sections"}
               >

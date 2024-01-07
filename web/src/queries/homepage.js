@@ -38,40 +38,6 @@ const getFeaturedArticle1 = `*[_type == "contentItem" && "featuresFeaturedTop" i
             }
           }`;
 
-
-
-
-
-//           const getBlogArticle1 = *[_type == 'contentItem' && _id == '39909580-a8e9-4328-9772-da2e42576b82'] | order(publishedAt desc)[0] {
-//             title,
-//             authors[]->{name, slug},
-//             issue->{title, slug},
-//             slug,
-//             body,
-//             sections[]->{title, slug},
-//             mainImage{
-//               asset->{
-//               _id,
-//               url
-//             }
-//           }
-//         };
-
-// const getBlogArticle2 = *[_type == 'contentItem' && _id == 'fbb35fe7-7705-4369-b6a0-75b17d9da175' ] | order(publishedAt desc)[0]{
-//             title,
-//             authors[]->{name, slug},
-//             issue->{title, slug},
-//             slug,
-//             body,
-//             sections[]->{title, slug},
-//             mainImage{
-//               asset->{
-//               _id,
-//               url
-//             }
-//           }
-//         };
-
 const getFeaturedArticle2 = `*[_type == "contentItem" && "poetryFeaturedTop" in featuredOptions] | order(publishedAt desc)[0] {
                 title,
                 authors[]->{name, slug},
@@ -236,7 +202,7 @@ const getInstagram = `*[_type == "imageAsset" && picsFrom21SouthStreet == true] 
                     }
                   }[0...3]`;
 
-const getArchivedContent = `*[_type == "contentItem" && issue->title == "Winter 2009" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt desc) {
+const getArchivedContent = `*[_type == "contentItem" && ("Fiction" in sections[]->title || "Poetry" in sections[]->title || "Features" in sections[]->title)]  | order(publishedAt asc) {
                       title,
                       authors[]->{name, slug},
                       issue->{title, slug},
