@@ -427,6 +427,13 @@ export default function Sidebar() {
                   Masthead
                 </Link>
                 <Link
+                  className={`link ${highlightLink("/begley")}`}
+                  to="/begley"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Louis Begley Prize
+                </Link>
+                <Link
                   className={`link ${highlightLink("/contact")}`}
                   to="/contact"
                   onClick={() => setNavbarExpanded(false)}
@@ -438,8 +445,7 @@ export default function Sidebar() {
 
 
 
-
-<div
+    <div
               className="horizontalLine1"
               style={{
                 borderTop: "1px solid #000000 ",
@@ -449,8 +455,8 @@ export default function Sidebar() {
             ></div>
             
             
-<input type="text" 
-    placeholder="  Browse titles here"
+    <input type="text" 
+    placeholder="Browse titles here"
     value={searchQuery}
     onChange={(e) => setSearchQuery(e.target.value)}
     style={{}}></input>

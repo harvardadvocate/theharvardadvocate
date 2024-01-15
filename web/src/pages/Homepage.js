@@ -246,14 +246,14 @@ export default function Homepage() {
           <div className="sanctumSessions">
             {!isMobile ? <hr /> : ""}
             <a
-              href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
+              href="https://qrco.de/be9Mh6"
               target="_blank"
               rel="noreferrer"
             >
               <img
-                src="/sanctum_sessions.png"
+                src="/aerie_ad_1.png"
                 loading="lazy"
-                alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."
+                alt="Advertisement for Aerie"
               />
             </a>
           </div>

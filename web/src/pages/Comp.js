@@ -55,7 +55,7 @@ export default function Comp() {
       >
         <div className="compBody">
           <Themed.p>
-            <i>Interested in Fall 2023 Comp?</i>
+            <i>Interested in Spring 2024 Comp?</i>
             <br />
             <br />
             The Harvard Advocate has been a home for arts and literature at
@@ -86,18 +86,19 @@ export default function Comp() {
             .
             <br />
             <br />
-            Intro Comp meetings are happening Wednesday September 13 and Thursday
-            September 14 at 9pm at 21 South St, and Saturday September 16 at 3pm on
-            Zoom. Sign up for the Zoom Intro Comp meeting {" "}
+            Intro Comp meetings are happening Wednesday January 31 and Thursday
+            February 1 at 9pm at 21 South St, and Sunday February 4 at 2pm on
+            Zoom (signup link coming soon).&nbsp;
+            
+            {/* Sign up for the Zoom Intro Comp meeting {" "}
             <a
               href="https://forms.gle/TdueEXzXwEqidTQh6"
               target="_blank"
               rel="noreferrer"
             >
               here
-            </a>{". "}
-            For any questions, comments or
-            concerns, contact hermes@theharvardadvocate.com.
+            </a>{". "} */}
+            For any questions or concerns, contact hermes@theharvardadvocate.com.
             <br />
             <br />
             The Harvard Advocate can be reached at 21 South Street, Cambridge,

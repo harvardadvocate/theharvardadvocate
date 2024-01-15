@@ -36,74 +36,78 @@ export default function Masthead() {
         <div className="mastheadBody">
           <Themed.p>
             <i align="center">
-              Annika Inampudi '25, President
+              Maren Wong '26, President
               <br />
-              Primo Lagaso Goldberg '25, Publisher
-              <br />
-              <br />
-              U. Roven '25, Dionysus
-              <br />
-              C. Everton '25, Dionysus
-              <br />
-              A. Wang '23-'24, Dionysus
-              <br />
-              E. Jones '25, Hermes, Fiction Editor
-              <br />
-              J. Coe '25, Hermes
-              <br />
-              H. Hinze '26, Pegasus
-              <br />
-              V. Lyapneva '26, Pegasus
-              <br />
-              M. Wong '26, Pegasus
-              <br />
-              E. Sun '25-'26, Hestia
-              <br />
-              F. Liu '26, Hades
+              Varya Lyapneva '26, Publisher
               <br />
               <br />
-              C. Meeks '25, Poetry Editor
+              R. Hreb '26, Dionysus
               <br />
-              E. Parrott '25, Art Editor
+              O. Pasquerella '26, Dionysus
               <br />
-              Z. Lech '24, Art Editor
+              K. Liu '25, Dionysus
               <br />
-              M. Alpers '24, Fiction Editor
+              K. Leung '27, Hermes
               <br />
-              T. Blatt '23-'24, Fiction Editor
+              D. Liu '27, Hermes
               <br />
-              C. Hsu '24, Features Editor
+              E. Klibaner-Schiff '26, Pegasus
               <br />
-              V. Xu '24, Features Editor
+              J. Wang '26, Pegasus
               <br />
-              I. Specht '24, Design Editor
+              K. Taylor '26, Pegasus
+              <br />
+              J. Glaser '25, Hestia
+              <br />
+              T. Wayland '26, Hades
+              <br />
+              E. Miao '26, Hades
+              <br />
+              <br />
+              L. Jackson '26, Poetry Editor
+              <br />
+              H. Hinze '26, Art Editor
+              <br />
+              T. Chung '25, Art Editor
+              <br />
+              E. Jones '25, Fiction Editor
+              <br />
+              J. Lemann '26, Fiction Editor
+              <br />
+              I. Mirza '25, Features Editor
+              <br />
+              S. Bongwe '26, Features Editor
+              <br />
+              H. Bennett '26, Design Editor
+              <br />
+              F. Liu '26, Design Editor
               <br />
               C. Lu '26, Tech Editor
               <br />
-              A. Mark '24, Business Manager
+              C. Gorczycki '24, Business Manager
               <br />
-              C. Pontifell '24, Business Manager
+              S. Kargman '25, Business Manager
               <br />
-              <br />
-              A. Cai '25, Experimental Labs Director
-              <br />
-              A. Kaushik '24, D&I Chair
+              A. Shumway '26, Business Manager
               <br />
               J. Yang '26, D&I Chair
               <br />
-              K. Mandell '25, Blog Editor
+              V. Kishoiyian '26, D&I Chair
               <br />
-              J. Zhang '25, Blog Editor
+              K. Siegel '25, Blog Editor
               <br />
-              H. Oreck '22-'23, Librarian
+              U. Roven '25, Blog Editor
               <br />
-              P. S. Reed '25, Sanctum Sessions Director
+              A. Inampudi '25, Blog Editor
               <br />
-              C. Lu '24, Advocate Cafe Manager
               <br />
-              M. K. Lee '24, Advocate Cafe Manager
+              H. Pimentel '25, Merch Coordinator
               <br />
-              K. Liu '25, Advocate Cafe Manager
+              J. Towers '25, Merch Coordinator
+              <br />
+              P. Wekwejt '26, Finance Coordinator
+              <br />
+              S. Jung '24, Advocate Cafe Manager
               <br /> <br /> <br />
               <b>Board of Trustees</b>
               <br /><br />

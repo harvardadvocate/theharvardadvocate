@@ -16,6 +16,7 @@ import Issue from "./pages/Issue";
 import Author from "./pages/Author";
 import Comp from "./pages/Comp";
 import Advertise from "./pages/Advertise";
+import Begley from "./pages/Begley";
 import Shop from "./pages/Shop";
 import Donate from "./pages/Donate";
 import Search from "./pages/Search";
@@ -56,6 +57,7 @@ function App() {
                 <Route element={<IssuesList />} path="/issues" exact />
                 <Route element={<Issue />} path="/issues/:issueSlug" />
                 <Route element={<Advertise />} path="/advertise" exact />
+                <Route element={<Begley />} path="/begley" exact />
                 <Route element={<Masthead />} path="/masthead" exact />
                 <Route element={<Comp />} path="/comp" exact />
                 <Route element={<Donate />} path="/donate" exact />
