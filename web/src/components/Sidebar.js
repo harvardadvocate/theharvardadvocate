@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
+import search from "../assets/images/search.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
@@ -97,7 +98,8 @@ const sidebarSx = {
     borderRadius: "4px",
     fontFamily: "sans-serif",
     alignItems: "center",
-    width: "100%",
+    width: "150px",
+    height: "50px",
     border: "solid black 1px"
   },
 
@@ -105,10 +107,21 @@ const sidebarSx = {
     background: "transparent",
     flex: "1",
     border: "0",
+    width: "20px",
     outline: "none",
-    padding: "24px 20px",
-    fontSize: "20px",
+    fontSize: "16px",
     color: "#cac7ff"
+  },
+
+  ".search-bar img": {
+    background: "transparent",
+    border: "0",
+    width: "50px",
+    outline: "none"
+  },
+
+  ".search-bar img:hover": {
+    cursor: "grab"
   },
 
   "@media (max-width: 835px)": {
@@ -476,13 +489,12 @@ export default function Sidebar() {
 
             <div className="search-bar">
               <input type="text"
-              placeholder="Browse titles here"
+              placeholder="Search Advo"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{}}></input>
 
-
-              <button onClick={() => toSearch()}>Search</button>
+              <img onClick={() => toSearch()} src={search} alt="search"/>
             </div>
 
 
