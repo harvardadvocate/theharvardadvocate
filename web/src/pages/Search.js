@@ -204,7 +204,7 @@ export default function Search(props) {
               <ImageContentGrid items={filteredItems} />
             ) : 
             <div>
-              </div>
+            </div>
           }
         </div>
 
