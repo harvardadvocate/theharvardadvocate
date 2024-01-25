@@ -98,9 +98,9 @@ const sidebarSx = {
     borderRadius: "4px",
     fontFamily: "sans-serif",
     alignItems: "center",
-    width: "150px",
-    height: "50px",
-    border: "solid black 1px"
+    border: "solid black 1px",
+    padding: "5px",
+    marginTop: "10px"
   },
 
   ".search-bar input": {
@@ -110,14 +110,21 @@ const sidebarSx = {
     width: "20px",
     outline: "none",
     fontSize: "16px",
-    color: "#cac7ff"
+    color: "#000000"
   },
 
   ".search-bar img": {
     background: "transparent",
     border: "0",
-    width: "50px",
+    width: "25px",
     outline: "none"
+  },
+
+  ".search-bar button": {
+    background: "transparent",
+    border: "0",
+    outline: "none",
+    padding: "0px"
   },
 
   ".search-bar img:hover": {
@@ -492,9 +499,16 @@ export default function Sidebar() {
               placeholder="Search Advo"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    toSearch();
+                }
+            }}
               style={{}}></input>
 
-              <img onClick={() => toSearch()} src={search} alt="search"/>
+              <button onClick={() => toSearch()}>
+                <img src={search} alt="search" />
+              </button>
             </div>
 
 
@@ -503,7 +517,7 @@ export default function Sidebar() {
           </div>
         )}
 
-        <div className="horizontalLine2"></div>
+        {/* <div className="horizontalLine2"></div> */}
 
         <Link className="buttonLink" to={"/submit"}>
           Submit
