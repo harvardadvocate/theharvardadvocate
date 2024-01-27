@@ -210,14 +210,20 @@ export default function ContentItem() {
         <div className="images">
           {itemData.images &&
             itemData.images.map((image, i) => (
+            itemData.sections[0].title === "Art" ? (
               // <img src={image.asset.url} key={i} alt="" />
               <Zoom src={image.asset.url}></Zoom>
-
+              ) : (
+              <img key={i} src={image.asset.url} alt="" />
+              )
             ))}
           {!itemData.images && itemData.mainImage ? (
             // <img src={itemData.mainImage.asset.url} alt="" />
+            itemData.sections[0].title === "Art" ? (
             <Zoom src={itemData.mainImage.asset.url}></Zoom>
-
+            ) : (
+              <img src={itemData.mainImage.asset.url} alt="" />
+            )
           ) : (
             ""
           )}
