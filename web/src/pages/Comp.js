@@ -88,16 +88,14 @@ export default function Comp() {
             <br />
             Intro Comp meetings are happening Wednesday January 31 and Thursday
             February 1 at 9pm at 21 South St, and Sunday February 4 at 2pm on
-            Zoom (signup link coming soon).&nbsp;
-            
-            {/* Sign up for the Zoom Intro Comp meeting {" "}
+            {" "}
             <a
-              href="https://forms.gle/TdueEXzXwEqidTQh6"
+              href="https://zoom.us/j/8548381344?pwd=OHJMMEtVcHZUSGFVRzJucUhJZ1dtQT09&omn=96554720282"
               target="_blank"
               rel="noreferrer"
             >
-              here
-            </a>{". "} */}
+              Zoom
+            </a>{". "}
             For any questions or concerns, contact hermes@theharvardadvocate.com.
             <br />
             <br />
