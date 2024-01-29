@@ -2,6 +2,7 @@
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 
+
 const begleySx = {
   ".begleyBody": {
     marginTop: "0.4em",
@@ -27,6 +28,12 @@ const begleySx = {
     display: "block",
   },
 
+    // Style anchor elements within Themed.p
+    "Themed.p a": {
+      color: "blue", // Set link color to blue
+      textDecoration: "underline", // Underline links for better visibility
+    },
+
   "@media (max-width: 835px)": {
     ".begleyBody": {
       margin: "0em 0em 0em 0em",
@@ -37,6 +44,7 @@ const begleySx = {
     },
   },
 };
+
 
 export default function Begley() {
   return (
@@ -50,6 +58,7 @@ export default function Begley() {
         ]}
       >
         <div className="begleyBody">
+     
           <Themed.p>
             This prize was created in 1999 to honor the contribution of Louis Begley, Class of 1954, 
             to the general health and prosperity of the Harvard Advocate, which he served for many years
@@ -58,6 +67,22 @@ export default function Begley() {
              renown, labored to ensure that the nation’s oldest college literary journal was both solvent and 
              an object worthy of aesthetic pride. The prize will be awarded annually to the best work of fiction 
              submitted by an undergraduate to the magazine; the judge will be an established writer of fiction.
+             <br />
+             <br />
+            Some recent winners include <a href="https://theharvardadvocate.com/content/wild-things">"Wild Things"</a> by Cindy Phan, 
+            <a href="https://theharvardadvocate.com/content/shaking-trembling-quaking-rending">"Shaking, Trembling, Quaking, Rending"</a> by Yash Kumbhat, 
+            <a href="https://theharvardadvocate.com/content/footprint-a-makeshift-legend">"Footprint (A Makeshift Legend)"</a> by Kelsey Chen, and 
+            <a href="https://theharvardadvocate.com/content/apple">"Inside the Apple"</a> by Eva Rosenfeld. Recent guest judges include Ottessa Moshfegh, 
+            Laura van den Berg, Bret Anthony Johnson, Rebecca Panovka and Kiara Barrow, Louis Menand, Claire Messud, Jia Tolentino, and Leslie Jamison.
+            <br />
+            <br />
+            All submissions to the <em>Advocate's</em> fiction section made by Harvard undergraduates within the calendar year of the prize round 
+            are automatically considered for the Begley prize. If you would like to be considered for the Begley Prize without first submitting 
+            to the magazine, please send your short story from your <a href="http://college.harvard.edu/">college.harvard.edu</a> email to 
+            <a href="mailto:fiction@theharvardadvocate.com">fiction@theharvardadvocate.com</a> with the subject line, "Begley prize submission."
+            <br />
+            <br />
+            The Louis Begley Prize is judged each year in late Spring. Please check here later for more information on the 2024 Louis Begley Prize timeline.
           </Themed.p>
           <div className="image">
             <img

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
+import search from "../assets/images/search.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
@@ -91,6 +92,45 @@ const sidebarSx = {
     },
   },
 
+  ".search-bar": {
+    background: "white",
+    display: "flex",
+    borderRadius: "4px",
+    fontFamily: "sans-serif",
+    alignItems: "center",
+    border: "solid black 1px",
+    padding: "5px",
+    marginTop: "10px"
+  },
+
+  ".search-bar input": {
+    background: "transparent",
+    flex: "1",
+    border: "0",
+    width: "20px",
+    outline: "none",
+    fontSize: "16px",
+    color: "#000000"
+  },
+
+  ".search-bar img": {
+    background: "transparent",
+    border: "0",
+    width: "25px",
+    outline: "none"
+  },
+
+  ".search-bar button": {
+    background: "transparent",
+    border: "0",
+    outline: "none",
+    padding: "0px"
+  },
+
+  ".search-bar img:hover": {
+    cursor: "grab"
+  },
+
   "@media (max-width: 835px)": {
     width: "100vw",
     height: "min-content",
@@ -166,11 +206,11 @@ export default function Sidebar() {
 
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
-  const toSearch = () =>{
+  const toSearch = () => {
     setNavbarExpanded(false);
     // e.preventDefault();
-    navigate('/search',{state:{query: searchQuery}});
-      }
+    navigate('/search', { state: { query: searchQuery } });
+  }
 
 
   const isMobile = useIsMobile();
@@ -217,7 +257,7 @@ export default function Sidebar() {
               <span className="line"></span>
               <span className="line"></span>
               <span className="line"></span>
-              
+
             </div>
             <Link
               className={"link logo"}
@@ -278,7 +318,7 @@ export default function Sidebar() {
               Issues
             </Link>
 
-            
+
             {isMobile ? (
               <Link
                 className={`link ${highlightLink("/submit")}`}
@@ -387,7 +427,7 @@ export default function Sidebar() {
               ></div>
             </div>
 
-            
+
 
             {moreExpanded && (
               <Grid className="sublinks" columns={1} gap={3}>
@@ -445,7 +485,7 @@ export default function Sidebar() {
 
 
 
-    <div
+            <div
               className="horizontalLine1"
               style={{
                 borderTop: "1px solid #000000 ",
@@ -453,24 +493,31 @@ export default function Sidebar() {
                 marginRight: 0,
               }}
             ></div>
-            
-            
-    <input type="text" 
-    placeholder="Browse titles here"
-    value={searchQuery}
-    onChange={(e) => setSearchQuery(e.target.value)}
-    style={{}}></input>
+
+            <div className="search-bar">
+              <input type="text"
+              placeholder="Search Advo"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    toSearch();
+                }
+            }}
+              style={{}}></input>
+
+              <button onClick={() => toSearch()}>
+                <img src={search} alt="search" />
+              </button>
+            </div>
 
 
-            <button onClick={() => toSearch()}>Search</button>
 
 
-
-            
           </div>
         )}
 
-        <div className="horizontalLine2"></div>
+        {/* <div className="horizontalLine2"></div> */}
 
         <Link className="buttonLink" to={"/submit"}>
           Submit
@@ -480,7 +527,7 @@ export default function Sidebar() {
           Subscribe
         </Link>
 
-        
+
 
 
 
