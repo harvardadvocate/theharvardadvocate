@@ -8,6 +8,11 @@
  *    type: 'blockContent'
  *  }
  */
+
+
+// const SuperDecorator = props => <sup>{props.children}</sup>
+// const SubDecorator = props => <sub>{props.children}</sub>
+
 export default {
   title: "Block Content",
   name: "blockContent",
@@ -43,10 +48,12 @@ export default {
           { title: "Emphasis", value: "em" },
           { title: "Underline", value: "underline" },
           { title: "Strikethrough", value: "strikethrough" },
+          { title: "Superscript", value: "sup" },
+          { title: "Subscript", value: "sub"},
           {
             title: 'Center',
             value: 'center',
-            icon: () => '≡'
+            icon: () => '≡' // Doesn't work, fix later
           }
 
         ],

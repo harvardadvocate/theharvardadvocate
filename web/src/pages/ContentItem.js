@@ -94,6 +94,8 @@ const customComponents = {
         </a>
       );
     },
+    sup: ({ children }) => <sup>{children}</sup>,
+    sub: ({ children }) => <sub>{children}</sub>,
     underline: ({ children }) => <u>{children}</u>,
     strikethrough: ({ children }) => <s>{children}</s>,
   },
