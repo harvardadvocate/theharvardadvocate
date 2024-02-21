@@ -88,7 +88,7 @@ export default function Submit() {
             <Themed.h2>Spring 2024 Issue</Themed.h2>
             <hr />
             <i align="center">
-              The Advocate is currently soliciting submissions for our Fall 2023 issue. Submissions are due March 24, 2024.
+              The Advocate is currently soliciting submissions for our Spring 2024 issue. Submissions are due March 24, 2024.
             </i>
             <br />
             <div align="center">
