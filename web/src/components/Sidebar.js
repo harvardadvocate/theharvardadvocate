@@ -431,56 +431,37 @@ export default function Sidebar() {
 
             {moreExpanded && (
               <Grid className="sublinks" columns={1} gap={3}>
-                <Link
-                  className={`link ${highlightLink("/shop")}`}
-                  to="/shop"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+              <a href="/shop" 
+                className={`link ${highlightLink("/shop")}`} 
+                onClick={()=> setNavbarExpanded(false)}>
                   Shop
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/donate")}`}
-                  to="/donate"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+              </a>
+              <a href="/donate" 
+                className={`link ${highlightLink("/donate")}`} 
+                onClick={()=> setNavbarExpanded(false)}>
                   Donate
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/advertise")}`}
-                  to="/advertise"
-                  onClick={() => setNavbarExpanded(false)}
-                >
-                  Advertise
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/comp")}`}
-                  to="/comp"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+              </a>
+              <a href="/advertise" 
+                className={`link ${highlightLink("/advertise")}`} 
+                onClick={()=> setNavbarExpanded(false)}>
+                Advertise
+              </a>
+              <a href="/comp" 
+                className={`link ${highlightLink("/comp")}`} 
+                onClick={()=> setNavbarExpanded(false)}>
                   Comp
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/masthead")}`}
-                  to="/masthead"
-                  onClick={() => setNavbarExpanded(false)}
-                >
+              </a>
+              <a href="/masthead" 
+                className={`link ${highlightLink("/masthead")}`} 
+                onClick={()=> setNavbarExpanded(false)}>
                   Masthead
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/begley")}`}
-                  to="/begley"
-                  onClick={() => setNavbarExpanded(false)}
-                >
-                  Louis Begley Prize
-                </Link>
-                <Link
-                  className={`link ${highlightLink("/contact")}`}
-                  to="/contact"
-                  onClick={() => setNavbarExpanded(false)}
-                >
-                  Contact
-                </Link>
-              </Grid>
+              </a>
+              <a href="/about" 
+                className={`link ${highlightLink("/about")}`} 
+                onClick={()=> setNavbarExpanded(false)}>
+                  About
+              </a>
+            </Grid>
             )}
 
 
