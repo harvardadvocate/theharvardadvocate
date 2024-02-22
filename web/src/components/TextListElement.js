@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
+import { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { Themed } from "theme-ui";
 import { PortableText } from "@portabletext/react";
@@ -84,6 +85,12 @@ const textListItemSx_home = {
       color: "text",
       WebkitLineClamp: "3",
     },
+
+    ".css-h9r693": {
+      br: {
+        display: "none",
+      }
+    },
   },
 
   p: {
@@ -119,6 +126,24 @@ const customComponents = {
 };
 
 export default function TextListItem(props) {
+  useEffect(() => {
+    document.querySelectorAll('.textPreview .css-h9r693 br').forEach(br => {
+      br.style.display = 'none';
+    });
+    const elements = document.querySelectorAll('.textPreview .css-h9r693');
+    elements.forEach(el => {
+      if (el.nodeType === 3 && el.nodeValue.includes('\u00A0')) { 
+        el.nodeValue = el.nodeValue.replace(/\u00A0/g, ' '); 
+      } else {
+        const childNodes = el.childNodes;
+        childNodes.forEach(child => {
+          if (child.nodeType === 3 && child.nodeValue.includes('\u00A0')) { 
+            child.nodeValue = child.nodeValue.replace(/\u00A0/g, ' '); 
+          }
+        });
+      }
+    });
+  }, []);
   return (
     <div css={props.home ? textListItemSx_home : textListItemSx}>
       <div css={props.padding ? padding : no_padding}>
