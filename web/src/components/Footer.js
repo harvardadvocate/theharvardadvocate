@@ -118,7 +118,7 @@ export default function Footer() {
           <br />
           <Link className="linkLogo" to={"/"}>
             <img src={logo} alt="The Advocate Logo" loading="lazy" />
-            2023 &nbsp; <span>&copy;</span> &nbsp; The Harvard Advocate
+            2024 &nbsp; <span>&copy;</span> &nbsp; The Harvard Advocate
           </Link>
         </div>
         <div className="socialIcons">

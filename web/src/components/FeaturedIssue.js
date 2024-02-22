@@ -76,6 +76,23 @@ const issuesListSx = {
     },
   },
 
+  ".buyIssueButton": {
+    backgroundColor: "white", 
+    color: "black",
+    padding: "8px 16px",
+    borderRadius: "5px",
+    textDecoration: "none",
+    display: "inline-block",
+    fontSize: "12px",
+    margin: "10px 0",
+    transition: "background-color 0.3s",
+    cursor: "pointer",
+
+    ":hover": {
+      backgroundColor: "white", 
+    },
+  },
+
   ".featuredArticles2": {
     color: "blue",
     paddingTop: "2vh",
@@ -126,6 +143,16 @@ const issuesListSx = {
       borderRadius: "5px",
       fontFamily: "sans-serif",
     },
+  },
+
+  ".buttonContainer": {
+    display: "flex",
+    alignItems: "center",
+    gap: "130px", // Adjust the gap as needed
+  },
+
+  ".readFullIssue, .readFullIssue2, .buyIssueButton": {
+    margin: "0", // Remove default margin to ensure alignment
   },
 
   ".articleLink": {
@@ -254,6 +281,7 @@ export default function FeaturedIssue(props) {
               </Grid>
               {featuredItems.length > 0 ? <hr /> : <></>}
             </div>
+            <div className="buttonContainer">
             <Link to={"/issues/" + issue.slug.current}>
               <div
                 className={props.newest ? "readFullIssue" : "readFullIssue2"}
@@ -262,6 +290,12 @@ export default function FeaturedIssue(props) {
                 <Themed.h6>READ FULL ISSUE</Themed.h6>
               </div>
             </Link>
+             <Link to={"/shop"}>
+              <div className="buyIssueButton">
+                BUY ISSUE
+              </div>
+            </Link>
+          </div>
           </div>
 
           {!props.newest && !isMobile ? (
