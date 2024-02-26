@@ -107,7 +107,7 @@ export default function Masthead() {
               <br />
               P. Wekwejt '26, Finance Coordinator
               <br />
-              S. Jung '24, Advocate Cafe Manager
+              S. Jung '25, Advocate Cafe Manager
               <br /> <br /> <br />
               <b>Board of Trustees</b>
               <br /><br />
