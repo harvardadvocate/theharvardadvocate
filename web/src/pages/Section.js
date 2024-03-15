@@ -103,14 +103,22 @@ export default function Section(props) {
           },
         ]}
       >
+
+
+        
         {sectionSlug === "art" ? (
           <ImageContentGrid items={items} />
         ) : (
+          
           <TextContentList
             items={items}
             home={false}
             border={true}
+            // hideIssue={sectionSlug === "blog" ? true : false}
           ></TextContentList>
+
+
+          
         )}
       </SectionFrame>
       <div className="more">
