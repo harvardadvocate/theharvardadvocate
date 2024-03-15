@@ -129,13 +129,23 @@ export default function TextListItem(props) {
           <div className="listItem">
             <Themed.h3 color={headerColor}>
               {!props.home ? (
+
+
                 <i>
-                  <a
+
+{props.item.sections[0].title === 'Blog' ? <a></a> :
+
+<a
                     style={{ color: headerColor }}
                     href={"/issues/" + props.item.issue.slug.current}
                   >
                     {" " + props.item.issue.title}
                   </a>
+
+
+}
+
+                  
                 </i>
               ) : (
                 <i>

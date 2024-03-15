@@ -88,7 +88,7 @@ export default {
       title: "Issue",
       type: "reference",
       to: { type: "issue" },
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     },
     {
       name: "body",

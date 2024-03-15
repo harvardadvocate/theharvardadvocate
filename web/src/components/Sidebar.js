@@ -436,6 +436,12 @@ export default function Sidebar() {
                 onClick={()=> setNavbarExpanded(false)}>
                   Shop
               </a>
+
+              <a href="/begley" 
+                className={`link ${highlightLink("/begley")}`} 
+                onClick={()=> setNavbarExpanded(false)}>
+                  Louis Begley Prize
+              </a>
               <a href="/donate" 
                 className={`link ${highlightLink("/donate")}`} 
                 onClick={()=> setNavbarExpanded(false)}>
