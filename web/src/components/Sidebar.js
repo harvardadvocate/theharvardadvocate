@@ -83,6 +83,8 @@ const sidebarSx = {
     marginRight: 0,
   },
   ".advoStyle": {
+    fontFamily: "Bernhard Gothic Medium",
+
     display: "flex",
     flexDirection: "column",
     marginTop: "25px",

@@ -17,17 +17,20 @@ const textListItemSx = {
     {
       h2: {
         color: "text",
+        fontFamily: "Bernhard Gothic Medium",
       },
       h3: {
+        // fontFamily: "Bernhard Gothic Medium",
+
         color: "headerColor",
       },
       h4: {
-        fontFamily: "Poppins",
+        fontFamily: "Bernhard Gothic Medium",
       },
       padding: "1em",
     },
   h4: {
-    fontFamily: "Poppins",
+    fontFamily: "Bernhard Gothic Medium",
     color: "text",
   },
 
@@ -53,7 +56,7 @@ const textListItemSx = {
 
   ".authorName": {
     p: {
-      fontFamily: "Poppins!important",
+      fontFamily: "Bernhard Gothic Medium",
       fontSize: "medium",
     },
   },
@@ -64,12 +67,19 @@ const textListItemSx = {
 const textListItemSx_home = {
   maxWidth: "-webkit-fill-available",
   textAlign: "auto",
+  h2: {
+
+    fontFamily: "Bernhard Gothic Medium",
+
+  },
   h3: {
+    // fontFamily: "Bernhard Gothic Medium",
+
     color: headerColor,
   },
 
   h4: {
-    fontFamily: "Poppins",
+    fontFamily: "Bernhard Gothic Medium",
     color: "text",
   },
   ".textPreview": {
@@ -92,7 +102,7 @@ const textListItemSx_home = {
 
   ".authorName": {
     p: {
-      fontFamily: "Poppins!important",
+      fontFamily: "Bernhard Gothic Medium",
       fontSize: "medium",
     },
   },
@@ -133,17 +143,16 @@ export default function TextListItem(props) {
 
                 <i>
 
-{props.item.sections[0].title === 'Blog' ? <a></a> :
+              {props.item.sections[0].title === 'Blog' ? <a></a> :
 
-<a
-                    style={{ color: headerColor }}
-                    href={"/issues/" + props.item.issue.slug.current}
-                  >
-                    {" " + props.item.issue.title}
-                  </a>
+              <a
+                style={{ color: headerColor }}
+                href={"/issues/" + props.item.issue.slug.current}
+              >
+              {" " + props.item.issue.title}
+              </a>
 
-
-}
+              } 
 
                   
                 </i>

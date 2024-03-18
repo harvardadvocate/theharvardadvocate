@@ -34,7 +34,23 @@ const issuesListSx = {
     color: "#fffaf1",
   },
 
+  h1: {
+    fontFamily: "Bernhard Gothic Medium",
+
+
+  },
+
+  "issueTitle": {
+    fontFamily: "Bernhard Gothic Medium",
+
+  },
+
   ".issueCover": {
+    h5: {
+
+      fontFamily: "Bernhard Gothic Medium",
+
+    },
     height: "max-content",
     display: "flex",
     justifyContent: "center",
@@ -156,6 +172,7 @@ const issuesListSx = {
   },
 
   ".articleLink": {
+    fontFamily: "Bernhard Gothic Medium",
     color: "#FFFFFF",
   },
 
