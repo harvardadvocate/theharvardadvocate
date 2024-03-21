@@ -15,10 +15,12 @@ const gridSx = {
   ".topArticles": {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
-    gridTemplateRows: "1fr repeat(2, 0.5fr)",
+    gridTemplateRows: "auto auto auto",
+    // old: repeat(2, 0.5fr)
     gridColumnGap: "0px",
     gridRowGap: "0px",
     paddingInline: "2vw",
+    alignItems: "stretch",
   },
 
   ".div4, .div5, .div6, .div7, .div8, .blogArticle, .archiveArticle": {
@@ -38,6 +40,19 @@ const gridSx = {
     display: "flex",
     borderBottom: "1px solid rgba(0, 0, 0, .2)",
     alignItems: "center",
+  },
+  
+  ".div4.fullWidthContent": {
+    flexDirection: 'column',
+    justifyContent: 'start',
+  },
+  
+  ".div4content.fullWidth": {
+    minWidth: "100%",
+  },
+
+  ".div4.adjustHeight": {
+    height: 'auto',
   },
 
   ".div4image": {
@@ -90,8 +105,24 @@ export default function MixedGrid(props) {
 
   var isMobile = useIsMobile();
 
+  const renderAd = () => {
+    if (props.home && props.adContent) {
+      return (
+        <div className="adSpace">
+          <a href="https://qrco.de/be9Mh6"
+            target="_blank"
+            rel="noreferrer">
+            <img src="/aerie_ad_2.png" width="300" alt="Illustration"></img>
+          </a>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div css={gridSx}>
+      {renderAd()}
       {/* first three text articles */}
       {showFirstList ? (
         <TextContentList
@@ -114,30 +145,21 @@ export default function MixedGrid(props) {
       ) : (
         <div className="topArticles">
           {/* text article + accompanying art */}
-          <div className="div4">
+          <div className={`div4 ${!props.items[3].mainImage ? 'fullWidthContent' : ''}`}>
+            {props.items[3].mainImage && (
             <div className="div4image">
-              {props.items[3].mainImage ? (
-                <a href={"content/" + props.items[3].slug.current}>
-                  <img
-                    src={props.items[3].mainImage.asset.url}
-                    alt="Illustration"
-                  ></img>
-                </a>
-              ) : (
-                // <a href={"content/" + props.items[3].slug.current}>
-                  <a href="https://qrco.de/be9Mh6"
-                  target="_blank"
-                  rel="noreferrer">
-                  <img src="/aerie_ad_2.png" width="300" alt="Illustration"></img>
-                </a>
-              )}
+              <a href={`content/${props.items[3].slug.current}`}>
+              <img
+                src={props.items[3].mainImage.asset.url}
+                alt="Illustration"
+               /> 
+              </a>
             </div>
-            <div className="div4content">
+            )}
               <TextListElement
                 item={props.items[3]}
                 home={true}
               ></TextListElement>
-            </div>
           </div>
 
           {/* two text articles */}
