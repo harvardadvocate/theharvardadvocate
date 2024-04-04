@@ -77,7 +77,7 @@ export default function Begley() {
              submitted by an undergraduate to the magazine; the judge will be an established writer of fiction.
              <br />
              <br />
-            Some recent winners include “<a href="https://theharvardadvocate.com/content/wild-things">Wild Things</a>” by Cindy Phan, “Shaking<a href="https:/
+            Some recent winners include “<a href="https://theharvardadvocate.com/content/wild-things">Wild Things</a>” by Cindy Phan, “<a href="https:/
             /theharvardadvocate.com/content/shaking-trembling-quaking-rending">Shaking, Trembling, Quaking, Rending</a>” by Yash Kumbhat, “<a href="htt
             ps://theharvardadvocate.com/content/footprint-a-makeshift-legend">Footprint (A Makeshift Legend)</a>” by Kelsey Chen, and “<a href="https:/
             /theharvardadvocate.com/content/apple">Inside the Apple</a>” by Eva Rosenfeld. Recent guest judges include Ottessa Moshfegh, 
