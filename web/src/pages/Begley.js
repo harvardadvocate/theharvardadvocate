@@ -23,6 +23,10 @@ const begleySx = {
       fontSize: "16px",
     },
   },
+  a: {
+    color: "#00008B",
+    textDecoration: "underline",
+  },
   i: {
     textAlign: "center",
     display: "block",
@@ -60,6 +64,10 @@ export default function Begley() {
         <div className="begleyBody">
      
           <Themed.p>
+            The 2024 Louis Begley Prize will be judged by R. F. Kuang, author of <em>Yellowface</em>, <em>Babel</em>, <em>The Poppy War</em>, and more! Submissions of short stories
+            from 700-7,000 words written by current Harvard College students are due on April 19 at midnight. Please submit from your @college.harvard.edu email.
+            <br />
+            <br />
             This prize was created in 1999 to honor the contribution of Louis Begley, Class of 1954, 
             to the general health and prosperity of the Harvard Advocate, which he served for many years
              as Treasurer of the Board of Trustees and Chairman of the Board. During that time, Begley, 
@@ -69,20 +77,20 @@ export default function Begley() {
              submitted by an undergraduate to the magazine; the judge will be an established writer of fiction.
              <br />
              <br />
-            Some recent winners include <a href="https://theharvardadvocate.com/content/wild-things">"Wild Things"</a> by Cindy Phan, 
-            <a href="https://theharvardadvocate.com/content/shaking-trembling-quaking-rending">"Shaking, Trembling, Quaking, Rending"</a> by Yash Kumbhat, 
-            <a href="https://theharvardadvocate.com/content/footprint-a-makeshift-legend">"Footprint (A Makeshift Legend)"</a> by Kelsey Chen, and 
-            <a href="https://theharvardadvocate.com/content/apple">"Inside the Apple"</a> by Eva Rosenfeld. Recent guest judges include Ottessa Moshfegh, 
+            Some recent winners include “<a href="https://theharvardadvocate.com/content/wild-things">Wild Things</a>” by Cindy Phan, “Shaking<a href="https:/
+            /theharvardadvocate.com/content/shaking-trembling-quaking-rending">Shaking, Trembling, Quaking, Rending</a>” by Yash Kumbhat, “<a href="htt
+            ps://theharvardadvocate.com/content/footprint-a-makeshift-legend">Footprint (A Makeshift Legend)</a>” by Kelsey Chen, and “<a href="https:/
+            /theharvardadvocate.com/content/apple">Inside the Apple</a>” by Eva Rosenfeld. Recent guest judges include Ottessa Moshfegh, 
             Laura van den Berg, Bret Anthony Johnson, Rebecca Panovka and Kiara Barrow, Louis Menand, Claire Messud, Jia Tolentino, and Leslie Jamison.
             <br />
             <br />
             All submissions to the <em>Advocate's</em> fiction section made by Harvard undergraduates within the calendar year of the prize round 
             are automatically considered for the Begley prize. If you would like to be considered for the Begley Prize without first submitting 
-            to the magazine, please send your short story from your <a href="http://college.harvard.edu/">college.harvard.edu</a> email to 
-            <a href="mailto:fiction@theharvardadvocate.com">fiction@theharvardadvocate.com</a> with the subject line, "Begley prize submission."
+            to the magazine, please send your short story from your college.harvard.edu email to <a href="mailto:fiction@theharvardadvocate.com">
+            fiction@theharvardadvocate.com</a> with the subject line, “Begley prize submission.”
             <br />
             <br />
-            The Louis Begley Prize is judged each year in late Spring. Please check here later for more information on the 2024 Louis Begley Prize timeline.
+            The Louis Begley Prize is judged each year in late Spring. 
           </Themed.p>
           <div className="image">
             <img
