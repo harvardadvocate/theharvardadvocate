@@ -245,7 +245,9 @@ export default function Homepage() {
           ></MixedGrid>
           <div className="sanctumSessions">
             {!isMobile ? <hr /> : ""}
-            <a
+
+            {/* aerie ad */}
+            {/* <a
               href="https://qrco.de/be9Mh6"
               target="_blank"
               rel="noreferrer"
@@ -254,6 +256,18 @@ export default function Homepage() {
                 src="/aerie_ad_1.png"
                 loading="lazy"
                 alt="Advertisement for Aerie"
+              />
+            </a> */}
+
+            <a
+              href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="/sanctum_sessions.png"
+                loading="lazy"
+                alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."
               />
             </a>
           </div>
