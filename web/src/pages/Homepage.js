@@ -199,20 +199,18 @@ export default function Homepage() {
   }, []);
 
   if (
-    !itemData ||
-    !featuredItems ||
-    !featuredArticle1 ||
-    !featuredArticle2 ||
-    !featuredArticle3 ||
-    !featuredArticle4 ||
-    !featuredArticle5 ||
-    !featuredArticle6 ||
+    // !itemData ||
+    // !featuredItems ||
+    // !featuredArticle1 ||
+    // !featuredArticle2 ||
+    // !featuredArticle3 ||
+    // !featuredArticle4 ||
+    // !featuredArticle5 ||
+    // !featuredArticle6 ||
     !Blog1 ||
     !Blog2 ||
     !Blog3 ||
-    !featuredArt1 ||
-    !featuredArt2 ||
-    !instagramImages ||
+    // !instagramImages ||
     !fromTheArchivesContent
   ) {
     return <ColorRingLoader />;
@@ -289,7 +287,7 @@ export default function Homepage() {
                   rel="noreferrer"
                 >
                   <div className="instaCol">
-                    <div className="fromss">
+                    {/* <div className="fromss">
                       <img
                         src="/picsfrom21ss.jpg"
                         loading="lazy"
@@ -322,11 +320,11 @@ export default function Homepage() {
                         loading="lazy"
                         alt=""
                       ></img>
-                    </div>
+                    </div> */}
                   </div>
                 </a>
                 <div className="twitterCol">
-                  <TwitterTimeline height={(window.innerHeight / 100) * 80} />
+                  {/* <TwitterTimeline height={(window.innerHeight / 100) * 80} /> */}
                 </div>
               </div>
             </div>

@@ -170,7 +170,7 @@ export default function MixedGrid(props) {
               item={props.items[7]}
               home={props.home}
             ></ImageListElement>
-          </div>
+          </div> 
         </div>
       )}
     </div>
