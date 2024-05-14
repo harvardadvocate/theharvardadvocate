@@ -170,13 +170,19 @@ export default function ContentItem() {
 
           
             <Themed.h5>
-              <Link to={"/sections/" + itemData.sections[0].slug.current}>
+
+
+
+              {itemData.sections[0].title === 'Blog' ?
+                            <Link to={"/sections/" + itemData.sections[0].slug.current}>
+                            {itemData.sections[0].title}
+                          </Link>
+                          :
+                <div>
+
+          <Link to={"/sections/" + itemData.sections[0].slug.current}>
                 {itemData.sections[0].title}
               </Link>{" "}
-
-
-              {itemData.sections[0].title === 'Blog' ? <a></a> :
-                <div>
 
                  •{" "}
                 <Link to={"/issues/" + itemData.issue.slug.current}>

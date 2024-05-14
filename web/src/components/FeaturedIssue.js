@@ -238,7 +238,7 @@ export default function FeaturedIssue(props) {
             </a>
             <div className="highlightedArticles">
               <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
-                {featuredItems.slice(0, 4).map((article) => {
+                {featuredItems.slice(0, 2).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
                       <Link to={"/content/" + article.slug.current}>
