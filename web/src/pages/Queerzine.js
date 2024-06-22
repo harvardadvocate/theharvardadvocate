@@ -84,8 +84,7 @@ export default function Queerzine() {
           Hi! Thank you for your interest in the Queer Zine project.
             <br />
             <br />
-            All gifts to The Harvard Advocate are fully tax deductible according
-            tThis time, we are working on a zine — a format that has historically served as a space for critiquing authorities, subverting expectations, and operating in the political realm as well as the artistic. 
+            This time, we are working on a zine — a format that has historically served as a space for critiquing authorities, subverting expectations, and operating in the political realm as well as the artistic. 
             Zines have been playing a significant role in queer liberation movements for over 40 years now — so much so that there exists an <a href="https://www.queerzinelibrary.com/">online library</a> full of queer zines alone. 
             <br />
             <br />
