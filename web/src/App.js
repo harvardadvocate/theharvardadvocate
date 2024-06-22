@@ -25,6 +25,7 @@ import Submit from "./pages/Submit";
 import Contact from "./pages/Contact";
 import Masthead from "./pages/Masthead";
 import Success from "./pages/Success";
+import Queerzine from "./pages/Queerzine";
 
 const appSx = {
   display: "grid",
@@ -58,6 +59,7 @@ function App() {
                 <Route element={<Issue />} path="/issues/:issueSlug" />
                 <Route element={<Advertise />} path="/advertise" exact />
                 <Route element={<Begley />} path="/begley" exact />
+                <Route element={<Queerzine />} path="/queerzine" exact />
                 <Route element={<Masthead />} path="/masthead" exact />
                 <Route element={<Comp />} path="/comp" exact />
                 <Route element={<Donate />} path="/donate" exact />

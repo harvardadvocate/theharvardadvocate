@@ -513,6 +513,9 @@ export default function Sidebar() {
         <Link className="buttonLink" to={"/subscribe"}>
           Subscribe
         </Link>
+        <Link className="buttonLink" to={"/queerzine"}>
+          Queer Zine
+        </Link>
 
 
 
