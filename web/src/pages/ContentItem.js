@@ -5,7 +5,7 @@ import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
-import { Helmet } from 'react-helmet-async';
+import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
 
 import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
@@ -112,6 +112,9 @@ const customComponents = {
   },
 };
 
+const helmetData = new HelmetData({});
+
+
 export default function ContentItem() {
   const [itemData, setItemData] = useState(null);
   const [isLinkCopied, setIsLinkCopied] = useState(false); // new state variable
@@ -151,13 +154,21 @@ export default function ContentItem() {
   };
 
   if (!itemData) return <ColorRingLoader />;
+
   return (
+
+    <div>
+
+    <Helmet helmetData={helmetData}>
+    <title>{itemData.title}</title>
+    <meta name='description' property="og:description" content={itemData.title + " by " + itemData.authors[0].name}  />
+    <meta name='title' propert="og.title" content={itemData.title} />
+
+    </Helmet>
+
     <div sx={contentItemSx}>
 
-      <Helmet>
-      <title>{itemData.title}</title>
-      <meta name='description' content={itemData.body} />
-      </Helmet>
+
 
       <ContentFrame
         path={[
@@ -268,6 +279,8 @@ export default function ContentItem() {
           )}
         </div>
       </ContentFrame>
+    </div>
+
     </div>
   );
 }

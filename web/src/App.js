@@ -46,9 +46,12 @@ const appSx = {
   },
 };
 
+const helmetContext = {};
+
+
 function App() {
   return (
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
 
       <ThemeProvider theme={theme}>
         <div>
