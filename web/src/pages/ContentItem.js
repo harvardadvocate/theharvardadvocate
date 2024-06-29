@@ -5,6 +5,8 @@ import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
+import { Helmet } from 'react-helmet-async';
+
 import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
 import Zoom from "../components/Zoom"
@@ -151,6 +153,12 @@ export default function ContentItem() {
   if (!itemData) return <ColorRingLoader />;
   return (
     <div sx={contentItemSx}>
+
+      <Helmet>
+      <title>{itemData.title}</title>
+      <meta name='description' content={itemData.body} />
+      </Helmet>
+
       <ContentFrame
         path={[
           {
@@ -174,9 +182,9 @@ export default function ContentItem() {
 
 
               {itemData.sections[0].title === 'Blog' ?
-                            <Link to={"/sections/" + itemData.sections[0].slug.current}>
-                            {itemData.sections[0].title}
-                          </Link>
+               <Link to={"/sections/" + itemData.sections[0].slug.current}>
+               {itemData.sections[0].title}
+                </Link>
                           :
                 <div>
 

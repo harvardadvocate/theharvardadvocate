@@ -4,6 +4,8 @@ import { ThemeProvider } from "theme-ui";
 import { theme } from "./theme/theme";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
+
 import ContentItem from "./pages/ContentItem";
 import Homepage from "./pages/Homepage";
 import About from "./pages/About";
@@ -46,40 +48,43 @@ const appSx = {
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <BrowserRouter>
-          <div css={appSx}>
-            <Sidebar />
-            <div className="nonSidebarContent">
-              <Routes>
-                <Route element={<Homepage />} path="/" exact />
-                <Route element={<About />} path="/about" exact />
-                <Route element={<IssuesList />} path="/issues" exact />
-                <Route element={<Issue />} path="/issues/:issueSlug" />
-                <Route element={<Advertise />} path="/advertise" exact />
-                <Route element={<Begley />} path="/begley" exact />
-                <Route element={<Queerzine />} path="/queerzine" exact />
-                <Route element={<Masthead />} path="/masthead" exact />
-                <Route element={<Comp />} path="/comp" exact />
-                <Route element={<Donate />} path="/donate" exact />
-                <Route element={<Search />} path="/search" exact />
-                <Route element={<Shop />} path="/shop" exact />
-                <Route element={<SectionsOverview />} path="/sections" exact />
-                <Route element={<Subscribe />} path="/subscribe" exact />
-                <Route element={<Success />} path="/success" exact />
-                <Route element={<Submit />} path="/submit" exact />
-                <Route element={<Section />} path="sections/:sectionSlug" />
-                <Route element={<ContentItem />} path="/content/:slug" />
-                <Route element={<Author />} path="authors/:authorSlug" />
-                <Route element={<Contact />} path="/contact" exact />
-              </Routes>
-              <Footer />
+    <HelmetProvider>
+
+      <ThemeProvider theme={theme}>
+        <div>
+          <BrowserRouter>
+            <div css={appSx}>
+              <Sidebar />
+              <div className="nonSidebarContent">
+                <Routes>
+                  <Route element={<Homepage />} path="/" exact />
+                  <Route element={<About />} path="/about" exact />
+                  <Route element={<IssuesList />} path="/issues" exact />
+                  <Route element={<Issue />} path="/issues/:issueSlug" />
+                  <Route element={<Advertise />} path="/advertise" exact />
+                  <Route element={<Begley />} path="/begley" exact />
+                  <Route element={<Queerzine />} path="/queerzine" exact />
+                  <Route element={<Masthead />} path="/masthead" exact />
+                  <Route element={<Comp />} path="/comp" exact />
+                  <Route element={<Donate />} path="/donate" exact />
+                  <Route element={<Search />} path="/search" exact />
+                  <Route element={<Shop />} path="/shop" exact />
+                  <Route element={<SectionsOverview />} path="/sections" exact />
+                  <Route element={<Subscribe />} path="/subscribe" exact />
+                  <Route element={<Success />} path="/success" exact />
+                  <Route element={<Submit />} path="/submit" exact />
+                  <Route element={<Section />} path="sections/:sectionSlug" />
+                  <Route element={<ContentItem />} path="/content/:slug" />
+                  <Route element={<Author />} path="authors/:authorSlug" />
+                  <Route element={<Contact />} path="/contact" exact />
+                </Routes>
+                <Footer />
+              </div>
             </div>
-          </div>
-        </BrowserRouter>
-      </div>
-    </ThemeProvider>
+          </BrowserRouter>
+        </div>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 export default App;
