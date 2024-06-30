@@ -51,7 +51,7 @@ const helmetContext = {};
 
 function App() {
   return (
-    <HelmetProvider context={helmetContext}>
+    // <HelmetProvider context={helmetContext}>
 
       <ThemeProvider theme={theme}>
         <div>
@@ -87,7 +87,7 @@ function App() {
           </BrowserRouter>
         </div>
       </ThemeProvider>
-    </HelmetProvider>
+    // </HelmetProvider>
   );
 }
 export default App;

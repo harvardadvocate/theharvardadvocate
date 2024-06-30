@@ -159,12 +159,12 @@ export default function ContentItem() {
 
     <div>
 
-    <Helmet helmetData={helmetData}>
-    <title>{itemData.title}</title>
-    <meta name='description' property="og:description" content={itemData.title + " by " + itemData.authors[0].name}  />
-    <meta name='title' propert="og.title" content={itemData.title} />
+    {/* <Helmet helmetData={helmetData}> */}
+    {/* <title>{itemData.title}</title> */}
+    {/* <meta name='description' property="og:description" content={itemData.title + " by " + itemData.authors[0].name}  /> */}
+    {/* <meta name='title' propert="og.title" content={itemData.title} /> */}
 
-    </Helmet>
+    {/* </Helmet> */}
 
     <div sx={contentItemSx}>
 
