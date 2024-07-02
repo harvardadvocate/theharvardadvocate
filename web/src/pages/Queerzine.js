@@ -81,7 +81,7 @@ export default function Queerzine() {
         <div className="donateBody">
 
           <Themed.p>
-          Hi! Thank you for your interest in the Queer Zine project.
+          Hi! Thank you for your interest in the Queer Zine project. Submit by August 7.
             <br />
             <br />
             This time, we are working on a zine — a format that has historically served as a space for critiquing authorities, subverting expectations, and operating in the political realm as well as the artistic. 
@@ -127,7 +127,7 @@ export default function Queerzine() {
             We are looking for a shorter genre selection for this project. We are very unlikely to publish anything over 3 pages in length. If you are interested in publishing longer work, please, submit to our regular issues!
             <br />
             <br />
-            To submit your work, please, fill out the form below and do not hesitate to reach out with any questions to <a href="mailto:publisher@theharvardadvocate.com">publisher@theharvardadvocate.com</a>.
+            To submit your work, please, fill out the form below before August 7, 2024, and do not hesitate to reach out with any questions to <a href="mailto:publisher@theharvardadvocate.com">publisher@theharvardadvocate.com</a>.
             <br />
             <br />
             {/* <p style="text-indent: 15px;">Only first line</p> */}
