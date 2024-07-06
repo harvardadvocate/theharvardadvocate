@@ -146,6 +146,7 @@ export default function ContentItem() {
         document.title = data[0].title;
       })
       .catch(console.error);
+      // console.log(itemData.body);
   }, [slug]);
 
   const handleShareClick = () => {
@@ -155,16 +156,26 @@ export default function ContentItem() {
 
   if (!itemData) return <ColorRingLoader />;
 
+
+
   return (
+
+    
 
     <div>
 
-    {/* <Helmet helmetData={helmetData}> */}
-    {/* <title>{itemData.title}</title> */}
-    {/* <meta name='description' property="og:description" content={itemData.title + " by " + itemData.authors[0].name}  /> */}
-    {/* <meta name='title' propert="og.title" content={itemData.title} /> */}
+    <Helmet helmetData={helmetData}>
+    <title>{itemData.title}</title>
+    <meta name='description' property="og:description" content={
+      // 
+      // JSON.stringify(JSON.parse(JSON.stringify(itemData.body[0]).replace(/&quot;/g,'"')))
 
-    {/* </Helmet> */}
+      // <PortableText value={props.item.body[0]} />
+      itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
+      }  />
+    <meta name='title' property="og:title" content={itemData.title} />
+
+    </Helmet>
 
     <div sx={contentItemSx}>
 
