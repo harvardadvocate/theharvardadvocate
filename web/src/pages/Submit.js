@@ -1,6 +1,8 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
+import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
+
 
 const submitSx = {
   ".submitBody": {
@@ -65,9 +67,23 @@ const submitSx = {
   },
 };
 
+const helmetData = new HelmetData({});
+
+
 export default function Submit() {
   return (
     <div sx={submitSx}>
+
+
+    <Helmet helmetData={helmetData}>
+    {/* <title>{itemData.title}</title> */}
+    <meta name='description' property="og:description" content={
+      "The Harvard Advocate is currently soliciting submissions for our Fall 2024 issue."
+      }  />
+    <meta name='title' property="og:title" content={"Submit"} />
+
+    </Helmet>
+
       <Frame
         path={[
           {
@@ -85,7 +101,7 @@ export default function Submit() {
             <br />
             <br />
             <hr />
-            <Themed.h2>Spring 2024 Issue</Themed.h2>
+            <Themed.h2>Fall 2024 Issue</Themed.h2>
             <hr />
             <i align="center">
               The Advocate is currently soliciting submissions for our Fall 2024 issue. <br /> Submissions for Fiction are due October 16, 2024. 

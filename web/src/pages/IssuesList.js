@@ -9,6 +9,8 @@ import FeaturedIssue from "../components/FeaturedIssue.js";
 import { useIsMobile } from "../utils/isMobile.js";
 import ColorRingLoader from "../components/LoadingRing.js";
 
+import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
+
 const issuesListSx = {
   ".horizontalContainer": {
     width: "100%",
@@ -277,16 +279,22 @@ export default function IssuesList() {
     perChunk = 2;
   }
 
-  // map 4 to 6
-  // map 2 to 2
-
   const resultArray = buildSubarraysOfSize(
     itemData.slice(2 * perChunk - 2),
     perChunk
   );
 
+  const helmetData = new HelmetData({});
+
+
   return (
     <div css={issuesListSx}>
+
+    <Helmet helmetData={helmetData}>
+    <meta name='description' property="og:description" content={
+      "Read our current issue, " + itemData[0].title + ", as well as past issues."
+      }  />
+    </Helmet>
       <div className="horizontalContainer">
         <div className="mainContent">
           <FeaturedIssue

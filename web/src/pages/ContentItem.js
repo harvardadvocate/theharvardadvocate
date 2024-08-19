@@ -112,7 +112,6 @@ const customComponents = {
   },
 };
 
-const helmetData = new HelmetData({});
 
 
 export default function ContentItem() {
@@ -154,7 +153,12 @@ export default function ContentItem() {
     setIsLinkCopied(true);
   };
 
+  const helmetData = new HelmetData({});
+
+
   if (!itemData) return <ColorRingLoader />;
+
+  
 
 
 
@@ -167,10 +171,6 @@ export default function ContentItem() {
     <Helmet helmetData={helmetData}>
     <title>{itemData.title}</title>
     <meta name='description' property="og:description" content={
-      // 
-      // JSON.stringify(JSON.parse(JSON.stringify(itemData.body[0]).replace(/&quot;/g,'"')))
-
-      // <PortableText value={props.item.body[0]} />
       itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
       }  />
     <meta name='title' property="og:title" content={itemData.title} />

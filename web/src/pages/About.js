@@ -1,6 +1,8 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
+import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
+
 
 const aboutSx = {
   ".aboutBody": {
@@ -34,9 +36,21 @@ const aboutSx = {
   },
 };
 
+const helmetData = new HelmetData({});
+
+
 export default function About() {
   return (
+
+
     <div sx={aboutSx}>
+
+    <Helmet helmetData={helmetData}>
+    <meta name='description' property="og:description" content={
+      "The Harvard Advocate, founded in 1866, is the oldest continuously published collegiate literary magazine in the country."
+      }  />
+    </Helmet>
+    
       <Frame
         path={[
           {

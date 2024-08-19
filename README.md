@@ -1,5 +1,6 @@
 The new website for the Harvard Advocate, built by Andreas Lordos '25. Live [here.](https://advo-website-beta.web.app/)
 
+Currently maintained by Conan Lu '26. Reach out to conanlu \[at\] college.harvard.edu with any questions. 
 `studio` directory is for the Sanity content editing studio and holds the schema.
 
 `web` directory is for the Advocate website, currently uses React and Emotion for CSS, using Sanity's GROQ language to grab data.
