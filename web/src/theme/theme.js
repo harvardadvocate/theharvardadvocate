@@ -2,6 +2,7 @@ export const theme = {
   fonts: {
     body: "EB Garamond, serif",
     heading: "EB Garamond, serif",
+    // heading: "Bernhard Gothic Medium",
     monospace: "monospace",
   },
   fontSizes: [18, 20, 24, 36, 48],
@@ -62,6 +63,7 @@ export const theme = {
       fontSize: 0,
     },
     h5: {
+      //fontFamily: "Bernhard Gothic Medium",
       variant: "text.body",
       fontSize: 0,
     },
