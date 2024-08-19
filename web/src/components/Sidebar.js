@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import logo from "../assets/images/logo.svg";
+import logo from "../assets/images/logo2.jpg";
 import search from "../assets/images/search.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
@@ -83,10 +83,12 @@ const sidebarSx = {
     marginRight: 0,
   },
   ".advoStyle": {
+    // fontFamily: "Bernhard Gothic Medium",
     display: "flex",
     flexDirection: "column",
     marginTop: "25px",
     fontSize: "40px",
+
     p: {
       fontSize: "20px",
     },
@@ -470,8 +472,6 @@ export default function Sidebar() {
             </Grid>
             )}
 
-
-
             <div
               className="horizontalLine1"
               style={{
@@ -483,7 +483,7 @@ export default function Sidebar() {
 
             <div className="search-bar">
               <input type="text"
-              placeholder="Search Advo"
+              placeholder="Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={(e) => {
