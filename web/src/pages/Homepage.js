@@ -14,6 +14,9 @@ import RandomUpdate from "../components/RandomUpdate.js";
 
 
 const homepageSx = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   hr: {
     border: "0.1px solid rgba(0, 0, 0, .2)",
   },
@@ -290,7 +293,9 @@ export default function Homepage() {
             <div className="blogHeader">
               <hr />
               <Themed.h2>
+                <div className="fontMod">
                 <a href="sections/blog/">Blog</a>
+                </div>
               </Themed.h2>
               <hr />
               <Themed.p>
@@ -378,7 +383,11 @@ export default function Homepage() {
             
             <div className="archiveHeader">
               <hr />
-              <Themed.h2>From the Archives</Themed.h2>
+              <Themed.h2>
+                <div className="fontMod">
+                  From the Archives
+                </div>
+              </Themed.h2>
               <hr />
             </div>
             <TextContentList

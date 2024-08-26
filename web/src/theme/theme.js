@@ -1,8 +1,8 @@
 export const theme = {
   fonts: {
     body: "EB Garamond, serif",
-    heading: "EB Garamond, serif",
-    // heading: "Bernhard Gothic Medium",
+    // heading: "EB Garamond, serif",
+    heading: "Bernhard Gothic Medium, serif",
     monospace: "monospace",
   },
   fontSizes: [18, 20, 24, 36, 48],

@@ -9,6 +9,11 @@ const firstColor = theme["colors"]["primary"];
 const secondColor = theme["colors"]["secondary"];
 
 const issuesListSx = {
+
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
+
   hr: {
     border: "0.1px solid rgba(0, 0, 0, .2)",
   },
@@ -69,7 +74,7 @@ const issuesListSx = {
     paddingRight: "2vw",
     paddingLeft: "2vw",
     h5: {
-      fontFamily: "sans-serif",
+      // fontFamily: "sans-serif",
     },
     hr: {
       border: "0.1px solid white",
@@ -99,7 +104,7 @@ const issuesListSx = {
     paddingRight: "2vw",
     paddingLeft: "5vw",
     h5: {
-      fontFamily: "sans-serif",
+      // fontFamily: "sans-serif",
     },
     hr: {
       border: "0.1px solid white",
@@ -122,7 +127,7 @@ const issuesListSx = {
       border: "4px solid " + firstColor,
       paddingInline: "10px",
       borderRadius: "5px",
-      fontFamily: "sans-serif",
+      // fontFamily: "sans-serif",
     },
   },
 
@@ -141,7 +146,7 @@ const issuesListSx = {
       border: "4px solid " + secondColor,
       paddingInline: "10px",
       borderRadius: "5px",
-      fontFamily: "sans-serif",
+      // fontFamily: "sans-serif",
     },
   },
 
@@ -230,7 +235,9 @@ export default function FeaturedIssue(props) {
             <a href={"issues/" + issue.slug.current}>
               <div className="issueTitle">
                 <Themed.h5>
+                  <div className="fontMod">
                   <b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b>
+                  </div>
                 </Themed.h5>
                 <Themed.h1>{issue.title}</Themed.h1>
                 {featuredItems.length > 0 ? <hr /> : <></>}
@@ -287,12 +294,14 @@ export default function FeaturedIssue(props) {
                 className={props.newest ? "readFullIssue" : "readFullIssue2"}
               >
                 <span>&#8594;</span>
-                <Themed.h6>READ FULL ISSUE</Themed.h6>
+                <Themed.h6><div className="fontMod">READ FULL ISSUE</div></Themed.h6>
               </div>
             </Link>
              <Link to={"/shop"}>
               <div className="buyIssueButton">
+                <div className="fontMod">
                 BUY ISSUE
+                </div>
               </div>
             </Link>
           </div>

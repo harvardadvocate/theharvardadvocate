@@ -8,6 +8,9 @@ import { optimizeImageLoading } from "../utils/image.js";
 const headerColor = theme["colors"]["primary"];
 
 const imageListElementSx = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   maxWidth: "100%",
   padding: "1em",
   a: {
@@ -42,6 +45,9 @@ const imageListElementSx = {
 };
 
 const imageListElementSx_home = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   padding: "1em",
   maxWidth: "100%",
   a: {
@@ -96,6 +102,7 @@ export default function ImageListElement(props) {
           </div>
           <div>
             <Themed.h3 style={{ color: headerColor }}>
+              <div className="fontMod">
               {props.home && (
                 <React.Fragment>
                   {" "}
@@ -104,8 +111,9 @@ export default function ImageListElement(props) {
               )}
 
               <i> {props.item.issue.title}</i>
+              </div>
             </Themed.h3>
-            <Themed.h2>{props.item.title}</Themed.h2>
+            <Themed.h2><div className="fontMod">{props.item.title}</div></Themed.h2>
           </div>
           <div>
             {"authors" in props.item &&
@@ -114,11 +122,13 @@ export default function ImageListElement(props) {
               ) : (
                 <div className="authorName">
                   <Themed.p>
+                    {/* <div className="fontMod"> */}
                     By{" "}
                     {
                       //TODO: link to author page
                     }
                     {props.item.authors.map(({ name }) => name).join(", ")}
+                    {/* </div> */}
                   </Themed.p>
                 </div>
               ))}

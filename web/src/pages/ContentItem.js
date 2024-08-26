@@ -11,6 +11,9 @@ import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
 import Zoom from "../components/Zoom"
 const contentItemSx = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   ".contentHeader": {
     display: "flex",
     flexDirection: "column",
@@ -200,7 +203,7 @@ export default function ContentItem() {
 
           
             <Themed.h5>
-
+            <div className="fontMod">
 
 
               {itemData.sections[0].title === 'Blog' ?
@@ -222,7 +225,7 @@ export default function ContentItem() {
 
           }
 
-              
+              </div>
               
             </Themed.h5>
           </div>

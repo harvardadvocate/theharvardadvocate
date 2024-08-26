@@ -8,6 +8,9 @@ import { theme } from "../theme/theme.js";
 const headerColor = theme["colors"]["primary"];
 
 const textListItemSx = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   maxWidth: "-webkit-fill-available",
   textAlign: "auto",
   a: {
@@ -62,6 +65,9 @@ const textListItemSx = {
 // custom css for textlistelement on homepage
 
 const textListItemSx_home = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   maxWidth: "-webkit-fill-available",
   textAlign: "auto",
   h3: {
@@ -122,12 +128,15 @@ export default function TextListItem(props) {
   return (
     <div css={props.home ? textListItemSx_home : textListItemSx}>
       <div css={props.padding ? padding : no_padding}>
+
         <Link
           to={"/content/" + props.item.slug.current}
           key={props.item.slug.current}
         >
           <div className="listItem">
             <Themed.h3 color={headerColor}>
+
+              <div className="fontMod">
               {!props.home ? (
 
 
@@ -164,12 +173,17 @@ export default function TextListItem(props) {
                   </a>
                 </i>
               )}
+              </div>
             </Themed.h3>
 
             <Themed.h2>
+              <div className="fontMod">
+
               <a href={"/content/" + props.item.slug.current}>
                 {props.item.title}
               </a>
+              </div>
+
             </Themed.h2>
             <br />
             <Link to={"/content/" + props.item.slug.current}>
@@ -189,6 +203,7 @@ export default function TextListItem(props) {
             ) : (
               <div className="authorName">
                 <Themed.p>
+                  {/* <div className="fontMod"> */}
                   By{" "}
                   {props.item.authors.map((author, i) => (
                     <>
@@ -198,6 +213,7 @@ export default function TextListItem(props) {
                       </Link>
                     </>
                   ))}
+                  {/* </div> */}
                 </Themed.p>
               </div>
             )}
