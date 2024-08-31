@@ -250,7 +250,9 @@ export default function FeaturedIssue(props) {
                     <div className="featuredArticle" key={article.title}>
                       <Link to={"/content/" + article.slug.current}>
                         <div className="articleLink">
+                          {/* <div className="fontMod"> */}
                           <b>{article.title}</b> <br />
+                          {/* </div> */}
                           <Themed.h3>
                             By{" "}{article.authors[0].name}
                             {article.authors.length > 1 ? ", ..." : ""}
