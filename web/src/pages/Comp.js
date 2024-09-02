@@ -96,6 +96,15 @@ export default function Comp() {
             >
               Zoom
             </a>{". "}
+            The Comp Sign-up Sheet can also be found
+            {" "}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSflE0VDgykjsIpqvoWHlZFE7tG_Dm_UGSmwhgL_Hu0EGE13Mg/viewform?usp=sf_link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              here
+            </a>{". "}
             For any questions or concerns, contact hermes@theharvardadvocate.com.
             <br />
             <br />
