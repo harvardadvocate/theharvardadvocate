@@ -102,6 +102,14 @@ const homepageSx = {
     position: "relative",
   },
 
+  ".announcement": {
+    color: "black",
+    a: {
+      color: "#00008B",
+      textDecoration: "underline",
+    },
+  },
+
   ".fromss": {
     gridColumn: "-1 / 2",
     gridRow: "1",
@@ -230,6 +238,13 @@ export default function Homepage() {
             issue={itemData}
             featuredItems={featuredItems}
           />
+          <div className="archiveHeader">
+            <br></br>
+              <div className="announcement">
+              <Themed.h2><i>&#9654; Interested in the Fall 2024 Comp? See <a href="/comp">here</a></i>.</Themed.h2>
+              </div>
+              <hr />
+            </div>
           <MixedGrid
             home={true}
             items={[
