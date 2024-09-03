@@ -86,8 +86,8 @@ export default function Comp() {
             .
             <br />
             <br />
-            Intro Comp meetings are happening Wednesday September 11 and Thursday
-            September 12 at 8pm at 21 South St, and Sunday Spetember 15 at 2pm on
+            Intro Comp meetings are happening Wednesday, September 11, and Thursday,
+            September 12, at 8pm at 21 South St, and Sunday, September 15, at 2pm on
             {" "}
             <a
               href="https://zoom.us/j/98071311697?pwd=tSR4A7OcCm5P3bFDaZTbKPSGrp9Vca.1"
