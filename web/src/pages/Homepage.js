@@ -241,7 +241,7 @@ export default function Homepage() {
           <div className="archiveHeader">
             <br></br>
               <div className="announcement">
-              <Themed.h2><i>&#9654; Interested in the Fall 2024 Comp? See <a href="/comp">here</a></i>.</Themed.h2>
+              <Themed.h2><i>&#9654; Read our Queer Zine <a href="/queerzine">here</a></i>.</Themed.h2>
               </div>
               <hr />
             </div>
