@@ -4,7 +4,7 @@ import Frame from "../components/Frame";
 
 const queerSx = {
   ".donateBody": {
-    marginTop: "0.4em",
+    marginTop: "0.2em",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -77,15 +77,15 @@ export default function Queerzine() {
           },
         ]}
       >
+
         
         <div className="donateBody">
+        {/* <Themed.p>[insert short blurb here?] </Themed.p> */}
+        <br></br>
 
-          <Themed.p>
+          <iframe src="https://docs.google.com/viewer?url=https://theharvardadvocate.com/queerzine.pdf&embedded=true" toolbar={0} width="500vw" height="750vh"></iframe>
 
-                  <div>
-        <iframe src="/queerzine.pdf" width="500px" toolbar={1} zoom="200%" height="800px" />
-        </div>
-          </Themed.p>
+
 
         </div>
       </Frame>
