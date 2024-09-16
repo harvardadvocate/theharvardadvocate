@@ -1,6 +1,8 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
+import { useIsMobile } from "../utils/isMobile.js";
+
 
 const queerSx = {
   ".donateBody": {
@@ -19,7 +21,7 @@ const queerSx = {
     justifyContent: "center",
     justifyItems: "center",
     marginTop: "10px",
-    width: "400px",
+    width: "500px",
     textAlign: "center",
     alignItems: "center",
     figcaption: {
@@ -66,6 +68,8 @@ const queerSx = {
 };
 
 export default function Queerzine() {
+
+  var isMobile = useIsMobile();
   return (
 
     <div sx={queerSx}>
@@ -81,9 +85,22 @@ export default function Queerzine() {
         
         <div className="donateBody">
         {/* <Themed.p>[insert short blurb here?] </Themed.p> */}
-        <br></br>
 
-          <iframe src="https://docs.google.com/viewer?url=https://theharvardadvocate.com/queerzine.pdf&embedded=true" toolbar={0} width="500vw" height="750vh"></iframe>
+        {isMobile ? 
+
+
+
+<div>
+        
+<iframe src="https://docs.google.com/viewer?url=https://theharvardadvocate.com/queerzine.pdf&embedded=true" toolbar={0} width="400vw" height="600vh"></iframe>
+</div>
+
+:
+<iframe src="https://docs.google.com/viewer?url=https://theharvardadvocate.com/queerzine.pdf&embedded=true" toolbar={0} width="500vw" height="720vh"></iframe>
+
+      
+        }
+
 
 
 
