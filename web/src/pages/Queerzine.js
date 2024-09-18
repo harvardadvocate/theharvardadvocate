@@ -5,7 +5,7 @@ import { useIsMobile } from "../utils/isMobile.js";
 
 
 const queerSx = {
-  ".donateBody": {
+  ".queerBody": {
     marginTop: "0.2em",
     display: "flex",
     flexDirection: "column",
@@ -83,8 +83,16 @@ export default function Queerzine() {
       >
 
         
-        <div className="donateBody">
+        <div className="queerBody">
         {/* <Themed.p>[insert short blurb here?] </Themed.p> */}
+
+        <i>
+
+        <p>The Queer Zine is a special project that a few members of The Harvard Advocate pursued over the Summer 2024. <br></br>You can find a free hard copy of it in your dining hall or one of the campus cafes.
+        </p>
+
+        </i>
+        <br></br>
 
         {isMobile ? 
 
@@ -100,6 +108,8 @@ export default function Queerzine() {
 
       
         }
+
+
 
 
 

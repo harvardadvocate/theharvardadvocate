@@ -17,6 +17,9 @@ const submitSx = {
     textAlign: "center",
     display: "block",
   },
+  p: {
+    //textAlign: "center"
+  },
   ".buttonLink": {
     color: "#000000",
     backgroundColor: "#ffffff",
@@ -103,8 +106,22 @@ export default function Submit() {
             <hr />
             <Themed.h2>Fall 2024 Issue</Themed.h2>
             <hr />
+            <p align="left">
+            This semester, The Harvard Advocate is asking about LAND. 
+            What lies underneath our digital renderings of roadmaps, county-lines, nation-states? 
+            Is it the twin forces of heat & pressure endlessly chasing the other’s tail? Is it geological– land as the tectonic temperaments of an indecisive planet? 
+            Or political – the shifting allegiances of disputed borders, jingoistic statesmen, international entanglements? We are wondering about the trees, who, like us, 
+            cannot help but tell stories, or the rivers, who, unlike us, love to leave things behind. We are wondering about land as an anchor, land which roots out memories, 
+            holds our loved ones— the keeper of fossil history and the grower of new leaves. We want to know about land as the locus of indigeneity – what happens when land gets 
+            forcibly occupied? How do we take land back? Has land been appropriated by the economic? Is land property, ownership, entitlement? Show us setting, landscape, mise en scène; 
+            boast about the home for which you are sick. Give us land as reclamation, liberation, celebration; land as the cupping of your hands & the soil that falls, gently, through the 
+            gaps of your fingers. 
+            </p>
+            <br></br>
+            <p>The land issue asks: <em>What is the ground upon which we stand?</em></p>
             <i align="center">
-              The Advocate is currently soliciting submissions for our Fall 2024 issue. <br /> Submissions for Fiction are due October 16, 2024. 
+            <br /> We are currently accepting submissions for our Fall 2024 issue.
+               <br />Submissions for Fiction are due October 16, 2024. 
               <br /> Submissions for Poetry and Art are due October 27, 2024.
             </i>
             <br />
@@ -120,26 +137,27 @@ export default function Submit() {
                 Submit to Fiction
               </a>
             </div>
+            <br></br>
             <ul>
               <li>
-                We have no minimum or maximum word counts, but the work we
+              We have no minimum or maximum word counts, but the work we
                 publish tends to be between 700 and 7000 words.
               </li>
               <li>
-                Please include a cover letter and brief third-person
+              Please include a cover letter and brief third-person
                 biographical statement with your submission.
               </li>
               <li>
-                Attach your work as a Microsoft Word file. (Please consider
+              Attach your work as a Microsoft Word file. (Please consider
                 double-spacing and using 12-point Times New Roman font with
                 standard margins.)
               </li>
               <li>
-                Because submissions are considered anonymously, please make sure
+              Because submissions are considered anonymously, please make sure
                 your name is not anywhere in the document.
               </li>
               <li>
-                Simultaneous submissions are accepted, but please let us know
+              Simultaneous submissions are accepted, but please let us know
                 immediately if your work is accepted elsewhere.
               </li>
             </ul>
@@ -161,6 +179,8 @@ export default function Submit() {
                 Submit to Poetry
               </a>
             </div>
+            <br></br>
+
             <ul>
               <li>We have no minimum or maximum word counts.</li>
               <li>
