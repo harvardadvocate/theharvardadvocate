@@ -124,13 +124,13 @@ export default function MixedGrid(props) {
                   ></img>
                 </a>
               ) : (
-                 <a href={"content/" + props.items[3].slug.current}>
-                  <img src="/about.jpg" height="300px" alt="Illustration"></img>
+                //  <a href={"content/" + props.items[3].slug.current}>
+                //   <img src="/about.jpg" height="300px" alt="Illustration"></img>
 
-                  {/* <a href="https://qrco.de/be9Mh6"
+                  <a href="https://heritageclubthc.com/?utm_campaign=harvardfall24&utm_source=online"
                   target="_blank"
                   rel="noreferrer">
-                  <img src="/aerie_ad_2.png" width="300" alt="Illustration"></img> */}
+                  <img src="/heritage_ad.jpg" width="300" alt="Ad for the Heritage Club"></img>
                 </a>
               )}
             </div>
