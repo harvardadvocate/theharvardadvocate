@@ -362,7 +362,7 @@ export default function Homepage() {
               rel="noreferrer"
             >
               <img
-                src="/heritage_ad.jpg"
+                src="/heritage_ad.png"
                 loading="lazy"
                 alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."
               />
