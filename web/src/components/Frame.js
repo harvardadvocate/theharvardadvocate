@@ -6,11 +6,9 @@ const frameSx = {
   marginBottom: "5vh",
   ".header": {
     marginTop: "1em",
-    marginBottom: "1em",
-    height: "2.5em",
+    marginBottom: "0.5em",
     display: "flex",
     ".headerNormal": {
-      borderBottom: "1px solid #000",
       width: "100%",
       textAlign: "center",
     },
@@ -33,6 +31,11 @@ const frameSx = {
     width: "69%",
   },
 
+  ".divider": {
+    width: "100%",
+    border: "0.5px solid #000",
+  },
+
   "@media (max-width: 835px)": {
     ".header": {
       paddingInline: "inherit",
@@ -41,7 +44,6 @@ const frameSx = {
       height: "auto",
       display: "inline-block",
       ".headerNormal": {
-        borderBottom: "1px solid #000",
         width: "auto",
       },
     },
@@ -66,7 +68,9 @@ export default function Frame(props) {
             <Themed.h2>{props.path[0].name}</Themed.h2>
           </div>
         </div>
-
+        {/*Only hide divider if showDivider prop is explicitly passed as false*/}
+        {((props.showDivider != null && props.showDivider) ||
+          props.showDivider == null) && <hr className="divider" />}
         <div className="mainContent">{props.children}</div>
       </div>
     </div>

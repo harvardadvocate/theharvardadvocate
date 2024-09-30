@@ -6,11 +6,11 @@ import Frame from "../components/Frame";
 import rightArrow from "../assets/images/right-arrow.svg";
 import sanityClient from "../client.js";
 import { useParams } from "react-router-dom";
-import imageUrlBuilder from "@sanity/image-url";
 import { unionBy } from "lodash";
 import TextContentList from "../components/TextContentList.js";
 import ImageContentGrid from "../components/ImageContentGrid.js";
 import ColorRingLoader from "../components/LoadingRing.js";
+import AuthorHeader from "../components/AuthorHeader.js";
 
 const authorSx = {
   ".authorHeader": {
@@ -25,11 +25,6 @@ const authorSx = {
     img: { height: "0.6em", display: "inline-block" },
   },
 };
-
-const builder = imageUrlBuilder(sanityClient);
-function urlFor(source) {
-  return builder.image(source);
-}
 
 export default function Author() {
   const [authorData, setAuthorData] = useState(null);
@@ -51,7 +46,13 @@ export default function Author() {
       )
       .then((data) => {
         data = data[0];
-        setAuthorData({ _id: data._id, name: data.name, slug: data.slug });
+        setAuthorData({
+          _id: data._id,
+          name: data.name,
+          slug: data.slug,
+          bio: data.bio,
+          image: data.image,
+        });
         const authoredItems = data.itemData;
         setAuthoredItems(authoredItems);
         setSections(
@@ -63,25 +64,23 @@ export default function Author() {
 
   if (!authorData) return <ColorRingLoader />;
 
+  const showDetailedAuthor = authorData.image && authorData.bio;
+
   return (
     <div sx={authorSx}>
+      {showDetailedAuthor && <AuthorHeader authorData={authorData} />}
       <Frame
         path={[
           {
-            name: authorData.name,
+            name: !showDetailedAuthor ? authorData.name : "",
           },
           {
             name: authorData.name,
             slug: authorData.slug,
           },
         ]}
+        showDivider={!showDetailedAuthor}
       >
-        <div className="authorBio">
-          {authorData.image && (
-            <img src={urlFor(authorData.image).width(200).url()} alt="" />
-          )}
-          <Themed.p>{authorData.bio}</Themed.p>
-        </div>
         {sections &&
           sections.map((section) => {
             const sectionItems = authoredItems.filter(
