@@ -5,11 +5,11 @@ import sanityClient from "../client.js";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Themed } from "theme-ui";
-import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
+import { Helmet, HelmetProvider, HelmetData } from "react-helmet-async";
 
 import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
-import Zoom from "../components/Zoom"
+import Zoom from "../components/Zoom";
 const contentItemSx = {
   ".contentHeader": {
     display: "flex",
@@ -26,6 +26,18 @@ const contentItemSx = {
     },
     ".share": {
       cursor: "pointer", // add cursor property to change cursor pointer
+    },
+    ".authors": {
+      display: "flex",
+      gap: "0.15em",
+    },
+    ".authorImage": {
+      borderRadius: "50%",
+      width: "30px",
+      height: "30px",
+      objectFit: "cover",
+      filter: "grayscale(100%)",
+      marginLeft: "0.2em",
     },
   },
   p: {
@@ -112,8 +124,6 @@ const customComponents = {
   },
 };
 
-
-
 export default function ContentItem() {
   const [itemData, setItemData] = useState(null);
   const [isLinkCopied, setIsLinkCopied] = useState(false); // new state variable
@@ -134,7 +144,7 @@ export default function ContentItem() {
          body,
          publishedAt,
          issue->{title, slug},
-         authors[]->{name, slug},
+         authors[]->{name, slug, image},
          sections[]->{title, slug},
          images[]{asset->{_id, url}}
        }`,
@@ -145,7 +155,7 @@ export default function ContentItem() {
         document.title = data[0].title;
       })
       .catch(console.error);
-      // console.log(itemData.body);
+    // console.log(itemData.body);
   }, [slug]);
 
   const handleShareClick = () => {
@@ -155,143 +165,132 @@ export default function ContentItem() {
 
   const helmetData = new HelmetData({});
 
-
   if (!itemData) return <ColorRingLoader />;
 
-  
-
-
-
   return (
-
-    
-
     <div>
-
-    <Helmet helmetData={helmetData}>
-    <title>{itemData.title}</title>
-    <meta name='description' property="og:description" content={
-      itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
-      }  />
-    <meta name='title' property="og:title" content={itemData.title} />
-
-    </Helmet>
-
-    <div sx={contentItemSx}>
-
-
-
-      <ContentFrame
-        path={[
-          {
-            name: "Sections",
-            slug: "/sections",
-          },
-          {
-            name: itemData.sections[0].title,
-            slug: "/sections/" + itemData.sections[0].slug.current,
-          },
-          { name: itemData.title, slug: "/content/" + itemData.slug.current },
-        ]}
-      >
-        <div className="contentHeader">
-          <div className="topLine">
-
-
-          
-            <Themed.h5>
-
-
-
-              {itemData.sections[0].title === 'Blog' ?
-               <Link to={"/sections/" + itemData.sections[0].slug.current}>
-               {itemData.sections[0].title}
-                </Link>
-                          :
-                <div>
-
-          <Link to={"/sections/" + itemData.sections[0].slug.current}>
-                {itemData.sections[0].title}
-              </Link>{" "}
-
-                 •{" "}
-                <Link to={"/issues/" + itemData.issue.slug.current}>
-                {itemData.issue.title} Issue{" "}
-                </Link>
-                </div>
-
+      <Helmet helmetData={helmetData}>
+        <title>{itemData.title}</title>
+        <meta
+          name="description"
+          property="og:description"
+          content={
+            itemData.title +
+            " by " +
+            itemData.authors[0].name +
+            " for The Harvard Advocate, the art and literary magazine of Harvard College."
           }
+        />
+        <meta name="title" property="og:title" content={itemData.title} />
+      </Helmet>
 
-              
-              
-            </Themed.h5>
-          </div>
-          <div className="title">
-            <Themed.h1>{itemData.title}</Themed.h1>
-          </div>
-          <div className="authors">
-            <Themed.h3>
-              By{" "}
+      <div sx={contentItemSx}>
+        <ContentFrame
+          path={[
+            {
+              name: "Sections",
+              slug: "/sections",
+            },
+            {
+              name: itemData.sections[0].title,
+              slug: "/sections/" + itemData.sections[0].slug.current,
+            },
+            { name: itemData.title, slug: "/content/" + itemData.slug.current },
+          ]}
+        >
+          <div className="contentHeader">
+            <div className="topLine">
+              <Themed.h5>
+                {itemData.sections[0].title === "Blog" ? (
+                  <Link to={"/sections/" + itemData.sections[0].slug.current}>
+                    {itemData.sections[0].title}
+                  </Link>
+                ) : (
+                  <div>
+                    <Link to={"/sections/" + itemData.sections[0].slug.current}>
+                      {itemData.sections[0].title}
+                    </Link>{" "}
+                    •{" "}
+                    <Link to={"/issues/" + itemData.issue.slug.current}>
+                      {itemData.issue.title} Issue{" "}
+                    </Link>
+                  </div>
+                )}
+              </Themed.h5>
+            </div>
+            <div className="title">
+              <Themed.h1>{itemData.title}</Themed.h1>
+            </div>
+            <div className="authors">
+              <Themed.h3>By </Themed.h3>
               {itemData.authors.map((author, i) => (
                 <>
-                  {i !== 0 && ", "}
-                  <Link to={"/authors/" + author.slug.current}>
-                    {author.name}
+                  <Themed.h3>{i !== 0 && ", "}</Themed.h3>
+                  <Link
+                    to={"/authors/" + author.slug.current}
+                    className="authors"
+                  >
+                    <Themed.h3>{author.name}</Themed.h3>
+                    {author.image && (
+                      <img
+                        className="authorImage"
+                        src={urlFor(author.image).width(100).url()}
+                        alt={author.name}
+                      />
+                    )}
                   </Link>
                 </>
               ))}
-            </Themed.h3>
-          </div>
-          <div className="dateShareContainer">
-            <div className="date">
-              <Themed.h5>
-                {/*{moment(itemData.publishedAt).format("MMMM Do YYYY")}*/}
-              </Themed.h5>
             </div>
-            <div className="share">
-              {isLinkCopied ? (
+            <div className="dateShareContainer">
+              <div className="date">
                 <Themed.h5>
-                  <i>Link Copied</i>
-                </Themed.h5> // change button text to "Link Copied" when the link is copied
-              ) : (
-                <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
-              )}
+                  {/*{moment(itemData.publishedAt).format("MMMM Do YYYY")}*/}
+                </Themed.h5>
+              </div>
+              <div className="share">
+                {isLinkCopied ? (
+                  <Themed.h5>
+                    <i>Link Copied</i>
+                  </Themed.h5> // change button text to "Link Copied" when the link is copied
+                ) : (
+                  <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="images">
-          {itemData.images &&
-            itemData.images.map((image, i) => (
-            itemData.sections[0].title === "Art" ? (
-              // <img src={image.asset.url} key={i} alt="" />
-              <Zoom src={image.asset.url}></Zoom>
+          <div className="images">
+            {itemData.images &&
+              itemData.images.map((image, i) =>
+                itemData.sections[0].title === "Art" ? (
+                  // <img src={image.asset.url} key={i} alt="" />
+                  <Zoom src={image.asset.url}></Zoom>
+                ) : (
+                  <img key={i} src={image.asset.url} alt="" />
+                )
+              )}
+            {!itemData.images && itemData.mainImage ? (
+              // <img src={itemData.mainImage.asset.url} alt="" />
+              itemData.sections[0].title === "Art" ? (
+                <Zoom src={itemData.mainImage.asset.url}></Zoom>
               ) : (
-              <img key={i} src={image.asset.url} alt="" />
+                <img src={itemData.mainImage.asset.url} alt="" />
               )
-            ))}
-          {!itemData.images && itemData.mainImage ? (
-            // <img src={itemData.mainImage.asset.url} alt="" />
-            itemData.sections[0].title === "Art" ? (
-            <Zoom src={itemData.mainImage.asset.url}></Zoom>
             ) : (
-              <img src={itemData.mainImage.asset.url} alt="" />
-            )
-          ) : (
-            ""
-          )}
-        </div>
-        <div>
-          {itemData.body && (
-            <PortableText
-              value={itemData.body}
-              hardBreak={false}
-              components={customComponents}
-            />
-          )}
-        </div>
-      </ContentFrame>
-    </div>
-
+              ""
+            )}
+          </div>
+          <div>
+            {itemData.body && (
+              <PortableText
+                value={itemData.body}
+                hardBreak={false}
+                components={customComponents}
+              />
+            )}
+          </div>
+        </ContentFrame>
+      </div>
     </div>
   );
 }
