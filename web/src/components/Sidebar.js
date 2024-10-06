@@ -534,11 +534,11 @@ export default function Sidebar() {
           SUBSCRIBE
         </div>
         </Link>
-        <Link className="buttonLink" to={"/queerzine"}>
+        {/* <Link className="buttonLink" to={"/queerzine"}>
         <div className="fontMod">
         QUEER ZINE
         </div>
-        </Link>
+        </Link> */}
 
 
 
