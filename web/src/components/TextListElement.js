@@ -10,6 +10,7 @@ const headerColor = theme["colors"]["primary"];
 const textListItemSx = {
   ".fontMod": {
     fontFamily: "Bernhard Gothic Medium, serif",
+    
   },
   maxWidth: "-webkit-fill-available",
   textAlign: "auto",
@@ -23,6 +24,10 @@ const textListItemSx = {
       },
       h3: {
         color: "headerColor",
+        fontFamily: "Poppins",
+        fontSize: "30px",
+        size: "30px",
+
       },
       h4: {
         fontFamily: "Poppins",
@@ -136,7 +141,6 @@ export default function TextListItem(props) {
           <div className="listItem">
             <Themed.h3 color={headerColor}>
 
-              <div className="fontMod">
               {!props.home ? (
 
 
@@ -165,15 +169,25 @@ export default function TextListItem(props) {
                     {props.item.sections[0].title + " "}
                   </a>
                   •{" "}
+
+
                   <a
-                    style={{ color: headerColor }}
+                    style={{ color: headerColor}}
                     href={"/issues/" + props.item.issue.slug.current}
                   >
                     {" " + props.item.issue.title}
+
+
                   </a>
+
+                  <div className="fontMod">
+
+
+                  </div>
+
                 </i>
+                
               )}
-              </div>
             </Themed.h3>
 
             <Themed.h2>

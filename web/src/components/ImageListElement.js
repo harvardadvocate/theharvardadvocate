@@ -102,7 +102,6 @@ export default function ImageListElement(props) {
           </div>
           <div>
             <Themed.h3 style={{ color: headerColor }}>
-              <div className="fontMod">
               {props.home && (
                 <React.Fragment>
                   {" "}
@@ -111,6 +110,8 @@ export default function ImageListElement(props) {
               )}
 
               <i> {props.item.issue.title}</i>
+              <div className="fontMod">
+
               </div>
             </Themed.h3>
             <Themed.h2><div className="fontMod">{props.item.title}</div></Themed.h2>

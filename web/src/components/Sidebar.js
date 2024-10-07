@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo2.jpg";
-import title from "../assets/images/title.jpg";
+import title from "../assets/images/wordmark.png";
 import search from "../assets/images/search.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
@@ -16,6 +16,9 @@ const sidebarSx = {
 
   ".fontMod": {
     fontFamily: "Bernhard Gothic Medium, serif",
+  },
+  ".fontButtonMod": {
+    fontFamily: "Helvetica, sans serif",
   },
   padding: "2.5em 1.6em 0em 1.5em",
   //padding: "7vh 2vw 0 2vw",
@@ -524,13 +527,13 @@ export default function Sidebar() {
         {/* <div className="horizontalLine2"></div> */}
 
         <Link className="buttonLink" to={"/submit"}>
-        <div className="fontMod">
+        <div className="fontButtonMod">
           SUBMIT
         </div>
         </Link>
 
         <Link className="buttonLink" to={"/subscribe"}>
-        <div className="fontMod">
+        <div className="fontButtonMod">
           SUBSCRIBE
         </div>
         </Link>

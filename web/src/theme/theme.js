@@ -5,7 +5,8 @@ export const theme = {
     heading: "Bernhard Gothic Medium, serif",
     monospace: "monospace",
   },
-  fontSizes: [18, 20, 24, 36, 48],
+  // used to be 24
+  fontSizes: [18, 20, 26, 36, 48],
   fontWeights: {
     body: 400,
     medium: 500,
