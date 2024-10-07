@@ -50,6 +50,7 @@ const frameSx = {
     },
     ".horizontalContainer": {
       paddingInline: "2vw",
+
     },
   },
 };
