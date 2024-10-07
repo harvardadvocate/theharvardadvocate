@@ -3,9 +3,14 @@ import React from "react";
 
 const frameSx = {
   marginBottom: "5vh",
+  background: "linear-gradient(180deg, #00000066, #000000e6, #000000f2,#000000)",
+  // overflow: "hidden",
+
+
 
   ".header": {
     marginLeft: "5%",
+    
     marginRight: "2em",
     marginTop: "0px",
     marginBottom: "1em",
@@ -49,6 +54,7 @@ const frameSx = {
     paddingInline: "10vw",
     marginTop: "0em",
     minHeight: "100vh",
+
     flexDirection: "column",
     ".mainContent": {
       flexGrow: 1,
@@ -63,6 +69,7 @@ const frameSx = {
     marginLeft: "auto",
     marginRight: "auto",
     width: "69%",
+
   },
   "@media (max-width: 835px)": {
     ".header": {
@@ -70,6 +77,8 @@ const frameSx = {
       display: "none",
     },
     ".mainContent": {
+      // backgroundColor: "rgba(0,0,0,0.2)",
+
       width: "90%",
     },
     ".horizontalContainer": {

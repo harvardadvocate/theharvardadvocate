@@ -10,6 +10,8 @@ import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
 import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
 import Zoom from "../components/Zoom"
+import Paywall from "../components/Paywall.js";
+
 const contentItemSx = {
   ".contentHeader": {
     display: "flex",
@@ -30,6 +32,7 @@ const contentItemSx = {
   },
   p: {
     marginBottom: "1.5em",
+    
   },
   ".images": {
     img: {
@@ -38,6 +41,7 @@ const contentItemSx = {
   },
   ".centerText": {
     textAlign: "center",
+    
   },
   blockquote: {
     background: "#f9f9f9",
@@ -182,6 +186,7 @@ export default function ContentItem() {
 
 
       <ContentFrame
+      
         path={[
           {
             name: "Sections",
@@ -195,6 +200,7 @@ export default function ContentItem() {
         ]}
       >
         <div className="contentHeader">
+        
           <div className="topLine">
 
 
@@ -280,6 +286,13 @@ export default function ContentItem() {
             ""
           )}
         </div>
+
+        <div class name = "paywall">
+          <Paywall>
+          hardBreak={false} 
+          components={Paywall}
+          </Paywall>
+        </div>
         <div>
           {itemData.body && (
             <PortableText
@@ -289,6 +302,7 @@ export default function ContentItem() {
             />
           )}
         </div>
+       
       </ContentFrame>
     </div>
 

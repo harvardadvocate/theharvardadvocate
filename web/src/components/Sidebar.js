@@ -20,6 +20,8 @@ const sidebarSx = {
   minWidth: "min-content",
   overflow: "auto",
   borderRight: "0.01vw solid #000",
+
+  
   ".link": {
     fontSize: "2",
     textDecoration: "none",
