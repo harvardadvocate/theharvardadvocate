@@ -2,14 +2,16 @@
 import React from "react";
 
 const frameSx = {
+  
   marginBottom: "5vh",
+
 
   ".header": {
     marginLeft: "5%",
     marginRight: "2em",
     marginTop: "0px",
     marginBottom: "1em",
-    height: "2em",
+    height: "em",
     maxWidth: "90%",
     display: "flex",
     h5: {
@@ -46,6 +48,8 @@ const frameSx = {
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
+    overflow: "hidden",
+
     paddingInline: "10vw",
     marginTop: "0em",
     minHeight: "100vh",
@@ -62,6 +66,8 @@ const frameSx = {
   ".mainContent": {
     marginLeft: "auto",
     marginRight: "auto",
+    overflow: "hidden",
+
     width: "69%",
   },
   "@media (max-width: 835px)": {

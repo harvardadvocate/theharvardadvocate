@@ -13,6 +13,9 @@ import { useIsMobile } from "../utils/isMobile.js";
 import ColorRingLoader from "../components/LoadingRing.js";
 
 const issueSx = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   hr: {
     border: "0.1px solid rgba(0, 0, 0, .2)",
   },

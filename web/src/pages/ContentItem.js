@@ -11,6 +11,7 @@ import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
 import Zoom from "../components/Zoom"
 const contentItemSx = {
+
   ".contentHeader": {
     display: "flex",
     flexDirection: "column",
@@ -280,7 +281,6 @@ export default function ContentItem() {
             ""
           )}
         </div>
-        <div>
           {itemData.body && (
             <PortableText
               value={itemData.body}
@@ -288,7 +288,6 @@ export default function ContentItem() {
               components={customComponents}
             />
           )}
-        </div>
       </ContentFrame>
     </div>
 

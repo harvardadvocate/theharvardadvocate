@@ -8,6 +8,10 @@ import { theme } from "../theme/theme.js";
 const headerColor = theme["colors"]["primary"];
 
 const textListItemSx = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+    
+  },
   maxWidth: "-webkit-fill-available",
   textAlign: "auto",
   a: {
@@ -20,6 +24,10 @@ const textListItemSx = {
       },
       h3: {
         color: "headerColor",
+        fontFamily: "Poppins",
+        fontSize: "30px",
+        size: "30px",
+
       },
       h4: {
         fontFamily: "Poppins",
@@ -62,6 +70,9 @@ const textListItemSx = {
 // custom css for textlistelement on homepage
 
 const textListItemSx_home = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   maxWidth: "-webkit-fill-available",
   textAlign: "auto",
   h3: {
@@ -122,12 +133,14 @@ export default function TextListItem(props) {
   return (
     <div css={props.home ? textListItemSx_home : textListItemSx}>
       <div css={props.padding ? padding : no_padding}>
+
         <Link
           to={"/content/" + props.item.slug.current}
           key={props.item.slug.current}
         >
           <div className="listItem">
             <Themed.h3 color={headerColor}>
+
               {!props.home ? (
 
 
@@ -156,20 +169,35 @@ export default function TextListItem(props) {
                     {props.item.sections[0].title + " "}
                   </a>
                   •{" "}
+
+
                   <a
-                    style={{ color: headerColor }}
+                    style={{ color: headerColor}}
                     href={"/issues/" + props.item.issue.slug.current}
                   >
                     {" " + props.item.issue.title}
+
+
                   </a>
+
+                  <div className="fontMod">
+
+
+                  </div>
+
                 </i>
+                
               )}
             </Themed.h3>
 
             <Themed.h2>
+              <div className="fontMod">
+
               <a href={"/content/" + props.item.slug.current}>
                 {props.item.title}
               </a>
+              </div>
+
             </Themed.h2>
             <br />
             <Link to={"/content/" + props.item.slug.current}>
@@ -189,6 +217,7 @@ export default function TextListItem(props) {
             ) : (
               <div className="authorName">
                 <Themed.p>
+                  {/* <div className="fontMod"> */}
                   By{" "}
                   {props.item.authors.map((author, i) => (
                     <>
@@ -198,6 +227,7 @@ export default function TextListItem(props) {
                       </Link>
                     </>
                   ))}
+                  {/* </div> */}
                 </Themed.p>
               </div>
             )}

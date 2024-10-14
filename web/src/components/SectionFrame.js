@@ -3,6 +3,12 @@ import React, { useEffect } from "react";
 import { Themed } from "theme-ui";
 
 const sectionFrameSx = {
+  ".fontMod": 
+  {
+    fontFamily: "Bernhard Gothic Medium, serif",
+
+  },
+
   marginBottom: "5vh",
   ".header": {
     marginTop: "1em",
@@ -16,6 +22,7 @@ const sectionFrameSx = {
       textAlign: "center",
     },
   },
+
   ".horizontalContainer": {
     width: "100%",
     display: "flex",
@@ -59,7 +66,16 @@ export default function SectionFrame(props) {
       <div className="horizontalContainer">
         <div className="header">
           <div className="headerNormal">
-            <Themed.h2>{props.path[0].name}</Themed.h2>
+            {/* <div className="fontMod"> */}
+              <Themed.h2>{
+                <div className="fontMod">
+
+              {props.path[0].name}
+
+              </div>
+              
+              }</Themed.h2>
+            {/* </div> */}
           </div>
         </div>
 

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../assets/images/logo2.jpg";
+import title from "../assets/images/wordmark.png";
 import search from "../assets/images/search.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
@@ -12,6 +13,13 @@ const buttonColor = theme["colors"]["buttonColor"];
 const buttonColorHover = theme["colors"]["buttonColorHover"];
 
 const sidebarSx = {
+
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
+  ".fontButtonMod": {
+    fontFamily: "Helvetica, sans serif",
+  },
   padding: "2.5em 1.6em 0em 1.5em",
   //padding: "7vh 2vw 0 2vw",
   height: "100vh",
@@ -58,7 +66,8 @@ const sidebarSx = {
     borderRadius: "4px",
     fontSize: "16px",
     width: "100%",
-    fontFamily: "sans-serif",
+    // fontFamily: "Bernhard Gothic Medium, serif",
+    // fontFamily: "sans-serif",
     fontWeight: "600",
   },
   ".buttonLink:hover": {
@@ -83,7 +92,7 @@ const sidebarSx = {
     marginRight: 0,
   },
   ".advoStyle": {
-    // fontFamily: "Bernhard Gothic Medium",
+    // 
     display: "flex",
     flexDirection: "column",
     marginTop: "25px",
@@ -147,6 +156,7 @@ const sidebarSx = {
       fontSize: "2.5vh",
       marginTop: "0vh",
     },
+
     ".logo": {
       img: {
         display: "none",
@@ -251,6 +261,8 @@ export default function Sidebar() {
     <div sx={sidebarSx}>
       <Grid className="sidebar" columns={1} gap={3}>
         {isMobile ? (
+
+          // mobile display
           <div className="headerGrid">
             <div
               className={"navbarButton" + (navbarExpanded ? " rotated" : "")}
@@ -259,7 +271,6 @@ export default function Sidebar() {
               <span className="line"></span>
               <span className="line"></span>
               <span className="line"></span>
-
             </div>
             <Link
               className={"link logo"}
@@ -267,24 +278,33 @@ export default function Sidebar() {
               onClick={() => setNavbarExpanded(false)}
             >
               <img src={logo} alt="The Advocate Logo" />
-              <div className="advoStyle">The Harvard Advocate</div>
+              <div className="advoStyle">
+                <div className="fontMod">
+                The Harvard Advocate
+                  </div>
+                </div>
             </Link>
             <Link
               className="buttonLinkMobile"
               to={"/subscribe"}
               onClick={() => setNavbarExpanded(false)}
             >
-              Subscribe
+              <div className="fontMod">
+              SUBSCRIBE
+              </div>
             </Link>
           </div>
         ) : (
+
+          // web display
           <Link
             className={"link logo"}
             to={"/"}
             onClick={() => setNavbarExpanded(false)}
           >
             <img src={logo} alt="The Advocate Logo" />
-            <div className="advoStyle">The Harvard Advocate</div>
+            <img src={title} alt="The Advocate Title" />
+
           </Link>
         )}
 
@@ -507,12 +527,25 @@ export default function Sidebar() {
         {/* <div className="horizontalLine2"></div> */}
 
         <Link className="buttonLink" to={"/submit"}>
-          Submit
+        <div className="fontButtonMod">
+          SUBMIT
+        </div>
         </Link>
 
         <Link className="buttonLink" to={"/subscribe"}>
-          Subscribe
+        <div className="fontButtonMod">
+          SUBSCRIBE
+        </div>
         </Link>
+        {/* <Link className="buttonLink" to={"/queerzine"}>
+        <div className="fontMod">
+        QUEER ZINE
+        </div>
+        </Link> */}
+
+
+
+
 
 
       </Grid>
