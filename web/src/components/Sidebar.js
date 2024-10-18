@@ -159,7 +159,8 @@ const sidebarSx = {
 
     ".logo": {
       img: {
-        display: "none",
+        display: "inline",
+        maxWidth: "80px"
       },
     },
     ".horizontalLine1, .horizontalLine2": {
@@ -277,14 +278,18 @@ export default function Sidebar() {
               to={"/"}
               onClick={() => setNavbarExpanded(false)}
             >
-              <img src={logo} alt="The Advocate Logo" />
+              {/* <img src={logo} alt="The Advocate Logo" /> */}
               <div className="advoStyle">
+
+
                 <div className="fontMod">
-                The Harvard Advocate
+                <img src={title} alt="The Advocate Title" />
+
+                {/* THE HARVARD ADVOCATE */}
                   </div>
                 </div>
             </Link>
-            <Link
+            {/* <Link
               className="buttonLinkMobile"
               to={"/subscribe"}
               onClick={() => setNavbarExpanded(false)}
@@ -292,7 +297,7 @@ export default function Sidebar() {
               <div className="fontMod">
               SUBSCRIBE
               </div>
-            </Link>
+            </Link> */}
           </div>
         ) : (
 
