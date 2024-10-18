@@ -6,6 +6,9 @@ import { useIsMobile } from "../utils/isMobile.js";
 import { FaTwitter, FaInstagram } from "react-icons/fa";
 
 const footerSx = {
+  ".fontMod": {
+    fontFamily: "Bernhard Gothic Medium, serif",
+  },
   width: "-webkit-fill-available",
   height: "5rem" /* Footer height */,
 
@@ -106,8 +109,10 @@ export default function Footer() {
     <div sx={footerSx}>
       <div className="footerContainer">
         <div className="leftMost">
-          <b>The Harvard Advocate</b>
-          <br />
+          <div className="fontMod">
+            THE HARVARD ADVOCATE
+          </div>
+          {/* <br /> */}
           21 South Street
           <br />
           Cambridge, MA 02138
@@ -144,9 +149,9 @@ export default function Footer() {
         ) : (
           <div className="sectionsAndMore">
             <div className="sections">
-              <b>Sections</b>
-              <br />
-              <br />
+              <div className="fontMod">SECTIONS</div>
+              {/* <br /> */}
+              {/* <br /> */}
               <a href="/sections/art">Art</a>
               <br />
               <a href="/sections/fiction">Fiction</a>
@@ -160,9 +165,9 @@ export default function Footer() {
               <a href="/sections/blog">Blog</a>
             </div>
             <div className="more">
-              <b>More</b>
-              <br />
-              <br />
+            <div className="fontMod">MORE</div>
+            {/* <br /> */}
+              {/* <br /> */}
               <a href="/shop">Shop</a>
               <br />
               <a href="/donate">Donate</a>
