@@ -102,6 +102,15 @@ export default {
       of: [{ type: "image" }],
     },
 
+    {
+      name: "vimeoLink",
+      title: "Vimeo ID (if applicable)",
+      type: "string",
+      // options: {
+      //   hotspot: true,
+      // },
+    },
+
     // todo: video and audio - files or want integration?
   ],
 

@@ -9,7 +9,11 @@ import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
 
 import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
-import Zoom from "../components/Zoom"
+import Zoom from "../components/Zoom";
+import Vimeo from '@u-wave/react-vimeo'; 
+  import { useIsMobile } from "../utils/isMobile.js";
+
+
 const contentItemSx = {
 
   ".contentHeader": {
@@ -36,6 +40,7 @@ const contentItemSx = {
     img: {
       width: "100%",
     },
+    
   },
   ".centerText": {
     textAlign: "center",
@@ -116,6 +121,9 @@ const customComponents = {
 
 
 export default function ContentItem() {
+
+  var isMobile = useIsMobile();
+
   const [itemData, setItemData] = useState(null);
   const [isLinkCopied, setIsLinkCopied] = useState(false); // new state variable
   const { slug } = useParams();
@@ -137,7 +145,8 @@ export default function ContentItem() {
          issue->{title, slug},
          authors[]->{name, slug},
          sections[]->{title, slug},
-         images[]{asset->{_id, url}}
+         images[]{asset->{_id, url}},
+         vimeoLink
        }`,
         { slug }
       )
@@ -261,6 +270,27 @@ export default function ContentItem() {
           </div>
         </div>
         <div className="images">
+          {itemData.vimeoLink ? 
+
+          <div align="center" width="100%">
+
+            <br></br>
+
+            
+
+            <Vimeo
+            video={itemData.vimeoLink}
+            //background={true}
+            showTitle={false}
+            showPortrait={false}
+            showByline={false}
+            width={isMobile ? 400 : 700}
+            />
+              <br></br>
+
+            </div>
+          : 
+          ""}
           {itemData.images &&
             itemData.images.map((image, i) => (
             itemData.sections[0].title === "Art" ? (

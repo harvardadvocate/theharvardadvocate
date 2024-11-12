@@ -85,6 +85,8 @@ export default function Donate() {
         
         <div className="donateBody">
 
+        
+
           <Themed.p>
             <i>Thank you for considering a donation to The Harvard Advocate!</i>
             <br />
