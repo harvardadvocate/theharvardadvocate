@@ -168,10 +168,15 @@ export default function Footer() {
             <div className="fontMod">MORE</div>
             {/* <br /> */}
               {/* <br /> */}
+              <a href="https://alumni.theharvardadvocate.com">Alumni</a>
+              <br />
               <a href="/shop">Shop</a>
               <br />
               <a href="/donate">Donate</a>
               <br />
+              <a href="/begley">Louis Begley Prize</a>
+              <br />
+              
               <a href="/advertise">Advertise</a>
               <br />
               <a href="/comp">Comp</a>

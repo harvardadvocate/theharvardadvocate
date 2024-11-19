@@ -464,11 +464,11 @@ export default function Sidebar() {
                   Shop
               </a>
 
-              <a href="/begley" 
+              {/* <a href="/begley" 
                 className={`link ${highlightLink("/begley")}`} 
                 onClick={()=> setNavbarExpanded(false)}>
                   Louis Begley Prize
-              </a>
+              </a> */}
               <a href="/donate" 
                 className={`link ${highlightLink("/donate")}`} 
                 onClick={()=> setNavbarExpanded(false)}>
@@ -489,11 +489,11 @@ export default function Sidebar() {
                 onClick={()=> setNavbarExpanded(false)}>
                   Masthead
               </a>
-              <a href="/about" 
+              {/* <a href="/about" 
                 className={`link ${highlightLink("/about")}`} 
                 onClick={()=> setNavbarExpanded(false)}>
                   About
-              </a>
+              </a> */}
             </Grid>
             )}
 
