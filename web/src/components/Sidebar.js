@@ -489,6 +489,21 @@ export default function Sidebar() {
                 onClick={()=> setNavbarExpanded(false)}>
                   Masthead
               </a>
+
+              {isMobile ? (
+              <a
+                className={`link`}
+                href="https://alumni.theharvardadvocate.com"
+              >
+                Alumni
+              </a>
+
+
+
+            ) : (
+              ""
+            )}
+            
               {/* <a href="/about" 
                 className={`link ${highlightLink("/about")}`} 
                 onClick={()=> setNavbarExpanded(false)}>
