@@ -166,11 +166,12 @@ export default function ContentItem() {
   const helmetData = new HelmetData({});
 
 
+
+
+
   if (!itemData) return <ColorRingLoader />;
 
-  
-
-
+  const thumbnailUrl = itemData.mainImage == null ? "https://i.imgur.com/6OVMP6v.jpg" : itemData.mainImage.asset.url;
 
   return (
 
@@ -184,7 +185,19 @@ export default function ContentItem() {
       itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
       }  />
     <meta name='title' property="og:title" content={itemData.title} />
-
+    <meta name='twitter:description' content={
+      itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
+      }  />
+    <meta name='twitter:title' content={itemData.title} />
+    <meta
+      name="image"
+      property="og:image"
+      content={thumbnailUrl}
+    />
+        <meta
+      name="twitter:image"
+      content={thumbnailUrl}
+    />
     </Helmet>
 
     <div sx={contentItemSx}>
