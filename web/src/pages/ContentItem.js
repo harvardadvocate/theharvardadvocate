@@ -11,7 +11,7 @@ import ContentFrame from "../components/ContentFrame";
 import ColorRingLoader from "../components/LoadingRing.js";
 import Zoom from "../components/Zoom";
 import Vimeo from '@u-wave/react-vimeo'; 
-  import { useIsMobile } from "../utils/isMobile.js";
+import { useIsMobile } from "../utils/isMobile.js";
 
 
 const contentItemSx = {
@@ -165,165 +165,148 @@ export default function ContentItem() {
 
   const helmetData = new HelmetData({});
 
-
-
-
-
   if (!itemData) return <ColorRingLoader />;
 
   const thumbnailUrl = itemData.mainImage == null ? "https://i.imgur.com/6OVMP6v.jpg" : itemData.mainImage.asset.url;
 
   return (
 
-    
 
     <div>
 
-    <Helmet helmetData={helmetData}>
-    <title>{itemData.title}</title>
-    <meta name='description' property="og:description" content={
-      itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
-      }  />
-    <meta name='title' property="og:title" content={itemData.title} />
-    <meta name='twitter:description' content={
-      itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
-      }  />
-    <meta name='twitter:title' content={itemData.title} />
-    <meta
-      name="image"
-      property="og:image"
-      content={thumbnailUrl}
-    />
+
+      {/* React Helmet, for link previews */}
+
+      <Helmet helmetData={helmetData}>
+        <meta name='title' property="og:title" content={itemData.title} />
+        <title>{itemData.title}</title>
+        <meta name='description' property="og:description" content={
+          itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
+          }  />
+        <meta name='twitter:description' content={
+          itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
+          }  />
+        <meta name='twitter:title' content={itemData.title} />
         <meta
-      name="twitter:image"
-      content={thumbnailUrl}
-    />
-    </Helmet>
+          name="image"
+          property="og:image"
+          content={thumbnailUrl}
+        />
+        <meta
+          name="twitter:image"
+          content={thumbnailUrl}
+        />
+      </Helmet>
 
-    <div sx={contentItemSx}>
+      <div sx={contentItemSx}>
 
+        <ContentFrame
+          path={[
+            {
+              name: "Sections",
+              slug: "/sections",
+            },
+            {
+              name: itemData.sections[0].title,
+              slug: "/sections/" + itemData.sections[0].slug.current,
+            },
+            { name: itemData.title, slug: "/content/" + itemData.slug.current },
+          ]}
+        >
+            <div className="contentHeader">
+              <div className="topLine"> 
+                <Themed.h5>
 
+                {itemData.sections[0].title === 'Blog' ?
+                  <Link to={"/sections/" + itemData.sections[0].slug.current}>
+                    {itemData.sections[0].title}
+                  </Link>:
 
-      <ContentFrame
-        path={[
-          {
-            name: "Sections",
-            slug: "/sections",
-          },
-          {
-            name: itemData.sections[0].title,
-            slug: "/sections/" + itemData.sections[0].slug.current,
-          },
-          { name: itemData.title, slug: "/content/" + itemData.slug.current },
-        ]}
-      >
-        <div className="contentHeader">
-          <div className="topLine">
+                  <div>
+                    <Link to={"/sections/" + itemData.sections[0].slug.current}>
+                      {itemData.sections[0].title}
+                    </Link>•{" "}
+                    <Link to={"/issues/" + itemData.issue.slug.current}>
+                    {itemData.issue.title} Issue{" "}
+                    </Link>
+                  </div>
 
+                }
 
-          
-            <Themed.h5>
-
-
-
-              {itemData.sections[0].title === 'Blog' ?
-               <Link to={"/sections/" + itemData.sections[0].slug.current}>
-               {itemData.sections[0].title}
-                </Link>
-                          :
-                <div>
-
-          <Link to={"/sections/" + itemData.sections[0].slug.current}>
-                {itemData.sections[0].title}
-              </Link>{" "}
-
-                 •{" "}
-                <Link to={"/issues/" + itemData.issue.slug.current}>
-                {itemData.issue.title} Issue{" "}
-                </Link>
-                </div>
-
-          }
-
-              
-              
-            </Themed.h5>
-          </div>
-          <div className="title">
-            <Themed.h1>{itemData.title}</Themed.h1>
-          </div>
-          <div className="authors">
-            <Themed.h3>
-              By{" "}
-              {itemData.authors.map((author, i) => (
-                <>
-                  {i !== 0 && ", "}
-                  <Link to={"/authors/" + author.slug.current}>
-                    {author.name}
-                  </Link>
-                </>
-              ))}
-            </Themed.h3>
-          </div>
-          <div className="dateShareContainer">
-            <div className="date">
-              <Themed.h5>
-                {/*{moment(itemData.publishedAt).format("MMMM Do YYYY")}*/}
+                
+                
               </Themed.h5>
             </div>
-            <div className="share">
-              {isLinkCopied ? (
+            <div className="title">
+              <Themed.h1>{itemData.title}</Themed.h1>
+            </div>
+            <div className="authors">
+              <Themed.h3>
+                By{" "}
+                {itemData.authors.map((author, i) => (
+                  <>
+                    {i !== 0 && ", "}
+                    <Link to={"/authors/" + author.slug.current}>
+                      {author.name}
+                    </Link>
+                  </>
+                ))}
+              </Themed.h3>
+            </div>
+            <div className="dateShareContainer">
+              <div className="date">
                 <Themed.h5>
-                  <i>Link Copied</i>
-                </Themed.h5> // change button text to "Link Copied" when the link is copied
-              ) : (
-                <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
-              )}
+                </Themed.h5>
+              </div>
+              <div className="share">
+                {isLinkCopied ? (
+                  <Themed.h5>
+                    <i>Link Copied</i>
+                  </Themed.h5> // change button text to "Link Copied" when the link is copied
+                ) : (
+                  <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="images">
-          {itemData.vimeoLink ? 
+          <div className="images">
+            {itemData.vimeoLink ? 
 
-          <div align="center" width="100%">
+            <div align="center" width="100%">
 
-            <br></br>
-
-            
-
-            <Vimeo
-            video={itemData.vimeoLink}
-            //background={true}
-            showTitle={false}
-            showPortrait={false}
-            showByline={false}
-            width={isMobile ? 400 : 700}
-            />
               <br></br>
 
-            </div>
-          : 
-          ""}
-          {itemData.images &&
-            itemData.images.map((image, i) => (
-            itemData.sections[0].title === "Art" ? (
-              // <img src={image.asset.url} key={i} alt="" />
-              <Zoom src={image.asset.url}></Zoom>
+                <Vimeo
+                video={itemData.vimeoLink}
+                showTitle={false}
+                showPortrait={false}
+                showByline={false}
+                width={isMobile ? 400 : 700}
+                />
+                <br></br>
+
+              </div>
+            : 
+            ""}
+            {itemData.images &&
+              itemData.images.map((image, i) => (
+              itemData.sections[0].title === "Art" ? (
+                // <img src={image.asset.url} key={i} alt="" />
+                <Zoom src={image.asset.url}></Zoom>
+                ) : (
+                <img key={i} src={image.asset.url} alt="" />
+                )
+              ))}
+            {!itemData.images && itemData.mainImage ? (
+              itemData.sections[0].title === "Art" ? (
+              <Zoom src={itemData.mainImage.asset.url}></Zoom>
               ) : (
-              <img key={i} src={image.asset.url} alt="" />
+                <img src={itemData.mainImage.asset.url} alt="" />
               )
-            ))}
-          {!itemData.images && itemData.mainImage ? (
-            // <img src={itemData.mainImage.asset.url} alt="" />
-            itemData.sections[0].title === "Art" ? (
-            <Zoom src={itemData.mainImage.asset.url}></Zoom>
             ) : (
-              <img src={itemData.mainImage.asset.url} alt="" />
-            )
-          ) : (
-            ""
-          )}
-        </div>
+              ""
+            )}
+          </div>
           {itemData.body && (
             <PortableText
               value={itemData.body}
@@ -331,8 +314,8 @@ export default function ContentItem() {
               components={customComponents}
             />
           )}
-      </ContentFrame>
-    </div>
+        </ContentFrame>
+      </div>
 
     </div>
   );

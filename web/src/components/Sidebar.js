@@ -289,15 +289,6 @@ export default function Sidebar() {
                   </div>
                 </div>
             </Link>
-            {/* <Link
-              className="buttonLinkMobile"
-              to={"/subscribe"}
-              onClick={() => setNavbarExpanded(false)}
-            >
-              <div className="fontMod">
-              SUBSCRIBE
-              </div>
-            </Link> */}
           </div>
         ) : (
 
@@ -458,45 +449,40 @@ export default function Sidebar() {
 
             {moreExpanded && (
               <Grid className="sublinks" columns={1} gap={3}>
-              <a href="/shop" 
-                className={`link ${highlightLink("/shop")}`} 
-                onClick={()=> setNavbarExpanded(false)}>
-                  Shop
-              </a>
+                <a href="/shop" 
+                  className={`link ${highlightLink("/shop")}`} 
+                  onClick={()=> setNavbarExpanded(false)}>
+                    Shop
+                </a>
 
-              {/* <a href="/begley" 
-                className={`link ${highlightLink("/begley")}`} 
-                onClick={()=> setNavbarExpanded(false)}>
-                  Louis Begley Prize
-              </a> */}
-              <a href="/donate" 
-                className={`link ${highlightLink("/donate")}`} 
-                onClick={()=> setNavbarExpanded(false)}>
-                  Donate
-              </a>
-              <a href="/advertise" 
-                className={`link ${highlightLink("/advertise")}`} 
-                onClick={()=> setNavbarExpanded(false)}>
-                Advertise
-              </a>
-              <a href="/comp" 
-                className={`link ${highlightLink("/comp")}`} 
-                onClick={()=> setNavbarExpanded(false)}>
-                  Comp
-              </a>
-              <a href="/masthead" 
-                className={`link ${highlightLink("/masthead")}`} 
-                onClick={()=> setNavbarExpanded(false)}>
-                  Masthead
-              </a>
+                <a href="/donate" 
+                  className={`link ${highlightLink("/donate")}`} 
+                  onClick={()=> setNavbarExpanded(false)}>
+                    Donate
+                </a>
+                <a href="/advertise" 
+                  className={`link ${highlightLink("/advertise")}`} 
+                  onClick={()=> setNavbarExpanded(false)}>
+                  Advertise
+                </a>
+                <a href="/comp" 
+                  className={`link ${highlightLink("/comp")}`} 
+                  onClick={()=> setNavbarExpanded(false)}>
+                    Comp
+                </a>
+                <a href="/masthead" 
+                  className={`link ${highlightLink("/masthead")}`} 
+                  onClick={()=> setNavbarExpanded(false)}>
+                    Masthead
+                </a>
 
-              {isMobile ? (
-              <a
-                className={`link`}
-                href="https://alumni.theharvardadvocate.com"
-              >
-                Alumni
-              </a>
+                {isMobile ? (
+                <a
+                  className={`link`}
+                  href="https://alumni.theharvardadvocate.com"
+                >
+                  Alumni
+                </a>
 
 
 
@@ -504,12 +490,8 @@ export default function Sidebar() {
               ""
             )}
             
-              {/* <a href="/about" 
-                className={`link ${highlightLink("/about")}`} 
-                onClick={()=> setNavbarExpanded(false)}>
-                  About
-              </a> */}
-            </Grid>
+
+              </Grid>
             )}
 
             <div
@@ -544,7 +526,6 @@ export default function Sidebar() {
           </div>
         )}
 
-        {/* <div className="horizontalLine2"></div> */}
 
         <Link className="buttonLink" to={"/submit"}>
         <div className="fontButtonMod">
@@ -557,17 +538,7 @@ export default function Sidebar() {
           SUBSCRIBE
         </div>
         </Link>
-        {/* <Link className="buttonLink" to={"/queerzine"}>
-        <div className="fontMod">
-        QUEER ZINE
-        </div>
-        </Link> */}
-
-
-
-
-
-
+        
       </Grid>
     </div>
   );

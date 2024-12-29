@@ -150,8 +150,7 @@ export default function Footer() {
           <div className="sectionsAndMore">
             <div className="sections">
               <div className="fontMod">SECTIONS</div>
-              {/* <br /> */}
-              {/* <br /> */}
+
               <a href="/sections/art">Art</a>
               <br />
               <a href="/sections/fiction">Fiction</a>
@@ -166,8 +165,7 @@ export default function Footer() {
             </div>
             <div className="more">
             <div className="fontMod">MORE</div>
-            {/* <br /> */}
-              {/* <br /> */}
+
               <a href="https://alumni.theharvardadvocate.com">Alumni</a>
               <br />
               <a href="/shop">Shop</a>

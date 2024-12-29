@@ -114,11 +114,8 @@ export default function Section(props) {
             items={items}
             home={false}
             border={true}
-            // hideIssue={sectionSlug === "blog" ? true : false}
           ></TextContentList>
 
-
-          
         )}
       </SectionFrame>
       <div className="more">

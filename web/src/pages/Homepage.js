@@ -264,7 +264,8 @@ export default function Homepage() {
           <div className="sanctumSessions">
             {!isMobile ? <hr /> : ""}
 
-            {/* aerie ad */}
+            {/* Hardcoded potential ad space.*/}
+
             {/* <a
               href="https://qrco.de/be9Mh6"
               target="_blank"

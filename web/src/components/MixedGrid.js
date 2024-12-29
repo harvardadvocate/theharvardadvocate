@@ -124,8 +124,8 @@ export default function MixedGrid(props) {
                   ></img>
                 </a>
               ) : (
-                //  <a href={"content/" + props.items[3].slug.current}>
-                //   <img src="/about.jpg" height="300px" alt="Illustration"></img>
+
+                // Currently harcoded ad space
 
                   <a href="https://heritageclubthc.com/?utm_campaign=harvardfall24&utm_source=online"
                   target="_blank"

@@ -142,60 +142,32 @@ export default function TextListItem(props) {
             <Themed.h3 color={headerColor}>
 
               {!props.home ? (
-
-
                 <i>
+                  {props.item.sections[0].title === 'Blog' ? <a></a> :
 
-{props.item.sections[0].title === 'Blog' ? <a></a> :
-
-<a
-                    style={{ color: headerColor }}
-                    href={"/issues/" + props.item.issue.slug.current}
-                  >
+                  <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
                     {" " + props.item.issue.title}
                   </a>
-
-
-}
-
-                  
+                  }
                 </i>
               ) : (
                 <i>
-                  <a
-                    style={{ color: headerColor }}
-                    href={"/sections/" + props.item.sections[0].slug.current}
-                  >
+                  <a style={{ color: headerColor }} href={"/sections/" + props.item.sections[0].slug.current}>
                     {props.item.sections[0].title + " "}
                   </a>
                   •{" "}
-
-
-                  <a
-                    style={{ color: headerColor}}
-                    href={"/issues/" + props.item.issue.slug.current}
-                  >
+                  <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
                     {" " + props.item.issue.title}
-
-
                   </a>
-
-                  <div className="fontMod">
-
-
-                  </div>
-
                 </i>
-                
               )}
             </Themed.h3>
 
             <Themed.h2>
               <div className="fontMod">
-
-              <a href={"/content/" + props.item.slug.current}>
-                {props.item.title}
-              </a>
+                <a href={"/content/" + props.item.slug.current}>
+                  {props.item.title}
+                </a>
               </div>
 
             </Themed.h2>
@@ -217,7 +189,6 @@ export default function TextListItem(props) {
             ) : (
               <div className="authorName">
                 <Themed.p>
-                  {/* <div className="fontMod"> */}
                   By{" "}
                   {props.item.authors.map((author, i) => (
                     <>
@@ -227,7 +198,6 @@ export default function TextListItem(props) {
                       </Link>
                     </>
                   ))}
-                  {/* </div> */}
                 </Themed.p>
               </div>
             )}

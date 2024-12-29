@@ -123,13 +123,11 @@ export default function ImageListElement(props) {
               ) : (
                 <div className="authorName">
                   <Themed.p>
-                    {/* <div className="fontMod"> */}
                     By{" "}
                     {
                       //TODO: link to author page
                     }
                     {props.item.authors.map(({ name }) => name).join(", ")}
-                    {/* </div> */}
                   </Themed.p>
                 </div>
               ))}
