@@ -86,8 +86,7 @@ export default function Comp() {
             .
             <br />
             <br />
-            Intro Comp meetings are happening Wednesday, September 11, and Thursday,
-            September 12, at 8pm at 21 South St, and Sunday, September 15, at 2pm on
+            Intro Comp meetings are happening on February 5 and 6 from 9-10 pm at 21 South Street, or our virtual intro meeting on February 9 from 2-3pm on 
             {" "}
             <a
               href="https://zoom.us/j/98071311697?pwd=tSR4A7OcCm5P3bFDaZTbKPSGrp9Vca.1"

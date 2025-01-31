@@ -36,78 +36,78 @@ export default function Masthead() {
         <div className="mastheadBody">
           <Themed.p>
             <i align="center">
-              Maren Wong '26, President
+              Frank Y.C. Liu '26, President
               <br />
-              Varya Lyapneva '26, Publisher
+              Aran Sonnad-Joshi '27, Publisher
               <br />
               <br />
-              R. Hreb '26, Dionysus
+              D. Liu '27, Art Editor
               <br />
-              O. Pasquerella '26, Dionysus
+              A. Ojukwu '26, Blog Editor
               <br />
-              K. Liu '25, Dionysus
+              E. Klibaner-Schiff '26, Blog Editor
               <br />
-              K. Leung '27, Hermes
+              K. Taylor '26, Blog Editor
               <br />
-              D. Liu '27, Hermes
+              P. Wekwejt '26, Business Manager
               <br />
-              E. Klibaner-Schiff '26, Pegasus
+              A. Chen '27, Design Editor
               <br />
-              J. Wang '26, Pegasus
+              T. Wayland '26, Features Editor
               <br />
-              K. Taylor '26, Pegasus
+              G. Nitz '26, Senior Fiction Editor
               <br />
-              J. Glaser '25, Hestia
+              L. Wood '27, Junior Fiction Editor
               <br />
-              T. Wayland '26, Hades
+              A. Hatzius '26, Poetry Editor
+              <br />
+              M. Yu '26, Technology Editor
+
+              <br />
+              <br />
+
+              O. Yaffe '28, Demeter and Dionysus
+              <br />
+              J. Lemann '26, Dionysus
+              <br />
+              R. Mamam Nbiba '27, Dionysus
+              <br />
+              K. Gu '26, Hades
+              <br />
+              E. Ferrari '28, Hermes
+              <br />
+              W. Renwick '28, Hermes
+              <br />
+              S. Mikulasek '27, Hestia
+              <br />
+              L. Jackson '26, Pegasus
+              <br />
+              A. Ma '27, Pegasus
+              <br />
+              A. Popnikolova '28, Pegasus
               <br />
               E. Miao '26, Hades
               <br />
+              L. Pasquerella '26, Apollo
               <br />
-              L. Jackson '26, Poetry Editor
+              S. Yu '27, Apollo
               <br />
-              H. Hinze '26, Art Editor
+              E. Zhang '26, Arachne
               <br />
-              T. Chung '25, Art Editor
+              B. Kimball '28, Demeter
               <br />
-              E. Jones '25, Fiction Editor
+              L. Pasquerella '26, Apollo
               <br />
-              J. Lemann '26, Fiction Editor
+              S. Yu '27, Apollo
               <br />
-              I. Mirza '25, Features Editor
+              E. Zhang '26, Arachne
               <br />
-              S. Bongwe '26, Features Editor
+              B. Kimball '28, Demeter
               <br />
-              H. Bennett '26, Design Editor
+              N. Chagantipati '26, Diversity & Inclusion Chair
               <br />
-              F. Liu '26, Design Editor
-              <br />
-              C. Lu '26, Tech Editor
-              <br />
-              C. Gorczycki '24, Business Manager
-              <br />
-              S. Kargman '25, Business Manager
-              <br />
-              A. Shumway '26, Business Manager
-              <br />
-              J. Yang '26, D&I Chair
-              <br />
-              V. Kishoiyian '26, D&I Chair
-              <br />
-              K. Siegel '25, Blog Editor
-              <br />
-              U. Roven '25, Blog Editor
-              <br />
-              A. Inampudi '25, Blog Editor
-              <br />
-              <br />
-              H. Pimentel '25, Merch Coordinator
-              <br />
-              J. Towers '25, Merch Coordinator
-              <br />
-              P. Wekwejt '26, Finance Coordinator
-              <br />
-              S. Jung '25, Advocate Cafe Manager
+              M. Wong '26, Librarian
+
               <br /> <br /> <br />
               <b>Board of Trustees</b>
               <br /><br />
