@@ -236,7 +236,7 @@ export default function Sidebar() {
       "/sections/features",
       "/sections/poetry",
       "/sections/columns",
-      "/sections/blog",
+      "/sections/notes",
     ].includes(location.pathname)
       ? true
       : false
@@ -414,11 +414,11 @@ export default function Sidebar() {
                   Columns
                 </Link>
                 <Link
-                  className={`link ${highlightLink("/sections/blog")}`}
-                  to="/sections/blog"
+                  className={`link ${highlightLink("/sections/notes")}`}
+                  to="/sections/notes"
                   onClick={() => setNavbarExpanded(false)}
                 >
-                  Blog
+                  Notes
                 </Link>
               </Grid>
             )}

@@ -122,7 +122,7 @@ const homepageSx = {
     position: "relative",
   },
 
-  ".blog": {
+  ".notes": {
     textAlign: "center",
   },
 
@@ -295,14 +295,14 @@ export default function Homepage() {
               <hr />
               <Themed.h2>
                 <div className="fontMod">
-                <a href="sections/blog/">Blog</a>
+                <a href="sections/notes/">Notes from 21 South Street</a>
                 </div>
               </Themed.h2>
               <hr />
               <Themed.p>
                 <i>
                   The fresh online pieces we experiment with outside of our
-                  print cycle. Or just a blog.
+                  print cycle. Formerly known as Blog.
                 </i>
               </Themed.p>
               {isMobile ? <hr /> : ""}

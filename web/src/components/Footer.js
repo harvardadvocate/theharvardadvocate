@@ -161,7 +161,7 @@ export default function Footer() {
               <br />
               <a href="/sections/columns">Columns</a>
               <br />
-              <a href="/sections/blog">Blog</a>
+              <a href="/sections/notes">Notes</a>
             </div>
             <div className="more">
             <div className="fontMod">MORE</div>

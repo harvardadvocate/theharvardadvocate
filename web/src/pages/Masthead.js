@@ -43,11 +43,11 @@ export default function Masthead() {
               <br />
               D. Liu '27, Art Editor
               <br />
-              A. Ojukwu '26, Blog Editor
+              A. Ojukwu '26, Notes Editor
               <br />
-              E. Klibaner-Schiff '26, Blog Editor
+              E. Klibaner-Schiff '26, Notes Editor
               <br />
-              K. Taylor '26, Blog Editor
+              K. Taylor '26, Notes Editor
               <br />
               P. Wekwejt '26, Business Manager
               <br />
