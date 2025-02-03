@@ -95,10 +95,10 @@ export default function Comp() {
             >
               Zoom
             </a>{". "}
-            The Comp Sign-up Sheet can also be found
+            The Comp Sign-up form can also be found
             {" "}
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSflE0VDgykjsIpqvoWHlZFE7tG_Dm_UGSmwhgL_Hu0EGE13Mg/viewform?usp=sf_link"
+              href="https://forms.gle/W2rci1T5C7e8s2QF8"
               target="_blank"
               rel="noreferrer"
             >
