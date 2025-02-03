@@ -65,7 +65,11 @@ export default {
           {title: 'Featured Bottom Right (Art)', value: 'artFeaturedBottomRight'},
           {title: 'Featured Bottom Row (Poetry)', value: 'poetryFeaturedBottom'},
           {title: 'Featured Bottom Row (Fiction)', value: 'fictionFeaturedBottom'},
+<<<<<<< Updated upstream
           {title: 'Featured Blog', value: 'featuredBlog'},
+=======
+          {title: 'Featured Note', value: 'featuredNote'},
+>>>>>>> Stashed changes
           {title: 'Featured Issue Highlight', value: 'newIssueFeatured'},
 
         ]

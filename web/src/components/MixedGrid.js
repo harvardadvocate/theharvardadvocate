@@ -21,7 +21,7 @@ const gridSx = {
     paddingInline: "2vw",
   },
 
-  ".div4, .div5, .div6, .div7, .div8, .blogArticle, .archiveArticle": {
+  ".div4, .div5, .div6, .div7, .div8, .noteArticle, .archiveArticle": {
     h3: {
       color: "headerColor",
     },

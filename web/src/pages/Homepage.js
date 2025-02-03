@@ -122,7 +122,11 @@ const homepageSx = {
     position: "relative",
   },
 
+<<<<<<< Updated upstream
   ".blog": {
+=======
+  ".note": {
+>>>>>>> Stashed changes
     textAlign: "center",
   },
 
@@ -147,7 +151,7 @@ const homepageSx = {
       overflow: "hidden",
     },
 
-    ".blogHeader, .archiveHeader": {
+    ".noteHeader, .archiveHeader": {
       paddingInline: "5vw",
     },
   },
@@ -167,9 +171,9 @@ export default function Homepage() {
   const [featuredArticle6, setFeaturedArticle6] = useState(null);
   const [featuredArt1, setFeaturedArt1] = useState(null);
   const [featuredArt2, setFeaturedArt2] = useState(null);
-  const [Blog1, setBlog1] = useState(null);
-  const [Blog2, setBlog2] = useState(null);
-  const [Blog3, setBlog3] = useState(null);
+  const [note1, setnote1] = useState(null);
+  const [note2, setnote2] = useState(null);
+  const [note3, setnote3] = useState(null);
 
   const [instagramImages, setInstagramImages] = useState(null);
 
@@ -187,6 +191,7 @@ export default function Homepage() {
     sanityClient
       .fetch(getResources)
       .then((data) => {
+        console.log("asjfdjsjdksfkj sanity Response:", data);
         setItemData(data.itemData);
         setFeaturedItems(data.featuredItems.filter(
                           (item) => item.issue.title === data.itemData.title
@@ -201,9 +206,9 @@ export default function Homepage() {
         setFeaturedArt2(data.featuredArt2);
         setInstagramImages(data.instagram);
         setFromTheArchivesContent(data.archivedContent);
-        setBlog1(data.blog1);
-        setBlog2(data.blog2);
-        setBlog3(data.blog3);
+        setnote1(data.note1);
+        setnote2(data.note2);
+        setnote3(data.note3);
 
       })
       .catch(console.error);
@@ -218,9 +223,9 @@ export default function Homepage() {
     !featuredArticle4 ||
     !featuredArticle5 ||
     !featuredArticle6 ||
-    !Blog1 ||
-    !Blog2 ||
-    !Blog3 ||
+    !note1 ||
+    !note2 ||
+    !note3 ||
     !featuredArt1 ||
     !featuredArt2 ||
     !instagramImages ||
@@ -290,25 +295,33 @@ export default function Homepage() {
               />
             </a>
           </div>
-          <div className="blog">
-            <div className="blogHeader">
+          <div className="note">
+            <div className="noteHeader">
               <hr />
               <Themed.h2>
                 <div className="fontMod">
+<<<<<<< Updated upstream
                 <a href="sections/blog/">Blog</a>
+=======
+                  Notes from 21 South Street
+>>>>>>> Stashed changes
                 </div>
               </Themed.h2>
               <hr />
               <Themed.p>
                 <i>
                   The fresh online pieces we experiment with outside of our
+<<<<<<< Updated upstream
                   print cycle. Or just a blog.
+=======
+                  print cycle. Formerly known as note.
+>>>>>>> Stashed changes
                 </i>
               </Themed.p>
               {isMobile ? <hr /> : ""}
             </div>
             <TextContentList
-              items={[Blog1, Blog2, Blog3]}
+              items={[note1, note2, note3]}
               border={false}
               home={false}
               noLastBorder={isMobile}

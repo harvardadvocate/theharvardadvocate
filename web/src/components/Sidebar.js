@@ -236,7 +236,8 @@ export default function Sidebar() {
       "/sections/features",
       "/sections/poetry",
       "/sections/columns",
-      "/sections/blog",
+      // "/sections/editors-notes",
+      "/sections/notes",
     ].includes(location.pathname)
       ? true
       : false
@@ -413,6 +414,13 @@ export default function Sidebar() {
                 >
                   Columns
                 </Link>
+                {/* <Link
+                  className={`link ${highlightLink("/sections/editors-notes")}`}
+                  to="/notes"
+                  onClick={() => setNavbarExpanded(false)}
+                >
+                  Editor's Notes
+                </Link> */}
                 <Link
                   className={`link ${highlightLink("/sections/blog")}`}
                   to="/sections/blog"

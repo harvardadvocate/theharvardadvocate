@@ -144,7 +144,7 @@ const getFeaturedArt2 = `*[_type == "contentItem" && "artFeaturedBottomRight" in
                   }`;
 
 
-const getBlog1 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions] | order(publishedAt desc)[0] {
+const getnote1 = `*[_type == "contentItem" && "featuredNote" in featuredOptions] | order(publishedAt desc)[0] {
                     title,
                     authors[]->{name, slug},
                     issue->{title, slug},
@@ -160,7 +160,7 @@ const getBlog1 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions]
                 }`;  
                 
                 
-const getBlog2 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions] | order(publishedAt desc)[1] {
+const getnote2 = `*[_type == "contentItem" && "featuredNote" in featuredOptions] | order(publishedAt desc)[1] {
                   title,
                   authors[]->{name, slug},
                   issue->{title, slug},
@@ -176,7 +176,7 @@ const getBlog2 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions]
               }`;  
 
 
-const getBlog3 = `*[_type == "contentItem" && "featuredBlog" in featuredOptions] | order(publishedAt desc)[2] {
+const getnote3 = `*[_type == "contentItem" && "featuredNote" in featuredOptions] | order(publishedAt desc)[2] {
                 title,
                 authors[]->{name, slug},
                 issue->{title, slug},
@@ -223,9 +223,9 @@ const getResources = `
   "featuredArticle6": ${getFeaturedArticle6},
   "featuredArt1": ${getFeaturedArt1},
   "featuredArt2": ${getFeaturedArt2},
-  "blog1": ${getBlog1},
-  "blog2": ${getBlog2},
-  "blog3": ${getBlog3},
+  "note1": ${getnote1},
+  "note2": ${getnote2},
+  "note3": ${getnote3},
   "instagram": ${getInstagram},
   "archivedContent": ${getArchivedContent}
 }`;

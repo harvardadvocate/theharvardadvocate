@@ -17,7 +17,7 @@ const textListItemSx = {
   a: {
     color: "text",
   },
-  ".div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .blogArticle, .archiveArticle":
+  ".div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .noteArticle, .archiveArticle":
     {
       h2: {
         color: "text",
@@ -143,7 +143,7 @@ export default function TextListItem(props) {
 
               {!props.home ? (
                 <i>
-                  {props.item.sections[0].title === 'Blog' ? <a></a> :
+                  {props.item.sections[0].title === 'Note' ? <a></a> :
 
                   <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
                     {" " + props.item.issue.title}

@@ -161,7 +161,13 @@ export default function Footer() {
               <br />
               <a href="/sections/columns">Columns</a>
               <br />
+<<<<<<< Updated upstream
               <a href="/sections/blog">Blog</a>
+=======
+              {/* <a href="/sections/editors-notes">Editor's Notes</a>
+              <br /> */}
+              <a href="/sections/notes">Notes</a>
+>>>>>>> Stashed changes
             </div>
             <div className="more">
             <div className="fontMod">MORE</div>
