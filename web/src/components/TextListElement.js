@@ -144,7 +144,7 @@ export default function TextListItem(props) {
               <i>
                 {props.item.sections[0].title === "Notes" ? (
                   <a style={{ color: headerColor }} href={"/sections/notes"}>
-                    Notes from 21 South Street
+                    Notes
                   </a>
                 ) : (
                   <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
