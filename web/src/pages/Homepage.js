@@ -167,9 +167,9 @@ export default function Homepage() {
   const [featuredArticle6, setFeaturedArticle6] = useState(null);
   const [featuredArt1, setFeaturedArt1] = useState(null);
   const [featuredArt2, setFeaturedArt2] = useState(null);
-  const [Blog1, setBlog1] = useState(null);
-  const [Blog2, setBlog2] = useState(null);
-  const [Blog3, setBlog3] = useState(null);
+  // const [Blog1, setBlog1] = useState(null);
+  // const [Blog2, setBlog2] = useState(null);
+  // const [Blog3, setBlog3] = useState(null);
 
   const [instagramImages, setInstagramImages] = useState(null);
 
@@ -201,9 +201,9 @@ export default function Homepage() {
         setFeaturedArt2(data.featuredArt2);
         setInstagramImages(data.instagram);
         setFromTheArchivesContent(data.archivedContent);
-        setBlog1(data.blog1);
-        setBlog2(data.blog2);
-        setBlog3(data.blog3);
+        // setBlog1(data.blog1);
+        // setBlog2(data.blog2);
+        // setBlog3(data.blog3);
 
       })
       .catch(console.error);
@@ -218,9 +218,9 @@ export default function Homepage() {
     !featuredArticle4 ||
     !featuredArticle5 ||
     !featuredArticle6 ||
-    !Blog1 ||
-    !Blog2 ||
-    !Blog3 ||
+    // !Blog1 ||
+    // !Blog2 ||
+    // !Blog3 ||
     !featuredArt1 ||
     !featuredArt2 ||
     !instagramImages ||
@@ -290,7 +290,7 @@ export default function Homepage() {
               />
             </a>
           </div>
-          <div className="blog">
+          {/* <div className="blog">
             <div className="blogHeader">
               <hr />
               <Themed.h2>
@@ -314,7 +314,7 @@ export default function Homepage() {
               noLastBorder={isMobile}
             ></TextContentList>
             {!isMobile ? <hr /> : ""}
-          </div>
+          </div> */}
           {!isMobile ? (
             <div className="socialsFeed">
               <div className="socialsGrid">
