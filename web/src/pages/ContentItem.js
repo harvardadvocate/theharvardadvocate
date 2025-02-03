@@ -217,7 +217,7 @@ export default function ContentItem() {
               <div className="topLine"> 
                 <Themed.h5>
 
-                {itemData.sections[0].title === 'Columns' || itemData.sections[0].title === 'Notes' ?
+                {itemData.sections[0].title === 'Notes' ?
                   <Link to={"/sections/" + itemData.sections[0].slug.current}>
                     {itemData.sections[0].title}
                   </Link>:
