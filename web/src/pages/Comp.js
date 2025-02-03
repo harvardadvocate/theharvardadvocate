@@ -55,7 +55,7 @@ export default function Comp() {
       >
         <div className="compBody">
           <Themed.p>
-            <i>Interested in Fall 2024 Comp?</i>
+            <i>Interested in Spring 2025 Comp?</i>
             <br />
             <br />
             The Harvard Advocate has been a home for arts and literature at
