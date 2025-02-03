@@ -159,8 +159,8 @@ export default function Footer() {
               <br />
               <a href="/sections/poetry">Poetry</a>
               <br />
-              <a href="/sections/columns">Columns</a>
-              <br />
+              {/* <a href="/sections/columns">Columns</a>
+              <br /> */}
               <a href="/sections/notes">Notes</a>
             </div>
             <div className="more">

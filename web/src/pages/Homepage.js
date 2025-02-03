@@ -122,7 +122,7 @@ const homepageSx = {
     position: "relative",
   },
 
-  ".notes": {
+  ".blog": {
     textAlign: "center",
   },
 

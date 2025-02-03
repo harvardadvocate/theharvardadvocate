@@ -235,7 +235,7 @@ export default function Sidebar() {
       "/sections/fiction",
       "/sections/features",
       "/sections/poetry",
-      "/sections/columns",
+      // "/sections/columns",
       "/sections/notes",
     ].includes(location.pathname)
       ? true
@@ -406,13 +406,13 @@ export default function Sidebar() {
                 >
                   Poetry
                 </Link>
-                <Link
+                {/* <Link
                   className={`link ${highlightLink("/sections/columns")}`}
                   to="/sections/columns"
                   onClick={() => setNavbarExpanded(false)}
                 >
                   Columns
-                </Link>
+                </Link> */}
                 <Link
                   className={`link ${highlightLink("/sections/notes")}`}
                   to="/sections/notes"
