@@ -139,30 +139,31 @@ export default function TextListItem(props) {
           key={props.item.slug.current}
         >
           <div className="listItem">
-            <Themed.h3 color={headerColor}>
-
-              {!props.home ? (
-                <i>
-                  {props.item.sections[0].title === 'Notes'  ? <a></a> :
-
+          <Themed.h3 color={headerColor}>
+          {!props.home ? (
+              <i>
+                {props.item.sections[0].title === "Notes" ? (
+                  <a style={{ color: headerColor }} href={"/sections/notes"}>
+                    Notes from 21 South Street
+                  </a>
+                ) : (
                   <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
                     {" " + props.item.issue.title}
                   </a>
-                  }
-                </i>
-              ) : (
-                <i>
-                  <a style={{ color: headerColor }} href={"/sections/" + props.item.sections[0].slug.current}>
-                    {props.item.sections[0].title + " "}
-                  </a>
-                  •{" "}
-                  <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
-                    {" " + props.item.issue.title}
-                  </a>
-                </i>
-              )}
+                )}
+              </i>
+            ) : (
+              <i>
+                <a style={{ color: headerColor }} href={"/sections/" + props.item.sections[0].slug.current}>
+                  {props.item.sections[0].title === "Notes" ? "Notes from 21 South Street" : props.item.sections[0].title}{" "}
+                </a>
+                •{" "}
+                <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
+                  {" " + props.item.issue.title}
+                </a>
+              </i>
+            )}
             </Themed.h3>
-
             <Themed.h2>
               <div className="fontMod">
                 <a href={"/content/" + props.item.slug.current}>

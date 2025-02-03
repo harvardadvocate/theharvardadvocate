@@ -70,7 +70,7 @@ export default function SectionFrame(props) {
               <Themed.h2>{
                 <div className="fontMod">
 
-              {props.path[0].name}
+                {props.path[0].name === "Notes" ? "Notes from 21 South Street" : props.path[0].name}
 
               </div>
               
