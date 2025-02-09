@@ -93,7 +93,7 @@ export default function Comp() {
               target="_blank"
               rel="noreferrer"
             >
-              Zoom
+              Google Meets
             </a>{". "}
             The Comp Sign-up form can also be found
             {" "}
