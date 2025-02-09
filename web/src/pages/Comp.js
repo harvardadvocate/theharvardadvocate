@@ -108,7 +108,7 @@ export default function Comp() {
             <br />
             <br />
             The Harvard Advocate can be reached at 21 South Street, Cambridge,
-            and at publisher@theharvardadvocate.com
+            and at president@theharvardadvocate.com
           </Themed.p>
 
           <div className="image">
