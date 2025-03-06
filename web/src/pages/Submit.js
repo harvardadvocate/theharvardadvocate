@@ -81,7 +81,7 @@ export default function Submit() {
     <Helmet helmetData={helmetData}>
     {/* <title>{itemData.title}</title> */}
     <meta name='description' property="og:description" content={
-      "The Harvard Advocate is currently soliciting submissions for our Fall 2024 issue."
+      "The Harvard Advocate is currently soliciting submissions for our Fall 2025 issue."
       }  />
     <meta name='title' property="og:title" content={"Submit"} />
 
@@ -104,25 +104,19 @@ export default function Submit() {
             <br />
             <br />
             <hr />
-            <Themed.h2>Fall 2024 Issue</Themed.h2>
+            <Themed.h2>Fall 2025 Issue</Themed.h2>
             <hr />
             <p align="left">
-            This semester, The Harvard Advocate is asking about LAND. 
-            What lies underneath our digital renderings of roadmaps, county-lines, nation-states? 
-            Is it the twin forces of heat & pressure endlessly chasing the other’s tail? Is it geological– land as the tectonic temperaments of an indecisive planet? 
-            Or political – the shifting allegiances of disputed borders, jingoistic statesmen, international entanglements? We are wondering about the trees, who, like us, 
-            cannot help but tell stories, or the rivers, who, unlike us, love to leave things behind. We are wondering about land as an anchor, land which roots out memories, 
-            holds our loved ones— the keeper of fossil history and the grower of new leaves. We want to know about land as the locus of indigeneity – what happens when land gets 
-            forcibly occupied? How do we take land back? Has land been appropriated by the economic? Is land property, ownership, entitlement? Show us setting, landscape, mise en scène; 
-            boast about the home for which you are sick. Give us land as reclamation, liberation, celebration; land as the cupping of your hands & the soil that falls, gently, through the 
-            gaps of your fingers. 
+            This semester The Harvard Advocate is thinking about DIAGNOSIS. Diagnosis is a mode of knowing: to name the unnameable, to recognize what is coursing beneath the skin of suits, screens, and speeches. In Greek, to diagnose is “to know between” [γιγνώσχειν + διά] — between the line that delineates the strong from the weak, the natural from the unnatural, the saved from the suffering. Diagnosis produces frameworks in which we can settle our knowledge; it lays bare what words we think have authority all on their own. Diagnosis is the forced union of the symptomatic into the systematic. 
             </p>
             <br></br>
-            <p>The land issue asks: <em>What is the ground upon which we stand?</em></p>
+            <p>The Advocate asks: who has the power to diagnose — is it the nation state, the professional class, or even the artist or author? What, if anything, does a diagnosis on a sheet of paper — magazine reams, doctors’ notes, diary pages — change? What can diagnosis offer: lifeline or life sentence? Can personal pain be articulated by a diagnostic move in the language-game; is its knowledge unsettled by disability? What does diagnosis cost and who can afford to be diagnosed? Is diagnosis the sounding of the alarm or is it the snooze of complacency; does it do anything but give us a new name? Is it always better to know? Who knows best?</p>
+            <br></br>
+            <p>We may tell ourselves stories in order to live, but we diagnose in order to survive. Proclaim, promulgate, pitch. Diagnose past self-diagnoses, pathologize the pathologizers. Show us the exquisite corpse, the body in pain, the powers of horror. Tell us your national allegory; we will take your sick men. Rewrite history with new testimony and draw us lines in the sand. Give us diagnosis as the bearer of bad news, as chronic blessing, as passing curse: tell it like it is.</p>
             <i align="center">
-            <br /> We are currently accepting submissions for our Fall 2024 issue.
-               <br />Submissions for Fiction are due October 16, 2024. 
-              <br /> Submissions for Poetry and Art are due October 27, 2024.
+            <br /> We are currently accepting submissions for our Fall 2025 issue.
+               <br />Submissions for Fiction are due April 6, 2025. 
+              <br /> Submissions for Poetry and Art are due April 12, 2025.
             </i>
             <br />
             <div align="center">
