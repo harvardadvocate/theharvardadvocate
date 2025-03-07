@@ -96,14 +96,6 @@ export default function Masthead() {
               <br />
               B. Kimball '28, Demeter
               <br />
-              L. Pasquerella '26, Apollo
-              <br />
-              S. Yu '27, Apollo
-              <br />
-              E. Zhang '26, Arachne
-              <br />
-              B. Kimball '28, Demeter
-              <br />
               N. Chagantipati '26, Diversity & Inclusion Chair
               <br />
               M. Wong '26, Librarian
