@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "sanity start",
     "start": "sanity start",
-    "build": "sanity build"
+    "build": "sanity build",
+    "graphql-deploy": "sanity graphql deploy --project sierqf4e --dataset production"
   },
   "keywords": [
     "sanity"

@@ -81,7 +81,7 @@ export default function Submit() {
     <Helmet helmetData={helmetData}>
     {/* <title>{itemData.title}</title> */}
     <meta name='description' property="og:description" content={
-      "The Harvard Advocate is currently soliciting submissions for our Fall 2025 issue."
+      "The Harvard Advocate is currently soliciting submissions for our Summer 2025 issue."
       }  />
     <meta name='title' property="og:title" content={"Submit"} />
 
@@ -104,19 +104,21 @@ export default function Submit() {
             <br />
             <br />
             <hr />
-            <Themed.h2>Fall 2025 Issue</Themed.h2>
+            <Themed.h2>Summer 2025 Issue</Themed.h2>
             <hr />
-            <p align="left">
+            {/* <p align="left">
             This semester The Harvard Advocate is thinking about DIAGNOSIS. Diagnosis is a mode of knowing: to name the unnameable, to recognize what is coursing beneath the skin of suits, screens, and speeches. In Greek, to diagnose is “to know between” [γιγνώσχειν + διά] — between the line that delineates the strong from the weak, the natural from the unnatural, the saved from the suffering. Diagnosis produces frameworks in which we can settle our knowledge; it lays bare what words we think have authority all on their own. Diagnosis is the forced union of the symptomatic into the systematic. 
             </p>
             <br></br>
             <p>The Advocate asks: who has the power to diagnose — is it the nation state, the professional class, or even the artist or author? What, if anything, does a diagnosis on a sheet of paper — magazine reams, doctors’ notes, diary pages — change? What can diagnosis offer: lifeline or life sentence? Can personal pain be articulated by a diagnostic move in the language-game; is its knowledge unsettled by disability? What does diagnosis cost and who can afford to be diagnosed? Is diagnosis the sounding of the alarm or is it the snooze of complacency; does it do anything but give us a new name? Is it always better to know? Who knows best?</p>
             <br></br>
             <p>We may tell ourselves stories in order to live, but we diagnose in order to survive. Proclaim, promulgate, pitch. Diagnose past self-diagnoses, pathologize the pathologizers. Show us the exquisite corpse, the body in pain, the powers of horror. Tell us your national allegory; we will take your sick men. Rewrite history with new testimony and draw us lines in the sand. Give us diagnosis as the bearer of bad news, as chronic blessing, as passing curse: tell it like it is.</p>
+             */}
             <i align="center">
-            <br /> We are currently accepting submissions for our Fall 2025 issue.
-               <br />Submissions for Fiction are due April 6, 2025. 
-              <br /> Submissions for Poetry and Art are due April 12, 2025.
+            <br /> We are currently accepting submissions for our Summer 2025 issue, hosted online.
+            <br /> No deadlines, no due dates.
+               {/* <br />Submissions for Fiction are due April 6, 2025. 
+              <br /> Submissions for Poetry and Art are due April 12, 2025. */}
             </i>
             <br />
             <div align="center">
