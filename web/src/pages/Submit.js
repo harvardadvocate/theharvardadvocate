@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
-// import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
+import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
 
 
 const submitSx = {
