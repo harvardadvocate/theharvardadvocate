@@ -3,8 +3,6 @@ import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
 
-// TODO: update for fall 2025
-
 const submitSx = {
   ".submitBody": {
     margin: "auto",
