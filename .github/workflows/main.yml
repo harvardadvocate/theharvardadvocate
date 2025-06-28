@@ -18,7 +18,8 @@ jobs:
           # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
           node-version: 18.x
           # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm
-          cache: npm
+          # Conan, 6/28/25: cache has issues, commented below
+          # cache: npm
 
       - name: Install dependencies
         run: npm ci
