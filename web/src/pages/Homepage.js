@@ -248,7 +248,7 @@ export default function Homepage() {
           <div className="archiveHeader">
             <br></br>
               <div className="announcement">
-              <Themed.h2><i>&#9654; Read our Queer Zine <a href="/queerzine">here</a></i>.</Themed.h2>
+              <Themed.h2><i>&#9654; We mourn the passing of Advocate trustee <a href="https://theharvardadvocate.com/content/remembering-trustee-charlie-atkinson">Charlie Atkinson</a></i>.</Themed.h2>
               </div>
               <hr />
             </div>
