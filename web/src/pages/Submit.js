@@ -203,8 +203,7 @@ export default function Submit() {
                 other nontraditional poetic formats—can be submitted as well.
               </li>
             </ul>
-            You can submit your work through the link above, or by emailing
-            poetry@theharvardadvocate.com
+            You can submit your work through the link above. Email questions to poetry@theharvardadvocate.com
             <br />
             <br />
             <hr />
