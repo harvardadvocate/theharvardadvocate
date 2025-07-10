@@ -25,8 +25,13 @@
   },
   "scripts": {
     "dev": "react-scripts start",
+    "dev:react": "react-scripts start",
+    "dev:next": "cd nextjs && npm run dev",
+    "dev:both": "concurrently \"npm run dev:react\" \"npm run dev:next\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:next": "cd nextjs && npm run build",
+    "build:all": "npm run build && npm run build:next",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -53,6 +58,7 @@
   },
   "devDependencies": {
     "@emotion/react": "^11.8.2",
+    "concurrently": "^8.2.2",
     "mini-css-extract-plugin": "2.4.5"
   },
   "overrides": {
