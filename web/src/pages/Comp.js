@@ -55,7 +55,7 @@ export default function Comp() {
       >
         <div className="compBody">
           <Themed.p>
-            <i>Interested in Spring 2025 Comp?</i>
+            <i>Interested in Fall 2025 Comp?</i>
             <br />
             <br />
             The Harvard Advocate has been a home for arts and literature at
@@ -86,19 +86,19 @@ export default function Comp() {
             .
             <br />
             <br />
-            Intro Comp meetings are happening on February 5 and 6 from 9-10 pm at 21 South Street, or our virtual intro meeting on February 9 from 2-3pm on 
+            Intro Comp meetings are happening on September 10 and 11 from 9-10 pm at 21 South Street, or our virtual intro meeting on September 14 from 2-3pm on 
             {" "}
             <a
-              href="https://meet.google.com/cuc-exkx-gpy"
+              href="https://harvard.zoom.us/j/96402024569"
               target="_blank"
               rel="noreferrer"
             >
-              Google Meets
+              Zoom
             </a>{". "}
             The Comp Sign-up form can also be found
             {" "}
             <a
-              href="https://forms.gle/W2rci1T5C7e8s2QF8"
+              href="https://forms.gle/gi6oJMxz43XEWtY18"
               target="_blank"
               rel="noreferrer"
             >
