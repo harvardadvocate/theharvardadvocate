@@ -86,7 +86,7 @@ export default function Comp() {
             .
             <br />
             <br />
-            Intro Comp meetings are happening on September 10 and 11 from 9-10 pm at 21 South Street, or our virtual intro meeting on September 14 from 2-3pm on 
+            Intro Comp meetings are happening on September 10 and 11 from 8-9 pm at 21 South Street, or our virtual intro meeting on September 14 from 2-3pm on 
             {" "}
             <a
               href="https://harvard.zoom.us/j/96402024569"
