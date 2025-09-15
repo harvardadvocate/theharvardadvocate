@@ -51,6 +51,8 @@ export default function Masthead() {
               <br />
               P. Wekwejt '26, Business Manager
               <br />
+              M. Yu '27, Technology Editor
+              <br />
               A. Chen '27, Design Editor
               <br />
               T. Wayland '26, Features Editor
@@ -60,8 +62,6 @@ export default function Masthead() {
               L. Wood '27, Junior Fiction Editor
               <br />
               A. Hatzius '26, Poetry Editor
-              <br />
-              M. Yu '26, Technology Editor
 
               <br />
               <br />
@@ -92,7 +92,7 @@ export default function Masthead() {
               <br />
               S. Yu '27, Apollo
               <br />
-              E. Zhang '26, Arachne
+              E. Zheng '26, Arachne
               <br />
               B. Kimball '28, Demeter
               <br />
