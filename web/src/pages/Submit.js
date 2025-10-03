@@ -105,7 +105,7 @@ export default function Submit() {
             <br />
             <br />
             <hr />
-            <Themed.h2>Fall 2025 Issue</Themed.h2>
+            <Themed.h2>Spring 2026 Issue</Themed.h2>
             <hr />
             <p align="left">
             FEAR has an odd directionality. At times it emerges from within, a frenzy of unease that clings
@@ -126,7 +126,7 @@ be lovers of danger in an age of fear? The Advocate, too, is trembling, and so i
             {/* <p>We may tell ourselves stories in order to live, but we diagnose in order to survive. Proclaim, promulgate, pitch. Diagnose past self-diagnoses, pathologize the pathologizers. Show us the exquisite corpse, the body in pain, the powers of horror. Tell us your national allegory; we will take your sick men. Rewrite history with new testimony and draw us lines in the sand. Give us diagnosis as the bearer of bad news, as chronic blessing, as passing curse: tell it like it is.</p>
              */}
             <i align="center">
-            <br /> We are currently accepting submissions for our Fall 2025 issue.
+            <br /> We are currently accepting submissions for our Spring 2026 issue.
             <br />
                <br />Submissions for Fiction, Poetry, and Art are due November 14, 2025. 
               {/* <br /> Submissions for Poetry and Art are due April 12, 2025. */}
