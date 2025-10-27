@@ -78,15 +78,13 @@ export default function Masthead() {
               <br />
               W. Renwick '28, Hermes
               <br />
-              S. Mikulasek '27, Hestia
+              E. Michielsen '28, Hestia
               <br />
               L. Jackson '26, Pegasus
               <br />
               A. Ma '27, Pegasus
               <br />
               A. Popnikolova '28, Pegasus
-              <br />
-              E. Miao '26, Hades
               <br />
               L. Pasquerella '26, Apollo
               <br />
