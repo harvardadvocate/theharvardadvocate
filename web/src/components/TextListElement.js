@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Themed } from "theme-ui";
 import { PortableText } from "@portabletext/react";
 import { theme } from "../theme/theme.js";
@@ -135,7 +135,7 @@ export default function TextListItem(props) {
       <div css={props.padding ? padding : no_padding}>
 
         <Link
-          to={"/content/" + props.item.slug.current}
+          href={"/content/" + props.item.slug.current}
           key={props.item.slug.current}
         >
           <div className="listItem">
@@ -173,7 +173,7 @@ export default function TextListItem(props) {
 
             </Themed.h2>
             <br />
-            <Link to={"/content/" + props.item.slug.current}>
+            <Link href={"/content/" + props.item.slug.current}>
               <div className="textPreview">
                 {props.item.body && (
                   <PortableText
@@ -194,7 +194,7 @@ export default function TextListItem(props) {
                   {props.item.authors.map((author, i) => (
                     <>
                       {i !== 0 && ", "}
-                      <Link to={"/authors/" + author.slug.current}>
+                      <Link href={"/authors/" + author.slug.current}>
                         {author.name}
                       </Link>
                     </>

@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import { Themed, Grid } from "theme-ui";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { theme } from "../theme/theme.js";
 import { optimizeImageLoading } from "../utils/image.js";
 import { useIsMobile } from "../utils/isMobile.js";
@@ -215,7 +215,7 @@ export default function FeaturedIssue(props) {
         >
           {props.newest || isMobile ? (
             <div className="issueCover">
-              <Link to={"/issues/" + issue.slug.current}>
+              <Link href={"/issues/" + issue.slug.current}>
                 {issue.frontCover && "asset" in issue.frontCover && (
                   <img
                     src={optimizeImageLoading(issue.frontCover.asset.url)}
@@ -248,7 +248,7 @@ export default function FeaturedIssue(props) {
                 {featuredItems.slice(0, 2).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
-                      <Link to={"/content/" + article.slug.current}>
+                      <Link href={"/content/" + article.slug.current}>
                         <div className="articleLink">
                           {/* <div className="fontMod"> */}
                           <b>{article.title}</b> <br />
@@ -268,7 +268,7 @@ export default function FeaturedIssue(props) {
                 {featuredItems.slice(2, 4).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
-                      <Link to={"/content/" + article.slug.current}>
+                      <Link href={"/content/" + article.slug.current}>
                         <div className="articleLink">
                           <Themed.h3>
                             <b>{article.title}</b> <br />
@@ -276,7 +276,7 @@ export default function FeaturedIssue(props) {
                             {article.authors.map((author, i) => (
                               <>
                                 {i !== 0 && ", "}
-                                <Link to={"/authors/" + author.slug.current}>
+                                <Link href={"/authors/" + author.slug.current}>
                                   {author.name}
                                 </Link>{" "}
                               </>
@@ -291,7 +291,7 @@ export default function FeaturedIssue(props) {
               {featuredItems.length > 0 ? <hr /> : <></>}
             </div>
             <div className="buttonContainer">
-            <Link to={"/issues/" + issue.slug.current}>
+            <Link href={"/issues/" + issue.slug.current}>
               <div
                 className={props.newest ? "readFullIssue" : "readFullIssue2"}
               >
@@ -299,7 +299,7 @@ export default function FeaturedIssue(props) {
                 <Themed.h6><div className="fontMod">READ FULL ISSUE</div></Themed.h6>
               </div>
             </Link>
-             <Link to={"/shop"}>
+             <Link href={"/shop"}>
               <div className="buyIssueButton">
                 <div className="fontMod">
                 BUY ISSUE
@@ -311,7 +311,7 @@ export default function FeaturedIssue(props) {
 
           {!props.newest && !isMobile ? (
             <div className="issueCover">
-              <Link to={"/issues/" + issue.slug.current}>
+              <Link href={"/issues/" + issue.slug.current}>
                 {issue.frontCover && "asset" in issue.frontCover && (
                   <img
                     src={optimizeImageLoading(issue.frontCover.asset.url)}

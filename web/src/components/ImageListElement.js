@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Themed } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { optimizeImageLoading } from "../utils/image.js";
@@ -80,7 +80,7 @@ export default function ImageListElement(props) {
   return (
     <div sx={props.home ? imageListElementSx_home : imageListElementSx}>
       <Link
-        to={"/content/" + props.item.slug.current}
+        href={"/content/" + props.item.slug.current}
         key={props.item.slug.current}
       >
         <div className="listItem">
