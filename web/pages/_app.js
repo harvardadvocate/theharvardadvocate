@@ -1,4 +1,6 @@
 /** @jsxImportSource theme-ui */
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { ThemeProvider } from "theme-ui";
 import { theme } from "../lib/theme/theme";
 import Sidebar from "../src/components/Sidebar";
@@ -25,6 +27,24 @@ const appSx = {
 };
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    const handleRouteChange = () => {
+      // Scroll the body element (which is the actual scroll container)
+      // because html has overflow:hidden and body has overflow:auto
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <ThemeProvider theme={theme}>
       <DefaultSeo {...DEFAULT_SEO} />
