@@ -122,7 +122,7 @@ export default function Footer() {
           <br />
           <Link className="linkLogo" href={"/"}>
             <img src="/logo.svg" alt="The Advocate Logo" loading="lazy" />
-            2024 &nbsp; <span>&copy;</span> &nbsp; The Harvard Advocate
+            {new Date().getFullYear()} &nbsp; <span>&copy;</span> &nbsp; The Harvard Advocate
           </Link>
         </div>
         <div className="socialIcons">
