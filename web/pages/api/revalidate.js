@@ -5,31 +5,27 @@ export default async function handler(req, res) {
   }
 
   try {
-    const slug = req.body?.slug;
-    const type = req.body?._type;
+    // Log the incoming webhook data for debugging
+    console.log('Webhook received:', JSON.stringify(req.body, null, 2));
 
-    // Revalidate homepage
+    const revalidatedPaths = [];
+
+    // Always revalidate main pages - this ensures content updates appear
+    // even if we can't determine the specific page that changed
     await res.revalidate('/');
+    revalidatedPaths.push('/');
 
-    // Revalidate main pages that use getStaticProps
     await res.revalidate('/issues');
-    await res.revalidate('/sections');
+    revalidatedPaths.push('/issues');
 
-    // If a specific slug is provided, revalidate that page based on type
-    if (slug) {
-      if (type === 'contentItem') {
-        await res.revalidate(`/content/${slug}`);
-      } else if (type === 'issue') {
-        await res.revalidate(`/issues/${slug}`);
-      } else if (type === 'section') {
-        await res.revalidate(`/sections/${slug}`);
-      } else if (type === 'author') {
-        await res.revalidate(`/authors/${slug}`);
-      }
-    }
+    await res.revalidate('/sections');
+    revalidatedPaths.push('/sections');
+
+    console.log('Successfully revalidated paths:', revalidatedPaths);
 
     return res.json({
       revalidated: true,
+      paths: revalidatedPaths,
       time: new Date().toISOString()
     });
   } catch (err) {
