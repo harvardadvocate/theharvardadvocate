@@ -249,8 +249,8 @@ export default function Sidebar() {
 
   const highlightLink = (pathname) => {
     if (pathname === "/issues")
-      return router.pathname.includes("/issues") ? " highlight" : "";
-    return router.pathname === pathname ? " highlight" : "";
+      return router.asPath.includes("/issues") ? " highlight" : "";
+    return router.asPath === pathname ? " highlight" : "";
   };
 
   return (
