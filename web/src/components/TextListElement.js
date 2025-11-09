@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import { theme } from "../theme/theme.js";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity.js";
+import { extractPreviewBlocks } from "../../lib/utils/extractPreviewBlocks.js";
 
 const headerColor = theme["colors"]["primary"];
 
@@ -45,16 +46,12 @@ const textListItemSx = {
   },
 
   ".textPreview": {
-    br: {
-      display: "none",
-    },
-
+    overflow: "hidden",
+    WebkitBoxOrient: "vertical",
+    display: "-webkit-box",
+    WebkitLineClamp: "3",
     p: {
-      overflow: "hidden",
-      WebkitBoxOrient: "vertical",
-      display: "-webkit-box",
       color: "text",
-      WebkitLineClamp: "3",
     },
   },
 
@@ -85,16 +82,12 @@ const textListItemSx_home = {
     color: "text",
   },
   ".textPreview": {
-    br: {
-      display: "none",
-    },
-
+    overflow: "hidden",
+    WebkitBoxOrient: "vertical",
+    display: "-webkit-box",
+    WebkitLineClamp: "3",
     p: {
-      overflow: "hidden",
-      WebkitBoxOrient: "vertical",
-      display: "-webkit-box",
       color: "text",
-      WebkitLineClamp: "3",
     },
   },
 
@@ -192,7 +185,7 @@ export default function TextListItem(props) {
               <div className="textPreview">
                 {props.item.body && props.item.body.length > 0 && (
                   <PortableText
-                    value={[props.item.body[0]]}
+                    value={extractPreviewBlocks(props.item.body)}
                     hardBreak={false}
                     components={customComponents}
                   />
