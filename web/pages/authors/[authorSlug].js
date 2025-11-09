@@ -227,6 +227,6 @@ export async function getStaticProps({ params }) {
       authoredItems,
       sections,
     },
-    revalidate: 3600,
+    revalidate: 86400,
   };
 }

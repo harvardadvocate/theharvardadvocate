@@ -423,6 +423,6 @@ export async function getStaticProps() {
       instagramImages: data.instagram,
       fromTheArchivesContent: shuffledArchive,
     },
-    revalidate: 3600, // Revalidate every hour
+    revalidate: 86400, // Revalidate every 24 hours
   };
 }

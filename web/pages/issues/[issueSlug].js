@@ -356,6 +356,6 @@ export async function getStaticProps({ params }) {
       items: issueData.itemData,
       sections,
     },
-    revalidate: 3600,
+    revalidate: 86400,
   };
 }

@@ -101,7 +101,7 @@ export async function getStaticProps() {
       featuresItems: data.featuresItems,
       poetryItems: data.poetryItems,
     },
-    revalidate: 3600,
+    revalidate: 86400,
   };
 }
 

@@ -221,7 +221,7 @@ export async function getStaticProps() {
       initialFeaturedItems: featuredItems,
       initialFeaturedItems2: featuredItems2,
     },
-    revalidate: 3600,
+    revalidate: 86400,
   };
 }
 

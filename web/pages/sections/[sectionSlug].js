@@ -200,6 +200,6 @@ export async function getStaticProps({ params }) {
       sectionTitle: sectionData.title,
       sectionSlug: params.sectionSlug,
     },
-    revalidate: 3600,
+    revalidate: 86400,
   };
 }
