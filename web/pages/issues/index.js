@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import sanityClient from "../../lib/sanity.js";
@@ -175,15 +175,7 @@ const issuesListSx = {
   },
 };
 
-const virtualStyle = {
-  position: "absolute",
-  height: "200px",
-  top: "-500px",
-  width: "1px",
-  pointerEvent: "none",
-};
-
-const issuesToQuery = (start, end) =>
+const allIssuesQuery = () =>
   `*[_type == "issue"] | order(publishedAt desc) {
       title,
       slug,
@@ -194,12 +186,12 @@ const issuesToQuery = (start, end) =>
             url
           }
         }
-      }[${start}...${end}]`;
+      }`;
 
 export async function getStaticProps() {
   const data = await sanityClient.fetch(
     `{
-      "itemData": ${issuesToQuery(0, 10)},
+      "itemData": ${allIssuesQuery()},
       "featuredItems": *[_type == "contentItem" && "newIssueFeatured" in featuredOptions]  | order(publishedAt desc) {
           title,
           authors[]->{name, slug},
@@ -236,41 +228,12 @@ export async function getStaticProps() {
 export default function IssuesList({ initialItemData, initialFeaturedItems, initialFeaturedItems2 }) {
   var isMobile = useIsMobile();
 
-  const [itemData, setItemData] = useState(initialItemData);
-  const [featuredItems, setFeaturedItems] = useState(initialFeaturedItems);
-  const [featuredItems2, setFeaturedItems2] = useState(initialFeaturedItems2);
-
-  const loadItems = (num) => {
-    var currentIssue = itemData.length;
-    sanityClient
-      .fetch(issuesToQuery(currentIssue, currentIssue + num)) // query section
-      .then((data) => setItemData([...itemData, ...data]))
-      .catch(console.error);
-  };
-
-  useEffect(() => {
-    // Check if we're in the browser and IntersectionObserver is available
-    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
-      const intersectionObserver = new IntersectionObserver((entries) => {
-        if (entries[0].intersectionRatio === 0) return;
-        loadItems(4);
-      });
-
-      const currentElement = document.querySelector(".more");
-      if (currentElement) {
-        intersectionObserver.observe(currentElement);
-      }
-      return () => {
-        if (currentElement) {
-          intersectionObserver.unobserve(currentElement);
-        }
-      };
-    }
-  });
+  const itemData = initialItemData;
+  const featuredItems = initialFeaturedItems;
+  const featuredItems2 = initialFeaturedItems2;
 
   if (!itemData || !featuredItems) {
     return <ColorRingLoader />;
-  } else {
   }
 
   var perChunk = 4; // items per row
@@ -366,13 +329,6 @@ export default function IssuesList({ initialItemData, initialFeaturedItems, init
                       </Link>
                     );
                   })}
-                  {resultArray.length - 2 === index ? (
-                    <div className="more">
-                      <p style={virtualStyle}></p>
-                    </div>
-                  ) : (
-                    ""
-                  )}
                 </div>
               );
             })}

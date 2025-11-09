@@ -1,11 +1,11 @@
 /** @jsxImportSource theme-ui */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
 import TextContentList from "../../src/components/TextContentList.js";
-import sanityClient from "../../lib/sanity.js";
 import SectionFrame from "../../src/components/SectionFrame";
 import ColorRingLoader from "../../src/components/LoadingRing.js";
 import ImageContentGrid from "../../src/components/ImageContentGrid.js";
+import sanityClient from "../../lib/sanity.js";
 
 const sectionSx = {
   ".sectionHeader": {
@@ -43,37 +43,63 @@ const sectionToQuery = (section, start, end) =>
 
 export default function Section({ initialItems, sectionTitle, sectionSlug }) {
   const [items, setItems] = useState(initialItems);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const loadTriggerRef = useRef(null);
+
+  // Reset state when section changes
+  useEffect(() => {
+    setItems(initialItems);
+    setHasMore(true);
+    setIsLoading(false);
+  }, [sectionSlug, initialItems]);
 
   const loadItems = (num) => {
-    var currentPost = 0;
-    if (items) {
-      currentPost = items.length;
-    }
-    sanityClient
-      .fetch(sectionToQuery(sectionTitle, currentPost, currentPost + num)) // query section
-      .then((data) => setItems([...items, ...data]))
-      .catch(console.error);
+    if (isLoading || !hasMore) return;
+
+    setIsLoading(true);
+    const currentPost = items ? items.length : 0;
+
+    fetch(
+      `/api/sections/items?sectionTitle=${encodeURIComponent(
+        sectionTitle
+      )}&start=${currentPost}&end=${currentPost + num}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length === 0) {
+          setHasMore(false);
+        } else {
+          setItems([...items, ...data]);
+        }
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
     // Check if we're in the browser and IntersectionObserver is available
-    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
-      const intersectionObserver = new IntersectionObserver((entries) => {
-        if (entries[0].intersectionRatio === 0) return;
-        loadItems(9);
-      });
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window && loadTriggerRef.current) {
+      const intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting && !isLoading && hasMore) {
+            loadItems(42);
+          }
+        },
+        { rootMargin: '200px' }
+      );
 
-      const currentElement = document.querySelector(".more");
-      if (currentElement) {
-        intersectionObserver.observe(currentElement);
-      }
+      const currentElement = loadTriggerRef.current;
+      intersectionObserver.observe(currentElement);
+
       return () => {
-        if (currentElement) {
-          intersectionObserver.unobserve(currentElement);
-        }
+        intersectionObserver.unobserve(currentElement);
       };
     }
-  });
+  }, [items, isLoading, hasMore]);
 
   if (!items) {
     return <ColorRingLoader />;
@@ -130,9 +156,11 @@ export default function Section({ initialItems, sectionTitle, sectionSlug }) {
 
         )}
       </SectionFrame>
-      <div className="more">
-        <p style={virtualStyle}></p>
-      </div>
+      {hasMore && (
+        <div ref={loadTriggerRef} className="more">
+          <p style={virtualStyle}></p>
+        </div>
+      )}
     </div>
   );
 }
@@ -163,7 +191,7 @@ export async function getStaticProps({ params }) {
   }
 
   const items = await sanityClient.fetch(
-    sectionToQuery(sectionData.title, 0, 24)
+    sectionToQuery(sectionData.title, 0, 99)
   );
 
   return {
