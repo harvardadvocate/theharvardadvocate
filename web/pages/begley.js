@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -66,7 +65,7 @@ export default function Begley() {
       >
         <div className="begleyBody">
 
-          <Themed.p>
+          <p sx={{ variant: "styles.p" }}>
             The 2024 Louis Begley Prize will be judged by R. F. Kuang, author of <em>Yellowface</em>, <em>Babel</em>, <em>The Poppy War</em>, and more! Submissions of short stories
             from 700-7,000 words written by current Harvard College students are due on April 19 at midnight. Please submit from your @college.harvard.edu email.
             <br />
@@ -91,7 +90,7 @@ export default function Begley() {
             <br />
             <br />
             The Louis Begley Prize is judged each year in late Spring.
-          </Themed.p>
+          </p>
           <div className="image">
             <img
               src="/advertise.jpeg"

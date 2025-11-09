@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -55,7 +54,7 @@ export default function Advertise() {
         ]}
       >
         <div className="advertiseBody">
-          <Themed.p>
+          <p sx={{ variant: "styles.p" }}>
             <i>Advertise with the oldest publication at Harvard University.</i>
             <br />
             <br />
@@ -76,7 +75,7 @@ export default function Advertise() {
             <br />
             For inquiries, contact our Business Manager at
             business@theharvardadvocate.com.
-          </Themed.p>
+          </p>
           <div className="image">
             <img
               src="/advertise.jpeg"

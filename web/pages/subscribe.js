@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import { theme } from "../src/theme/theme.js";
 import { useIsMobile } from "../lib/utils/isMobile.js";
 import { useEffect } from "react";
@@ -122,13 +121,13 @@ export default function Subscribe() {
         <div className="mainContent">
           <div className="mainText">
             {isMobile ? (
-              <Themed.h3>
+              <h3 sx={{ variant: "styles.h3" }}>
                 Thank you for considering subscribing to the Harvard Advocate!
-              </Themed.h3>
+              </h3>
             ) : (
-              <Themed.h2>
+              <h2 sx={{ variant: "styles.h2" }}>
                 Thank you for considering subscribing to the Harvard Advocate!
-              </Themed.h2>
+              </h2>
             )}
             <p align="center">
               By subscribing, you receive two print issues a year, printed on
@@ -138,19 +137,19 @@ export default function Subscribe() {
           <br></br>
           <div className="bigBox">
             {isMobile ? (
-              <Themed.h4 align="center">Full Subscription</Themed.h4>
+              <h4 sx={{ variant: "styles.h4" }} align="center">Full Subscription</h4>
             ) : (
-              <Themed.h2 align="center">Full Subscription</Themed.h2>
+              <h2 sx={{ variant: "styles.h2" }} align="center">Full Subscription</h2>
             )}
 
             <br />
-            <Themed.h3>
+            <h3 sx={{ variant: "styles.h3" }}>
               <strike>&nbsp;$45.00&nbsp;</strike>$35.00 / yr{" "}
-            </Themed.h3>
+            </h3>
             <br />
-            <Themed.p>
+            <p sx={{ variant: "styles.p" }}>
               Renews automatically. Cancel anytime. Non-refundable.
-            </Themed.p>
+            </p>
             <div align="center">
               <a
                 className="buttonLink"

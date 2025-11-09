@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import Link from "next/link";
-import { Themed } from "theme-ui";
 import { PortableText } from "@portabletext/react";
 import { theme } from "../theme/theme.js";
 
@@ -125,7 +124,7 @@ const no_padding = {
 // // `components` object passed to PortableText
 const customComponents = {
   block: {
-    normal: ({ children }) => <Themed.p>{children}</Themed.p>,
+    normal: ({ children }) => <p sx={{ variant: "styles.p" }}>{children}</p>,
   },
 };
 
@@ -139,7 +138,7 @@ export default function TextListItem(props) {
           key={props.item.slug.current}
         >
           <div className="listItem">
-          <Themed.h3 color={headerColor}>
+          <h3 sx={{ variant: "styles.h3" }} color={headerColor}>
           {!props.home ? (
               <i>
                 {props.item.sections[0].title === "Notes" ? (
@@ -163,21 +162,21 @@ export default function TextListItem(props) {
                 </a>
               </i>
             )}
-            </Themed.h3>
-            <Themed.h2>
+            </h3>
+            <h2 sx={{ variant: "styles.h2" }}>
               <div className="fontMod">
                 <a href={"/content/" + props.item.slug.current}>
                   {props.item.title}
                 </a>
               </div>
 
-            </Themed.h2>
+            </h2>
             <br />
             <Link href={"/content/" + props.item.slug.current}>
               <div className="textPreview">
-                {props.item.body && (
+                {props.item.body && props.item.body.length > 0 && (
                   <PortableText
-                    value={props.item.body[0]}
+                    value={[props.item.body[0]]}
                     hardBreak={false}
                     components={customComponents}
                   />
@@ -189,7 +188,7 @@ export default function TextListItem(props) {
               ""
             ) : (
               <div className="authorName">
-                <Themed.p>
+                <p sx={{ variant: "styles.p" }}>
                   By{" "}
                   {props.item.authors.map((author, i) => (
                     <>
@@ -199,7 +198,7 @@ export default function TextListItem(props) {
                       </Link>
                     </>
                   ))}
-                </Themed.p>
+                </p>
               </div>
             )}
           </div>

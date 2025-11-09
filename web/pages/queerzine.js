@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 import { useIsMobile } from "../lib/utils/isMobile.js";

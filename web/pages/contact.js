@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -64,7 +63,7 @@ export default function Contact() {
         ]}
       >
         <div className="contactBody">
-          <Themed.p>
+          <p sx={{ variant: "styles.p" }}>
             You can reach the content board heads at the following emails:
             <br />
             <br />
@@ -139,7 +138,7 @@ export default function Contact() {
               </a>
             </div>
 
-          </Themed.p>
+          </p>
         </div>
       </Frame>
     </div>

@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { Themed } from "theme-ui";
 import sanityClient from "../../lib/sanity.js";
 import { buildSubarraysOfSize } from "../../lib/utils/buildSubarrays";
 import { optimizeImageLoading } from "../../lib/utils/image.js";
@@ -249,21 +248,24 @@ export default function IssuesList({ initialItemData, initialFeaturedItems, init
       .catch(console.error);
   };
 
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    if (entries[0].intersectionRatio === 0) return;
-    loadItems(4);
-  });
-
   useEffect(() => {
-    const currentElement = document.querySelector(".more");
-    if (currentElement) {
-      intersectionObserver.observe(currentElement);
-    }
-    return () => {
+    // Check if we're in the browser and IntersectionObserver is available
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const intersectionObserver = new IntersectionObserver((entries) => {
+        if (entries[0].intersectionRatio === 0) return;
+        loadItems(4);
+      });
+
+      const currentElement = document.querySelector(".more");
       if (currentElement) {
-        intersectionObserver.unobserve(currentElement);
+        intersectionObserver.observe(currentElement);
       }
-    };
+      return () => {
+        if (currentElement) {
+          intersectionObserver.unobserve(currentElement);
+        }
+      };
+    }
   });
 
   if (!itemData || !featuredItems) {
@@ -323,7 +325,7 @@ export default function IssuesList({ initialItemData, initialFeaturedItems, init
                                 ></img>
                               </div>
                               <div className="lowerInfo">
-                                <Themed.h3>{bigIssue.title}</Themed.h3>
+                                <h3 sx={{ variant: "styles.h3" }}>{bigIssue.title}</h3>
                                 <Link href={"/issues/" + bigIssue.slug.current}>
                                   <div className="readFullIssueBig">
                                     <span>&#8594;</span>&nbsp;
@@ -358,7 +360,7 @@ export default function IssuesList({ initialItemData, initialFeaturedItems, init
                             alt="Issue cover"
                           ></img>
                           <div className="lowerInfo2">
-                            <Themed.h4>{smallIssue.title}</Themed.h4>
+                            <h4 sx={{ variant: "styles.h4" }}>{smallIssue.title}</h4>
                           </div>
                         </div>
                       </Link>

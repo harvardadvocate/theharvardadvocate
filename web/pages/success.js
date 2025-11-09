@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import { theme } from "../src/theme/theme.js";
 import { useIsMobile } from "../lib/utils/isMobile.js";
 import { useEffect } from "react";
@@ -122,13 +121,13 @@ export default function Subscribe() {
         <div className="mainContent">
           <div className="mainText">
             {isMobile ? (
-              <Themed.h3>
+              <h3 sx={{ variant: "styles.h3" }}>
                 Thank you for subscribing to the Harvard Advocate!
-              </Themed.h3>
+              </h3>
             ) : (
-              <Themed.h2>
+              <h2 sx={{ variant: "styles.h2" }}>
                 Thank you for subscribing to the Harvard Advocate!
-              </Themed.h2>
+              </h2>
             )}
             <p align="center">
               We can't wait to get the next issue in your hands.

@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -54,7 +53,7 @@ export default function About() {
         ]}
       >
         <div className="aboutBody">
-          <Themed.p>
+          <p sx={{ variant: "styles.p" }}>
             The Harvard Advocate, founded in 1866, is the oldest continuously
             published collegiate literary magazine in the country. Over its long
             history, it can count T.S. Eliot, Conrad Aiken, and Norman Mailer
@@ -93,7 +92,7 @@ export default function About() {
             <br />
             The Harvard Advocate can be reached at 21 South Street, Cambridge,
             and at president@theharvardadvocate.com
-          </Themed.p>
+          </p>
           <div className="image">
             <img src="/about.jpg" loading="lazy" alt="Advocate House Drawing" />
             <figcaption>

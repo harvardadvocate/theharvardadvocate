@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -59,7 +58,7 @@ export default function Comp() {
         ]}
       >
         <div className="compBody">
-          <Themed.p>
+          <p sx={{ variant: "styles.p" }}>
             <i>Interested in Fall 2025 Comp?</i>
             <br />
             <br />
@@ -114,7 +113,7 @@ export default function Comp() {
             <br />
             The Harvard Advocate can be reached at 21 South Street, Cambridge,
             and at president@theharvardadvocate.com
-          </Themed.p>
+          </p>
 
           <div className="image">
             <img

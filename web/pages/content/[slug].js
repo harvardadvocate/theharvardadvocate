@@ -5,7 +5,6 @@ import Link from "next/link";
 import sanityClient from "../../lib/sanity.js";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
-import { Themed } from "theme-ui";
 
 import ContentFrame from "../../src/components/ContentFrame";
 import ColorRingLoader from "../../src/components/LoadingRing.js";
@@ -62,7 +61,7 @@ function urlFor(source) {
 // // `components` object passed to PortableText
 const customComponents = {
   block: {
-    normal: ({ children }) => <Themed.p>{children}</Themed.p>,
+    normal: ({ children }) => <p sx={{ variant: "styles.p" }}>{children}</p>,
     h1: ({ children }) => <h1>{children}</h1>,
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
@@ -71,6 +70,7 @@ const customComponents = {
     h6: ({ children }) => <h6>{children}</h6>,
     blockquote: ({ children }) => <blockquote>{children}</blockquote>,
     pre: ({ children }) => <pre>{children}</pre>,
+    code: ({ children }) => <pre><code>{children}</code></pre>,
   },
   list: {
     bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
@@ -133,7 +133,7 @@ export default function ContentItem({ itemData }) {
 
   if (!itemData) return <ColorRingLoader />;
 
-  const thumbnailUrl = itemData.mainImage == null ? "https://i.imgur.com/6OVMP6v.jpg" : itemData.mainImage.asset.url;
+  const thumbnailUrl = itemData.mainImage?.asset?.url || "https://i.imgur.com/6OVMP6v.jpg";
 
   return (
 
@@ -144,10 +144,10 @@ export default function ContentItem({ itemData }) {
         <title>{itemData.title}</title>
         <meta name='title' property="og:title" content={itemData.title} />
         <meta name='description' property="og:description" content={
-          itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
+          itemData.title + (itemData.authors?.length > 0 ? " by " + itemData.authors[0].name : "") + " for The Harvard Advocate, the art and literary magazine of Harvard College."
           }  />
         <meta name='twitter:description' content={
-          itemData.title + " by " + itemData.authors[0].name + " for The Harvard Advocate, the art and literary magazine of Harvard College."
+          itemData.title + (itemData.authors?.length > 0 ? " by " + itemData.authors[0].name : "") + " for The Harvard Advocate, the art and literary magazine of Harvard College."
           }  />
         <meta name='twitter:title' content={itemData.title} />
         <meta
@@ -169,65 +169,73 @@ export default function ContentItem({ itemData }) {
               name: "Sections",
               slug: "/sections",
             },
-            {
+            ...(itemData.sections?.length > 0 ? [{
               name: itemData.sections[0].title,
               slug: "/sections/" + itemData.sections[0].slug.current,
-            },
+            }] : []),
             { name: itemData.title, slug: "/content/" + itemData.slug.current },
           ]}
         >
             <div className="contentHeader">
               <div className="topLine">
-                <Themed.h5>
+                <h5 sx={{ variant: "styles.h5" }}>
 
-                {itemData.sections[0].title === 'Notes' ?
+                {itemData.sections?.length > 0 && itemData.sections[0].title === 'Notes' ?
                   <Link href={"/sections/" + itemData.sections[0].slug.current}>
                     {itemData.sections[0].title}
                   </Link>:
 
-                  <div>
-                    <Link href={"/sections/" + itemData.sections[0].slug.current}>
-                      {itemData.sections[0].title}
-                    </Link>•{" "}
-                    <Link href={"/issues/" + itemData.issue.slug.current}>
-                    {itemData.issue.title} Issue{" "}
-                    </Link>
-                  </div>
-
+                  itemData.sections?.length > 0 ? (
+                    <div>
+                      <Link href={"/sections/" + itemData.sections[0].slug.current}>
+                        {itemData.sections[0].title}
+                      </Link>
+                      {itemData.issue && (
+                        <>
+                          •{" "}
+                          <Link href={"/issues/" + itemData.issue.slug.current}>
+                            {itemData.issue.title} Issue{" "}
+                          </Link>
+                        </>
+                      )}
+                    </div>
+                  ) : null
                 }
 
 
 
-              </Themed.h5>
+              </h5>
             </div>
             <div className="title">
-              <Themed.h1>{itemData.title}</Themed.h1>
+              <h1 sx={{ variant: "styles.h1" }}>{itemData.title}</h1>
             </div>
             <div className="authors">
-              <Themed.h3>
-                By{" "}
-                {itemData.authors.map((author, i) => (
-                  <>
-                    {i !== 0 && ", "}
-                    <Link href={"/authors/" + author.slug.current}>
-                      {author.name}
-                    </Link>
-                  </>
-                ))}
-              </Themed.h3>
+              {itemData.authors?.length > 0 && (
+                <h3 sx={{ variant: "styles.h3" }}>
+                  By{" "}
+                  {itemData.authors.map((author, i) => (
+                    <>
+                      {i !== 0 && ", "}
+                      <Link href={"/authors/" + author.slug.current}>
+                        {author.name}
+                      </Link>
+                    </>
+                  ))}
+                </h3>
+              )}
             </div>
             <div className="dateShareContainer">
               <div className="date">
-                <Themed.h5>
-                </Themed.h5>
+                <h5 sx={{ variant: "styles.h5" }}>
+                </h5>
               </div>
               <div className="share">
                 {isLinkCopied ? (
-                  <Themed.h5>
+                  <h5 sx={{ variant: "styles.h5" }}>
                     <i>Link Copied</i>
-                  </Themed.h5> // change button text to "Link Copied" when the link is copied
+                  </h5> // change button text to "Link Copied" when the link is copied
                 ) : (
-                  <Themed.h5 onClick={handleShareClick}>Share</Themed.h5> // add onClick event handler to the "Share" button
+                  <h5 sx={{ variant: "styles.h5" }} onClick={handleShareClick}>Share</h5> // add onClick event handler to the "Share" button
                 )}
               </div>
             </div>
@@ -252,17 +260,19 @@ export default function ContentItem({ itemData }) {
             :
             ""}
             {itemData.images &&
-              itemData.images.map((image, i) => (
-              itemData.sections[0].title === "Art" ? (
-                // <img src={image.asset.url} key={i} alt="" />
-                <Zoom src={image.asset.url}></Zoom>
-                ) : (
-                <img key={i} src={image.asset.url} alt="" />
-                )
-              ))}
-            {!itemData.images && itemData.mainImage ? (
-              itemData.sections[0].title === "Art" ? (
-              <Zoom src={itemData.mainImage.asset.url}></Zoom>
+              itemData.images.map((image, i) =>
+                image?.asset?.url ? (
+                  itemData.sections?.length > 0 && itemData.sections[0].title === "Art" ? (
+                    // <img src={image.asset.url} key={i} alt="" />
+                    <Zoom key={i} src={image.asset.url}></Zoom>
+                  ) : (
+                    <img key={i} src={image.asset.url} alt="" />
+                  )
+                ) : null
+              )}
+            {!itemData.images && itemData.mainImage?.asset?.url ? (
+              itemData.sections?.length > 0 && itemData.sections[0].title === "Art" ? (
+                <Zoom src={itemData.mainImage.asset.url}></Zoom>
               ) : (
                 <img src={itemData.mainImage.asset.url} alt="" />
               )

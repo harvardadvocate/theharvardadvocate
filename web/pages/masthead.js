@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -39,7 +38,7 @@ export default function Masthead() {
         ]}
       >
         <div className="mastheadBody">
-          <Themed.p>
+          <p sx={{ variant: "styles.p" }}>
             <i align="center">
               Frank Y.C. Liu '26, President
               <br />
@@ -141,7 +140,7 @@ export default function Masthead() {
               Jean Strouse
               <br />
             </i>
-          </Themed.p>
+          </p>
         </div>
       </Frame>
     </div>

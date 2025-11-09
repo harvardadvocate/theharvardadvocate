@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -89,7 +88,7 @@ export default function Donate() {
 
 
 
-          <Themed.p>
+          <p sx={{ variant: "styles.p" }}>
             <i>Thank you for considering a donation to The Harvard Advocate!</i>
             <br />
             <br />
@@ -117,7 +116,7 @@ export default function Donate() {
                 Click here to donate
               </a>
             </div>
-          </Themed.p>
+          </p>
 
           <div className="image">
             <img

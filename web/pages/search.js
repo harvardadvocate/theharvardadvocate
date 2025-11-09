@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import TextContentList from "../src/components/TextContentList.js";
 import ImageContentGrid from "../src/components/ImageContentGrid.js";
 import sanityClient from "../lib/sanity.js";
-import { Themed } from "theme-ui";
 import rightArrow from "../src/assets/images/right-arrow.svg";
 import SectionFrame from "../src/components/SectionFrame";
 import Frame from "../src/components/Frame";

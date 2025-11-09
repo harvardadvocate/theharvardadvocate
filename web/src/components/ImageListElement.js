@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import Link from "next/link";
-import { Themed } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { optimizeImageLoading } from "../utils/image.js";
 
@@ -101,7 +100,7 @@ export default function ImageListElement(props) {
             ) : null}
           </div>
           <div>
-            <Themed.h3 style={{ color: headerColor }}>
+            <h3 sx={{ variant: "styles.h3" }} style={{ color: headerColor }}>
               {props.home && (
                 <React.Fragment>
                   {" "}
@@ -113,8 +112,8 @@ export default function ImageListElement(props) {
               <div className="fontMod">
 
               </div>
-            </Themed.h3>
-            <Themed.h2><div className="fontMod">{props.item.title}</div></Themed.h2>
+            </h3>
+            <h2 sx={{ variant: "styles.h2" }}><div className="fontMod">{props.item.title}</div></h2>
           </div>
           <div>
             {"authors" in props.item &&
@@ -122,13 +121,13 @@ export default function ImageListElement(props) {
                 ""
               ) : (
                 <div className="authorName">
-                  <Themed.p>
+                  <p sx={{ variant: "styles.p" }}>
                     By{" "}
                     {
                       //TODO: link to author page
                     }
                     {props.item.authors.map(({ name }) => name).join(", ")}
-                  </Themed.p>
+                  </p>
                 </div>
               ))}
           </div>

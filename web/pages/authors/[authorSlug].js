@@ -1,12 +1,12 @@
 /** @jsxImportSource theme-ui */
 import Head from "next/head";
-import { Themed } from "theme-ui";
 import Link from "next/link";
 import Frame from "../../src/components/Frame";
 import rightArrow from "../../src/assets/images/right-arrow.svg";
 import sanityClient from "../../lib/sanity.js";
 import imageUrlBuilder from "@sanity/image-url";
 import { unionBy } from "lodash";
+import { PortableText } from "@portabletext/react";
 import TextContentList from "../../src/components/TextContentList.js";
 import ImageContentGrid from "../../src/components/ImageContentGrid.js";
 import ColorRingLoader from "../../src/components/LoadingRing.js";
@@ -29,6 +29,41 @@ const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
 }
+
+// PortableText components for author bio
+const bioComponents = {
+  block: {
+    normal: ({ children }) => <p sx={{ variant: "styles.p" }}>{children}</p>,
+    h1: ({ children }) => <h1>{children}</h1>,
+    h2: ({ children }) => <h2>{children}</h2>,
+    h3: ({ children }) => <h3>{children}</h3>,
+    h4: ({ children }) => <h4>{children}</h4>,
+    h5: ({ children }) => <h5>{children}</h5>,
+    h6: ({ children }) => <h6>{children}</h6>,
+    blockquote: ({ children }) => <blockquote>{children}</blockquote>,
+    code: ({ children }) => <pre><code>{children}</code></pre>,
+  },
+  marks: {
+    em: ({ children }) => <em>{children}</em>,
+    strong: ({ children }) => <strong>{children}</strong>,
+    center: ({ children }) => <div style={{ textAlign: 'center' }}>{children}</div>,
+    link: ({ value, children }) => {
+      const target = (value?.href || "").startsWith("http") ? "_blank" : undefined;
+      return (
+        <a href={value?.href} target={target} rel={target === "_blank" && "noindex nofollow"}>
+          {children}
+        </a>
+      );
+    },
+    sup: ({ children }) => <sup>{children}</sup>,
+    sub: ({ children }) => <sub>{children}</sub>,
+    underline: ({ children }) => <u>{children}</u>,
+    strikethrough: ({ children }) => <s>{children}</s>,
+  },
+  types: {
+    image: ({ value }) => <img src={urlFor(value).url()} alt="" />,
+  },
+};
 
 export default function Author({ authorData, authoredItems, sections }) {
   if (!authorData) return <ColorRingLoader />;
@@ -54,7 +89,16 @@ export default function Author({ authorData, authoredItems, sections }) {
           {authorData.image && (
             <img src={urlFor(authorData.image).width(200).url()} alt="" />
           )}
-          <Themed.p>{authorData.bio}</Themed.p>
+          {authorData.bio && (
+            typeof authorData.bio === 'string' ? (
+              <p sx={{ variant: "styles.p" }}>{authorData.bio}</p>
+            ) : (
+              <PortableText
+                value={authorData.bio}
+                components={bioComponents}
+              />
+            )
+          )}
         </div>
         {sections &&
           sections.map((section) => {
@@ -65,7 +109,7 @@ export default function Author({ authorData, authoredItems, sections }) {
               <div key={section.title}>
                 <div className="sectionHeader">
                   <Link href={"/sections/" + section.slug.current}>
-                    <Themed.h2> {section.title} </Themed.h2>
+                    <h2 sx={{ variant: "styles.h2" }}> {section.title} </h2>
                   </Link>
                   <img src={rightArrow} alt="right-arrow" />
                 </div>

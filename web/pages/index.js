@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import { sanityClient } from "../lib/sanity.js";
 import { getResources } from "../lib/queries/homepage.js";
@@ -198,7 +197,7 @@ export default function Homepage({
             <div className="archiveHeader">
               <br></br>
               <div className="announcement">
-                <Themed.h2>
+                <h2 sx={{ variant: "styles.h2" }}>
                   <i>
                     &#9654; We mourn the passing of Advocate trustee{" "}
                     <a href="https://theharvardadvocate.com/content/remembering-trustee-charlie-atkinson">
@@ -206,7 +205,7 @@ export default function Homepage({
                     </a>
                   </i>
                   .
-                </Themed.h2>
+                </h2>
               </div>
               <hr />
             </div>
@@ -241,18 +240,18 @@ export default function Homepage({
             <div className="blog">
               <div className="blogHeader">
                 <hr />
-                <Themed.h2>
+                <h2 sx={{ variant: "styles.h2" }}>
                   <div className="fontMod">
                     <a href="sections/notes/">Notes from 21 South Street</a>
                   </div>
-                </Themed.h2>
+                </h2>
                 <hr />
-                <Themed.p>
+                <p sx={{ variant: "styles.p" }}>
                   <i>
                     The fresh online pieces we experiment with outside of our
                     print cycle. Formerly known as Blog.
                   </i>
-                </Themed.p>
+                </p>
                 {isMobile ? <hr /> : ""}
               </div>
               <TextContentList
@@ -329,9 +328,9 @@ export default function Homepage({
             <div className="fromTheArchives">
               <div className="archiveHeader">
                 <hr />
-                <Themed.h2>
+                <h2 sx={{ variant: "styles.h2" }}>
                   <div className="fontMod">From the Archives</div>
-                </Themed.h2>
+                </h2>
                 <hr />
               </div>
               <TextContentList

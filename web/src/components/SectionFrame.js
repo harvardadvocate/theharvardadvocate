@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect } from "react";
-import { Themed } from "theme-ui";
 
 const sectionFrameSx = {
   ".fontMod": 
@@ -67,14 +66,14 @@ export default function SectionFrame(props) {
         <div className="header">
           <div className="headerNormal">
             {/* <div className="fontMod"> */}
-              <Themed.h2>{
+              <h2 sx={{ variant: "styles.h2" }}>{
                 <div className="fontMod">
 
                 {props.path[0].name === "Notes" ? "Notes from 21 South Street" : props.path[0].name}
 
               </div>
-              
-              }</Themed.h2>
+
+              }</h2>
             {/* </div> */}
           </div>
         </div>

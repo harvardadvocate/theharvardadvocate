@@ -55,21 +55,24 @@ export default function Section({ initialItems, sectionTitle, sectionSlug }) {
       .catch(console.error);
   };
 
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    if (entries[0].intersectionRatio === 0) return;
-    loadItems(9);
-  });
-
   useEffect(() => {
-    const currentElement = document.querySelector(".more");
-    if (currentElement) {
-      intersectionObserver.observe(currentElement);
-    }
-    return () => {
+    // Check if we're in the browser and IntersectionObserver is available
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const intersectionObserver = new IntersectionObserver((entries) => {
+        if (entries[0].intersectionRatio === 0) return;
+        loadItems(9);
+      });
+
+      const currentElement = document.querySelector(".more");
       if (currentElement) {
-        intersectionObserver.unobserve(currentElement);
+        intersectionObserver.observe(currentElement);
       }
-    };
+      return () => {
+        if (currentElement) {
+          intersectionObserver.unobserve(currentElement);
+        }
+      };
+    }
   });
 
   if (!items) {

@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { Themed } from "theme-ui";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -92,7 +91,7 @@ export default function Submit() {
         ]}
       >
         <div className="submitBody">
-          <Themed.p>
+          <p sx={{ variant: "styles.p" }}>
             The Harvard Advocate accepts submissions of art, fiction, and poetry
             of any form or length created by members of the Harvard community,
             as well as outside contributors at our discretion. All submissions
@@ -100,7 +99,7 @@ export default function Submit() {
             <br />
             <br />
             <hr />
-            <Themed.h2>Spring 2026 Issue</Themed.h2>
+            <h2 sx={{ variant: "styles.h2" }}>Spring 2026 Issue</h2>
             <hr />
             <p align="left">
             FEAR has an odd directionality. At times it emerges from within, a frenzy of unease that clings
@@ -228,7 +227,7 @@ be lovers of danger in an age of fear? The Advocate, too, is trembling, and so i
             <br />
             You can submit your work through the link above, or by emailing
             art@theharvardadvocate.com
-          </Themed.p>
+          </p>
           <div className="image">
             <img
               src="/submit.jpeg"
