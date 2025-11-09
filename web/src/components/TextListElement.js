@@ -133,7 +133,7 @@ function urlFor(source) {
 const customComponents = {
   block: {
     normal: ({ children }) => <p sx={{ variant: "styles.p" }}>{children}</p>,
-    code: ({ children }) => <pre><code>{children}</code></pre>,
+    code: ({ children }) => <p sx={{ variant: "styles.p", lineHeight: 0.75 }}>{children}</p>,
   },
   marks: {
     center: ({ children }) => <div className="centerText">{children}</div>,

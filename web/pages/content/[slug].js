@@ -71,7 +71,7 @@ const customComponents = {
     h6: ({ children }) => <h6>{children}</h6>,
     blockquote: ({ children }) => <blockquote>{children}</blockquote>,
     pre: ({ children }) => <pre>{children}</pre>,
-    code: ({ children }) => <pre><code>{children}</code></pre>,
+    code: ({ children }) => <p sx={{ variant: "styles.p", lineHeight: 0.75 }}>{children}</p>,
   },
   list: {
     bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
