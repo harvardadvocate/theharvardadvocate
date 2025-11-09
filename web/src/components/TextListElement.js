@@ -140,7 +140,7 @@ const customComponents = {
     sub: ({ children }) => <sub>{children}</sub>,
   },
   types: {
-    image: ({ value }) => <img src={urlFor(value).url()} alt="" />,
+    image: ({ value }) => <img src={urlFor(value).url()} alt={value.alt || "Content image"} />,
   },
 };
 

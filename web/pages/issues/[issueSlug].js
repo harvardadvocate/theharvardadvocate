@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import sanityClient from "../../lib/sanity.js";
 import SectionFrame from "../../src/components/SectionFrame";
 import MixedGrid from "../../src/components/MixedGrid";
@@ -208,11 +208,31 @@ export default function Issue({ issue, items, sections }) {
     textContent = [].concat.apply([], Object.values(contentItemsBySection));
   }
 
+  const issueUrl = `https://theharvardadvocate.com/issues/${issue.slug.current}`;
+  const issueCoverUrl = issue.frontCover?.asset?.url || "https://i.imgur.com/6OVMP6v.jpg";
+  const description = `${issue.title} Issue of The Harvard Advocate. Browse articles, art, poetry, and fiction from this edition.`;
+
   return (
     <div css={issueSx}>
-      <Head>
-        <title>{issue.title}</title>
-      </Head>
+      <NextSeo
+        title={`${issue.title} Issue`}
+        description={description}
+        canonical={issueUrl}
+        openGraph={{
+          type: 'website',
+          url: issueUrl,
+          title: `${issue.title} Issue`,
+          description: description,
+          images: [
+            {
+              url: issueCoverUrl,
+              width: 800,
+              height: 1200,
+              alt: `Cover of ${issue.title} Issue`,
+            },
+          ],
+        }}
+      />
 
       <SectionFrame
         path={[
@@ -220,6 +240,9 @@ export default function Issue({ issue, items, sections }) {
           { name: issue.title, slug: "/issues/" + issue.slug.current },
         ]}
       >
+        <h1 sx={{ variant: "styles.h1" }} style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
+          {issue.title} Issue - The Harvard Advocate
+        </h1>
         <div
           className="issueContainer"
           css={useGridTop ? topGridCSS : topCSSNoGrid}
@@ -228,7 +251,7 @@ export default function Issue({ issue, items, sections }) {
             <img
               src={optimizeImageLoading(issue.frontCover.asset.url)}
               loading="lazy"
-              alt=""
+              alt={`Cover of ${issue.title} Issue`}
             />
           </div>
           {useGridTop ? (

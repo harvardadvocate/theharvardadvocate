@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Frame from "../../src/components/Frame";
 import rightArrow from "../../src/assets/images/right-arrow.svg";
@@ -10,6 +10,7 @@ import { PortableText } from "@portabletext/react";
 import TextContentList from "../../src/components/TextContentList.js";
 import ImageContentGrid from "../../src/components/ImageContentGrid.js";
 import ColorRingLoader from "../../src/components/LoadingRing.js";
+import { createPersonSchema } from "../../lib/seo/schemas.js";
 
 const authorSx = {
   ".authorHeader": {
@@ -61,18 +62,62 @@ const bioComponents = {
     strikethrough: ({ children }) => <s>{children}</s>,
   },
   types: {
-    image: ({ value }) => <img src={urlFor(value).url()} alt="" />,
+    image: ({ value }) => <img src={urlFor(value).url()} alt={value.alt || "Author bio image"} />,
   },
 };
 
 export default function Author({ authorData, authoredItems, sections }) {
   if (!authorData) return <ColorRingLoader />;
 
+  const authorUrl = `https://theharvardadvocate.com/authors/${authorData.slug.current}`;
+  const authorImageUrl = authorData.image ? urlFor(authorData.image).width(400).url() : null;
+  const bioText = typeof authorData.bio === 'string' ? authorData.bio :
+    'Author for The Harvard Advocate, America\'s oldest continuously published college literary magazine.';
+
+  // Generate Person Schema
+  const personSchema = createPersonSchema({
+    name: authorData.name,
+    url: authorUrl,
+    image: authorImageUrl,
+    description: bioText,
+    worksFor: {
+      "@type": "Organization",
+      "name": "The Harvard Advocate",
+      "url": "https://theharvardadvocate.com"
+    }
+  });
+
   return (
     <div sx={authorSx}>
-      <Head>
-        <title>{authorData.name}</title>
-      </Head>
+      <NextSeo
+        title={authorData.name}
+        description={bioText.length > 160 ? bioText.substring(0, 157) + '...' : bioText}
+        canonical={authorUrl}
+        openGraph={{
+          type: 'profile',
+          url: authorUrl,
+          title: authorData.name,
+          description: bioText,
+          images: authorImageUrl ? [
+            {
+              url: authorImageUrl,
+              width: 400,
+              height: 400,
+              alt: `Portrait of ${authorData.name}`,
+            },
+          ] : [],
+          profile: {
+            firstName: authorData.name.split(' ')[0],
+            lastName: authorData.name.split(' ').slice(1).join(' '),
+          },
+        }}
+      />
+
+      {/* Person Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
 
       <Frame
         path={[
@@ -86,8 +131,9 @@ export default function Author({ authorData, authoredItems, sections }) {
         ]}
       >
         <div className="authorBio">
+          <h1 sx={{ variant: "styles.h1" }}>{authorData.name}</h1>
           {authorData.image && (
-            <img src={urlFor(authorData.image).width(200).url()} alt="" />
+            <img src={urlFor(authorData.image).width(200).url()} alt={`Portrait of ${authorData.name}`} />
           )}
           {authorData.bio && (
             typeof authorData.bio === 'string' ? (

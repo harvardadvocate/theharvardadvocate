@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import TextContentList from "../../src/components/TextContentList.js";
 import sanityClient from "../../lib/sanity.js";
 import SectionFrame from "../../src/components/SectionFrame";
@@ -79,11 +79,30 @@ export default function Section({ initialItems, sectionTitle, sectionSlug }) {
     return <ColorRingLoader />;
   }
 
+  const sectionUrl = `https://theharvardadvocate.com/sections/${sectionSlug}`;
+  const sectionDescriptions = {
+    'art': 'Visual art featured in The Harvard Advocate - paintings, illustrations, photography, and digital art.',
+    'fiction': 'Original short stories and fiction pieces from The Harvard Advocate.',
+    'features': 'In-depth articles, essays, and features from The Harvard Advocate.',
+    'poetry': 'Poetry and verse published by The Harvard Advocate.',
+    'notes': 'Notes from 21 South Street - fresh online pieces we experiment with outside of our print cycle.',
+  };
+  const description = sectionDescriptions[sectionSlug.toLowerCase()] ||
+    `${sectionTitle} section of The Harvard Advocate, America's oldest continuously published college literary magazine.`;
+
   return (
     <div sx={sectionSx}>
-      <Head>
-        <title>{sectionTitle}</title>
-      </Head>
+      <NextSeo
+        title={sectionTitle}
+        description={description}
+        canonical={sectionUrl}
+        openGraph={{
+          type: 'website',
+          url: sectionUrl,
+          title: `${sectionTitle} - The Harvard Advocate`,
+          description: description,
+        }}
+      />
 
       <SectionFrame
         path={[
@@ -93,6 +112,9 @@ export default function Section({ initialItems, sectionTitle, sectionSlug }) {
           },
         ]}
       >
+        <h1 sx={{ variant: "styles.h1" }} style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
+          {sectionTitle} - The Harvard Advocate
+        </h1>
 
 
 

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { useState } from "react";
-import Head from "next/head";
+import { NextSeo, ArticleJsonLd } from "next-seo";
 import Link from "next/link";
 import sanityClient from "../../lib/sanity.js";
 import { PortableText } from "@portabletext/react";
@@ -11,6 +11,7 @@ import ColorRingLoader from "../../src/components/LoadingRing.js";
 import Zoom from "../../src/components/Zoom";
 import Vimeo from '@u-wave/react-vimeo';
 import { useIsMobile } from "../../src/utils/isMobile.js";
+import { createArticleSchema, createBreadcrumbSchema } from "../../lib/seo/schemas.js";
 
 
 const contentItemSx = {
@@ -108,7 +109,7 @@ const customComponents = {
     strikethrough: ({ children }) => <s>{children}</s>,
   },
   types: {
-    image: ({ value }) => <img src={urlFor(value).url()} alt="" />,
+    image: ({ value }) => <img src={urlFor(value).url()} alt={value.alt || "Article image"} />,
     callToAction: ({ value, isInline }) =>
       isInline ? (
         <a href={value.url}>{value.text}</a>
@@ -134,32 +135,73 @@ export default function ContentItem({ itemData }) {
   if (!itemData) return <ColorRingLoader />;
 
   const thumbnailUrl = itemData.mainImage?.asset?.url || "https://i.imgur.com/6OVMP6v.jpg";
+  const articleUrl = `https://theharvardadvocate.com/content/${itemData.slug.current}`;
+  const description = itemData.title + (itemData.authors?.length > 0 ? " by " + itemData.authors[0].name : "") + " for The Harvard Advocate, the art and literary magazine of Harvard College.";
+
+  // Generate Article Schema
+  const articleSchema = createArticleSchema({
+    title: itemData.title,
+    description: description,
+    authors: itemData.authors || [],
+    publishedDate: itemData.publishedAt,
+    modifiedDate: itemData._updatedAt,
+    imageUrl: thumbnailUrl,
+    url: articleUrl,
+    sections: itemData.sections || [],
+  });
+
+  // Generate Breadcrumb Schema
+  const breadcrumbSchema = itemData.sections?.length > 0 ? createBreadcrumbSchema([
+    { name: "Home", url: "https://theharvardadvocate.com" },
+    { name: "Sections", url: "https://theharvardadvocate.com/sections" },
+    { name: itemData.sections[0].title, url: `https://theharvardadvocate.com/sections/${itemData.sections[0].slug.current}` },
+    { name: itemData.title, url: articleUrl },
+  ]) : null;
 
   return (
-
-
     <div>
+      <NextSeo
+        title={itemData.title}
+        description={description}
+        canonical={articleUrl}
+        openGraph={{
+          type: 'article',
+          url: articleUrl,
+          title: itemData.title,
+          description: description,
+          images: [
+            {
+              url: thumbnailUrl,
+              width: 1200,
+              height: 630,
+              alt: itemData.title,
+            },
+          ],
+          article: {
+            publishedTime: itemData.publishedAt,
+            modifiedTime: itemData._updatedAt,
+            section: itemData.sections?.length > 0 ? itemData.sections[0].title : undefined,
+            authors: itemData.authors?.map(author => `https://theharvardadvocate.com/authors/${author.slug.current}`),
+          },
+        }}
+        twitter={{
+          cardType: thumbnailUrl ? 'summary_large_image' : 'summary',
+        }}
+      />
 
-      <Head>
-        <title>{itemData.title}</title>
-        <meta name='title' property="og:title" content={itemData.title} />
-        <meta name='description' property="og:description" content={
-          itemData.title + (itemData.authors?.length > 0 ? " by " + itemData.authors[0].name : "") + " for The Harvard Advocate, the art and literary magazine of Harvard College."
-          }  />
-        <meta name='twitter:description' content={
-          itemData.title + (itemData.authors?.length > 0 ? " by " + itemData.authors[0].name : "") + " for The Harvard Advocate, the art and literary magazine of Harvard College."
-          }  />
-        <meta name='twitter:title' content={itemData.title} />
-        <meta
-          name="image"
-          property="og:image"
-          content={thumbnailUrl}
+      {/* Article Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
+      {/* Breadcrumb Structured Data */}
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
-        <meta
-          name="twitter:image"
-          content={thumbnailUrl}
-        />
-      </Head>
+      )}
 
       <div sx={contentItemSx}>
 
@@ -263,18 +305,18 @@ export default function ContentItem({ itemData }) {
               itemData.images.map((image, i) =>
                 image?.asset?.url ? (
                   itemData.sections?.length > 0 && itemData.sections[0].title === "Art" ? (
-                    // <img src={image.asset.url} key={i} alt="" />
-                    <Zoom key={i} src={image.asset.url}></Zoom>
+                    // <img src={image.asset.url} key={i} alt={`Artwork: ${itemData.title}`} />
+                    <Zoom key={i} src={image.asset.url} alt={`Artwork: ${itemData.title}`}></Zoom>
                   ) : (
-                    <img key={i} src={image.asset.url} alt="" />
+                    <img key={i} src={image.asset.url} alt={itemData.title} />
                   )
                 ) : null
               )}
             {!itemData.images && itemData.mainImage?.asset?.url ? (
               itemData.sections?.length > 0 && itemData.sections[0].title === "Art" ? (
-                <Zoom src={itemData.mainImage.asset.url}></Zoom>
+                <Zoom src={itemData.mainImage.asset.url} alt={`Artwork: ${itemData.title}`}></Zoom>
               ) : (
-                <img src={itemData.mainImage.asset.url} alt="" />
+                <img src={itemData.mainImage.asset.url} alt={itemData.title} />
               )
             ) : (
               ""

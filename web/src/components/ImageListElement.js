@@ -88,14 +88,14 @@ export default function ImageListElement(props) {
               <img
                 src={optimizeImageLoading(props.item.mainImage.asset.url)}
                 loading="lazy"
-                alt=""
+                alt={props.item.title}
               />
             ) : // TODO: better (more robust) check for this
             props.item.images && props.item.images[0] ? (
               <img
                 src={optimizeImageLoading(props.item.images[0].asset.url)}
                 loading="lazy"
-                alt=""
+                alt={props.item.title}
               />
             ) : null}
           </div>

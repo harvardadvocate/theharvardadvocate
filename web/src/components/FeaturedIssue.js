@@ -220,7 +220,7 @@ export default function FeaturedIssue(props) {
                   <img
                     src={optimizeImageLoading(issue.frontCover.asset.url)}
                     loading="lazy"
-                    alt=""
+                    alt={`Cover of ${issue.title} Issue`}
                   />
                 )}
               </Link>
@@ -316,7 +316,7 @@ export default function FeaturedIssue(props) {
                   <img
                     src={optimizeImageLoading(issue.frontCover.asset.url)}
                     loading="lazy"
-                    alt=""
+                    alt={`Cover of ${issue.title} Issue`}
                   />
                 )}
               </Link>

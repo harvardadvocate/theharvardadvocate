@@ -4,6 +4,8 @@ import { theme } from "../lib/theme/theme";
 import Sidebar from "../src/components/Sidebar";
 import Footer from "../src/components/Footer";
 import "../lib/theme/global.css";
+import { DefaultSeo } from 'next-seo';
+import { DEFAULT_SEO } from '../lib/seo/defaultSEO';
 
 const appSx = {
   display: "grid",
@@ -25,6 +27,7 @@ const appSx = {
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
+      <DefaultSeo {...DEFAULT_SEO} />
       <div>
         <div css={appSx}>
           <Sidebar />

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import Head from "next/head";
+import { NextSeo } from 'next-seo';
 import { sanityClient } from "../lib/sanity.js";
 import { getResources } from "../lib/queries/homepage.js";
 import { optimizeImageLoading } from "../lib/utils/image.js";
@@ -9,6 +9,7 @@ import MixedGrid from "../src/components/MixedGrid.js";
 import TextContentList from "../src/components/TextContentList.js";
 import { useIsMobile } from "../lib/utils/isMobile.js";
 import RandomUpdate from "../src/components/RandomUpdate.js";
+import { createOrganizationSchema, createWebSiteSchema } from "../lib/seo/schemas.js";
 
 const homepageSx = {
   ".fontMod": {
@@ -181,10 +182,41 @@ export default function Homepage({
 
   return (
     <>
-      <Head>
-        <title>The Harvard Advocate</title>
-      </Head>
+      <NextSeo
+        title="Home"
+        description="America's oldest continuously published college literary magazine. Read the latest poetry, fiction, art, and features from Harvard students and established writers."
+        canonical="https://theharvardadvocate.com"
+        openGraph={{
+          url: 'https://theharvardadvocate.com',
+          title: 'The Harvard Advocate',
+          description: "America's oldest continuously published college literary magazine",
+          images: [
+            {
+              url: 'https://theharvardadvocate.com/og-image.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'The Harvard Advocate',
+            },
+          ],
+        }}
+      />
+
+      {/* Organization Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(createOrganizationSchema()) }}
+      />
+
+      {/* WebSite Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(createWebSiteSchema()) }}
+      />
+
       <div css={homepageSx}>
+        <h1 style={{ position: 'absolute', left: '-10000px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
+          The Harvard Advocate - America's Oldest College Literary Magazine
+        </h1>
         <RandomUpdate onUpdate={handleUpdate} maxLength={fromTheArchivesContent.length} />
 
         <div className="horizontalContainer">
@@ -284,7 +316,7 @@ export default function Homepage({
                             instagramImages[2].image.asset.url
                           )}
                           loading="lazy"
-                          alt=""
+                          alt="The Harvard Advocate Instagram post"
                         ></img>
                       </div>
                       <div className="insta2">
@@ -293,7 +325,7 @@ export default function Homepage({
                             instagramImages[0].image.asset.url
                           )}
                           loading="lazy"
-                          alt=""
+                          alt="The Harvard Advocate Instagram post"
                         ></img>
                       </div>
                       <div className="insta3">
@@ -302,7 +334,7 @@ export default function Homepage({
                             instagramImages[1].image.asset.url
                           )}
                           loading="lazy"
-                          alt=""
+                          alt="The Harvard Advocate Instagram post"
                         ></img>
                       </div>
                     </div>
