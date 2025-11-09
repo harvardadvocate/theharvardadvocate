@@ -18,6 +18,7 @@ const textContentListSx = {
     display: "grid",
     gridTemplateRows: "1fr",
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    alignItems: "start",
     paddingBottom: "1vh",
     paddingTop: "1vh",
     width: "100%",
@@ -26,6 +27,7 @@ const textContentListSx = {
   ".articleItem, .articleItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
+    flexDirection: "column",
   },
 
   ".articleItem:last-child": {
@@ -59,6 +61,7 @@ const textContentListSxVertical = {
   ".articleItem, .articleItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
+    flexDirection: "column",
   },
 
   ".articleItem:last-child, .articleItemNoLastBorder": {
