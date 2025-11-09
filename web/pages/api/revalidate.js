@@ -8,10 +8,12 @@ export default async function handler(req, res) {
     // Log the incoming webhook data for debugging
     console.log('Webhook received:', JSON.stringify(req.body, null, 2));
 
+    const slug = req.body?.slug?.current;
+    const type = req.body?._type;
+
     const revalidatedPaths = [];
 
     // Always revalidate main pages - this ensures content updates appear
-    // even if we can't determine the specific page that changed
     await res.revalidate('/');
     revalidatedPaths.push('/');
 
@@ -20,6 +22,30 @@ export default async function handler(req, res) {
 
     await res.revalidate('/sections');
     revalidatedPaths.push('/sections');
+
+    // Revalidate all major section pages since content can appear in multiple places
+    const sectionPages = ['/sections/art', '/sections/fiction', '/sections/features', '/sections/poetry', '/sections/notes'];
+    for (const path of sectionPages) {
+      try {
+        await res.revalidate(path);
+        revalidatedPaths.push(path);
+      } catch (err) {
+        // Page might not exist yet, continue
+        console.log(`Could not revalidate ${path}:`, err.message);
+      }
+    }
+
+    // If a specific content item is being updated, revalidate its page
+    if (slug && type === 'contentItem') {
+      try {
+        const path = `/content/${slug}`;
+        await res.revalidate(path);
+        revalidatedPaths.push(path);
+      } catch (err) {
+        // Page might not exist yet (new content), that's ok
+        console.log(`Could not revalidate /content/${slug}:`, err.message);
+      }
+    }
 
     console.log('Successfully revalidated paths:', revalidatedPaths);
 
