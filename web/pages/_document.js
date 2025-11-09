@@ -8,6 +8,9 @@ export default function Document() {
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#000000" />
 
+        {/* Font Loading */}
+        <link href="https://db.onlinewebfonts.com/c/d1c51727db68ef981e554754d623c268?family=Bernhard+Gothic+Medium" rel="stylesheet" />
+
         {/* SEO Meta Tags */}
         <meta name="title" property="og:title" content="The Harvard Advocate" />
         <meta
