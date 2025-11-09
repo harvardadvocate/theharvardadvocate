@@ -11,10 +11,7 @@ export default async function handler(req, res) {
     // Revalidate homepage
     await res.revalidate('/');
 
-    // Revalidate main pages
-    await res.revalidate('/about');
-    await res.revalidate('/contact');
-    await res.revalidate('/masthead');
+    // Revalidate main pages that use getStaticProps
     await res.revalidate('/issues');
     await res.revalidate('/sections');
 
