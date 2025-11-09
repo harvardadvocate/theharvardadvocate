@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { ThemeProvider } from "theme-ui";
+import { ThemeUIProvider } from "theme-ui";
 import { theme } from "../lib/theme/theme";
 import Sidebar from "../src/components/Sidebar";
 import Footer from "../src/components/Footer";
@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeUIProvider theme={theme}>
       <DefaultSeo {...DEFAULT_SEO} />
       <div>
         <div css={appSx}>
@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
       </div>
-    </ThemeProvider>
+    </ThemeUIProvider>
   );
 }
 

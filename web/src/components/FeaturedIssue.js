@@ -268,22 +268,23 @@ export default function FeaturedIssue(props) {
                 {featuredItems.slice(2, 4).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
-                      <Link href={"/content/" + article.slug.current}>
-                        <div className="articleLink">
-                          <h3 sx={{ variant: "styles.h3" }}>
-                            <b>{article.title}</b> <br />
-                            By{" "}
-                            {article.authors.map((author, i) => (
-                              <>
-                                {i !== 0 && ", "}
-                                <Link href={"/authors/" + author.slug.current}>
-                                  {author.name}
-                                </Link>{" "}
-                              </>
-                            ))}
-                          </h3>
-                        </div>
-                      </Link>
+                      <div className="articleLink">
+                        <h3 sx={{ variant: "styles.h3" }}>
+                          <Link href={"/content/" + article.slug.current}>
+                            <b>{article.title}</b>
+                          </Link>
+                          <br />
+                          By{" "}
+                          {article.authors.map((author, i) => (
+                            <span key={author._id || author.slug?.current || i}>
+                              {i !== 0 && ", "}
+                              <Link href={"/authors/" + author.slug.current}>
+                                {author.name}
+                              </Link>{" "}
+                            </span>
+                          ))}
+                        </h3>
+                      </div>
                     </div>
                   );
                 })}

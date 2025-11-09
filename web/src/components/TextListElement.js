@@ -142,41 +142,39 @@ export default function TextListItem(props) {
     <div css={props.home ? textListItemSx_home : textListItemSx}>
       <div css={props.padding ? padding : no_padding}>
 
-        <Link
-          href={"/content/" + props.item.slug.current}
-          key={props.item.slug.current}
-        >
-          <div className="listItem">
+        <div className="listItem" key={props.item.slug.current}>
           <h3 sx={{ variant: "styles.h3" }} color={headerColor}>
           {!props.home ? (
               <i>
                 {props.item.sections[0].title === "Notes" ? (
-                  <a style={{ color: headerColor }} href={"/sections/notes"}>
-                    Notes
-                  </a>
+                  <Link href="/sections/notes">
+                    <span style={{ color: headerColor }}>Notes</span>
+                  </Link>
                 ) : (
-                  <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
-                    {" " + props.item.issue.title}
-                  </a>
+                  <Link href={"/issues/" + props.item.issue.slug.current}>
+                    <span style={{ color: headerColor }}>{" " + props.item.issue.title}</span>
+                  </Link>
                 )}
               </i>
             ) : (
               <i>
-                <a style={{ color: headerColor }} href={"/sections/" + props.item.sections[0].slug.current}>
-                  {props.item.sections[0].title === "Notes" ? "Notes from 21 South Street" : props.item.sections[0].title}{" "}
-                </a>
+                <Link href={"/sections/" + props.item.sections[0].slug.current}>
+                  <span style={{ color: headerColor }}>
+                    {props.item.sections[0].title === "Notes" ? "Notes from 21 South Street" : props.item.sections[0].title}{" "}
+                  </span>
+                </Link>
                 •{" "}
-                <a style={{ color: headerColor }} href={"/issues/" + props.item.issue.slug.current}>
-                  {" " + props.item.issue.title}
-                </a>
+                <Link href={"/issues/" + props.item.issue.slug.current}>
+                  <span style={{ color: headerColor }}>{" " + props.item.issue.title}</span>
+                </Link>
               </i>
             )}
             </h3>
             <h2 sx={{ variant: "styles.h2" }}>
               <div className="fontMod">
-                <a href={"/content/" + props.item.slug.current}>
+                <Link href={"/content/" + props.item.slug.current}>
                   {props.item.title}
-                </a>
+                </Link>
               </div>
 
             </h2>
@@ -200,18 +198,17 @@ export default function TextListItem(props) {
                 <p sx={{ variant: "styles.p" }}>
                   By{" "}
                   {props.item.authors.map((author, i) => (
-                    <>
+                    <span key={author._id || author.slug?.current || i}>
                       {i !== 0 && ", "}
                       <Link href={"/authors/" + author.slug.current}>
                         {author.name}
                       </Link>
-                    </>
+                    </span>
                   ))}
                 </p>
               </div>
             )}
           </div>
-        </Link>
       </div>
     </div>
   );
