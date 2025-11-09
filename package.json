@@ -3,7 +3,7 @@
   "name": "theharvardadvocate",
   "version": "0.0.0",
   "engines": {
-    "node": "18"
+    "node": "22.x"
   },
   "scripts": {
     "build": "lerna run build --parallel",
