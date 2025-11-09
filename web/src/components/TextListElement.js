@@ -3,6 +3,8 @@ import React from "react";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import { theme } from "../theme/theme.js";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "../../lib/sanity.js";
 
 const headerColor = theme["colors"]["primary"];
 
@@ -121,10 +123,24 @@ const no_padding = {
   padding: "0em",
 };
 
+// Setup for handling images from Sanity
+const builder = imageUrlBuilder(sanityClient);
+function urlFor(source) {
+  return builder.image(source);
+}
+
 // // `components` object passed to PortableText
 const customComponents = {
   block: {
     normal: ({ children }) => <p sx={{ variant: "styles.p" }}>{children}</p>,
+    code: ({ children }) => <pre><code>{children}</code></pre>,
+  },
+  marks: {
+    center: ({ children }) => <div className="centerText">{children}</div>,
+    sub: ({ children }) => <sub>{children}</sub>,
+  },
+  types: {
+    image: ({ value }) => <img src={urlFor(value).url()} alt="" />,
   },
 };
 

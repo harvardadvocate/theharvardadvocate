@@ -113,8 +113,6 @@ const Shop = () => {
     }
   }, []);
 
-  console.log(shopifyContainer1)
-
   return (
     <>
       <Head>
