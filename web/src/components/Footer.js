@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import Link from "next/link";
-import logo from "../assets/images/logo.svg";
 import { useIsMobile } from "../utils/isMobile.js";
 import { FaTwitter, FaInstagram } from "react-icons/fa";
 
@@ -122,7 +121,7 @@ export default function Footer() {
           <br />
           <br />
           <Link className="linkLogo" href={"/"}>
-            <img src={logo} alt="The Advocate Logo" loading="lazy" />
+            <img src="/logo.svg" alt="The Advocate Logo" loading="lazy" />
             2024 &nbsp; <span>&copy;</span> &nbsp; The Harvard Advocate
           </Link>
         </div>

@@ -1,9 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
 import Link from "next/link";
-import logo from "../assets/images/logo2.jpg";
-import title from "../assets/images/wordmark.png";
-import search from "../assets/images/search.svg";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
@@ -276,12 +273,12 @@ export default function Sidebar() {
               href={"/"}
               onClick={() => setNavbarExpanded(false)}
             >
-              {/* <img src={logo} alt="The Advocate Logo" /> */}
+              {/* <img src="/logo2.jpg" alt="The Advocate Logo" /> */}
               <div className="advoStyle">
 
 
                 <div className="fontMod">
-                <img src={title} alt="The Advocate Title" />
+                <img src="/wordmark.png" alt="The Advocate Title" />
 
                 {/* THE HARVARD ADVOCATE */}
                   </div>
@@ -296,8 +293,8 @@ export default function Sidebar() {
             href={"/"}
             onClick={() => setNavbarExpanded(false)}
           >
-            <img src={logo} alt="The Advocate Logo" />
-            <img src={title} alt="The Advocate Title" />
+            <img src="/logo2.jpg" alt="The Advocate Logo" />
+            <img src="/wordmark.png" alt="The Advocate Title" />
 
           </Link>
         )}
@@ -507,7 +504,7 @@ export default function Sidebar() {
               style={{}}></input>
 
               <button onClick={() => toSearch()}>
-                <img src={search} alt="search" />
+                <img src="/search.svg" alt="search" />
               </button>
             </div>
 
