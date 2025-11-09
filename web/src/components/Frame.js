@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect } from "react";
-import { Themed } from "theme-ui";
 
 const frameSx = {
   ".fontMod": 
@@ -68,11 +67,11 @@ export default function Frame(props) {
       <div className="horizontalContainer">
         <div className="header">
           <div className="headerNormal">
-            <Themed.h2>
+            <h2 sx={{ variant: "styles.h2" }}>
               <div className="fontMod">
               {props.path[0].name}
               </div>
-              </Themed.h2>
+              </h2>
           </div>
         </div>
 

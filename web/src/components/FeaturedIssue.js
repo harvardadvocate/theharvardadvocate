@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import { Themed, Grid } from "theme-ui";
-import { Link } from "react-router-dom";
+import { Grid } from "theme-ui";
+import Link from "next/link";
 import { theme } from "../theme/theme.js";
 import { optimizeImageLoading } from "../utils/image.js";
 import { useIsMobile } from "../utils/isMobile.js";
@@ -215,12 +215,12 @@ export default function FeaturedIssue(props) {
         >
           {props.newest || isMobile ? (
             <div className="issueCover">
-              <Link to={"/issues/" + issue.slug.current}>
+              <Link href={"/issues/" + issue.slug.current}>
                 {issue.frontCover && "asset" in issue.frontCover && (
                   <img
                     src={optimizeImageLoading(issue.frontCover.asset.url)}
                     loading="lazy"
-                    alt=""
+                    alt={`Cover of ${issue.title} Issue`}
                   />
                 )}
               </Link>
@@ -234,12 +234,12 @@ export default function FeaturedIssue(props) {
           >
             <a href={"issues/" + issue.slug.current}>
               <div className="issueTitle">
-                <Themed.h5>
+                <h5 sx={{ variant: "styles.h5" }}>
                   <div className="fontMod">
                   <b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b>
                   </div>
-                </Themed.h5>
-                <Themed.h1>{issue.title}</Themed.h1>
+                </h5>
+                <h1 sx={{ variant: "styles.h1" }}>{issue.title}</h1>
                 {featuredItems.length > 0 ? <hr /> : <></>}
               </div>
             </a>
@@ -248,15 +248,15 @@ export default function FeaturedIssue(props) {
                 {featuredItems.slice(0, 2).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
-                      <Link to={"/content/" + article.slug.current}>
+                      <Link href={"/content/" + article.slug.current}>
                         <div className="articleLink">
                           {/* <div className="fontMod"> */}
                           <b>{article.title}</b> <br />
                           {/* </div> */}
-                          <Themed.h3>
+                          <h3 sx={{ variant: "styles.h3" }}>
                             By{" "}{article.authors[0].name}
                             {article.authors.length > 1 ? ", ..." : ""}
-                          </Themed.h3>
+                          </h3>
                         </div>
                       </Link>
                     </div>
@@ -268,22 +268,23 @@ export default function FeaturedIssue(props) {
                 {featuredItems.slice(2, 4).map((article) => {
                   return (
                     <div className="featuredArticle" key={article.title}>
-                      <Link to={"/content/" + article.slug.current}>
-                        <div className="articleLink">
-                          <Themed.h3>
-                            <b>{article.title}</b> <br />
-                            By{" "}
-                            {article.authors.map((author, i) => (
-                              <>
-                                {i !== 0 && ", "}
-                                <Link to={"/authors/" + author.slug.current}>
-                                  {author.name}
-                                </Link>{" "}
-                              </>
-                            ))}
-                          </Themed.h3>
-                        </div>
-                      </Link>
+                      <div className="articleLink">
+                        <h3 sx={{ variant: "styles.h3" }}>
+                          <Link href={"/content/" + article.slug.current}>
+                            <b>{article.title}</b>
+                          </Link>
+                          <br />
+                          By{" "}
+                          {article.authors.map((author, i) => (
+                            <span key={author._id || author.slug?.current || i}>
+                              {i !== 0 && ", "}
+                              <Link href={"/authors/" + author.slug.current}>
+                                {author.name}
+                              </Link>{" "}
+                            </span>
+                          ))}
+                        </h3>
+                      </div>
                     </div>
                   );
                 })}
@@ -291,15 +292,15 @@ export default function FeaturedIssue(props) {
               {featuredItems.length > 0 ? <hr /> : <></>}
             </div>
             <div className="buttonContainer">
-            <Link to={"/issues/" + issue.slug.current}>
+            <Link href={"/issues/" + issue.slug.current}>
               <div
                 className={props.newest ? "readFullIssue" : "readFullIssue2"}
               >
                 <span>&#8594;</span>
-                <Themed.h6><div className="fontMod">READ FULL ISSUE</div></Themed.h6>
+                <h6 sx={{ variant: "styles.h6" }}><div className="fontMod">READ FULL ISSUE</div></h6>
               </div>
             </Link>
-             <Link to={"/shop"}>
+             <Link href={"/shop"}>
               <div className="buyIssueButton">
                 <div className="fontMod">
                 BUY ISSUE
@@ -311,12 +312,12 @@ export default function FeaturedIssue(props) {
 
           {!props.newest && !isMobile ? (
             <div className="issueCover">
-              <Link to={"/issues/" + issue.slug.current}>
+              <Link href={"/issues/" + issue.slug.current}>
                 {issue.frontCover && "asset" in issue.frontCover && (
                   <img
                     src={optimizeImageLoading(issue.frontCover.asset.url)}
                     loading="lazy"
-                    alt=""
+                    alt={`Cover of ${issue.title} Issue`}
                   />
                 )}
               </Link>

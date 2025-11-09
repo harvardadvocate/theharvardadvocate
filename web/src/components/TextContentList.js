@@ -18,6 +18,7 @@ const textContentListSx = {
     display: "grid",
     gridTemplateRows: "1fr",
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    alignItems: "start",
     paddingBottom: "1vh",
     paddingTop: "1vh",
     width: "100%",
@@ -26,6 +27,7 @@ const textContentListSx = {
   ".articleItem, .articleItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
+    flexDirection: "column",
   },
 
   ".articleItem:last-child": {
@@ -59,6 +61,7 @@ const textContentListSxVertical = {
   ".articleItem, .articleItemNoLastBorder": {
     borderRight: "1px solid rgba(0,0,0,0.2)",
     display: "flex",
+    flexDirection: "column",
   },
 
   ".articleItem:last-child, .articleItemNoLastBorder": {
@@ -140,9 +143,9 @@ export default function TextContentList(props) {
         }
       >
         <div className="mainGrid">
-          {resultArray.map((row) => {
+          {resultArray.map((row, rowIndex) => {
             return (
-              <div className="gridRow">
+              <div className="gridRow" key={row[0]?._id || row[0]?.slug?.current || rowIndex}>
                 {row.map((item, index) => {
                   return (
                     <div
@@ -151,11 +154,10 @@ export default function TextContentList(props) {
                           ? "articleItemNoLastBorder"
                           : "articleItem"
                       }
-                      key={item.name}
+                      key={item._id || item.slug?.current || item.name || index}
                     >
                       <TextListElement
                         item={item}
-                        key={index}
                         home={props.home}
                         padding={paddingVar}
                         hideAuthor={props.hideAuthor}

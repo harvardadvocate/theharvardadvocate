@@ -1,13 +1,10 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import { useLocation, Link } from "react-router-dom";
-import logo from "../assets/images/logo2.jpg";
-import title from "../assets/images/wordmark.png";
-import search from "../assets/images/search.svg";
+import Link from "next/link";
 import { Grid } from "theme-ui";
 import { theme } from "../theme/theme.js";
 import { useIsMobile } from "../utils/isMobile.js";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 
 const buttonColor = theme["colors"]["buttonColor"];
 const buttonColorHover = theme["colors"]["buttonColorHover"];
@@ -218,17 +215,15 @@ export default function Sidebar() {
 
 
   const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
+  const router = useRouter();
   const toSearch = () => {
     setNavbarExpanded(false);
     // e.preventDefault();
-    navigate('/search', { state: { query: searchQuery } });
+    router.push('/search?q=' + encodeURIComponent(searchQuery));
   }
 
 
   const isMobile = useIsMobile();
-
-  const location = useLocation();
   const [sectionsExpanded, setSectionsExpanded] = useState(() =>
     [
       "/sections/art",
@@ -237,25 +232,25 @@ export default function Sidebar() {
       "/sections/poetry",
       "/sections/columns",
       "/sections/notes",
-    ].includes(location.pathname)
+    ].includes(router.pathname)
       ? true
       : false
   );
   const [moreExpanded, setMoreExpanded] = useState(() =>
     ["/shop", "/donate", "/advertise", "/comp", "/masthead", "/contact"].includes(
-      location.pathname
+      router.pathname
     )
       ? true
       : false
   );
   const [navbarExpanded, setNavbarExpanded] = useState(() =>
-    [].includes(location.pathname) ? true : false
+    [].includes(router.pathname) ? true : false
   );
 
   const highlightLink = (pathname) => {
     if (pathname === "/issues")
-      return location.pathname.includes("/issues") ? " highlight" : "";
-    return location.pathname === pathname ? " highlight" : "";
+      return router.asPath.includes("/issues") ? " highlight" : "";
+    return router.asPath === pathname ? " highlight" : "";
   };
 
   return (
@@ -275,15 +270,15 @@ export default function Sidebar() {
             </div>
             <Link
               className={"link logo"}
-              to={"/"}
+              href={"/"}
               onClick={() => setNavbarExpanded(false)}
             >
-              {/* <img src={logo} alt="The Advocate Logo" /> */}
+              {/* <img src="/logo2.jpg" alt="The Advocate Logo" /> */}
               <div className="advoStyle">
 
 
                 <div className="fontMod">
-                <img src={title} alt="The Advocate Title" />
+                <img src="/wordmark.png" alt="The Advocate Title" />
 
                 {/* THE HARVARD ADVOCATE */}
                   </div>
@@ -295,11 +290,11 @@ export default function Sidebar() {
           // web display
           <Link
             className={"link logo"}
-            to={"/"}
+            href={"/"}
             onClick={() => setNavbarExpanded(false)}
           >
-            <img src={logo} alt="The Advocate Logo" />
-            <img src={title} alt="The Advocate Title" />
+            <img src="/logo2.jpg" alt="The Advocate Logo" />
+            <img src="/wordmark.png" alt="The Advocate Title" />
 
           </Link>
         )}
@@ -316,21 +311,21 @@ export default function Sidebar() {
           <div className="linksToShow">
             <Link
               className={`link ${highlightLink("/")}`}
-              to={"/"}
+              href={"/"}
               onClick={() => setNavbarExpanded(false)}
             >
               Home
             </Link>
             <Link
               className={`link ${highlightLink("/about")}`}
-              to={"/about"}
+              href={"/about"}
               onClick={() => setNavbarExpanded(false)}
             >
               About
             </Link>
             <Link
               className={`link ${highlightLink("/issues")}`}
-              to={"/issues"}
+              href={"/issues"}
               onClick={() => setNavbarExpanded(false)}
             >
               Issues
@@ -340,7 +335,7 @@ export default function Sidebar() {
             {isMobile ? (
               <Link
                 className={`link ${highlightLink("/submit")}`}
-                to="/submit"
+                href="/submit"
                 onClick={() => setNavbarExpanded(false)}
               >
                 Submit
@@ -362,7 +357,7 @@ export default function Sidebar() {
                   setMoreExpanded(false);
                   setNavbarExpanded(false);
                 }}
-                to={"/sections"}
+                href={"/sections"}
               >
                 Sections
               </Link>
@@ -380,35 +375,35 @@ export default function Sidebar() {
               <Grid className="sublinks" columns={1} gap={3}>
                 <Link
                   className={`link ${highlightLink("/sections/art")}`}
-                  to="/sections/art"
+                  href="/sections/art"
                   onClick={() => setNavbarExpanded(false)}
                 >
                   Art
                 </Link>
                 <Link
                   className={`link ${highlightLink("/sections/fiction")}`}
-                  to="/sections/fiction"
+                  href="/sections/fiction"
                   onClick={() => setNavbarExpanded(false)}
                 >
                   Fiction
                 </Link>
                 <Link
                   className={`link ${highlightLink("/sections/features")}`}
-                  to="/sections/features"
+                  href="/sections/features"
                   onClick={() => setNavbarExpanded(false)}
                 >
                   Features
                 </Link>
                 <Link
                   className={`link ${highlightLink("/sections/poetry")}`}
-                  to="/sections/poetry"
+                  href="/sections/poetry"
                   onClick={() => setNavbarExpanded(false)}
                 >
                   Poetry
                 </Link>
                 <Link
                   className={`link ${highlightLink("/sections/notes")}`}
-                  to="/sections/notes"
+                  href="/sections/notes"
                   onClick={() => setNavbarExpanded(false)}
                 >
                   Notes
@@ -509,7 +504,7 @@ export default function Sidebar() {
               style={{}}></input>
 
               <button onClick={() => toSearch()}>
-                <img src={search} alt="search" />
+                <img src="/search.svg" alt="search" />
               </button>
             </div>
 
@@ -520,13 +515,13 @@ export default function Sidebar() {
         )}
 
 
-        <Link className="buttonLink" to={"/submit"}>
+        <Link className="buttonLink" href={"/submit"}>
         <div className="fontButtonMod">
           SUBMIT
         </div>
         </Link>
 
-        <Link className="buttonLink" to={"/subscribe"}>
+        <Link className="buttonLink" href={"/subscribe"}>
         <div className="fontButtonMod">
           SUBSCRIBE
         </div>

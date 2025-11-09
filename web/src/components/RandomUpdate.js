@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
-function RandomUpdate({ onUpdate }) {
+function RandomUpdate({ onUpdate, maxLength = 12 }) {
   const [randArray, setRandArray] = useState([]);
 
   useEffect(() => {
     const generateRandomNumbers = () => {
-      return [
-        Math.floor(Math.random() * 50),
-        Math.floor(Math.random() * 50 + 50),
-        Math.floor(Math.random() * 50 + 100),
-        Math.floor(Math.random() * 50 + 150),
-        Math.floor(Math.random() * 50 + 200),
-        Math.floor(Math.random() * 50 + 250),
-      ];
+      // Generate 6 unique random numbers within the array bounds
+      const numbers = [];
+      while (numbers.length < 6) {
+        const num = Math.floor(Math.random() * maxLength);
+        if (!numbers.includes(num)) {
+          numbers.push(num);
+        }
+      }
+      return numbers;
     };
 
     const initialNumbers = generateRandomNumbers();
@@ -23,10 +24,10 @@ function RandomUpdate({ onUpdate }) {
       const newNumbers = generateRandomNumbers();
       setRandArray(newNumbers);
       onUpdate(newNumbers);
-    }, 604800000); 
+    }, 604800000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [maxLength]);
 
   return null;
 }

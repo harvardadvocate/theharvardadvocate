@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import { Link } from "react-router-dom";
-import { Themed } from "theme-ui";
+import Link from "next/link";
 import { theme } from "../theme/theme.js";
 import { optimizeImageLoading } from "../utils/image.js";
 
@@ -80,7 +79,7 @@ export default function ImageListElement(props) {
   return (
     <div sx={props.home ? imageListElementSx_home : imageListElementSx}>
       <Link
-        to={"/content/" + props.item.slug.current}
+        href={"/content/" + props.item.slug.current}
         key={props.item.slug.current}
       >
         <div className="listItem">
@@ -89,19 +88,19 @@ export default function ImageListElement(props) {
               <img
                 src={optimizeImageLoading(props.item.mainImage.asset.url)}
                 loading="lazy"
-                alt=""
+                alt={props.item.title}
               />
             ) : // TODO: better (more robust) check for this
             props.item.images && props.item.images[0] ? (
               <img
                 src={optimizeImageLoading(props.item.images[0].asset.url)}
                 loading="lazy"
-                alt=""
+                alt={props.item.title}
               />
             ) : null}
           </div>
           <div>
-            <Themed.h3 style={{ color: headerColor }}>
+            <h3 sx={{ variant: "styles.h3" }} style={{ color: headerColor }}>
               {props.home && (
                 <React.Fragment>
                   {" "}
@@ -113,8 +112,8 @@ export default function ImageListElement(props) {
               <div className="fontMod">
 
               </div>
-            </Themed.h3>
-            <Themed.h2><div className="fontMod">{props.item.title}</div></Themed.h2>
+            </h3>
+            <h2 sx={{ variant: "styles.h2" }}><div className="fontMod">{props.item.title}</div></h2>
           </div>
           <div>
             {"authors" in props.item &&
@@ -122,13 +121,13 @@ export default function ImageListElement(props) {
                 ""
               ) : (
                 <div className="authorName">
-                  <Themed.p>
+                  <p sx={{ variant: "styles.p" }}>
                     By{" "}
                     {
                       //TODO: link to author page
                     }
                     {props.item.authors.map(({ name }) => name).join(", ")}
-                  </Themed.p>
+                  </p>
                 </div>
               ))}
           </div>
