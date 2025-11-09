@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import TextContentList from "../src/components/TextContentList.js";
 import ImageContentGrid from "../src/components/ImageContentGrid.js";
 import sanityClient from "../lib/sanity.js";
-import rightArrow from "../src/assets/images/right-arrow.svg";
+// rightArrow import removed - was unused
 import SectionFrame from "../src/components/SectionFrame";
 import Frame from "../src/components/Frame";
 import ColorRingLoader from "../src/components/LoadingRing.js";

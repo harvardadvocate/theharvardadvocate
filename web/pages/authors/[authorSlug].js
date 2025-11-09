@@ -2,7 +2,7 @@
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Frame from "../../src/components/Frame";
-import rightArrow from "../../src/assets/images/right-arrow.svg";
+// rightArrow is loaded from public/images instead of imported
 import sanityClient from "../../lib/sanity.js";
 import imageUrlBuilder from "@sanity/image-url";
 import { unionBy } from "lodash";
@@ -157,7 +157,7 @@ export default function Author({ authorData, authoredItems, sections }) {
                   <Link href={"/sections/" + section.slug.current}>
                     <h2 sx={{ variant: "styles.h2" }}> {section.title} </h2>
                   </Link>
-                  <img src={rightArrow} alt="right-arrow" />
+                  <img src="/images/right-arrow.svg" alt="right-arrow" />
                 </div>
                 {section.title !== "Art" ? (
                   <TextContentList

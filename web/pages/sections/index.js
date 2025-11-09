@@ -5,7 +5,7 @@ import Link from "next/link";
 import TextContentList from "../../src/components/TextContentList.js";
 import ImageContentGrid from "../../src/components/ImageContentGrid.js";
 import sanityClient from "../../lib/sanity.js";
-import rightArrow from "../../src/assets/images/right-arrow.svg";
+// rightArrow is loaded from public/images instead of imported
 import SectionFrame from "../../src/components/SectionFrame";
 import ColorRingLoader from "../../src/components/LoadingRing.js";
 
@@ -111,7 +111,7 @@ export default function SectionsOverview({ artItems, fictionItems, featuresItems
     <div className="sectionHeader">
       <Link href={sectionToUrl(section)}>
         <h2 sx={{ variant: "styles.h2" }}>{section}</h2>
-        <img src={rightArrow} alt="right-arrow" />
+        <img src="/images/right-arrow.svg" alt="right-arrow" />
       </Link>
     </div>
   );
