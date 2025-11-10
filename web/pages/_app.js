@@ -8,6 +8,7 @@ import Footer from "../src/components/Footer";
 import "../lib/theme/global.css";
 import { DefaultSeo } from 'next-seo';
 import { DEFAULT_SEO } from '../lib/seo/defaultSEO';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const appSx = {
   display: "grid",
@@ -48,6 +49,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeUIProvider theme={theme}>
       <DefaultSeo {...DEFAULT_SEO} />
+      <SpeedInsights />
       <div>
         <div css={appSx}>
           <Sidebar />
