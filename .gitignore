@@ -2,3 +2,7 @@ node_modules
 .firebase
 .github
 .firebaserc
+
+# Ignore dynamically generated sitemap files with numerical suffixes
+sitemap-*.xml
+
