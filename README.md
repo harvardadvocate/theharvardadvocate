@@ -2,7 +2,7 @@
 
 The new website for the Harvard Advocate, built by Andreas Lordos '25. Currently maintained by Conan Lu '26 and the Tech Board.
 
-Live at [https://advo-website-beta.web.app/](https://advo-website-beta.web.app/)
+Live at [theharvardadvocate.com/](https://www.theharvardadvocate.com/)
 
 Reach out to `tech@theharvardadvocate.com` with any questions.
 
