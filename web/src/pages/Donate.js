@@ -97,12 +97,7 @@ export default function Donate() {
             world.
             <br />
             <br />
-            All gifts to The Harvard Advocate are fully tax deductible according
-            to 501(c)(3) non-profit donation guidelines. Donations can be made
-            online using the form below. We also accept donations by check,
-            which should be made out to "The Trustees of The Harvard Advocate"
-            and sent to 21 South St., Cambridge, MA 02138. Thank you for your
-            support!
+            To donate to us directly, please click the link below. All donations to Harvard Advocate Trustees Inc are fully tax deductible according to 501c(3) and should be made out by check to "The Trustees of The Harvard Advocate" and sent to 21 South St., Cambridge, MA 02138. If a different payment is preferred, please contact president@theharvardadvocate.com directly. Thank you for your support!
             <br />
             <br />
             <div align="center">
