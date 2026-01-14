@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import React from "react";
 import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 
