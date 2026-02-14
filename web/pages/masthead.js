@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import React from "react";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -39,68 +40,65 @@ export default function Masthead() {
       >
         <div className="mastheadBody">
           <p sx={{ variant: "styles.p" }}>
-            <i align="center">
-              Frank Y.C. Liu '26, President
+            <i>
+              A. Sonnad-Joshi, President
               <br />
-              Aran Sonnad-Joshi '27, Publisher
+              E. Michielsen Jiménez, Publisher
               <br />
               <br />
-              D. Liu '27, Art Editor
+              K. Kingsbury-Lee, Art Editor
               <br />
-              A. Ojukwu '26, Notes Editor
+              M. Miller, Art Editor
               <br />
-              E. Klibaner-Schiff '26, Notes Editor
+              M. Yu, Tech Editor
               <br />
-              K. Taylor '26, Notes Editor
+              D. Sunshine, Business Manager
               <br />
-              P. Wekwejt '26, Business Manager
+              A. Du, Design Editor
               <br />
-              M. Yu '27, Technology Editor
+              S. Connally, Features Editor
               <br />
-              A. Chen '27, Design Editor
+              D. Alp, Features Editor
               <br />
-              T. Wayland '26, Features Editor
+              L. Wood, Fiction Editor
               <br />
-              G. Nitz '26, Senior Fiction Editor
+              B. Kimball, Junior Fiction Editor
               <br />
-              L. Wood '27, Junior Fiction Editor
+              W. Renwick, Poetry Editor
               <br />
-              A. Hatzius '26, Poetry Editor
+              S. Choudhury, Notes Editor
+              <br />
+              B. Kimball, Notes Editor
 
               <br />
               <br />
 
-              O. Yaffe '28, Demeter and Dionysus
+              Y. Ma, Dionysus
               <br />
-              J. Lemann '26, Dionysus
+              A. Popnikolova, Dionysus
               <br />
-              R. Mamam Nbiba '27, Dionysus
+              H. Dallman, Dionysus
               <br />
-              K. Gu '26, Hades
+              A. Sha, Pegasus
               <br />
-              E. Ferrari '28, Hermes
+              C. Xue, Pegasus
               <br />
-              W. Renwick '28, Hermes
+              O. Yaffe, Hermes
               <br />
-              E. Michielsen '28, Hestia
+              K. Chong, Hades
               <br />
-              L. Jackson '26, Pegasus
+              E. Ferrari, Hestia
+
               <br />
-              A. Ma '27, Pegasus
               <br />
-              A. Popnikolova '28, Pegasus
+
+              E. Igwike, D&I Chair
               <br />
-              L. Pasquerella '26, Apollo
+              N. Sun, Librarian
               <br />
-              S. Yu '27, Apollo
+              J. Liu, Cafe Manager
               <br />
-              E. Zheng '26, Arachne
-              <br />
-              B. Kimball '28, Demeter
-              <br />
-              N. Chagantipati '26, Diversity & Inclusion Chair
-              <br />
-              M. Wong '26, Librarian
+              S. Vo, Cafe Manager
 
               <br /> <br /> <br />
               <b>Board of Trustees</b>

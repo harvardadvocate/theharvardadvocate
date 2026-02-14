@@ -13,6 +13,9 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
-      'react/jsx-pascal-case': 'off',
+    "react/jsx-pascal-case": "off",
+    "react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx"] }],
+    "react/no-unknown-property": ["error", { ignore: ["sx"] }],
+    "import/no-unresolved": ["error", { ignore: ["^next/"] }],
   },
 };
