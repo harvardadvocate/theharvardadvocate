@@ -99,20 +99,24 @@ export default function Submit() {
             <br />
             <br />
             <hr />
-            <h2 sx={{ variant: "styles.h2" }}>Spring 2026 Issue</h2>
+            <h2 sx={{ variant: "styles.h2" }}>Fall 2026 Issue</h2>
             <hr />
             <div sx={{ textAlign: "left" }}>
             Come in, come in, is anyone receiving? A SIGNAL coming from outer space or a head space. A disaster prone messaging platform; is anyone virtue signaling anymore? We signal our intent, our interest, our distress, our progress . . . duress?
-Blink twice if this guy’s bothering you, Major Tom, three times if you&apos;re lost at sea.
-Badges signal status without need of the bearer’s tongue; meanings, covert or explicit, travel below the layer of language across distances too vast to shout. Cues, signs, sighs. Eye contact, body language, radio waves, and flares. In group, out group, in-the-know: are you up to speed, or are you down to clown?
-This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded, the columns are packed, and the feeds are endless. What’s getting through, and who’s listening anyway?
+            <br />
+Blink twice if this guy’s bothering you, Major Tom, three times if you&apos;re lost at sea. <br />
+Badges signal status without need of the bearer’s tongue; meanings, covert or explicit, travel below the layer of language across distances too vast to shout. Cues, signs, sighs. Eye contact, body language, radio waves, and flares. In group, out group, in-the-know: are you up to speed, or are you down to clown? <br />
+This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded, the columns are packed, and the feeds are endless. What’s getting through, and who’s listening anyway? <br />
+            <br />
+            CQ CQ CQ. Any station monitoring, this is Advocate standing by.
+
             <i sx={{ textAlign: "center", display: "block" }}>
             <br /> We are currently accepting submissions for our Fall 2026 issue.
             <br />
                <br />Submissions for Fiction, Poetry, and Art are due April 12, 2026.
             </i>
             <br />
-            <div sx={{ textAlign: "center" }}>
+            <div sx={{ display: "flex", justifyContent: "center" }}>
               <a
                 className="buttonLink"
                 href="mailto:fiction@theharvardadvocate.com"
@@ -152,7 +156,7 @@ This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded,
             <br />
             <hr />
             <br />
-            <div sx={{ textAlign: "center" }}>
+            <div sx={{ display: "flex", justifyContent: "center" }}>
               <a
                 className="buttonLink"
                 href="https://forms.gle/SreCuNx4NA4zDVDUA"
@@ -194,7 +198,7 @@ This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded,
             <br />
             <hr />
             <br />
-            <div sx={{ textAlign: "center" }}>
+            <div sx={{ display: "flex", justifyContent: "center" }}>
               <a
                 className="buttonLink"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdzLqsA__rvkRkBVwszgrA1UWFXcjffGJms7PUTgo5emHTYcQ/viewform?usp=sf_link"
