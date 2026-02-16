@@ -113,7 +113,7 @@ This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded,
             <i sx={{ textAlign: "center", display: "block" }}>
             <br /> We are currently accepting submissions for our Fall 2026 issue.
             <br />
-               <br />Submissions for Fiction, Poetry, and Art are due April 12, 2026.
+               <br />Submissions for Fiction, Poetry, and Art are due April 10, 2026.
             </i>
             <br />
             <div sx={{ display: "flex", justifyContent: "center" }}>

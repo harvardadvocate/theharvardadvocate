@@ -41,64 +41,64 @@ export default function Masthead() {
         <div className="mastheadBody">
           <p sx={{ variant: "styles.p" }}>
             <i>
-              A. Sonnad-Joshi, President
+              A. Sonnad-Joshi, President ‘27
               <br />
-              E. Michielsen Jiménez, Publisher
+              E. Michielsen Jiménez, Publisher ‘28
               <br />
               <br />
-              K. Kingsbury-Lee, Art Editor
+              K. Kingsbury-Lee, Art Editor ‘28
               <br />
-              M. Miller, Art Editor
+              M. Miller, Art Editor ‘27
               <br />
-              M. Yu, Tech Editor
+              M. Yu, Tech Editor ‘27
               <br />
-              D. Sunshine, Business Manager
+              D. Sunshine, Business Manager ‘28
               <br />
-              A. Du, Design Editor
+              A. Du, Design Editor ‘28
               <br />
-              S. Connally, Features Editor
+              S. Connally, Features Editor ‘28
               <br />
-              D. Alp, Features Editor
+              D. Alp, Features Editor ‘27
               <br />
-              L. Wood, Fiction Editor
+              L. Wood, Fiction Editor ‘27
               <br />
-              B. Kimball, Junior Fiction Editor
+              B. Kimball, Junior Fiction Editor ‘28
               <br />
-              W. Renwick, Poetry Editor
+              W. Renwick, Poetry Editor ‘28
               <br />
-              S. Choudhury, Notes Editor
+              S. Choudhury, Notes Editor ‘28
               <br />
-              B. Kimball, Notes Editor
+              B. Kimball, Notes Editor ‘28
 
               <br />
               <br />
 
-              Y. Ma, Dionysus
+              F. Fox, Dionysus ‘29
               <br />
-              A. Popnikolova, Dionysus
+              A. Popnikolova, Dionysus ‘28
               <br />
-              H. Dallman, Dionysus
+              H. Dallman, Dionysus ‘28
               <br />
-              A. Sha, Pegasus
+              A. Sha, Pegasus ‘29
               <br />
-              C. Xue, Pegasus
+              C. Xue, Pegasus ‘29
               <br />
-              O. Yaffe, Hermes
+              O. Yaffe, Hermes ‘28
               <br />
-              K. Chong, Hades
+              K. Chong, Hades ‘29
               <br />
-              E. Ferrari, Hestia
+              E. Ferrari, Hestia ‘28
 
               <br />
               <br />
 
-              E. Igwike, D&I Chair
+              E. Igwike, D&I Chair ‘28
               <br />
-              N. Sun, Librarian
+              N. Sun, Librarian ‘27
               <br />
-              J. Liu, Cafe Manager
+              J. Liu, Cafe Manager ‘28
               <br />
-              S. Vo, Cafe Manager
+              S. Vo, Cafe Manager ‘28
 
               <br /> <br /> <br />
               <b>Board of Trustees</b>
