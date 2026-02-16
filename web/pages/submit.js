@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import React from "react";
 import Head from "next/head";
 import Frame from "../src/components/Frame";
 
@@ -18,7 +19,7 @@ const submitSx = {
     display: "block",
   },
   p: {
-    //textAlign: "center"
+    // textAlign: "center"
   },
   ".buttonLink": {
     color: "#000000",
@@ -76,10 +77,8 @@ export default function Submit() {
 
       <Head>
         <title>Submit - The Harvard Advocate</title>
-        <meta name='description' property="og:description" content={
-          "The Harvard Advocate is currently soliciting submissions for our Summer 2025 issue."
-        } />
-        <meta name='title' property="og:title" content={"Submit"} />
+        <meta name='description' property="og:description" content="The Harvard Advocate is currently soliciting submissions for our Fall 2026 issue." />
+        <meta name='title' property="og:title" content="Submit" />
       </Head>
 
       <Frame
@@ -96,35 +95,34 @@ export default function Submit() {
             of any form or length created by members of the Harvard community,
             as well as outside contributors at our discretion. All submissions
             are considered anonymously.
+            </p>
             <br />
             <br />
             <hr />
             <h2 sx={{ variant: "styles.h2" }}>Spring 2026 Issue</h2>
             <hr />
-            <p align="left">
+            <div sx={{ textAlign: "left" }}>
             Come in, come in, is anyone receiving? A SIGNAL coming from outer space or a head space. A disaster prone messaging platform; is anyone virtue signaling anymore? We signal our intent, our interest, our distress, our progress . . . duress?
-Blink twice if this guy’s bothering you, Major Tom, three times if you're lost at sea.
+Blink twice if this guy’s bothering you, Major Tom, three times if you&apos;re lost at sea.
 Badges signal status without need of the bearer’s tongue; meanings, covert or explicit, travel below the layer of language across distances too vast to shout. Cues, signs, sighs. Eye contact, body language, radio waves, and flares. In group, out group, in-the-know: are you up to speed, or are you down to clown?
 This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded, the columns are packed, and the feeds are endless. What’s getting through, and who’s listening anyway?
-            <i align="center">
-            <br /> We are currently accepting submissions for our Spring 2026 issue.
+            <i sx={{ textAlign: "center", display: "block" }}>
+            <br /> We are currently accepting submissions for our Fall 2026 issue.
             <br />
-               <br />Submissions for Fiction, Poetry, and Art are due April 10, 2025.
+               <br />Submissions for Fiction, Poetry, and Art are due April 12, 2026.
             </i>
             <br />
-            <div align="center">
+            <div sx={{ textAlign: "center" }}>
               <a
                 className="buttonLink"
-                href={
-                  "mailto:fiction@theharvardadvocate.com"
-                }
+                href="mailto:fiction@theharvardadvocate.com"
                 target="_blank"
                 rel="noreferrer"
               >
                 Submit to Fiction
               </a>
             </div>
-            <br></br>
+            <br />
             <ul>
               <li>
               We have no minimum or maximum word counts, but the work we
@@ -154,24 +152,22 @@ This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded,
             <br />
             <hr />
             <br />
-            <div align="center">
+            <div sx={{ textAlign: "center" }}>
               <a
                 className="buttonLink"
-                href={
-                  "https://forms.gle/SreCuNx4NA4zDVDUA"
-                }
+                href="https://forms.gle/SreCuNx4NA4zDVDUA"
                 target="_blank"
                 rel="noreferrer"
               >
                 Submit to Poetry
               </a>
             </div>
-            <br></br>
+            <br />
 
             <ul>
               <li>We have no minimum or maximum word counts.</li>
               <li>
-                If you'd like to, you may include a message to the editor with
+                If you&apos;d like to, you may include a message to the editor with
                 your submission. In this message you can describe your work, if
                 you like, or give any background necessary to understand it.
               </li>
@@ -198,12 +194,10 @@ This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded,
             <br />
             <hr />
             <br />
-            <div align="center">
+            <div sx={{ textAlign: "center" }}>
               <a
                 className="buttonLink"
-                href={
-                  "https://docs.google.com/forms/d/e/1FAIpQLSdzLqsA__rvkRkBVwszgrA1UWFXcjffGJms7PUTgo5emHTYcQ/viewform?usp=sf_link"
-                }
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdzLqsA__rvkRkBVwszgrA1UWFXcjffGJms7PUTgo5emHTYcQ/viewform?usp=sf_link"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -213,7 +207,7 @@ This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded,
             <br />
             You can submit your work through the link above, or by emailing
             art@theharvardadvocate.com
-          </p>
+          </div>
           <div className="image">
             <img
               src="/submit.jpeg"
