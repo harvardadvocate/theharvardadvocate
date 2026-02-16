@@ -102,28 +102,14 @@ export default function Submit() {
             <h2 sx={{ variant: "styles.h2" }}>Spring 2026 Issue</h2>
             <hr />
             <p align="left">
-            FEAR has an odd directionality. At times it emerges from within, a frenzy of unease that clings
-desperately to the world around us: the unseen corners of the bed that breed monsters; waves
-against the hull making known the presence of some great beast stirring underneath; darkness that
-acquires weight, tapping insistently at the shoulder. At other times, fear is pressed upon us and a
-sudden realization makes known that we should indeed be afraid, forged by threat. Today this is our
-shared experience. As the world turns in ways that are nothing if not terrifying, fear becomes the
-texture of our condition.
-            </p>
-            <br></br>
-            <p>
-            On The Harvard Advocate's 160th anniversary we hear the word coming from the Old English fǣr —
-calamity, danger. We contemplate our motto, Dulce Est Periculum — danger is sweet. Who are we to
-be lovers of danger in an age of fear? The Advocate, too, is trembling, and so it speaks.
-            </p>
-            <br></br>
-            {/* <p>We may tell ourselves stories in order to live, but we diagnose in order to survive. Proclaim, promulgate, pitch. Diagnose past self-diagnoses, pathologize the pathologizers. Show us the exquisite corpse, the body in pain, the powers of horror. Tell us your national allegory; we will take your sick men. Rewrite history with new testimony and draw us lines in the sand. Give us diagnosis as the bearer of bad news, as chronic blessing, as passing curse: tell it like it is.</p>
-             */}
+            Come in, come in, is anyone receiving? A SIGNAL coming from outer space or a head space. A disaster prone messaging platform; is anyone virtue signaling anymore? We signal our intent, our interest, our distress, our progress . . . duress?
+Blink twice if this guy’s bothering you, Major Tom, three times if you're lost at sea.
+Badges signal status without need of the bearer’s tongue; meanings, covert or explicit, travel below the layer of language across distances too vast to shout. Cues, signs, sighs. Eye contact, body language, radio waves, and flares. In group, out group, in-the-know: are you up to speed, or are you down to clown?
+This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded, the columns are packed, and the feeds are endless. What’s getting through, and who’s listening anyway?
             <i align="center">
             <br /> We are currently accepting submissions for our Spring 2026 issue.
             <br />
-               <br />Submissions for Fiction, Poetry, and Art are due November 14, 2025.
-              {/* <br /> Submissions for Poetry and Art are due April 12, 2025. */}
+               <br />Submissions for Fiction, Poetry, and Art are due April 10, 2025.
             </i>
             <br />
             <div align="center">
