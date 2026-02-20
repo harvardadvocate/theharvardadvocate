@@ -339,19 +339,6 @@ export default function Homepage({
                       </div>
                     </div>
                   </a>
-                  <div className="twitterCol">
-                    <a
-                      href="https://heritageclubthc.com/?utm_campaign=harvardfall24&utm_source=online"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <img
-                        src="/heritage_ad.png"
-                        loading="lazy"
-                        alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."
-                      />
-                    </a>
-                  </div>
                 </div>
               </div>
             ) : (

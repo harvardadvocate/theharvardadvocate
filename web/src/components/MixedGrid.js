@@ -123,16 +123,7 @@ export default function MixedGrid(props) {
                     alt="Illustration"
                   ></img>
                 </a>
-              ) : (
-
-                // Currently harcoded ad space
-
-                  <a href="https://heritageclubthc.com/?utm_campaign=harvardfall24&utm_source=online"
-                  target="_blank"
-                  rel="noreferrer">
-                  <img src="/heritage_ad.png" width="300" alt="Ad for the Heritage Club"></img>
-                </a>
-              )}
+              ) : null}
             </div>
             <div className="div4content">
               <TextListElement
