@@ -123,7 +123,19 @@ export default function MixedGrid(props) {
                     alt="Illustration"
                   ></img>
                 </a>
-              ) : null}
+              ) : (
+                <a
+                  href="https://mogu.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="/images/mogu.png"
+                    width="300"
+                    alt="MOGU — When life gives you lemons, eat mushrooms."
+                  />
+                </a>
+              )}
             </div>
             <div className="div4content">
               <TextListElement

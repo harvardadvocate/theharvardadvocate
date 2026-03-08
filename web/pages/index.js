@@ -340,6 +340,19 @@ export default function Homepage({
                     </div>
                   </a>
                 </div>
+                  <div className="twitterCol">
+                    <a
+                      href="https://mogu.com"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <img
+                        src="/images/mogu.png"
+                        loading="lazy"
+                        alt="MOGU — When life gives you lemons, eat mushrooms."
+                      />
+                    </a>
+                  </div>
               </div>
             ) : (
               ""
