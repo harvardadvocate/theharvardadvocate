@@ -258,6 +258,17 @@ export default function Homepage({
               {!isMobile ? <hr /> : ""}
 
               <a
+                href="https://mogu.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/mogu.png"
+                  loading="lazy"
+                  alt="MOGU — When life gives you lemons, eat mushrooms."
+                />
+              </a>
+              <a
                 href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
                 target="_blank"
                 rel="noreferrer"
