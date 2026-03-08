@@ -11,6 +11,8 @@ import { useIsMobile } from "../lib/utils/isMobile.js";
 import RandomUpdate from "../src/components/RandomUpdate.js";
 import { createOrganizationSchema, createWebSiteSchema } from "../lib/seo/schemas.js";
 
+const MOGU_AD_URL = "https://mogumushrooms.com/?srsltid=AfmBOor9pKDXIXRKSJ60jbMEPBFBr0NB1YW8HUoil_oJe-Y2eAp1Sxdf";
+
 const homepageSx = {
   ".fontMod": {
     fontFamily: "Bernhard Gothic Medium, serif",
@@ -258,7 +260,7 @@ export default function Homepage({
               {!isMobile ? <hr /> : ""}
 
               <a
-                href="https://mogumushrooms.com/?srsltid=AfmBOor9pKDXIXRKSJ60jbMEPBFBr0NB1YW8HUoil_oJe-Y2eAp1Sxdf"
+                href={MOGU_AD_URL}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -353,7 +355,7 @@ export default function Homepage({
                 </div>
                   <div className="twitterCol">
                     <a
-                      href="https://mogumushrooms.com/?srsltid=AfmBOor9pKDXIXRKSJ60jbMEPBFBr0NB1YW8HUoil_oJe-Y2eAp1Sxdf"
+                      href={MOGU_AD_URL}
                       target="_blank"
                       rel="noreferrer"
                     >
