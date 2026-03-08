@@ -269,6 +269,17 @@ export default function Homepage() {
             {!isMobile ? <hr /> : ""}
 
             {/* Hardcoded potential ad space.*/}
+            <a
+              href="https://mogu.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="/images/mogu.png"
+                loading="lazy"
+                alt="MOGU — When life gives you lemons, eat mushrooms."
+              />
+            </a>
 
             {/* <a
               href="https://qrco.de/be9Mh6"
