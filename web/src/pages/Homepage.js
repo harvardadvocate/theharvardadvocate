@@ -61,6 +61,16 @@ const homepageSx = {
   ".twitterCol": {
     paddingLeft: "3vw",
     paddingRight: "3vw",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    "& img": {
+      maxWidth: "100%",
+      width: "auto",
+      maxHeight: "70vh",
+      objectFit: "contain",
+      display: "block",
+    },
   },
 
   ".instaCol": {

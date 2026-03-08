@@ -48,6 +48,12 @@ const gridSx = {
     alignItems: "center",
     justifyItems: "center",
     justifyContent: "center",
+    "& img": {
+      maxWidth: "100%",
+      width: "auto",
+      maxHeight: "280px",
+      objectFit: "contain",
+    },
   },
 
   ".div4content": {
@@ -131,7 +137,6 @@ export default function MixedGrid(props) {
                 >
                   <img
                     src="/images/mogu.png"
-                    width="300"
                     alt="MOGU — When life gives you lemons, eat mushrooms."
                   />
                 </a>
