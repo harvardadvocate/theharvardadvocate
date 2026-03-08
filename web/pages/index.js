@@ -258,7 +258,7 @@ export default function Homepage({
               {!isMobile ? <hr /> : ""}
 
               <a
-                href="https://mogu.com"
+                href="https://mogumushrooms.com/?srsltid=AfmBOor9pKDXIXRKSJ60jbMEPBFBr0NB1YW8HUoil_oJe-Y2eAp1Sxdf"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -353,7 +353,7 @@ export default function Homepage({
                 </div>
                   <div className="twitterCol">
                     <a
-                      href="https://mogu.com"
+                      href="https://mogumushrooms.com/?srsltid=AfmBOor9pKDXIXRKSJ60jbMEPBFBr0NB1YW8HUoil_oJe-Y2eAp1Sxdf"
                       target="_blank"
                       rel="noreferrer"
                     >
