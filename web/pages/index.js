@@ -11,7 +11,7 @@ import { useIsMobile } from "../lib/utils/isMobile.js";
 import RandomUpdate from "../src/components/RandomUpdate.js";
 import { createOrganizationSchema, createWebSiteSchema } from "../lib/seo/schemas.js";
 
-const MOGU_AD_URL = "https://mogumushrooms.com/?srsltid=AfmBOor9pKDXIXRKSJ60jbMEPBFBr0NB1YW8HUoil_oJe-Y2eAp1Sxdf";
+const MOGU_AD_URL = "https://www.mogu.earth/offerings";
 
 const homepageSx = {
   ".fontMod": {

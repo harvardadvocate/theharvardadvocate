@@ -131,7 +131,7 @@ export default function MixedGrid(props) {
                 </a>
               ) : (
                 <a
-                  href="https://mogumushrooms.com/?srsltid=AfmBOor9pKDXIXRKSJ60jbMEPBFBr0NB1YW8HUoil_oJe-Y2eAp1Sxdf"
+                  href="https://www.mogu.earth/offerings"
                   target="_blank"
                   rel="noreferrer"
                 >
