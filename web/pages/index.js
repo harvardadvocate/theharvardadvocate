@@ -12,6 +12,7 @@ import RandomUpdate from "../src/components/RandomUpdate.js";
 import { createOrganizationSchema, createWebSiteSchema } from "../lib/seo/schemas.js";
 
 const MOGU_AD_URL = "https://www.mogu.earth/offerings";
+const BPYO_AD_URL = "https://www.ticketsales.com/boston-philharmonic-youth-orchestra-harbison-gershwin-and-copland-tickets-boston-symphony-hall/event/5975487?_gl=1*3udj3m*_up*MQ..*_gs*MQ..&gbraid=0AAAAADLKMEfM4HEiJ_JgesRs0-HFF4p77";
 
 const homepageSx = {
   ".fontMod": {
@@ -281,6 +282,25 @@ export default function Homepage({
                 />
               </a>
               <a
+                href={BPYO_AD_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/BPYO_3_Flyers+Posters.jpg"
+                  loading="lazy"
+                  alt="Boston Philharmonic Youth Orchestra — Benjamin Zander, Conductor. Sunday May 3, 7:00 PM, Symphony Hall, Boston. Tickets from $25, Students $12."
+                  style={{
+                    maxHeight: "70vh",
+                    width: "auto",
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                    display: "block",
+                    margin: "0 auto",
+                  }}
+                />
+              </a>
+              <a
                 href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
                 target="_blank"
                 rel="noreferrer"
@@ -365,14 +385,14 @@ export default function Homepage({
                 </div>
                   <div className="twitterCol">
                     <a
-                      href={MOGU_AD_URL}
+                      href={BPYO_AD_URL}
                       target="_blank"
                       rel="noreferrer"
                     >
                       <img
-                        src="/images/mogu.png"
+                        src="/BPYO_3_Flyers+Posters.jpg"
                         loading="lazy"
-                        alt="MOGU — When life gives you lemons, eat mushrooms."
+                        alt="Boston Philharmonic Youth Orchestra — Benjamin Zander, Conductor. Sunday May 3, 7:00 PM, Symphony Hall, Boston."
                       />
                     </a>
                   </div>

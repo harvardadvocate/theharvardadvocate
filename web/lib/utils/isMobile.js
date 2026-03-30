@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react";
 
 export function useIsMobile() {
-  const [width, setWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
+  const [width, setWidth] = useState(null);
 
   useEffect(() => {
+    setWidth(window.innerWidth);
+
     function handleResize() {
       setWidth(window.innerWidth);
     }
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  if (width === null) return false;
   return width <= 835;
 }
