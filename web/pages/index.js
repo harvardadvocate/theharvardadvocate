@@ -12,7 +12,7 @@ import RandomUpdate from "../src/components/RandomUpdate.js";
 import { createOrganizationSchema, createWebSiteSchema } from "../lib/seo/schemas.js";
 
 const MOGU_AD_URL = "https://www.mogu.earth/offerings";
-const BPYO_AD_URL = "https://www.ticketsales.com/boston-philharmonic-youth-orchestra-harbison-gershwin-and-copland-tickets-boston-symphony-hall/event/5975487?_gl=1*3udj3m*_up*MQ..*_gs*MQ..&gbraid=0AAAAADLKMEfM4HEiJ_JgesRs0-HFF4p77";
+const BPYO_AD_URL = "https://bostonphil.my.salesforce-sites.com/ticket#/instances/a0FPQ00000Tln6E2AR";
 
 const homepageSx = {
   ".fontMod": {
@@ -43,32 +43,65 @@ const homepageSx = {
     hr: {
       color: "rgba(0,0,0,0.2)",
     },
+  },
+
+  ".adRow": {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "1vw",
+    padding: "1vw 2vw",
+    alignItems: "center",
+    justifyItems: "center",
+    a: {
+      display: "flex",
+      justifyContent: "center",
+    },
     img: {
-      padding: "5vw",
+      maxHeight: "45vh",
+      maxWidth: "100%",
+      width: "auto",
+      objectFit: "contain",
+      display: "block",
     },
   },
 
-  ".socialsGrid": {
+  ".adFull": {
+    padding: "1vw 2vw",
+    textAlign: "center",
+    img: {
+      maxHeight: "35vh",
+      maxWidth: "100%",
+      objectFit: "contain",
+      display: "block",
+      margin: "0 auto",
+    },
+  },
+
+  ".socialsFeed": {
     display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gridTemplateRows: "1fr",
-    gridColumnGap: "10px",
-    gridRowGap: "0px",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "1vw",
     paddingTop: "1vh",
-    maxHeight: "90vh",
+    maxHeight: "70vh",
     overflow: "hidden",
+    alignItems: "center",
+  },
+
+  ".socialsGrid": {
+    overflow: "hidden",
+    maxHeight: "70vh",
   },
 
   ".twitterCol": {
-    paddingLeft: "3vw",
-    paddingRight: "3vw",
+    paddingLeft: "2vw",
+    paddingRight: "2vw",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     "& img": {
       maxWidth: "100%",
       width: "auto",
-      maxHeight: "70vh",
+      maxHeight: "50vh",
       objectFit: "contain",
       display: "block",
     },
@@ -151,6 +184,10 @@ const homepageSx = {
       placeItems: "unset",
     },
 
+    ".socialsFeed": {
+      gridTemplateColumns: "1fr",
+    },
+
     ".socialsGrid": {
       display: "grid",
       gridTemplateColumns: "1fr",
@@ -160,6 +197,10 @@ const homepageSx = {
       paddingTop: "1vh",
       maxHeight: "90vh",
       overflow: "hidden",
+    },
+
+    ".adRow": {
+      gridTemplateColumns: "1fr",
     },
 
     ".blogHeader, .archiveHeader": {
@@ -270,47 +311,43 @@ export default function Homepage({
             <div className="sanctumSessions">
               {!isMobile ? <hr /> : ""}
 
-              <a
-                href={MOGU_AD_URL}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/mogu.png"
-                  loading="lazy"
-                  alt="MOGU — When life gives you lemons, eat mushrooms."
-                />
-              </a>
-              <a
-                href={BPYO_AD_URL}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/BPYO_3_Flyers+Posters.jpg"
-                  loading="lazy"
-                  alt="Boston Philharmonic Youth Orchestra — Benjamin Zander, Conductor. Sunday May 3, 7:00 PM, Symphony Hall, Boston. Tickets from $25, Students $12."
-                  style={{
-                    maxHeight: "70vh",
-                    width: "auto",
-                    maxWidth: "100%",
-                    objectFit: "contain",
-                    display: "block",
-                    margin: "0 auto",
-                  }}
-                />
-              </a>
-              <a
-                href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/sanctum_sessions.png"
-                  loading="lazy"
-                  alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."
-                />
-              </a>
+              <div className={isMobile ? "" : "adRow"}>
+                <a
+                  href={MOGU_AD_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="/images/mogu.png"
+                    loading="lazy"
+                    alt="MOGU — When life gives you lemons, eat mushrooms."
+                  />
+                </a>
+                <a
+                  href={BPYO_AD_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="/BPYO_3_Flyers+Posters.jpg"
+                    loading="lazy"
+                    alt="Boston Philharmonic Youth Orchestra — Benjamin Zander, Conductor. Sunday May 3, 7:00 PM, Symphony Hall, Boston. Tickets from $25, Students $12."
+                  />
+                </a>
+              </div>
+              <div className="adFull">
+                <a
+                  href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="/sanctum_sessions.png"
+                    loading="lazy"
+                    alt="The Harvard Advocate sanctum, with a musician playing to a small crowd."
+                  />
+                </a>
+              </div>
             </div>
             <div className="blog">
               <div className="blogHeader">
