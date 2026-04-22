@@ -105,8 +105,6 @@ export default function Masthead() {
               <br />
               Douglas McIntyre, Chairman and Treasurer
               <br />
-              Charles Atkinson, Secretary
-              <br />
               Amelia Atlas, Secretary
               <br />
               Louis Begley, Chairman Emeritus
@@ -130,6 +128,8 @@ export default function Masthead() {
               Susan Morrison
               <br />
               Celia McGee
+              <br />
+              Emma Adler
               <br />
               Thomas A. Stewart
               <br />
