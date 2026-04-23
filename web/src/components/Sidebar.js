@@ -33,6 +33,11 @@ const sidebarSx = {
   },
   ".sublinks": {
     marginLeft: "1em",
+    maxHeight: "0",
+    overflow: "hidden",
+    opacity: "0",
+    pointerEvents: "none",
+    transition: "max-height 0.3s ease, opacity 0.2s ease",
     a: {
       color: "#9F9F9F",
     },
@@ -42,6 +47,11 @@ const sidebarSx = {
       textDecoration: "underline",
       textUnderlineOffset: "4px",
     },
+  },
+  ".sublinks.expanded": {
+    maxHeight: "300px",
+    opacity: "1",
+    pointerEvents: "auto",
   },
   ".linksToShow": {
     display: "grid",
@@ -169,9 +179,20 @@ const sidebarSx = {
       height: "2px",
       display: "block",
       width: "4vw",
+      transition: "transform 0.3s ease, opacity 0.3s ease",
     },
     ".navbarButton > .line + .line": {
       marginTop: "3px",
+    },
+    ".navbarButton.rotated > .line:first-child": {
+      transform: "translateY(5px) rotate(45deg)",
+    },
+    ".navbarButton.rotated > .line:nth-child(2)": {
+      opacity: "0",
+      transform: "scaleX(0)",
+    },
+    ".navbarButton.rotated > .line:last-child": {
+      transform: "translateY(-5px) rotate(-45deg)",
     },
     ".navbarButton::before": {
       cursor: "pointer",
@@ -180,6 +201,18 @@ const sidebarSx = {
     },
     ".rotated::before": {
       transform: "rotate(90deg)",
+    },
+    ".linksToShow": {
+      maxHeight: "0",
+      overflow: "hidden",
+      opacity: "0",
+      pointerEvents: "none",
+      transition: "max-height 0.4s ease, opacity 0.25s ease",
+    },
+    ".linksToShow.expanded": {
+      maxHeight: "800px",
+      opacity: "1",
+      pointerEvents: "auto",
     },
     ".headerGrid": {
       display: "grid",
@@ -307,8 +340,7 @@ export default function Sidebar() {
             marginRight: 0,
           }}
         ></div>
-        {(navbarExpanded || !isMobile) && (
-          <div className="linksToShow">
+        <div className={"linksToShow" + (!isMobile || navbarExpanded ? " expanded" : "")}>
             <Link
               className={`link ${highlightLink("/")}`}
               href={"/"}
@@ -371,8 +403,7 @@ export default function Sidebar() {
                 }}
               ></div>
             </div>
-            {sectionsExpanded && (
-              <Grid className="sublinks" columns={1} gap={3}>
+            <Grid className={"sublinks" + (sectionsExpanded ? " expanded" : "")} columns={1} gap={3}>
                 <Link
                   className={`link ${highlightLink("/sections/art")}`}
                   href="/sections/art"
@@ -409,7 +440,6 @@ export default function Sidebar() {
                   Notes
                 </Link>
               </Grid>
-            )}
             <div className="sectionsLink">
               <div
                 sx={{
@@ -435,31 +465,30 @@ export default function Sidebar() {
 
 
 
-            {moreExpanded && (
-              <Grid className="sublinks" columns={1} gap={3}>
-                <a href="/shop" 
-                  className={`link ${highlightLink("/shop")}`} 
+            <Grid className={"sublinks" + (moreExpanded ? " expanded" : "")} columns={1} gap={3}>
+                <a href="/shop"
+                  className={`link ${highlightLink("/shop")}`}
                   onClick={()=> setNavbarExpanded(false)}>
                     Shop
                 </a>
 
-                <a href="/donate" 
-                  className={`link ${highlightLink("/donate")}`} 
+                <a href="/donate"
+                  className={`link ${highlightLink("/donate")}`}
                   onClick={()=> setNavbarExpanded(false)}>
                     Donate
                 </a>
-                <a href="/advertise" 
-                  className={`link ${highlightLink("/advertise")}`} 
+                <a href="/advertise"
+                  className={`link ${highlightLink("/advertise")}`}
                   onClick={()=> setNavbarExpanded(false)}>
                   Advertise
                 </a>
-                <a href="/comp" 
-                  className={`link ${highlightLink("/comp")}`} 
+                <a href="/comp"
+                  className={`link ${highlightLink("/comp")}`}
                   onClick={()=> setNavbarExpanded(false)}>
                     Comp
                 </a>
-                <a href="/masthead" 
-                  className={`link ${highlightLink("/masthead")}`} 
+                <a href="/masthead"
+                  className={`link ${highlightLink("/masthead")}`}
                   onClick={()=> setNavbarExpanded(false)}>
                     Masthead
                 </a>
@@ -471,16 +500,11 @@ export default function Sidebar() {
                 >
                   Alumni
                 </a>
-
-
-
             ) : (
               ""
             )}
-            
 
               </Grid>
-            )}
 
             <div
               className="horizontalLine1"
@@ -512,7 +536,6 @@ export default function Sidebar() {
 
 
           </div>
-        )}
 
 
         <Link className="buttonLink" href={"/submit"}>
