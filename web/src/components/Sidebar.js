@@ -157,6 +157,7 @@ const sidebarSx = {
     padding: "1em 1em 1em 1em",
     position: "sticky",
     top: "0",
+    zIndex: 10,
     backgroundColor: "white",
     ".advoStyle": {
       alignItems: "center",
