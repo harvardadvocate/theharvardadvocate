@@ -33,10 +33,7 @@ function MyApp({ Component, pageProps }) {
   // Scroll to top on route change
   useEffect(() => {
     const handleRouteChange = () => {
-      // Scroll the body element (which is the actual scroll container)
-      // because html has overflow:hidden and body has overflow:auto
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
+      window.scrollTo(0, 0);
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);

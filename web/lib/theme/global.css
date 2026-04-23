@@ -141,8 +141,6 @@
 }
 
 html {
-  overflow: hidden;
-  height: 100%;
 }
 
 /* Box sizing rules */
@@ -188,8 +186,6 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1;
-  height: 100%;
-  overflow: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
