@@ -150,11 +150,11 @@ export default function TextListItem(props) {
                   <Link href="/sections/notes">
                     <span style={{ color: headerColor }}>Notes</span>
                   </Link>
-                ) : (
+                ) : props.item.issue ? (
                   <Link href={"/issues/" + props.item.issue.slug.current}>
                     <span style={{ color: headerColor }}>{" " + props.item.issue.title}</span>
                   </Link>
-                )}
+                ) : null}
               </i>
             ) : (
               <i>
@@ -163,10 +163,14 @@ export default function TextListItem(props) {
                     {props.item.sections[0].title === "Notes" ? "Notes from 21 South Street" : props.item.sections[0].title}{" "}
                   </span>
                 </Link>
-                •{" "}
-                <Link href={"/issues/" + props.item.issue.slug.current}>
-                  <span style={{ color: headerColor }}>{" " + props.item.issue.title}</span>
-                </Link>
+                {props.item.issue && (
+                  <>
+                    •{" "}
+                    <Link href={"/issues/" + props.item.issue.slug.current}>
+                      <span style={{ color: headerColor }}>{" " + props.item.issue.title}</span>
+                    </Link>
+                  </>
+                )}
               </i>
             )}
             </h3>

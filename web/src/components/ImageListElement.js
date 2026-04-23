@@ -108,7 +108,7 @@ export default function ImageListElement(props) {
                 </React.Fragment>
               )}
 
-              <i> {props.item.issue.title}</i>
+              {props.item.issue && <i> {props.item.issue.title}</i>}
               <div className="fontMod">
 
               </div>
