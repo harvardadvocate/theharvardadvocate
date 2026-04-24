@@ -91,7 +91,7 @@ const sectionsOverviewSx = {
 
 const sectionToQueryBySearch = (searchQuery) => {
 
-  return `*[_type == "contentItem" && (title match "${searchQuery}" || authors[] match "${searchQuery}")] | order(publishedAt desc) {
+  return `*[_type == "contentItem" && (title match "${searchQuery}" || authors[]->name match "${searchQuery}")] | order(publishedAt desc) {
     title,
     authors[]->{name},
     issue->{title, slug},
