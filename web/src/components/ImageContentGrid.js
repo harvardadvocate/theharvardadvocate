@@ -87,7 +87,7 @@ export default function ImageContentGrid(props) {
 
   var perChunk; // items per row
 
-  if (props.vertical) {
+  if (vertical) {
     perChunk = 1;
   } else {
     perChunk = 3;
