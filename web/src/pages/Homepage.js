@@ -132,7 +132,8 @@ const homepageSx = {
     position: "relative",
   },
 
-  ".blog": {
+  ".blog": {},
+  ".blogHeader": {
     textAlign: "center",
   },
 

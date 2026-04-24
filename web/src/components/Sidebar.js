@@ -308,15 +308,12 @@ export default function Sidebar() {
               onClick={() => setNavbarExpanded(false)}
             >
               {/* <img src="/logo2.jpg" alt="The Advocate Logo" /> */}
-              <div className="advoStyle">
-
-
-                <div className="fontMod">
+              <span className="advoStyle">
+                <span className="fontMod">
                 <img src="/wordmark.png" alt="The Advocate Title" />
-
                 {/* THE HARVARD ADVOCATE */}
-                  </div>
-                </div>
+                </span>
+              </span>
             </Link>
           </div>
         ) : (
@@ -540,15 +537,11 @@ export default function Sidebar() {
 
 
         <Link className="buttonLink" href={"/submit"}>
-        <div className="fontButtonMod">
-          SUBMIT
-        </div>
+          <span className="fontButtonMod">SUBMIT</span>
         </Link>
 
         <Link className="buttonLink" href={"/subscribe"}>
-        <div className="fontButtonMod">
-          SUBSCRIBE
-        </div>
+          <span className="fontButtonMod">SUBSCRIBE</span>
         </Link>
         
       </Grid>

@@ -233,7 +233,7 @@ export default function FeaturedIssue(props) {
             className={props.newest ? "featuredArticles" : "featuredArticles2"}
           >
             <a href={"issues/" + issue.slug.current}>
-              <div className="issueTitle">
+              <span className="issueTitle">
                 <h5 sx={{ variant: "styles.h5" }}>
                   <div className="fontMod">
                   <b>{props.newest ? "NEWEST ISSUE" : "RECENT ISSUE"}</b>
@@ -241,7 +241,7 @@ export default function FeaturedIssue(props) {
                 </h5>
                 <h1 sx={{ variant: "styles.h1" }}>{issue.title}</h1>
                 {featuredItems.length > 0 ? <hr /> : <></>}
-              </div>
+              </span>
             </a>
             <div className="highlightedArticles">
               <Grid gap={6} columns={[1, null, 2]} className="featuredGrid">
