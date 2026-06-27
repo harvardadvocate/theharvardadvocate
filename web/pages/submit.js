@@ -77,7 +77,7 @@ export default function Submit() {
 
       <Head>
         <title>Submit - The Harvard Advocate</title>
-        <meta name='description' property="og:description" content="The Harvard Advocate is currently soliciting submissions for our Fall 2026 issue." />
+        <meta name='description' property="og:description" content="The Harvard Advocate is currently accepting rolling submissions for our digital-only Summer 2026 issue." />
         <meta name='title' property="og:title" content="Submit" />
       </Head>
 
@@ -99,7 +99,7 @@ export default function Submit() {
             <br />
             <br />
             <hr />
-            <h2 sx={{ variant: "styles.h2" }}>Fall 2026 Issue</h2>
+            <h2 sx={{ variant: "styles.h2" }}>Summer 2026 Issue</h2>
             <hr />
             <div sx={{ textAlign: "left" }}>
             Come in, come in, is anyone receiving? A SIGNAL coming from outer space or a head space. A disaster prone messaging platform; is anyone virtue signaling anymore? We signal our intent, our interest, our distress, our progress . . . duress?
@@ -111,7 +111,7 @@ This issue, the Advocate thinks of all things SIGNAL. The air waves are crowded,
             CQ CQ CQ. Any station monitoring, this is Advocate standing by.
 
             <i sx={{ textAlign: "center", display: "block" }}>
-            <br /> We are currently accepting submissions for our Fall 2026 issue.
+            <br /> We are currently accepting digital-only submissions for our Summer 2026 issue.
             <br />
                <br />Submissions for Fiction, Poetry, and Art are due April 10, 2026.
             </i>
