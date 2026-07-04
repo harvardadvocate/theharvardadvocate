@@ -111,7 +111,7 @@ export default function Submit() {
             2026 issue.
             <br />
             <br />
-            Submissions for Fiction, Poetry, and Art are due July 31, 2026.
+            Submissions for Fiction, Poetry, and Art are rolling.
           </i>
 
           <br />
