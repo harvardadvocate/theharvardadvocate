@@ -16,9 +16,7 @@ const submitSx = {
     textAlign: "center",
     display: "block",
   },
-  p: {
-    // textAlign: "center"
-  },
+  p: {},
   ".buttonLink": {
     color: "#000000",
     backgroundColor: "#ffffff",
@@ -27,6 +25,7 @@ const submitSx = {
     textDecoration: "none",
     fontSize: "18px",
     width: "35%",
+    minWidth: "300px",
     fontFamily: "sans-serif",
     fontWeight: "500",
     justifyContent: "center",
@@ -54,7 +53,6 @@ const submitSx = {
   h2: {
     textAlign: "center",
   },
-
   "@media (max-width: 835px)": {
     ".submitBody": {
       margin: "0em 0em 0em 0em",
@@ -65,6 +63,7 @@ const submitSx = {
     },
     ".buttonLink": {
       width: "60%",
+      minWidth: "0px",
     },
   },
 };
@@ -100,17 +99,14 @@ export default function Submit() {
 
           <br />
           <br />
-
           <hr />
 
           <h2 sx={{ variant: "styles.h2" }}>Summer 2026 Issue</h2>
 
           <hr />
-
           <br />
 
           <i sx={{ textAlign: "center", display: "block" }}>
-            <br />
             We are currently accepting digital-only submissions for our Summer
             2026 issue.
             <br />
@@ -120,7 +116,7 @@ export default function Submit() {
 
           <br />
 
-          <div sx={{ display: "flex", justifyContent: "center" }}>
+          <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <a
               className="buttonLink"
               href="mailto:fiction@theharvardadvocate.com"
@@ -138,40 +134,33 @@ export default function Submit() {
               We have no minimum or maximum word counts, but the work we publish
               tends to be between 700 and 7000 words.
             </li>
-
             <li>
               Please include a cover letter and brief third-person biographical
               statement with your submission.
             </li>
-
             <li>
               Attach your work as a Microsoft Word file. (Please consider
               double-spacing and using 12-point Times New Roman font with
               standard margins.)
             </li>
-
             <li>
               Because submissions are considered anonymously, please make sure
               your name is not anywhere in the document.
             </li>
-
             <li>
               Simultaneous submissions are accepted, but please let us know
               immediately if your work is accepted elsewhere.
             </li>
           </ul>
 
-          You can submit your work by emailing
-          fiction@theharvardadvocate.com
+          <p>You can submit your work by emailing fiction@theharvardadvocate.com</p>
 
           <br />
           <br />
-
           <hr />
-
           <br />
 
-          <div sx={{ display: "flex", justifyContent: "center" }}>
+          <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <a
               className="buttonLink"
               href="https://forms.gle/SreCuNx4NA4zDVDUA"
@@ -186,28 +175,23 @@ export default function Submit() {
 
           <ul>
             <li>We have no minimum or maximum word counts.</li>
-
             <li>
               If you&apos;d like to, you may include a message to the editor
               with your submission. In this message you can describe your work,
               if you like, or give any background necessary to understand it.
             </li>
-
             <li>
               Attach your work as a Microsoft Word file or PDF file. Word files
               are the preferred format, but either is acceptable.
             </li>
-
             <li>
               Because submissions are considered anonymously, please make sure
               your name is not anywhere in the document.
             </li>
-
             <li>
               Simultaneous submissions are accepted, but please let us know
               immediately if your work is accepted elsewhere.
             </li>
-
             <li>
               We primarily read and publish various styles of written poetry,
               but illustrated forms of poetry (like poetry comics)—along with
@@ -215,17 +199,17 @@ export default function Submit() {
             </li>
           </ul>
 
-          You can submit your work through the link above. Email questions to
-          poetry@theharvardadvocate.com
+          <p>
+            You can submit your work through the link above. Email questions to
+            poetry@theharvardadvocate.com
+          </p>
 
           <br />
           <br />
-
           <hr />
-
           <br />
 
-          <div sx={{ display: "flex", justifyContent: "center" }}>
+          <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <a
               className="buttonLink"
               href="https://docs.google.com/forms/d/e/1FAIpQLSdzLqsA__rvkRkBVwszgrA1UWFXcjffGJms7PUTgo5emHTYcQ/viewform?usp=sf_link"
@@ -238,8 +222,10 @@ export default function Submit() {
 
           <br />
 
-          You can submit your work through the link above, or by emailing
-          art@theharvardadvocate.com
+          <p>
+            You can submit your work through the link above, or by emailing
+            art@theharvardadvocate.com
+          </p>
 
           <div className="image">
             <img
