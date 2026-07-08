@@ -12,7 +12,6 @@ import RandomUpdate from "../src/components/RandomUpdate.js";
 import { createOrganizationSchema, createWebSiteSchema } from "../lib/seo/schemas.js";
 
 const MOGU_AD_URL = "https://www.mogu.earth/offerings";
-const BPYO_AD_URL = "https://bostonphil.my.salesforce-sites.com/ticket#/instances/a0FPQ00000Tln6E2AR";
 
 const homepageSx = {
   ".fontMod": {
@@ -65,18 +64,6 @@ const homepageSx = {
     },
   },
 
-  ".adFull": {
-    padding: "1vw 2vw",
-    textAlign: "center",
-    img: {
-      maxHeight: "35vh",
-      maxWidth: "100%",
-      objectFit: "contain",
-      display: "block",
-      margin: "0 auto",
-    },
-  },
-
   ".socialsFeed": {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
@@ -92,7 +79,7 @@ const homepageSx = {
     maxHeight: "70vh",
   },
 
-  ".twitterCol": {
+  ".houseCol": {
     paddingLeft: "2vw",
     paddingRight: "2vw",
     display: "flex",
@@ -324,19 +311,6 @@ export default function Homepage({
                   />
                 </a>
                 <a
-                  href={BPYO_AD_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    src="/BPYO_3_Flyers+Posters.jpg"
-                    loading="lazy"
-                    alt="Boston Philharmonic Youth Orchestra — Benjamin Zander, Conductor. Sunday May 3, 7:00 PM, Symphony Hall, Boston. Tickets from $25, Students $12."
-                  />
-                </a>
-              </div>
-              <div className="adFull">
-                <a
                   href="https://www.youtube.com/watch?v=FQb2eRdA8Xg"
                   target="_blank"
                   rel="noreferrer"
@@ -420,19 +394,15 @@ export default function Homepage({
                     </div>
                   </a>
                 </div>
-                  <div className="twitterCol">
-                    <a
-                      href={BPYO_AD_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <img
-                        src="/BPYO_3_Flyers+Posters.jpg"
-                        loading="lazy"
-                        alt="Boston Philharmonic Youth Orchestra — Benjamin Zander, Conductor. Sunday May 3, 7:00 PM, Symphony Hall, Boston."
-                      />
-                    </a>
-                  </div>
+                <div className="houseCol">
+                  <a href="/about">
+                    <img
+                      src="/about.jpg"
+                      loading="lazy"
+                      alt="Line drawing of the Advocate house at 21 South Street."
+                    />
+                  </a>
+                </div>
               </div>
             ) : (
               ""
