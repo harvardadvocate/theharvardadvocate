@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import Head from "next/head";
-import Frame from "../src/components/Frame";
+import Frame from "../components/Frame";
 
 const submitSx = {
   ".submitBody": {
