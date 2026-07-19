@@ -121,7 +121,7 @@ const customComponents = {
 
 
 
-export default function ContentItem({ itemData }) {
+export default function ContentItem({ itemData, relatedItems = [] }) {
 
   var isMobile = useIsMobile();
 
@@ -158,7 +158,10 @@ export default function ContentItem({ itemData }) {
     { name: itemData.title, url: articleUrl },
   ]) : null;
 
+   const resonanceBlurb =
+    "Three paths outward: a formal neighbor, an issue companion, and an echo elsewhere in the archive.";
   return (
+
     <div>
       <NextSeo
         title={itemData.title}
@@ -219,8 +222,8 @@ export default function ContentItem({ itemData }) {
           ]}
         >
             <div className="contentHeader">
-              <div className="topLine">
-                <h5 sx={{ variant: "styles.h5" }}>
+                         <div className="topLine">
+              <h5 sx={{ variant: "styles.h5" }}>
 
                 {itemData.sections?.length > 0 && itemData.sections[0].title === 'Notes' ?
                   <Link href={"/sections/" + itemData.sections[0].slug.current}>
@@ -244,10 +247,9 @@ export default function ContentItem({ itemData }) {
                   ) : null
                 }
 
-
-
               </h5>
             </div>
+
             <div className="title">
               <h1 sx={{ variant: "styles.h1" }}>{itemData.title}</h1>
             </div>
@@ -255,14 +257,15 @@ export default function ContentItem({ itemData }) {
               {itemData.authors?.length > 0 && (
                 <h3 sx={{ variant: "styles.h3" }}>
                   By{" "}
-                  {itemData.authors.map((author, i) => (
-                    <>
+                                    {itemData.authors.map((author, i) => (
+                    <span key={author.slug.current}>
                       {i !== 0 && ", "}
                       <Link href={"/authors/" + author.slug.current}>
                         {author.name}
                       </Link>
-                    </>
+                    </span>
                   ))}
+
                 </h3>
               )}
             </div>
@@ -329,6 +332,63 @@ export default function ContentItem({ itemData }) {
               components={customComponents}
             />
           )}
+           <div sx={{ mt: "4em", pt: "2em", borderTop: "1px solid #000" }}>
+            <h2 sx={{ variant: "styles.h2", mb: "0.75em" }}>Resonances</h2>
+                      <p sx={{ variant: "styles.p", mb: "1.5em" }}>
+              {resonanceBlurb}
+            </p>
+
+
+                      <div
+              sx={{
+                display: "grid",
+                gridTemplateColumns: ["1fr", "1fr 1fr 1fr"],
+                gap: "1.5em",
+              }}
+            >
+              {relatedItems.map((item) => (
+                <div
+                  key={item.piece.slug.current}
+                  sx={{ p: "1em", border: "1px solid #000" }}
+                >
+                  <p
+                    sx={{
+                      mb: "0.75em",
+                      fontSize: "0.8em",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                    }}
+                  >
+                    {item.label}
+                  </p>
+
+                  <h4 sx={{ mb: "0.5em" }}>
+                    <Link href={`/content/${item.piece.slug.current}`}>
+                      {item.piece.title}
+                    </Link>
+                  </h4>
+
+                  {item.piece.authors?.length > 0 && (
+                    <p sx={{ mb: "0.5em" }}>
+                      By {item.piece.authors.map((author) => author.name).join(", ")}
+                    </p>
+                  )}
+
+                  {item.piece.issue?.title && (
+                    <p sx={{ fontStyle: "italic", mb: "0.5em" }}>
+                      {item.piece.issue.title}
+                    </p>
+                  )}
+
+                  <p sx={{ fontSize: "0.95em", mb: 0 }}>
+                    {item.reason}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+                  
         </ContentFrame>
       </div>
 
@@ -360,16 +420,16 @@ export async function getStaticProps({ params }) {
         asset->{
           _id,
           url
-         }
-       },
-     body,
-     publishedAt,
-     issue->{title, slug},
-     authors[]->{name, slug},
-     sections[]->{title, slug},
-     images[]{asset->{_id, url}},
-     vimeoLink
-   }[0]`,
+        }
+      },
+      body,
+      publishedAt,
+      issue->{title, slug},
+      authors[]->{name, slug},
+      sections[]->{title, slug},
+      images[]{asset->{_id, url}},
+      vimeoLink
+    }[0]`,
     { slug: params.slug }
   );
 
@@ -377,8 +437,96 @@ export async function getStaticProps({ params }) {
     return { notFound: true };
   }
 
+  const sectionSlugs = (itemData.sections || []).map((section) => section.slug.current);
+  const issueSlug = itemData.issue?.slug?.current || "";
+
+  const cardFields = `
+    title,
+    slug,
+    issue->{title, slug},
+    authors[]->{name, slug},
+    sections[]->{title, slug}
+  `;
+
+  const sameSectionPiece = await sanityClient.fetch(
+    `*[
+      _type == "contentItem" &&
+      slug.current != $slug &&
+      count((sections[]->slug.current)[@ in $sectionSlugs]) > 0
+    ] | order(publishedAt desc)[0]{
+      ${cardFields}
+    }`,
+    {
+      slug: params.slug,
+      sectionSlugs,
+    }
+  );
+
+  const sameIssueDifferentSectionPiece = issueSlug
+    ? await sanityClient.fetch(
+        `*[
+          _type == "contentItem" &&
+          slug.current != $slug &&
+          slug.current != $sameSectionSlug &&
+          issue->slug.current == $issueSlug &&
+          count((sections[]->slug.current)[@ in $sectionSlugs]) == 0
+        ] | order(publishedAt desc)[0]{
+          ${cardFields}
+        }`,
+        {
+          slug: params.slug,
+          sameSectionSlug: sameSectionPiece?.slug?.current || "",
+          issueSlug,
+          sectionSlugs,
+        }
+      )
+    : null;
+
+  const archiveEchoPiece = await sanityClient.fetch(
+    `*[
+      _type == "contentItem" &&
+      slug.current != $slug &&
+      slug.current != $sameSectionSlug &&
+      slug.current != $sameIssueSlug &&
+      count((sections[]->slug.current)[@ in $sectionSlugs]) == 0
+    ] | order(publishedAt desc)[0]{
+      ${cardFields}
+    }`,
+    {
+      slug: params.slug,
+      sameSectionSlug: sameSectionPiece?.slug?.current || "",
+      sameIssueSlug: sameIssueDifferentSectionPiece?.slug?.current || "",
+      sectionSlugs,
+    }
+  );
+
+  const relatedItems = [
+    sameSectionPiece
+      ? {
+          label: "Formal neighbor",
+          reason: "Another piece from the same section.",
+          piece: sameSectionPiece,
+        }
+      : null,
+    sameIssueDifferentSectionPiece
+      ? {
+          label: "Issue companion",
+          reason: "A work from the same issue, but a different section.",
+          piece: sameIssueDifferentSectionPiece,
+        }
+      : null,
+    archiveEchoPiece
+      ? {
+          label: "Archive echo",
+          reason: "A more distant resonance elsewhere in the archive.",
+          piece: archiveEchoPiece,
+        }
+      : null,
+  ].filter(Boolean);
+
   return {
-    props: { itemData },
+    props: { itemData, relatedItems },
     revalidate: 86400,
   };
 }
+
