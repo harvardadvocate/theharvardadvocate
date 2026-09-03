@@ -90,19 +90,12 @@ export default function Comp() {
             .
             <br />
             <br />
-            Intro Comp meetings are happening on February 11 and 12 from 8-9 pm at 21 South Street, or our virtual intro meeting on February 15 from 2-3pm on 
+            Intro Comp meetings are happening September 10 and 11 from 8-9 pm.
+            {" "}
+            The Comp Sign-up form can be found
             {" "}
             <a
-              href="https://harvard.zoom.us/j/96402024569"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Zoom
-            </a>{". "}
-            The Comp Sign-up form can also be found
-            {" "}
-            <a
-              href="https://docs.google.com/forms/d/1Z8noIhD9B9PtJWVfezM6MN-oTnDyqL61OyU5VgTxJiM/viewform"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdvpXWjryjTAbYcpVQ1j31KEInof5ytougj6TOzMAG_Q7ViVw/viewform"
               target="_blank"
               rel="noreferrer"
             >
