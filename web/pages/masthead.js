@@ -50,7 +50,7 @@ export default function Masthead() {
               <br />
               M. Miller, Art Editor ‘27
               <br />
-              M. Yu, Tech Editor ‘27
+              Conan Lu, Head of Technology ‘26
               <br />
               D. Sunshine, Business Manager ‘28
               <br />
