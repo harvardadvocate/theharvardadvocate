@@ -50,7 +50,9 @@ export default function Masthead() {
               <br />
               M. Miller, Art Editor ‘27
               <br />
-              Conan Lu, Head of Technology ‘26
+              K. Mukire, Tech Editor '29
+              <br />
+              C. Lu, Head of Technology ‘26
               <br />
               D. Sunshine, Business Manager ‘28
               <br />
@@ -84,6 +86,8 @@ export default function Masthead() {
               C. Xue, Pegasus ‘29
               <br />
               O. Yaffe, Hermes ‘28
+              <br />
+              I. Jayanti, Hermes '28'
               <br />
               K. Chong, Hades ‘29
               <br />
