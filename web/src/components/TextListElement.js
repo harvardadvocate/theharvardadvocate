@@ -183,17 +183,15 @@ export default function TextListItem(props) {
 
             </h2>
             <br />
-            <Link href={"/content/" + props.item.slug.current}>
-              <span className="textPreview">
-                {props.item.body && props.item.body.length > 0 && (
-                  <PortableText
-                    value={extractPreviewBlocks(props.item.body)}
-                    hardBreak={false}
-                    components={customComponents}
-                  />
-                )}
-              </span>
-            </Link>
+            <div className="textPreview">
+              {props.item.body && props.item.body.length > 0 && (
+                <PortableText
+                  value={extractPreviewBlocks(props.item.body)}
+                  hardBreak={false}
+                  components={customComponents}
+                />
+              )}
+            </div>
             <br />
             {props.hideAuthor ? (
               ""

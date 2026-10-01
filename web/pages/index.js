@@ -4,6 +4,7 @@ import { NextSeo } from 'next-seo';
 import { sanityClient } from "../lib/sanity.js";
 import { getResources } from "../lib/queries/homepage.js";
 import { optimizeImageLoading } from "../lib/utils/image.js";
+import cannyPoster from "./canny.jpeg";
 import FeaturedIssue from "../src/components/FeaturedIssue.js";
 import MixedGrid from "../src/components/MixedGrid.js";
 import TextContentList from "../src/components/TextContentList.js";
@@ -46,7 +47,7 @@ const homepageSx = {
 
   ".adRow": {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
     gap: "1vw",
     padding: "1vw 2vw",
     alignItems: "center",
@@ -298,7 +299,7 @@ export default function Homepage({
             <div className="sanctumSessions">
               {!isMobile ? <hr /> : ""}
 
-              <div className={isMobile ? "" : "adRow"}>
+              <div className="adRow">
                 <a
                   href={MOGU_AD_URL}
                   target="_blank"
@@ -308,6 +309,17 @@ export default function Homepage({
                     src="/images/mogu.png"
                     loading="lazy"
                     alt="MOGU — When life gives you lemons, eat mushrooms."
+                  />
+                </a>
+                <a
+                  href="https://goodnaturema.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={cannyPoster.src}
+                    loading="lazy"
+                    alt="Canny poster"
                   />
                 </a>
                 <a
