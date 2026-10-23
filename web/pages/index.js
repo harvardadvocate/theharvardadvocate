@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo';
 import { sanityClient } from "../lib/sanity.js";
 import { getResources } from "../lib/queries/homepage.js";
 import { optimizeImageLoading } from "../lib/utils/image.js";
-import cannyPoster from "./canny.jpeg";
+import cannyPoster from "./newcanny.png";
 import FeaturedIssue from "../src/components/FeaturedIssue.js";
 import MixedGrid from "../src/components/MixedGrid.js";
 import TextContentList from "../src/components/TextContentList.js";
