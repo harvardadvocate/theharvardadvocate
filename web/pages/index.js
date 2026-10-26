@@ -145,27 +145,6 @@ const homepageSx = {
     },
   },
 
-  ".trueFalseAnnouncement": {
-    maxWidth: "900px",
-    margin: "2.5rem auto",
-    padding: "0 5%",
-    fontSize: "1.1rem",
-    lineHeight: 1.6,
-    textAlign: "left",
-    p: {
-      marginBottom: "1em",
-    },
-    h2: {
-      textAlign: "center",
-      marginBottom: "1em",
-    },
-    blockquote: {
-      margin: "0 0 1em",
-      paddingLeft: "1em",
-      borderLeft: "1px solid rgba(0,0,0,0.3)",
-    },
-  },
-
   ".fromss": {
     gridColumn: "-1 / 2",
     gridRow: "1",
@@ -289,79 +268,6 @@ export default function Homepage({
               issue={itemData}
               featuredItems={featuredItems}
             />
-            <section
-              className="trueFalseAnnouncement"
-              aria-labelledby="true-false-heading"
-            >
-              <h2 id="true-false-heading" sx={{ variant: "styles.h2" }}>
-                TRUE/FALSE
-              </h2>
-              <p>The trouble with the truth is that everyone has one.</p>
-              <p>
-                Memory is an unreliable witness, and every narrator has
-                something to hide. Yet nothing reveals quite as much as a
-                disguise. The truth is rarely pure and never simple.
-              </p>
-              <p>
-                The inside is out; the outside is in. And this is certainly not
-                a pipe.
-              </p>
-              <p>
-                The more the self is externalized the less certain we become of
-                its substance.
-              </p>
-              <p>Are we revealing, or constructing?</p>
-              <p>Do you know it when you see it, or see it when you know it?</p>
-              <p>Nothing is, but what is not?</p>
-              <p>This issue, the Advocate welcomes all that is TRUE and FALSE.</p>
-              <p>
-                We ask what can be known, what can be shown, what remains beyond
-                the frame, in the margins, between the lines. The question is
-                not simply which is true, but whether the difference matters.
-              </p>
-              <p>
-                From the counterfeit to the confessional we consider what
-                happens when the real and unreal trade places. After all, the
-                truth, like any good story, depends on its telling alone.
-              </p>
-              <p>
-                TRUE/FALSE does not seek to close the rift. It demands that we
-                sit in multiplicity and simultaneity.
-              </p>
-              <p>
-                This issue asks not for answers but entanglements. Linger in
-                contradiction. Fracture the binaries.
-              </p>
-              <p>
-                Give us your staged confession, your unreliable narrator, your
-                digital double, your performative utterance. Contradict
-                yourself, contain multitudes.
-              </p>
-              <h3>Graveyard</h3>
-              <blockquote>
-                What we call the beginning is often the end.
-                <br />— TSE
-              </blockquote>
-              <blockquote>
-                Do I contradict myself? Very well then I contradict myself, I am
-                large, I contain multitudes.
-                <br />— WW
-              </blockquote>
-              <blockquote>
-                Truth is stranger than fiction, but it is because Fiction is
-                obliged to stick to possibilities; Truth isn&apos;t.
-                <br />— Twain
-              </blockquote>
-              <p>
-                To be seen is to be verified. To have your own existence
-                confirmed back to you.
-              </p>
-              <p>But what is left behind, within? Remains unsaid, unsayable?</p>
-              <p>
-                The Advocate asks: when anything can be fabricated, what still
-                counts as true?
-              </p>
-            </section>
             <div className="archiveHeader">
               <br></br>
               <div className="announcement">
