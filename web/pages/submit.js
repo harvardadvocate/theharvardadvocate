@@ -76,7 +76,7 @@ export default function Submit() {
         <meta
           name="description"
           property="og:description"
-          content="The Harvard Advocate is currently accepting rolling submissions for our digital-only Summer 2026 issue."
+          content="The Harvard Advocate is currently accepting rolling submissions for our digital-only Spring 2026 issue."
         />
         <meta name="title" property="og:title" content="Submit" />
       </Head>
@@ -101,13 +101,70 @@ export default function Submit() {
           <br />
           <hr />
 
-          <h2 sx={{ variant: "styles.h2" }}>Summer 2026 Issue</h2>
+          <h2 sx={{ variant: "styles.h2" }}>Spring 2026 Issue</h2>
 
           <hr />
           <br />
 
+          <div>
+            <p sx={{ variant: "styles.p" }}>
+              The trouble with the truth is that everyone has one.
+            </p>
+
+            <p sx={{ variant: "styles.p" }}>
+              Memory is an unreliable witness, and every narrator has something to hide. Yet nothing reveals quite as much as a disguise. The truth is rarely pure and never simple.
+              <br />
+              The inside is out; the outside is in. And this is certainly not a pipe.
+            </p>
+
+            <p sx={{ variant: "styles.p" }}>
+              The more the self is externalized the less certain we become of its substance.
+              <br />
+              Are we revealing, or constructing?
+              <br />
+              Do you know it when you see it, or see it when you know it?
+              <br />
+              Nothing is, but what is not?
+            </p>
+
+            <p sx={{ variant: "styles.p" }}>
+              This issue, the Advocate welcomes all that is TRUE and FALSE.
+              <br />
+              We ask what can be known, what can be shown, what remains beyond the frame, in the margins, between the lines. The question is not simply which is true, but whether the difference matters.
+            </p>
+
+            <p sx={{ variant: "styles.p" }}>
+              From the counterfeit to the confessional we consider what happens when the real and unreal trade places. After all, the truth, like any good story, depends on its telling alone.
+            </p>
+
+            <p sx={{ variant: "styles.p" }}>
+              TRUE/FALSE does not seek to close the rift. It demands that we sit in multiplicity and simultaneity.
+              <br />
+              This issue asks not for answers but entanglements. Linger in contradiction. Fracture the binaries.
+              <br />
+              Give us your staged confession, your unreliable narrator, your digital double, your performative utterance. Contradict yourself, contain multitudes.
+            </p>
+
+            <h2 sx={{ variant: "styles.h2" }}>Graveyard</h2>
+
+            <i sx={{ textAlign: "center", display: "block" }}>
+              <p>What we call the beginning is often the end. - TSE</p>
+              <p>Do I contradict myself? Very well then I contradict myself, I am large, I contain multitudes. - WW</p>
+              <p>Truth is stranger than fiction, but it is because Fiction is obliged to stick to possibilities; Truth isn&apos;t. - Twain</p>
+              <p>
+                To be seen is to be verified. To have your own existence confirmed back to you.
+                <br />
+                But what is left behind, within? Remains unsaid, unsayable?
+                <br />
+                The Advocate asks: when anything can be fabricated, what still counts as true?
+              </p>
+            </i>
+          </div>
+
+          <br />
+
           <i sx={{ textAlign: "center", display: "block" }}>
-            We are currently accepting digital-only submissions for our Summer
+            We are currently accepting digital-only submissions for our Spring
             2026 issue.
             <br />
             <br />
@@ -119,7 +176,7 @@ export default function Submit() {
           <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <a
               className="buttonLink"
-              href="mailto:fiction@theharvardadvocate.com"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSesr2KYYnip9xs3MfOMm1aoaWQVFcIsKCKBguvMdbMaO6_ryg/viewform"
               target="_blank"
               rel="noreferrer"
             >
@@ -153,7 +210,7 @@ export default function Submit() {
             </li>
           </ul>
 
-          <p>You can submit your work by emailing fiction@theharvardadvocate.com</p>
+          <p>Submit your fiction through the Google Form above.</p>
 
           <br />
           <br />

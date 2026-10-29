@@ -3,7 +3,6 @@ import { Themed } from "theme-ui";
 import Frame from "../components/Frame";
 import { Helmet, HelmetProvider, HelmetData } from 'react-helmet-async';
 
-// test firebase push for summer page
 
 const submitSx = {
   ".submitBody": {
@@ -82,7 +81,7 @@ export default function Submit() {
     <Helmet helmetData={helmetData}>
     {/* <title>{itemData.title}</title> */}
     <meta name='description' property="og:description" content={
-      "The Harvard Advocate is currently soliciting submissions for our Summer 2025 issue."
+      "The Harvard Advocate is currently soliciting submissions for our Spring 2026 issue."
       }  />
     <meta name='title' property="og:title" content={"Submit"} />
 
@@ -107,28 +106,44 @@ export default function Submit() {
             <hr />
             <Themed.h2>Spring 2026 Issue</Themed.h2>
             <hr />
+            <p align="left">The trouble with the truth is that everyone has one.</p>
             <p align="left">
-            FEAR has an odd directionality. At times it emerges from within, a frenzy of unease that clings
-desperately to the world around us: the unseen corners of the bed that breed monsters; waves
-against the hull making known the presence of some great beast stirring underneath; darkness that
-acquires weight, tapping insistently at the shoulder. At other times, fear is pressed upon us and a
-sudden realization makes known that we should indeed be afraid, forged by threat. Today this is our
-shared experience. As the world turns in ways that are nothing if not terrifying, fear becomes the
-texture of our condition.
+              Memory is an unreliable witness, and every narrator has something to hide. Yet nothing reveals quite as much as a disguise. The truth is rarely pure and never simple.<br />
+              The inside is out; the outside is in. And this is certainly not a pipe.
             </p>
-            <br></br>
-            <p>
-            On The Harvard Advocate’s 160th anniversary we hear the word coming from the Old English fǣr —
-calamity, danger. We contemplate our motto, Dulce Est Periculum — danger is sweet. Who are we to
-be lovers of danger in an age of fear? The Advocate, too, is trembling, and so it speaks.
+            <p align="left">
+              The more the self is externalized the less certain we become of its substance.<br />
+              Are we revealing, or constructing?<br />
+              Do you know it when you see it, or see it when you know it?<br />
+              Nothing is, but what is not?
             </p>
-            <br></br>
-            {/* <p>We may tell ourselves stories in order to live, but we diagnose in order to survive. Proclaim, promulgate, pitch. Diagnose past self-diagnoses, pathologize the pathologizers. Show us the exquisite corpse, the body in pain, the powers of horror. Tell us your national allegory; we will take your sick men. Rewrite history with new testimony and draw us lines in the sand. Give us diagnosis as the bearer of bad news, as chronic blessing, as passing curse: tell it like it is.</p>
-             */}
+            <p align="left">
+              This issue, the Advocate welcomes all that is TRUE and FALSE.<br />
+              We ask what can be known, what can be shown, what remains beyond the frame, in the margins, between the lines. The question is not simply which is true, but whether the difference matters.
+            </p>
+            <p align="left">
+              From the counterfeit to the confessional we consider what happens when the real and unreal trade places. After all, the truth, like any good story, depends on its telling alone.
+            </p>
+            <p align="left">
+              TRUE/FALSE does not seek to close the rift. It demands that we sit in multiplicity and simultaneity.<br />
+              This issue asks not for answers but entanglements. Linger in contradiction. Fracture the binaries.<br />
+              Give us your staged confession, your unreliable narrator, your digital double, your performative utterance. Contradict yourself, contain multitudes.
+            </p>
+            <Themed.h2 align="center">Graveyard</Themed.h2>
             <i align="center">
-            <br /> We are currently accepting submissions for our Spring 2026 issue.
+              <p>What we call the beginning is often the end. - TSE</p>
+              <p>Do I contradict myself? Very well then I contradict myself, I am large, I contain multitudes. - WW</p>
+              <p>Truth is stranger than fiction, but it is because Fiction is obliged to stick to possibilities; Truth isn&apos;t. - Twain</p>
+              <p>
+                To be seen is to be verified. To have your own existence confirmed back to you.<br />
+                But what is left behind, within? Remains unsaid, unsayable?<br />
+                The Advocate asks: when anything can be fabricated, what still counts as true?
+              </p>
+            </i>
+            <i align="center">
+            <br /> We are currently accepting digital-only submissions for our Spring 2026 issue.
             <br />
-               <br />Submissions for Fiction, Poetry, and Art are due November 14, 2025. 
+               <br />Submissions for Fiction, Poetry, and Art are rolling. 
               {/* <br /> Submissions for Poetry and Art are due April 12, 2025. */}
             </i>
             <br />
@@ -136,7 +151,7 @@ be lovers of danger in an age of fear? The Advocate, too, is trembling, and so i
               <a
                 className="buttonLink"
                 href={
-                  "mailto:fiction@theharvardadvocate.com"
+                  "https://docs.google.com/forms/d/e/1FAIpQLSesr2KYYnip9xs3MfOMm1aoaWQVFcIsKCKBguvMdbMaO6_ryg/viewform"
                 }
                 target="_blank"
                 rel="noreferrer"
@@ -168,8 +183,7 @@ be lovers of danger in an age of fear? The Advocate, too, is trembling, and so i
                 immediately if your work is accepted elsewhere.
               </li>
             </ul>
-            You can submit your work by emailing
-            fiction@theharvardadvocate.com
+            Submit your fiction through the Google Form above.
             <br />
             <br />
             <hr />
