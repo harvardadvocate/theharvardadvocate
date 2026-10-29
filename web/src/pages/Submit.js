@@ -143,7 +143,7 @@ export default function Submit() {
             <i align="center">
             <br /> We are currently accepting digital-only submissions for our Spring 2026 issue.
             <br />
-               <br />Submissions for Fiction, Poetry, and Art are rolling. 
+               <br />Submissions for Fiction, Poetry, and Art are rolling.
               {/* <br /> Submissions for Poetry and Art are due April 12, 2025. */}
             </i>
             <br />
