@@ -210,7 +210,7 @@ export default function Submit() {
             </li>
           </ul>
 
-          <p>Submit your fiction through the Google Form above.</p>
+          <p>You can submit your work through the link above.</p>
 
           <br />
           <br />

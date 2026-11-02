@@ -183,7 +183,7 @@ export default function Submit() {
                 immediately if your work is accepted elsewhere.
               </li>
             </ul>
-            Submit your fiction through the Google Form above.
+            You can submit your work through the link above.
             <br />
             <br />
             <hr />
