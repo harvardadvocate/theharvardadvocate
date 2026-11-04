@@ -45,6 +45,49 @@ const issueSx = {
     borderBottom: "1px solid rgba(0,0,0,0.2)",
   },
 
+  ".issueBlurb": {
+    maxWidth: "900px",
+    margin: "3rem auto",
+    padding: "2rem clamp(1.25rem, 5vw, 4rem)",
+    borderTop: "1px solid rgba(0,0,0,0.45)",
+    borderBottom: "1px solid rgba(0,0,0,0.45)",
+    backgroundColor: "#f7f4ed",
+    fontSize: "1.05rem",
+    lineHeight: 1.7,
+    p: {
+      marginBottom: "1em",
+    },
+    ".issueBlurbEyebrow": {
+      marginBottom: "1.5rem",
+      textAlign: "center",
+      fontSize: "0.8rem",
+      letterSpacing: "0.18em",
+      fontWeight: "bold",
+    },
+    ".issueBlurbLead": {
+      fontSize: "1.45rem",
+      lineHeight: 1.35,
+      textAlign: "center",
+    },
+    h3: {
+      marginTop: "2.5rem",
+      marginBottom: "1rem",
+      textAlign: "center",
+      fontSize: "1.2rem",
+      letterSpacing: "0.08em",
+    },
+    blockquote: {
+      margin: "1.25rem 0",
+      paddingLeft: "1.25rem",
+      borderLeft: "1px solid rgba(0,0,0,0.35)",
+      fontStyle: "italic",
+    },
+    ".quoteAttribution": {
+      fontStyle: "normal",
+      whiteSpace: "nowrap",
+    },
+  },
+
   "@media (max-width: 835px)": {
     ".featuredIssue": {
       width: "100%!important",
@@ -52,6 +95,14 @@ const issueSx = {
     ".issueContainer": {
       marginTop: "2vh",
       paddingBottom: "2vh",
+    },
+    ".issueBlurb": {
+      margin: "2rem 0",
+      padding: "1.5rem 1.25rem",
+      fontSize: "1rem",
+      ".issueBlurbLead": {
+        fontSize: "1.25rem",
+      },
     },
   },
 };
@@ -211,7 +262,7 @@ export default function Issue({ issue, items, sections }) {
   const issueUrl = `https://theharvardadvocate.com/issues/${issue.slug.current}`;
   const issueCoverUrl = issue.frontCover?.asset?.url || "https://i.imgur.com/6OVMP6v.jpg";
   const description = `${issue.title} Issue of The Harvard Advocate. Browse articles, art, poetry, and fiction from this edition.`;
-
+  const isFall2026Issue = issue.slug.current === "fall-2026";
   return (
     <div css={issueSx}>
       <NextSeo
@@ -275,6 +326,85 @@ export default function Issue({ issue, items, sections }) {
             ""
           )}
         </div>
+
+        {isFall2026Issue && (
+          <section className="issueBlurb" aria-label="TRUE/FALSE issue introduction">
+            <p className="issueBlurbEyebrow">TRUE / FALSE</p>
+            <p className="issueBlurbLead">
+              The trouble with the truth is that everyone has one.
+            </p>
+            <p>
+              Memory is an unreliable witness, and every narrator has something
+              to hide. Yet nothing reveals quite as much as a disguise. The
+              truth is rarely pure and never simple.
+            </p>
+            <p>
+              The inside is out; the outside is in. And this is certainly not a
+              pipe.
+            </p>
+            <p>
+              The more the self is externalized the less certain we become of
+              its substance.
+            </p>
+            <p>Are we revealing, or constructing?</p>
+            <p>Do you know it when you see it, or see it when you know it?</p>
+            <p>Nothing is, but what is not?</p>
+            <p>
+              This issue, the Advocate welcomes all that is TRUE and FALSE.
+            </p>
+            <p>
+              We ask what can be known, what can be shown, what remains beyond
+              the frame, in the margins, between the lines. The question is not
+              simply which is true, but whether the difference matters.
+            </p>
+            <p>
+              From the counterfeit to the confessional we consider what happens
+              when the real and unreal trade places. After all, the truth, like
+              any good story, depends on its telling alone.
+            </p>
+            <p>
+              TRUE/FALSE does not seek to close the rift. It demands that we sit
+              in multiplicity and simultaneity.
+            </p>
+            <p>
+              This issue asks not for answers but entanglements. Linger in
+              contradiction. Fracture the binaries.
+            </p>
+            <p>
+              Give us your staged confession, your unreliable narrator, your
+              digital double, your performative utterance. Contradict yourself,
+              contain multitudes.
+            </p>
+
+            <h3>Graveyard</h3>
+            <blockquote>
+              What we call the beginning is often the end.
+              <br />
+              <span className="quoteAttribution">— TSE</span>
+            </blockquote>
+            <blockquote>
+              Do I contradict myself? Very well then I contradict myself, I am
+              large, I contain multitudes.
+              <br />
+              <span className="quoteAttribution">— WW</span>
+            </blockquote>
+            <blockquote>
+              Truth is stranger than fiction, but it is because Fiction is
+              obliged to stick to possibilities; Truth isn&apos;t.
+              <br />
+              <span className="quoteAttribution">— Twain</span>
+            </blockquote>
+            <p>
+              To be seen is to be verified. To have your own existence confirmed
+              back to you.
+            </p>
+            <p>But what is left behind, within? Remains unsaid, unsayable?</p>
+            <p>
+              The Advocate asks: when anything can be fabricated, what still
+              counts as true?
+            </p>
+          </section>
+        )}
 
         {useMixedGrid ? (
           <div className="mixedGridContainer">
