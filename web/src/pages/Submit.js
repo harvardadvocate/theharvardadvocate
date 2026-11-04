@@ -17,8 +17,33 @@ const submitSx = {
     textAlign: "center",
     display: "block",
   },
-  p: {
-    //textAlign: "center"
+  ".issueCopy": {
+    width: "100%",
+    maxWidth: "760px",
+    margin: "0 auto",
+    lineHeight: 1.7,
+    p: { margin: "0 0 18px 0" },
+  },
+  ".graveyard": {
+    width: "100%",
+    maxWidth: "680px",
+    margin: "32px auto 36px",
+    paddingTop: "24px",
+    borderTop: "1px solid #d8d8d8",
+    textAlign: "center",
+    h2: { margin: "0 0 16px" },
+    p: { margin: "0 0 12px", lineHeight: 1.55 },
+  },
+  ".submissionNotice": {
+    maxWidth: "680px",
+    margin: "0 auto 18px",
+    textAlign: "center",
+    lineHeight: 1.6,
+  },
+  ".fictionGuidelines": {
+    width: "100%",
+    maxWidth: "760px",
+    ul: { margin: "16px 0", lineHeight: 1.55 },
   },
   ".buttonLink": {
     color: "#000000",
@@ -96,7 +121,8 @@ export default function Submit() {
         ]}
       >
         <div className="submitBody">
-          <Themed.p>
+          <div>
+            <Themed.p>
             The Harvard Advocate accepts submissions of art, fiction, and poetry
             of any form or length created by members of the Harvard community,
             as well as outside contributors at our discretion. All submissions
@@ -106,6 +132,7 @@ export default function Submit() {
             <hr />
             <Themed.h2>Spring 2026 Issue</Themed.h2>
             <hr />
+            <div className="issueCopy">
             <p align="left">The trouble with the truth is that everyone has one.</p>
             <p align="left">
               Memory is an unreliable witness, and every narrator has something to hide. Yet nothing reveals quite as much as a disguise. The truth is rarely pure and never simple.<br />
@@ -129,6 +156,8 @@ export default function Submit() {
               This issue asks not for answers but entanglements. Linger in contradiction. Fracture the binaries.<br />
               Give us your staged confession, your unreliable narrator, your digital double, your performative utterance. Contradict yourself, contain multitudes.
             </p>
+            </div>
+            <div className="graveyard">
             <Themed.h2 align="center">Graveyard</Themed.h2>
             <i align="center">
               <p>What we call the beginning is often the end. - TSE</p>
@@ -140,13 +169,12 @@ export default function Submit() {
                 The Advocate asks: when anything can be fabricated, what still counts as true?
               </p>
             </i>
-            <i align="center">
-            <br /> We are currently accepting digital-only submissions for our Spring 2026 issue.
-            <br />
-               <br />Submissions for Fiction, Poetry, and Art are rolling.
-              {/* <br /> Submissions for Poetry and Art are due April 12, 2025. */}
-            </i>
-            <br />
+            </div>
+            <div className="submissionNotice">
+              <p>We are currently accepting digital-only submissions for our Spring 2026 issue.</p>
+              <p><strong>Submissions for Fiction, Poetry, and Art are rolling.</strong></p>
+            </div>
+            <div className="fictionGuidelines">
             <div align="center">
               <a
                 className="buttonLink"
@@ -184,8 +212,7 @@ export default function Submit() {
               </li>
             </ul>
             You can submit your work through the link above.
-            <br />
-            <br />
+            </div>
             <hr />
             <br />
             <div align="center">
@@ -248,6 +275,7 @@ export default function Submit() {
             You can submit your work through the link above, or by emailing
             art@theharvardadvocate.com
           </Themed.p>
+          </div>
           <div className="image">
             <img
               src="/submit.jpeg"

@@ -17,6 +17,54 @@ const submitSx = {
     display: "block",
   },
   p: {},
+  ".issueCopy": {
+    width: "100%",
+    maxWidth: "760px",
+    margin: "0 auto",
+    lineHeight: 1.7,
+    p: {
+      margin: "0 0 18px 0",
+    },
+  },
+  ".graveyard": {
+    width: "100%",
+    maxWidth: "680px",
+    margin: "32px auto 36px",
+    paddingTop: "24px",
+    borderTop: "1px solid #d8d8d8",
+    textAlign: "center",
+    h2: {
+      margin: "0 0 16px",
+    },
+    p: {
+      margin: "0 0 12px",
+      lineHeight: 1.55,
+    },
+    i: {
+      fontStyle: "italic",
+    },
+  },
+  ".submissionNotice": {
+    maxWidth: "680px",
+    margin: "0 auto 18px",
+    textAlign: "center",
+    lineHeight: 1.6,
+    p: {
+      margin: "0 0 6px",
+    },
+  },
+  ".fictionGuidelines": {
+    width: "100%",
+    maxWidth: "760px",
+    ul: {
+      margin: "16px 0",
+      lineHeight: 1.55,
+    },
+    p: {
+      margin: "12px 0 28px",
+      textAlign: "center",
+    },
+  },
   ".buttonLink": {
     color: "#000000",
     backgroundColor: "#ffffff",
@@ -106,30 +154,25 @@ export default function Submit() {
           <hr />
           <br />
 
-          <div>
+          <div className="issueCopy">
             <p sx={{ variant: "styles.p" }}>
               The trouble with the truth is that everyone has one.
             </p>
 
             <p sx={{ variant: "styles.p" }}>
-              Memory is an unreliable witness, and every narrator has something to hide. Yet nothing reveals quite as much as a disguise. The truth is rarely pure and never simple.
-              <br />
+              Memory is an unreliable witness, and every narrator has something to hide. Yet nothing reveals quite as much as a disguise. The truth is rarely pure and never simple.<br />
               The inside is out; the outside is in. And this is certainly not a pipe.
             </p>
 
             <p sx={{ variant: "styles.p" }}>
-              The more the self is externalized the less certain we become of its substance.
-              <br />
-              Are we revealing, or constructing?
-              <br />
-              Do you know it when you see it, or see it when you know it?
-              <br />
+              The more the self is externalized the less certain we become of its substance.<br />
+              Are we revealing, or constructing?<br />
+              Do you know it when you see it, or see it when you know it?<br />
               Nothing is, but what is not?
             </p>
 
             <p sx={{ variant: "styles.p" }}>
-              This issue, the Advocate welcomes all that is TRUE and FALSE.
-              <br />
+              This issue, the Advocate welcomes all that is TRUE and FALSE.<br />
               We ask what can be known, what can be shown, what remains beyond the frame, in the margins, between the lines. The question is not simply which is true, but whether the difference matters.
             </p>
 
@@ -138,40 +181,32 @@ export default function Submit() {
             </p>
 
             <p sx={{ variant: "styles.p" }}>
-              TRUE/FALSE does not seek to close the rift. It demands that we sit in multiplicity and simultaneity.
-              <br />
-              This issue asks not for answers but entanglements. Linger in contradiction. Fracture the binaries.
-              <br />
+              TRUE/FALSE does not seek to close the rift. It demands that we sit in multiplicity and simultaneity.<br />
+              This issue asks not for answers but entanglements. Linger in contradiction. Fracture the binaries.<br />
               Give us your staged confession, your unreliable narrator, your digital double, your performative utterance. Contradict yourself, contain multitudes.
             </p>
+          </div>
 
+          <div className="graveyard">
             <h2 sx={{ variant: "styles.h2" }}>Graveyard</h2>
-
-            <i sx={{ textAlign: "center", display: "block" }}>
+            <i>
               <p>What we call the beginning is often the end. - TSE</p>
               <p>Do I contradict myself? Very well then I contradict myself, I am large, I contain multitudes. - WW</p>
               <p>Truth is stranger than fiction, but it is because Fiction is obliged to stick to possibilities; Truth isn&apos;t. - Twain</p>
               <p>
-                To be seen is to be verified. To have your own existence confirmed back to you.
-                <br />
-                But what is left behind, within? Remains unsaid, unsayable?
-                <br />
+                To be seen is to be verified. To have your own existence confirmed back to you.<br />
+                But what is left behind, within? Remains unsaid, unsayable?<br />
                 The Advocate asks: when anything can be fabricated, what still counts as true?
               </p>
             </i>
           </div>
 
-          <br />
+          <div className="submissionNotice">
+            <p>We are currently accepting digital-only submissions for our Spring 2026 issue.</p>
+            <p><strong>Submissions for Fiction, Poetry, and Art are rolling.</strong></p>
+          </div>
 
-          <i sx={{ textAlign: "center", display: "block" }}>
-            We are currently accepting digital-only submissions for our Spring
-            2026 issue.
-            <br />
-            <br />
-            Submissions for Fiction, Poetry, and Art are rolling.
-          </i>
-
-          <br />
+          <div className="fictionGuidelines">
 
           <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <a
@@ -183,8 +218,6 @@ export default function Submit() {
               Submit to Fiction
             </a>
           </div>
-
-          <br />
 
           <ul>
             <li>
@@ -211,11 +244,9 @@ export default function Submit() {
           </ul>
 
           <p>You can submit your work through the link above.</p>
+          </div>
 
-          <br />
-          <br />
           <hr />
-          <br />
 
           <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <a
@@ -258,7 +289,7 @@ export default function Submit() {
 
           <p>
             You can submit your work through the link above. Email questions to
-            poetry@theharvardadvocate.com
+            poetry@harvardadvocate.org
           </p>
 
           <br />
@@ -281,7 +312,7 @@ export default function Submit() {
 
           <p>
             You can submit your work through the link above, or by emailing
-            art@theharvardadvocate.com
+            art@harvardadvocate.org
           </p>
 
           <div className="image">
