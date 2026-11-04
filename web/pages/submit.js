@@ -211,9 +211,7 @@ export default function Submit() {
           <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <a
               className="buttonLink"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSesr2KYYnip9xs3MfOMm1aoaWQVFcIsKCKBguvMdbMaO6_ryg/viewform"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:fiction@harvardadvocate.org"
             >
               Submit to Fiction
             </a>
@@ -243,7 +241,7 @@ export default function Submit() {
             </li>
           </ul>
 
-          <p>You can submit your work through the link above.</p>
+          <p>You can submit your work through <a href="mailto:fiction@harvardadvocate.org">fiction@harvardadvocate.org</a>.</p>
           </div>
 
           <hr />

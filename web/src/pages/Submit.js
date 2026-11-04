@@ -178,11 +178,7 @@ export default function Submit() {
             <div align="center">
               <a
                 className="buttonLink"
-                href={
-                  "https://docs.google.com/forms/d/e/1FAIpQLSesr2KYYnip9xs3MfOMm1aoaWQVFcIsKCKBguvMdbMaO6_ryg/viewform"
-                }
-                target="_blank"
-                rel="noreferrer"
+                href="mailto:fiction@harvardadvocate.org"
               >
                 Submit to Fiction
               </a>
@@ -211,7 +207,7 @@ export default function Submit() {
                 immediately if your work is accepted elsewhere.
               </li>
             </ul>
-            You can submit your work through the link above.
+            You can submit your work through <a href="mailto:fiction@harvardadvocate.org">fiction@harvardadvocate.org</a>.
             </div>
             <hr />
             <br />
