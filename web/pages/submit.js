@@ -26,24 +26,6 @@ const submitSx = {
       margin: "0 0 18px 0",
     },
   },
-  ".graveyard": {
-    width: "100%",
-    maxWidth: "680px",
-    margin: "32px auto 36px",
-    paddingTop: "24px",
-    borderTop: "1px solid #d8d8d8",
-    textAlign: "center",
-    h2: {
-      margin: "0 0 16px",
-    },
-    p: {
-      margin: "0 0 12px",
-      lineHeight: 1.55,
-    },
-    i: {
-      fontStyle: "italic",
-    },
-  },
   ".submissionNotice": {
     maxWidth: "680px",
     margin: "0 auto 18px",
@@ -185,20 +167,6 @@ export default function Submit() {
               This issue asks not for answers but entanglements. Linger in contradiction. Fracture the binaries.<br />
               Give us your staged confession, your unreliable narrator, your digital double, your performative utterance. Contradict yourself, contain multitudes.
             </p>
-          </div>
-
-          <div className="graveyard">
-            <h2 sx={{ variant: "styles.h2" }}>Graveyard</h2>
-            <i>
-              <p>What we call the beginning is often the end. - TSE</p>
-              <p>Do I contradict myself? Very well then I contradict myself, I am large, I contain multitudes. - WW</p>
-              <p>Truth is stranger than fiction, but it is because Fiction is obliged to stick to possibilities; Truth isn&apos;t. - Twain</p>
-              <p>
-                To be seen is to be verified. To have your own existence confirmed back to you.<br />
-                But what is left behind, within? Remains unsaid, unsayable?<br />
-                The Advocate asks: when anything can be fabricated, what still counts as true?
-              </p>
-            </i>
           </div>
 
           <div className="submissionNotice">
