@@ -262,7 +262,7 @@ export default function Issue({ issue, items, sections }) {
   const issueUrl = `https://theharvardadvocate.com/issues/${issue.slug.current}`;
   const issueCoverUrl = issue.frontCover?.asset?.url || "https://i.imgur.com/6OVMP6v.jpg";
   const description = `${issue.title} Issue of The Harvard Advocate. Browse articles, art, poetry, and fiction from this edition.`;
-  const isFall2026Issue = issue.slug.current === "fall-2026";
+  const isSpring2026Issue = issue.slug.current === "spring-2026";
   return (
     <div css={issueSx}>
       <NextSeo
@@ -327,7 +327,7 @@ export default function Issue({ issue, items, sections }) {
           )}
         </div>
 
-        {isFall2026Issue && (
+        {isSpring2026Issue && (
           <section className="issueBlurb" aria-label="TRUE/FALSE issue introduction">
             <p className="issueBlurbEyebrow">TRUE / FALSE</p>
             <p className="issueBlurbLead">
