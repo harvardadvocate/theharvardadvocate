@@ -28,7 +28,7 @@ const submitSx = {
   },
   ".submissionNotice": {
     maxWidth: "680px",
-    margin: "24px auto 32px",
+    margin: "24px auto 12px",
     textAlign: "center",
     lineHeight: 1.6,
     p: {
@@ -38,36 +38,12 @@ const submitSx = {
   ".boardSubmission": {
     width: "100%",
     maxWidth: "760px",
-    padding: "28px 0",
-    borderTop: "1px solid rgba(0, 0, 0, 0.2)",
+    padding: "12px 0 16px",
     ".submissionPrompt": {
-      margin: "16px 0 0",
+      margin: "14px 0 0",
       textAlign: "center",
       fontSize: "0.95rem",
       lineHeight: 1.5,
-    },
-  },
-  ".fictionGuidelines": {
-    ul: {
-      listStyle: "none",
-      padding: 0,
-      margin: "16px 0 24px",
-      lineHeight: 1.55,
-    },
-    li: {
-      padding: "12px 16px",
-      borderBottom: "1px solid rgba(0, 0, 0, 0.15)",
-    },
-    ".guidelinesHeading": {
-      margin: "20px 0 0",
-      fontSize: "0.9rem",
-      fontWeight: "bold",
-      letterSpacing: "0.08em",
-      textTransform: "uppercase",
-    },
-    p: {
-      margin: "12px 0 28px",
-      textAlign: "center",
     },
     details: {
       marginTop: "22px",
@@ -77,22 +53,34 @@ const submitSx = {
       textAlign: "center",
       cursor: "pointer",
     },
+    ".guidelinesCopy": {
+      maxWidth: "620px",
+      margin: "20px auto 0",
+      lineHeight: 1.65,
+      p: {
+        margin: "0 0 14px",
+      },
+      "p:last-child": {
+        marginBottom: 0,
+      },
+    },
   },
   ".buttonLink": {
     color: "#000000",
     backgroundColor: "#ffffff",
-    padding: "10px 10px",
+    padding: "14px 28px",
     textAlign: "center",
     textDecoration: "none",
-    fontSize: "18px",
-    width: "35%",
-    minWidth: "300px",
+    fontSize: "17px",
+    width: "auto",
+    minWidth: "240px",
     fontFamily: "sans-serif",
     fontWeight: "500",
     justifyContent: "center",
     display: "flex",
     border: "2px solid black",
     borderRadius: "10px",
+    transition: "color 0.2s ease, background-color 0.2s ease",
   },
   ".buttonLink:hover": {
     color: "#ffffff",
@@ -103,7 +91,7 @@ const submitSx = {
     flexDirection: "column",
     justifyContent: "center",
     justifyItems: "center",
-    marginTop: "10px",
+    marginTop: 0,
     width: "400px",
     textAlign: "center",
     alignItems: "center",
@@ -123,8 +111,9 @@ const submitSx = {
       width: "100%",
     },
     ".buttonLink": {
-      width: "60%",
-      minWidth: "0px",
+      width: "100%",
+      maxWidth: "360px",
+      minWidth: "0",
     },
   },
 };
@@ -213,78 +202,38 @@ export default function Submit() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Submit to Poetry
+                Submit Your Work
               </a>
             </div>
             <p className="submissionPrompt">
-              You can submit your work through the link above.
+              Use this Submittable form for all art, fiction, and poetry
+              submissions.
             </p>
-          </div>
-
-          <div className="boardSubmission fictionGuidelines">
-            <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
-              <a
-                className="buttonLink"
-                href="mailto:fiction@harvardadvocate.org"
-              >
-                Submit to Fiction
-              </a>
-            </div>
 
             <details>
               <summary className="submissionPrompt">
                 View Fiction submission guidelines
               </summary>
-              <ul>
-                <li>
+              <div className="guidelinesCopy">
+                <p>
                   We have no minimum or maximum word counts, but the work we
-                  publish tends to be between 700 and 7000 words.
-                </li>
-                <li>
-                  Please include a cover letter and brief third-person
-                  biographical statement with your submission.
-                </li>
-                <li>
-                  Attach your work as a Microsoft Word file. (Please consider
-                  double-spacing and using 12-point Times New Roman font with
-                  standard margins.)
-                </li>
-                <li>
-                  Because submissions are considered anonymously, please make
-                  sure your name is not anywhere in the document.
-                </li>
-                <li>
-                  Simultaneous submissions are accepted, but please let us know
+                  publish tends to be between 700 and 7,000 words. Please include
+                  a cover letter and brief third-person biographical statement
+                  with your submission.
+                </p>
+                <p>
+                  Attach your work as a Microsoft Word file. Double-spacing and
+                  12-point Times New Roman font with standard margins are
+                  appreciated. Because submissions are considered anonymously,
+                  please make sure your name does not appear anywhere in the
+                  document.
+                </p>
+                <p>
+                  Simultaneous submissions are accepted; please let us know
                   immediately if your work is accepted elsewhere.
-                </li>
-              </ul>
-
-              <p className="submissionPrompt">
-                You can submit your work through the link above, or by emailing{" "}
-                <a href="mailto:fiction@harvardadvocate.org">
-                  fiction@harvardadvocate.org
-                </a>
-                .
-              </p>
+                </p>
+              </div>
             </details>
-          </div>
-
-          <div className="boardSubmission">
-            <div sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
-              <a
-                className="buttonLink"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdzLqsA__rvkRkBVwszgrA1UWFXcjffGJms7PUTgo5emHTYcQ/viewform?usp=sf_link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Submit to Art
-              </a>
-            </div>
-
-            <p className="submissionPrompt">
-              You can submit your work through the link above, or by emailing
-              art@harvardadvocate.org
-            </p>
           </div>
 
           <div className="image">
