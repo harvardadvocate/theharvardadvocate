@@ -85,7 +85,7 @@ export default function Masthead() {
               <br />
               O. Yaffe, Hermes ‘28
               <br />
-              I. Jayanti, Hermes '28'
+              I. Jayanti, Hermes '28
               <br />
               K. Chong, Hades ‘29
               <br />
