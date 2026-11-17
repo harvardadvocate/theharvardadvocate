@@ -52,8 +52,6 @@ export default function Masthead() {
               <br />
               K. Mukire, Tech Editor '29
               <br />
-              C. Lu, Head of Technology ‘26
-              <br />
               D. Sunshine, Business Manager ‘28
               <br />
               A. Du, Design Editor ‘28
